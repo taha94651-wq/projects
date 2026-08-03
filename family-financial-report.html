@@ -366,9 +366,10 @@
       <div class="data-actions">
         <button class="btn primary" id="exportBackup">⬇ نسخة احتياطية (JSON)</button>
         <label class="btn"><input type="file" id="importBackupFile" accept=".json" hidden>⬆ استيراد نسخة</label>
+        <button class="btn" id="exportCsv">⬇ CSV لجوجل شيت</button>
         <button class="btn" id="resetData">↺ استعادة الافتراضي</button>
       </div>
-      <p class="data-note">البيانات محفوظة محلياً على هذا المتصفح/الجهاز فقط. لنقلها لجهاز تاني (موبايل ↔ كمبيوتر) صدّر نسخة احتياطية من هنا واستوردها هناك.</p>
+      <p class="data-note">البيانات محفوظة محلياً على هذا المتصفح/الجهاز فقط — مفيش سيرفر خارجي ومفيش تحديث تلقائي لجوجل شيت (المتصفح ممنوع أمنياً من الاتصال بأي خدمة خارجية من نفس الرابط). لعمل نسخة في جوجل شيت: اضغط «CSV لجوجل شيت» ثم من شيتس: ملف ← استيراد ← رفع نفس الملف. لنقل البيانات بين جهازين (موبايل ↔ كمبيوتر) استخدم «نسخة احتياطية (JSON)» تصدير/استيراد.</p>
     </div>
   </section>
 
@@ -894,6 +895,45 @@ async function exportBackup(){
   }
 }
 $("#exportBackup").addEventListener("click",exportBackup);
+
+function csvEsc(v){
+  const s=String(v==null?"":v);
+  return /[",\n]/.test(s) ? '"'+s.replace(/"/g,'""')+'"' : s;
+}
+async function exportCsv(){
+  const rows=[["النوع","البند","القيمة1","القيمة2"]];
+  rows.push(["بيانات","الدخل الشهري الموثوق",M.income0,""]);
+  rows.push(["بيانات","الإيجار",M.rent0,""]);
+  rows.push(["بيانات","الأكل (بيت + برا)",M.food0,""]);
+  rows.push(["بيانات","مصاريف متغيرة غير مسجّلة",M.varianceBuffer,""]);
+  rows.push(["بيانات","مصاريف المولود الشهرية",M.babyExtra,""]);
+  rows.push(["بيانات","تكلفة الولادة (مرة واحدة)",M.babyOneTime,""]);
+  rows.push(["بيانات","ادخار دفعات الشقة الشهري",M.aptSavings0,""]);
+  rows.push(["تاريخ","شهر بداية الخطة",M.scheduleStart,""]);
+  rows.push(["تاريخ","شهر الولادة المتوقع",M.babyDueDate,""]);
+  rows.push(["تاريخ","شهر تحرر دفعات الشقة",M.aptFreeDate,""]);
+  rows.push(["تاريخ","شهر انتهاء العقد",M.contractRenewalDate,""]);
+  M.installments.forEach(it=>rows.push(["قسط",it.k,it.m,it.left]));
+  M.otherFixed.forEach(it=>rows.push(["بند ثابت آخر",it.k,it.v,""]));
+  LOG.slice().sort((a,b)=>a.month.localeCompare(b.month)).forEach(r=>rows.push(["مراجعة شهرية",r.month,r.income,r.expense]));
+  const text="﻿"+rows.map(r=>r.map(csvEsc).join(",")).join("\r\n");
+  const filename="family-financial-"+todayYM()+".csv";
+  if(window.claude && window.claude.downloads){
+    try{ await window.claude.downloads.save({filename,data:text}); }
+    catch(e){
+      if(e&&e.code==="declined") return;
+      if(e&&(e.code==="rejected_extension"||e.code==="extension_not_enabled")){
+        alert("تصدير CSV مش متاح في هذا العرض. استخدم «نسخة احتياطية (JSON)» بدلاً منه، أو افتح الرابط في متصفح عادي.");
+      }else{
+        alert("تعذّر الحفظ: "+(e&&e.message?e.message:"غير معروف"));
+      }
+    }
+  }else{
+    const blob=new Blob([text],{type:"text/csv;charset=utf-8"});
+    const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=filename; a.click(); URL.revokeObjectURL(a.href);
+  }
+}
+$("#exportCsv").addEventListener("click",exportCsv);
 $("#importBackupFile").addEventListener("change",async ev=>{
   const f=ev.target.files[0]; if(!f) return;
   try{
