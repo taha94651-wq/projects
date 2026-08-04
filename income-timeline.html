@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>الدخل الشهري عبر الوقت</title>
+<meta name="theme-color" content="#0a0e15">
+<style>
+  :root{
+    --bg:#0a0e15; --card:#121a26; --card2:#161f2d;
+    --line:#212c3b; --line2:#2b3849;
+    --ink:#e9eef6; --sub:#97a5b8; --faint:#6a7889;
+    --brass:#b9995c; --brass-2:#d3b578; --brass-dim:#7d6a41;
+    --amber:#c89a41; --slate:#5f83b8;
+    --mono:ui-monospace,'IBM Plex Mono',Menlo,Consolas,monospace;
+    --sans:'Segoe UI',Tahoma,'IBM Plex Sans Arabic',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--sans);color:var(--ink);line-height:1.6;font-size:15px;
+    background:radial-gradient(900px 380px at 85% -10%, #16223522, transparent 60%),var(--bg);
+    padding:36px 20px 50px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:980px;margin:0 auto}
+  .num{font-family:var(--mono);direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums}
+
+  header{margin-bottom:26px}
+  header .kicker{font-family:var(--mono);font-size:.7rem;letter-spacing:3px;color:var(--brass);text-transform:uppercase;margin-bottom:8px}
+  header h1{font-size:1.5rem;font-weight:700;letter-spacing:-.2px}
+  header .sub{color:var(--sub);font-size:.9rem;margin-top:5px}
+
+  figure{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 20px 8px;
+    box-shadow:0 1px 0 rgba(255,255,255,.02) inset, 0 8px 24px rgba(0,0,0,.28)}
+  svg{width:100%;height:auto;display:block;overflow:visible}
+  figcaption{color:var(--sub);font-size:.85rem;line-height:1.75;padding:16px 6px 18px;border-top:1px solid var(--line);margin-top:14px}
+  figcaption b{color:var(--ink);font-weight:600}
+
+  .legend{display:flex;flex-wrap:wrap;gap:18px;margin-top:16px;font-size:.8rem;color:var(--sub)}
+  .legend span{display:inline-flex;align-items:center;gap:7px}
+  .legend i{width:12px;height:12px;border-radius:3px;display:inline-block}
+
+  table{width:100%;border-collapse:collapse;font-size:.87rem;margin-top:26px;background:var(--card);
+    border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  thead th{text-align:right;padding:12px 15px;background:var(--card2);color:var(--sub);font-weight:500;font-size:.76rem;border-bottom:1px solid var(--line)}
+  tbody td{text-align:right;padding:12px 15px;border-bottom:1px solid var(--line)}
+  tbody tr:last-child td{border-bottom:none}
+  td.n{font-family:var(--mono);direction:ltr;text-align:right;font-variant-numeric:tabular-nums}
+  .tag{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:700;padding:3px 10px;border-radius:20px}
+  .tag:before{content:"";width:7px;height:7px;border-radius:50%}
+  .tag.fixed{background:#1b2532;color:var(--sub)}.tag.fixed:before{background:var(--sub)}
+  .tag.variable{background:#221c11;color:var(--amber)}.tag.variable:before{background:var(--amber)}
+  .tag.current{background:#241d10;color:var(--brass-2)}.tag.current:before{background:var(--brass)}
+
+  footer{color:var(--faint);font-size:.79rem;margin-top:24px;padding-top:16px;border-top:1px solid var(--line);line-height:1.8}
+
+  @media(max-width:640px){
+    header h1{font-size:1.25rem}
+    figure{padding:16px 12px 6px}
+    table{font-size:.78rem}
+    thead th,tbody td{padding:9px 8px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">INCOME TIMELINE</div>
+    <h1>الدخل الشهري عبر الوقت</h1>
+    <div class="sub">من يناير 2024 حتى الآن — البيانات مُدخلة يدوياً من واقع سنة العمل</div>
+  </header>
+
+  <figure>
+    <svg viewBox="0 0 1000 380" role="img" aria-label="الدخل الشهري كان 5,000 ريال من يناير 2024 حتى مارس 2025، ثم ارتفع إلى 7,000 ريال حتى سبتمبر 2025، تلتها فترة عمل حر بدخل متغير غير محدد حتى يناير 2026، ثم استقر الدخل من ثلاثة مصادر متزامنة بإجمالي 21,000 ريال شهرياً (11,000 + 4,000 + 6,000) من يناير 2026 وما زال مستمراً.">
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+        </marker>
+        <pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+          <rect width="7" height="7" fill="#c89a4114"/>
+          <line x1="0" y1="0" x2="0" y2="7" stroke="#c89a41" stroke-width="1.6" opacity=".55"/>
+        </pattern>
+      </defs>
+
+      <!-- baseline / axis -->
+      <line x1="55" y1="290" x2="930" y2="290" stroke="currentColor" stroke-opacity=".35" stroke-width="1.5"/>
+
+      <!-- segment 1: 5,000 (Jan 2024 - Mar 2025) -->
+      <rect x="70" y="242" width="350" height="48" fill="#4a5568" fill-opacity=".55" rx="2"/>
+      <line x1="70" y1="242" x2="420" y2="242" stroke="var(--sub)" stroke-width="2"/>
+      <text x="245" y="228" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor" font-family="var(--mono)">5,000</text>
+      <text x="245" y="264" text-anchor="middle" font-size="11" fill="var(--sub)">راتب ثابت</text>
+
+      <!-- segment 2: 7,000 (Mar 2025 - Sep 2025) -->
+      <rect x="420" y="223" width="150" height="67" fill="#5f83b8" fill-opacity=".45" rx="2"/>
+      <line x1="420" y1="223" x2="570" y2="223" stroke="var(--slate)" stroke-width="2"/>
+      <text x="495" y="209" text-anchor="middle" font-size="15" font-weight="700" fill="currentColor" font-family="var(--mono)">7,000</text>
+      <text x="495" y="245" text-anchor="middle" font-size="11" fill="var(--sub)">زيادة راتب</text>
+
+      <!-- connecting step lines -->
+      <line x1="420" y1="242" x2="420" y2="223" stroke="currentColor" stroke-opacity=".3" stroke-width="1.5"/>
+      <line x1="570" y1="223" x2="570" y2="290" stroke="currentColor" stroke-opacity=".3" stroke-width="1.5" stroke-dasharray="3 3"/>
+
+      <!-- segment 3: freelance / variable (Sep 2025 - Jan 2026) -->
+      <rect x="570" y="250" width="100" height="40" fill="url(#hatch)" rx="2"/>
+      <line x1="570" y1="250" x2="670" y2="250" stroke="var(--amber)" stroke-width="2" stroke-dasharray="4 3"/>
+      <text x="620" y="236" text-anchor="middle" font-size="12" font-weight="700" fill="var(--amber)">دخل متغيّر</text>
+      <text x="620" y="266" text-anchor="middle" font-size="10" fill="var(--faint)">عمل حر</text>
+
+      <!-- segment 4: stacked current income (Jan 2026 - now) -->
+      <rect x="670" y="185" width="175" height="105" fill="var(--brass-dim)" fill-opacity=".6" rx="2"/>
+      <rect x="670" y="147" width="175" height="38" fill="var(--brass)" fill-opacity=".55" rx="2"/>
+      <rect x="670" y="90" width="175" height="57" fill="var(--brass-2)" fill-opacity=".7" rx="2"/>
+      <line x1="670" y1="90" x2="845" y2="90" stroke="var(--brass-2)" stroke-width="2"/>
+
+      <text x="757" y="243" text-anchor="middle" font-size="12" font-weight="600" fill="#0a0e15">11,000</text>
+      <text x="757" y="170" text-anchor="middle" font-size="12" font-weight="600" fill="#0a0e15">4,000</text>
+      <text x="757" y="122" text-anchor="middle" font-size="12" font-weight="600" fill="#0a0e15">6,000</text>
+      <text x="757" y="75" text-anchor="middle" font-size="15" font-weight="700" fill="var(--brass-2)" font-family="var(--mono)">= 21,000</text>
+      <text x="757" y="305" text-anchor="middle" font-size="11" fill="var(--sub)">3 مصادر دخل معاً</text>
+
+      <!-- continuation into present -->
+      <line x1="845" y1="90" x2="912" y2="90" stroke="var(--brass-2)" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+      <text x="878" y="75" text-anchor="middle" font-size="10" fill="var(--brass-2)">مستمر</text>
+
+      <!-- ticks -->
+      <g stroke="currentColor" stroke-opacity=".4">
+        <line x1="70" y1="286" x2="70" y2="294"/>
+        <line x1="420" y1="286" x2="420" y2="294"/>
+        <line x1="570" y1="286" x2="570" y2="294"/>
+        <line x1="670" y1="286" x2="670" y2="294"/>
+        <line x1="845" y1="286" x2="845" y2="294"/>
+      </g>
+      <g font-size="10.5" fill="var(--sub)" text-anchor="middle">
+        <text x="70" y="312">يناير 2024</text>
+        <text x="420" y="312">مارس 2025</text>
+        <text x="570" y="330">سبتمبر 2025</text>
+        <text x="670" y="312">يناير 2026</text>
+        <text x="845" y="330">أغسطس 2026 (الآن)</text>
+      </g>
+
+      <!-- year separators -->
+      <g font-size="12" font-weight="700" fill="currentColor" fill-opacity=".55" text-anchor="middle" font-family="var(--mono)">
+        <text x="245" y="352">2024</text>
+        <text x="520" y="352">2025</text>
+        <text x="757" y="352">2026</text>
+      </g>
+      <line x1="420" y1="340" x2="420" y2="360" stroke="currentColor" stroke-opacity=".15"/>
+      <line x1="670" y1="340" x2="670" y2="360" stroke="currentColor" stroke-opacity=".15"/>
+    </svg>
+
+    <div class="legend">
+      <span><i style="background:#4a5568"></i>راتب ثابت (مصدر واحد)</span>
+      <span><i style="background:var(--slate)"></i>بعد زيادة الراتب</span>
+      <span><i style="background:repeating-linear-gradient(45deg,#c89a41 0 2px,#c89a4122 2px 6px)"></i>عمل حر — دخل غير منتظم</span>
+      <span><i style="background:var(--brass)"></i>الدخل الحالي — 3 مصادر مجمّعة</span>
+    </div>
+
+    <figcaption>الدخل الشهري بدأ بمصدر واحد ثابت (<b>5,000 ريال</b>) في مطلع 2024، اتزاد لـ<b>7,000 ريال</b> مارس 2025، بعدها فترة عمل حر بدخل متغير من سبتمبر 2025 لحد يناير 2026. من يناير 2026 بقى الدخل مركّب من <b>3 مصادر تشتغل مع بعض</b> بإجمالي <b>21,000 ريال</b> شهرياً — وده هو الرقم اللي مبني عليه التقرير المالي للأسرة.</figcaption>
+  </figure>
+
+  <table>
+    <thead><tr><th>الفترة</th><th>من</th><th>إلى</th><th>الدخل الشهري</th><th>الحالة</th></tr></thead>
+    <tbody>
+      <tr><td>مصدر واحد</td><td>يناير 2024</td><td>مارس 2025</td><td class="n">5,000 ريال</td><td><span class="tag fixed">ثابت</span></td></tr>
+      <tr><td>بعد زيادة الراتب</td><td>مارس 2025</td><td>سبتمبر 2025</td><td class="n">7,000 ريال</td><td><span class="tag fixed">ثابت</span></td></tr>
+      <tr><td>فترة عمل حر</td><td>سبتمبر 2025</td><td>يناير 2026</td><td class="n">غير محدد</td><td><span class="tag variable">متغيّر</span></td></tr>
+      <tr><td>مصدر 1</td><td>يناير 2026</td><td>حتى الآن</td><td class="n">11,000 ريال</td><td><span class="tag current">حالي</span></td></tr>
+      <tr><td>مصدر 2</td><td>يناير 2026</td><td>حتى الآن</td><td class="n">4,000 ريال</td><td><span class="tag current">حالي</span></td></tr>
+      <tr><td>مصدر 3</td><td>يناير 2026</td><td>حتى الآن</td><td class="n">6,000 ريال</td><td><span class="tag current">حالي</span></td></tr>
+      <tr><td><b>الإجمالي الحالي</b></td><td colspan="2">يناير 2026 وما زال مستمراً</td><td class="n"><b>21,000 ريال</b></td><td><span class="tag current">حالي</span></td></tr>
+    </tbody>
+  </table>
+
+  <footer>فترة العمل الحر (سبتمبر 2025 – يناير 2026) معروضة بدون رقم محدد لأن الدخل فيها كان متغيراً — لو حابب تحطّلها قيمة تقديرية (متوسط شهري مثلاً) قولّي وأضيفها على الرسمة والجدول.</footer>
+</div>
+</body>
+</html>
