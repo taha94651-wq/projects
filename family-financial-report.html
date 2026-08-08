@@ -568,6 +568,7 @@ function scenarioDefs(){
     {id:"collect",name:"تحصيل مبالغ متأخرة",field:"dIncome",editable:true,min:0,max:12000,step:250,note:"غير مضمون",inLabel:"الدخل الإضافي الشهري",req:"المطلوب: اتفاق سداد وتحصيل منتظم",dflt:6000},
     {id:"trim",name:"ضبط المصاريف",field:"dExpCut",editable:true,min:0,max:5000,step:100,inLabel:"التوفير الشهري المستهدف",req:"المطلوب: دمج اتصالات · سقف مطاعم/تسوق · نثريات",dflt:1680}
   ];
+  defs.push({id:"income2raise",name:"زيادة مصدر الدخل 2 (4,000 → 6,000)",field:"dIncome",amount:2000,hint:"+2,000 (من 4,000 لـ 6,000)",req:"المطلوب: تأمين/تفاوض زيادة على مصدر الدخل التاني تحديداً"});
   if(ezz) defs.push({id:"ezz",name:"نهاية "+ezz.k,field:"dInstCut",amount:ezz.m,hint:"−"+fmt(ezz.m)+" قسط · بعد "+Math.max(0,ezz.left)+" شهر",req:"المطلوب: لا شيء — ينتهي تلقائياً (لا تستبدله بقسط جديد)"});
   if(loan) defs.push({id:"loan",name:"نهاية "+loan.k,field:"dInstCut",amount:loan.m,hint:"−"+fmt(loan.m)+" قسط · بعد "+Math.max(0,loan.left)+" شهر",req:"المطلوب: لا شيء — ينتهي تلقائياً"});
   defs.push({id:"apt2028",name:"بعد "+fmtMonthAr(M.aptFreeDate),freeApt:true,amount:M.aptSavings0,hint:"تحرير "+fmt(M.aptSavings0)+" (دفعات الشقة)",req:"المطلوب: الوصول لهذا التاريخ"});
