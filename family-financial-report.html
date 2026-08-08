@@ -466,7 +466,7 @@
   <section id="extraIncomeSection">
     <div class="sec-head"><span class="no">12</span><h2>دخل إضافي متغير</h2><span class="tag" id="eiSummaryTag"></span><div class="rule"></div></div>
     <div class="card">
-      <p class="data-note" style="margin-top:0;margin-bottom:16px">مشاريع خارجية، عمولات، بونصات — دخل غير منتظم بيتسجل هنا للمتابعة بس، ومش بيتحسب ضمن «الدخل الموثوق» أو أي نسبة في التقرير عشان يفضل التخطيط محافظ على الثابت المضمون.</p>
+      <p class="data-note" style="margin-top:0;margin-bottom:16px">مشاريع خارجية، عمولات، بونصات — سجّلها هنا. بشكل افتراضي مش بتتحسب ضمن «الدخل الموثوق» عشان يفضل التخطيط محافظ. حدد ✓ «تضمين» على أي بند تعتبره شبه مضمون — يتحول متوسطه الشهري (÷12) ويتضاف فعلياً على الدخل الموثوق وكل الحسابات والمسار في التقرير. تقدر تفعّله أو تشيله وقت ما تحب.</p>
       <div class="checkin-form" id="eiForm">
         <div class="field"><label>النوع</label>
           <select id="eiType">
@@ -481,7 +481,8 @@
         <div class="field"><label>المبلغ</label><input type="text" inputmode="decimal" id="eiAmount"></div>
         <button class="btn primary" id="eiSave">+ إضافة</button>
       </div>
-      <div class="tbl-wrap"><table id="eiTable"><thead><tr><th>الشهر</th><th>النوع</th><th>المصدر</th><th>المبلغ</th><th></th></tr></thead><tbody></tbody></table></div>
+      <div class="tbl-wrap"><table id="eiTable"><thead><tr><th>تضمين</th><th>الشهر</th><th>النوع</th><th>المصدر</th><th>المبلغ</th><th></th></tr></thead><tbody></tbody></table></div>
+      <p class="data-note" id="eiIncludedNote"></p>
     </div>
   </section>
 
@@ -636,7 +637,8 @@ function compute(){
     if(s.field==="dIncome")dIncome+=v; else if(s.field==="dExpCut")dExpCut+=v; else if(s.field==="dInstCut")dInstCut+=v;
     if(s.freeApt)freeApt=true;
   });
-  const income=M.income0+dIncome;
+  const extraMonthly=extraIncomeMonthly();
+  const income=M.income0+dIncome+extraMonthly;
   const instTotal0=M.installments.reduce((a,b)=>a+b.m,0);
   const installments=Math.max(0,instTotal0-dInstCut);
   const aptSavings=freeApt?0:M.aptSavings0;
@@ -649,7 +651,7 @@ function compute(){
   const apparentSurplus=income-recordedExp;
   const emergencyTarget=Math.round(recordedExp0*3);
 
-  const R={dIncome,dExpCut,dInstCut,freeApt,income,installments,aptSavings,recordedExp,realisticExp,balance,apparentSurplus,fixed,emergencyTarget,
+  const R={dIncome,dExpCut,dInstCut,freeApt,income,extraMonthly,installments,aptSavings,recordedExp,realisticExp,balance,apparentSurplus,fixed,emergencyTarget,
     instRatio:installments/income,
     rentInstRatio:(M.rent0+installments)/income,
     debtPropRatio:(installments+aptSavings)/income,
@@ -699,7 +701,7 @@ function render(){
   $("#verdict").innerHTML=verdict;
 
   const em=[
-    {lbl:"الدخل الموثوق",v:fmt(R.income),u:"ريال",cls:R.dIncome>0?"pos":""},
+    {lbl:"الدخل الموثوق",v:fmt(R.income),u:"ريال",cls:(R.dIncome>0||R.extraMonthly>0)?"pos":""},
     {lbl:"إجمالي المصاريف",v:fmt(R.recordedExp),u:"ريال",cls:""},
     {lbl:"الفائض بعد المولود",v:sgn(R.balance),u:"ريال",cls:R.balance<0?"neg":"pos"},
     {lbl:"صندوق الطوارئ",v:"0",u:"من "+fmt(R.emergencyTarget),cls:"neg"}
@@ -718,7 +720,7 @@ function render(){
     '<span style="color:var(--faint)">المتبقي للمعيشة والادخار <b style="color:var(--sub)">'+pct(rest)+"</b></span>";
 
   const kpis=[
-    {label:"الدخل الموثوق",val:R.income,sub:R.dIncome>0?("+"+fmt(R.dIncome)+" من السيناريو"):"عدّله من قسم البيانات",cls:R.dIncome>0?"pos":""},
+    {label:"الدخل الموثوق",val:R.income,sub:(R.extraMonthly>0?("+"+fmt(R.extraMonthly)+" دخل إضافي متضمّن · "):"")+(R.dIncome>0?("+"+fmt(R.dIncome)+" من السيناريو"):"عدّله من قسم البيانات"),cls:(R.dIncome>0||R.extraMonthly>0)?"pos":""},
     {label:"إجمالي المصاريف المسجّلة",val:R.recordedExp,sub:pct(R.recordedExp/R.income)+" من الدخل",flag:{t:"راجع المتغيرة",c:"warn"},cls:""},
     {label:"الفائض بعد المولود",val:R.balance,sub:R.balance<0?"عجز — راجع محاكي السيناريوهات":"فائض قابل للادخار",cls:R.balance<0?"neg":"pos"},
     {label:"صندوق الطوارئ",val:0,sub:R.balance>0?("قدرة التكوين +"+fmt(R.balance)+"/شهر"):"العجز يمنع التكوين حالياً",flag:{t:"غير موجود",c:"bad"},cls:"neg"}
@@ -1062,20 +1064,32 @@ $("#ckSave").addEventListener("click",()=>{
 });
 
 /* ============ دخل إضافي متغير ============ */
+function extraIncomeMonthly(){
+  return EXTRA.filter(r=>r.included).reduce((a,b)=>a+b.amount,0)/12;
+}
 function renderExtraIncome(){
   const tbody=document.querySelector("#eiTable tbody");
   const rows=EXTRA.slice().sort((a,b)=>b.month.localeCompare(a.month)||b.id-a.id);
   tbody.innerHTML= rows.length? rows.map(r=>
-    "<tr><td>"+fmtMonthAr(r.month)+'</td><td><span class="chip brass">'+r.type+'</span></td><td>'+(r.source||"—")+'</td><td class="n" style="color:var(--safe)">+'+fmt(r.amount)+'</td><td><button class="ckdel" data-eidel="'+r.id+'" type="button">حذف</button></td></tr>'
-  ).join("") : '<tr><td colspan="5" style="color:var(--faint);text-align:center">لسه ما فيش دخل إضافي مسجّل</td></tr>';
+    '<tr><td><label class="rem-chk"><input type="checkbox" data-eiinc="'+r.id+'" '+(r.included?"checked":"")+'></label></td><td>'+fmtMonthAr(r.month)+'</td><td><span class="chip brass">'+r.type+'</span></td><td>'+(r.source||"—")+'</td><td class="n" style="color:var(--safe)">+'+fmt(r.amount)+'</td><td><button class="ckdel" data-eidel="'+r.id+'" type="button">حذف</button></td></tr>'
+  ).join("") : '<tr><td colspan="6" style="color:var(--faint);text-align:center">لسه ما فيش دخل إضافي مسجّل</td></tr>';
   tbody.querySelectorAll("[data-eidel]").forEach(btn=>btn.addEventListener("click",()=>{
-    EXTRA=EXTRA.filter(r=>r.id!==+btn.dataset.eidel); saveExtra(); renderExtraIncome();
+    EXTRA=EXTRA.filter(r=>r.id!==+btn.dataset.eidel); saveExtra(); renderExtraIncome(); render();
+  }));
+  tbody.querySelectorAll("[data-eiinc]").forEach(cb=>cb.addEventListener("change",()=>{
+    const r=EXTRA.find(x=>x.id===+cb.dataset.eiinc); if(r) r.included=cb.checked;
+    saveExtra(); renderExtraIncome(); render();
   }));
 
   const thisYear=todayYM().slice(0,4);
   const yearTotal=EXTRA.filter(r=>r.month.startsWith(thisYear)).reduce((a,b)=>a+b.amount,0);
   const allTotal=EXTRA.reduce((a,b)=>a+b.amount,0);
   $("#eiSummaryTag").textContent = EXTRA.length ? ("هذه السنة +"+fmt(yearTotal)+" · الإجمالي +"+fmt(allTotal)) : "لسه فاضي";
+
+  const monthly=extraIncomeMonthly();
+  $("#eiIncludedNote").innerHTML = monthly>0
+    ? "✓ متضمّن حالياً: <b class=\"num\" style=\"color:var(--brass-2)\">+"+fmt(monthly)+"</b> ريال/شهر (متوسط) مضاف على الدخل الموثوق في كل التقرير."
+    : "مفيش أي بند متضمّن دلوقتي — الدخل الموثوق زي ما هو في «01 بيانات الأسرة».";
 }
 $("#eiSave").addEventListener("click",()=>{
   const month=$("#eiMonth").value; if(!month){ alert("اختر الشهر"); return; }
@@ -1083,9 +1097,9 @@ $("#eiSave").addEventListener("click",()=>{
   if(amount<=0){ alert("اكتب مبلغ أكبر من صفر"); return; }
   const type=$("#eiType").value;
   const source=$("#eiSource").value.trim();
-  EXTRA.push({id:Date.now(),month,type,source,amount}); saveExtra();
+  EXTRA.push({id:Date.now(),month,type,source,amount,included:false}); saveExtra();
   $("#eiSource").value=""; $("#eiAmount").value="";
-  renderExtraIncome();
+  renderExtraIncome(); render();
 });
 
 /* ============ محاكي السيناريوهات ============ */
