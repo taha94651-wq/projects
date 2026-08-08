@@ -233,11 +233,12 @@
   /* monthly check-in */
   .checkin-form{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px;align-items:end}
   .checkin-form .field.wide{grid-column:span 2}
-  .checkin-form input[type=month],.checkin-form input[type=text]{background:var(--card2);border:1px solid var(--line2);border-radius:9px;padding:8px 12px;color:var(--ink);font-size:.85rem;width:100%}
+  .checkin-form input[type=month],.checkin-form input[type=text],.checkin-form select{background:var(--card2);border:1px solid var(--line2);border-radius:9px;padding:8px 12px;color:var(--ink);font-size:.85rem;width:100%;font-family:var(--sans)}
   .checkin-form input[type=month]{font-family:var(--mono)}
-  .checkin-form input:focus{outline:none;border-color:var(--brass)}
+  .checkin-form input:focus,.checkin-form select:focus{outline:none;border-color:var(--brass)}
   .ckdel{background:none;border:none;color:var(--faint);cursor:pointer;font-size:.78rem}
   .ckdel:hover{color:var(--danger)}
+  .chip.brass{background:#241d10;color:var(--brass-2)} .chip.brass:before{background:var(--brass)}
 
   /* bottom nav (mobile) */
   .bottomnav{display:none}
@@ -462,6 +463,28 @@
     </div>
   </section>
 
+  <section id="extraIncomeSection">
+    <div class="sec-head"><span class="no">12</span><h2>دخل إضافي متغير</h2><span class="tag" id="eiSummaryTag"></span><div class="rule"></div></div>
+    <div class="card">
+      <p class="data-note" style="margin-top:0;margin-bottom:16px">مشاريع خارجية، عمولات، بونصات — دخل غير منتظم بيتسجل هنا للمتابعة بس، ومش بيتحسب ضمن «الدخل الموثوق» أو أي نسبة في التقرير عشان يفضل التخطيط محافظ على الثابت المضمون.</p>
+      <div class="checkin-form" id="eiForm">
+        <div class="field"><label>النوع</label>
+          <select id="eiType">
+            <option value="مشروع خارجي">مشروع خارجي</option>
+            <option value="عمولة">عمولة</option>
+            <option value="بونص">بونص</option>
+            <option value="أخرى">أخرى</option>
+          </select>
+        </div>
+        <div class="field wide"><label>المصدر / الوصف</label><input type="text" id="eiSource" placeholder="مثلاً: تصميم لعميل، عمولة بيع..."></div>
+        <div class="field"><label>الشهر</label><input type="month" id="eiMonth"></div>
+        <div class="field"><label>المبلغ</label><input type="text" inputmode="decimal" id="eiAmount"></div>
+        <button class="btn primary" id="eiSave">+ إضافة</button>
+      </div>
+      <div class="tbl-wrap"><table id="eiTable"><thead><tr><th>الشهر</th><th>النوع</th><th>المصدر</th><th>المبلغ</th><th></th></tr></thead><tbody></tbody></table></div>
+    </div>
+  </section>
+
   <footer id="foot"></footer>
 </div>
 
@@ -505,7 +528,7 @@ const STATIC_ADVICE=[
 ];
 
 /* ============ التخزين المحلي ============ */
-const LS_DATA="ffr_data_v2", LS_DONE="ffr_rem_done_v1", LS_CUSTOM="ffr_rem_custom_v1", LS_LOG="ffr_log_v1";
+const LS_DATA="ffr_data_v2", LS_DONE="ffr_rem_done_v1", LS_CUSTOM="ffr_rem_custom_v1", LS_LOG="ffr_log_v1", LS_EXTRA="ffr_extra_income_v1";
 function loadData(){
   let d=JSON.parse(JSON.stringify(DEFAULTS));
   try{
@@ -531,6 +554,9 @@ let CUSTOM_REM=loadCustomRem();
 function loadLog(){ try{return JSON.parse(localStorage.getItem(LS_LOG)||"[]")}catch(e){return []} }
 function saveLog(){ localStorage.setItem(LS_LOG,JSON.stringify(LOG)); }
 let LOG=loadLog();
+function loadExtra(){ try{return JSON.parse(localStorage.getItem(LS_EXTRA)||"[]")}catch(e){return []} }
+function saveExtra(){ localStorage.setItem(LS_EXTRA,JSON.stringify(EXTRA)); }
+let EXTRA=loadExtra();
 
 /* ============ سيناريوهات ============ */
 let SCENARIOS=[]; const amt={};
@@ -757,6 +783,7 @@ function render(){
   drawDonut(R); drawLine(R);
   renderReminders();
   renderCheckin();
+  renderExtraIncome();
 }
 
 function drawDonut(R){
@@ -883,7 +910,7 @@ $("#addOther").addEventListener("click",()=>{
 });
 
 async function exportBackup(){
-  const payload={version:2,exportedAt:new Date().toISOString(),data:M,log:LOG,customReminders:CUSTOM_REM,done:[...DONE]};
+  const payload={version:3,exportedAt:new Date().toISOString(),data:M,log:LOG,customReminders:CUSTOM_REM,done:[...DONE],extraIncome:EXTRA};
   const text=JSON.stringify(payload,null,2);
   const filename="family-financial-backup-"+todayYM()+".json";
   if(window.claude && window.claude.downloads){
@@ -916,6 +943,7 @@ async function exportCsv(){
   M.installments.forEach(it=>rows.push(["قسط",it.k,it.m,it.left]));
   M.otherFixed.forEach(it=>rows.push(["بند ثابت آخر",it.k,it.v,""]));
   LOG.slice().sort((a,b)=>a.month.localeCompare(b.month)).forEach(r=>rows.push(["مراجعة شهرية",r.month,r.income,r.expense]));
+  EXTRA.slice().sort((a,b)=>a.month.localeCompare(b.month)).forEach(r=>rows.push(["دخل إضافي: "+r.type+(r.source?" — "+r.source:""),r.month,r.amount,""]));
   const text="﻿"+rows.map(r=>r.map(csvEsc).join(",")).join("\r\n");
   const filename="family-financial-"+todayYM()+".csv";
   if(window.claude && window.claude.downloads){
@@ -943,7 +971,8 @@ $("#importBackupFile").addEventListener("change",async ev=>{
     if(Array.isArray(payload.log)) LOG=payload.log;
     if(Array.isArray(payload.customReminders)) CUSTOM_REM=payload.customReminders;
     if(Array.isArray(payload.done)) DONE=new Set(payload.done);
-    saveData(); saveLog(); saveCustomRem(); saveDone();
+    if(Array.isArray(payload.extraIncome)) EXTRA=payload.extraIncome;
+    saveData(); saveLog(); saveCustomRem(); saveDone(); saveExtra();
     buildScalarFields(); buildDateFields(); renderInstRows(); renderOtherRows(); refreshScenarioDefs(); render();
     alert("تم استيراد النسخة الاحتياطية بنجاح.");
   }catch(e){ alert("تعذّرت قراءة الملف — تأكد إنه نسخة احتياطية صحيحة (JSON) من نفس التقرير."); }
@@ -1031,6 +1060,33 @@ $("#ckSave").addEventListener("click",()=>{
   renderCheckin();
 });
 
+/* ============ دخل إضافي متغير ============ */
+function renderExtraIncome(){
+  const tbody=document.querySelector("#eiTable tbody");
+  const rows=EXTRA.slice().sort((a,b)=>b.month.localeCompare(a.month)||b.id-a.id);
+  tbody.innerHTML= rows.length? rows.map(r=>
+    "<tr><td>"+fmtMonthAr(r.month)+'</td><td><span class="chip brass">'+r.type+'</span></td><td>'+(r.source||"—")+'</td><td class="n" style="color:var(--safe)">+'+fmt(r.amount)+'</td><td><button class="ckdel" data-eidel="'+r.id+'" type="button">حذف</button></td></tr>'
+  ).join("") : '<tr><td colspan="5" style="color:var(--faint);text-align:center">لسه ما فيش دخل إضافي مسجّل</td></tr>';
+  tbody.querySelectorAll("[data-eidel]").forEach(btn=>btn.addEventListener("click",()=>{
+    EXTRA=EXTRA.filter(r=>r.id!==+btn.dataset.eidel); saveExtra(); renderExtraIncome();
+  }));
+
+  const thisYear=todayYM().slice(0,4);
+  const yearTotal=EXTRA.filter(r=>r.month.startsWith(thisYear)).reduce((a,b)=>a+b.amount,0);
+  const allTotal=EXTRA.reduce((a,b)=>a+b.amount,0);
+  $("#eiSummaryTag").textContent = EXTRA.length ? ("هذه السنة +"+fmt(yearTotal)+" · الإجمالي +"+fmt(allTotal)) : "لسه فاضي";
+}
+$("#eiSave").addEventListener("click",()=>{
+  const month=$("#eiMonth").value; if(!month){ alert("اختر الشهر"); return; }
+  const amount=parseFloat(($("#eiAmount").value||"0").replace(/,/g,""))||0;
+  if(amount<=0){ alert("اكتب مبلغ أكبر من صفر"); return; }
+  const type=$("#eiType").value;
+  const source=$("#eiSource").value.trim();
+  EXTRA.push({id:Date.now(),month,type,source,amount}); saveExtra();
+  $("#eiSource").value=""; $("#eiAmount").value="";
+  renderExtraIncome();
+});
+
 /* ============ محاكي السيناريوهات ============ */
 function buildGrid(){
   $("#simGrid").innerHTML=SCENARIOS.map(s=>{
@@ -1091,6 +1147,7 @@ renderOtherRows();
 refreshScenarioDefs();
 $("#ckMonth").value=todayYM();
 $("#ckIncome").value=M.income0;
+$("#eiMonth").value=todayYM();
 render();
 </script>
 </body>
