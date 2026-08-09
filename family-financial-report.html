@@ -454,12 +454,13 @@
     <div class="card">
       <div class="checkin-form">
         <div class="field"><label>الشهر</label><input type="month" id="ckMonth"></div>
-        <div class="field"><label>الدخل الفعلي</label><input type="text" inputmode="decimal" id="ckIncome"></div>
+        <div class="field"><label>الدخل الفعلي (الثابت)</label><input type="text" inputmode="decimal" id="ckIncome"></div>
+        <div class="field"><label>دخل إضافي هذا الشهر (مش ثابت)</label><input type="text" inputmode="decimal" id="ckExtra" placeholder="0"></div>
         <div class="field"><label>إجمالي المصروف الفعلي</label><input type="text" inputmode="decimal" id="ckExpense"></div>
         <div class="field wide"><label>ملاحظات</label><input type="text" id="ckNote" placeholder="اختياري"></div>
         <button class="btn primary" id="ckSave">حفظ الشهر</button>
       </div>
-      <div class="tbl-wrap"><table id="ckTable"><thead><tr><th>الشهر</th><th>الدخل الفعلي</th><th>المصروف الفعلي</th><th>الفائض الفعلي</th><th>ملاحظة</th><th></th></tr></thead><tbody></tbody></table></div>
+      <div class="tbl-wrap"><table id="ckTable"><thead><tr><th>الشهر</th><th>الدخل الثابت</th><th>الإضافي</th><th>المصروف الفعلي</th><th>الفائض الفعلي</th><th>ملاحظة</th><th></th></tr></thead><tbody></tbody></table></div>
     </div>
   </section>
 
@@ -967,7 +968,10 @@ async function exportCsv(){
   rows.push(["تاريخ","شهر انتهاء العقد",M.contractRenewalDate,""]);
   M.installments.forEach(it=>rows.push(["قسط",it.k,it.m,it.left]));
   M.otherFixed.forEach(it=>rows.push(["بند ثابت آخر",it.k,it.v,""]));
-  LOG.slice().sort((a,b)=>a.month.localeCompare(b.month)).forEach(r=>rows.push(["مراجعة شهرية",r.month,r.income,r.expense]));
+  LOG.slice().sort((a,b)=>a.month.localeCompare(b.month)).forEach(r=>{
+    rows.push(["مراجعة شهرية",r.month,r.income,r.expense]);
+    if(r.extra) rows.push(["مراجعة شهرية - دخل إضافي",r.month,r.extra,""]);
+  });
   EXTRA.slice().sort((a,b)=>a.month.localeCompare(b.month)).forEach(r=>rows.push(["دخل إضافي: "+r.type+(r.source?" — "+r.source:""),r.month,r.amount,""]));
   const text="﻿"+rows.map(r=>r.map(csvEsc).join(",")).join("\r\n");
   const filename="family-financial-"+todayYM()+".csv";
@@ -1069,9 +1073,10 @@ function renderCheckin(){
   const tbody=document.querySelector("#ckTable tbody");
   const rows=LOG.slice().sort((a,b)=>b.month.localeCompare(a.month)).slice(0,12);
   tbody.innerHTML= rows.length? rows.map(r=>{
-    const surplus=r.income-r.expense;
-    return "<tr><td>"+fmtMonthAr(r.month)+'</td><td class="n">'+fmt(r.income)+'</td><td class="n">'+fmt(r.expense)+'</td><td class="n" style="color:'+(surplus<0?"var(--danger)":"var(--safe)")+'">'+sgn(surplus)+"</td><td>"+(r.note||"—")+'</td><td><button class="ckdel" data-ckdel="'+r.month+'" type="button">حذف</button></td></tr>';
-  }).join("") : '<tr><td colspan="6" style="color:var(--faint);text-align:center">لسه ما فيش مراجعات مسجّلة</td></tr>';
+    const extra=r.extra||0;
+    const surplus=r.income+extra-r.expense;
+    return "<tr><td>"+fmtMonthAr(r.month)+'</td><td class="n">'+fmt(r.income)+'</td><td class="n" style="color:'+(extra>0?"var(--brass-2)":"var(--faint)")+'">'+(extra>0?"+"+fmt(extra):"—")+'</td><td class="n">'+fmt(r.expense)+'</td><td class="n" style="color:'+(surplus<0?"var(--danger)":"var(--safe)")+'">'+sgn(surplus)+"</td><td>"+(r.note||"—")+'</td><td><button class="ckdel" data-ckdel="'+r.month+'" type="button">حذف</button></td></tr>';
+  }).join("") : '<tr><td colspan="7" style="color:var(--faint);text-align:center">لسه ما فيش مراجعات مسجّلة</td></tr>';
   tbody.querySelectorAll("[data-ckdel]").forEach(btn=>btn.addEventListener("click",()=>{
     LOG=LOG.filter(r=>r.month!==btn.dataset.ckdel); saveLog(); renderCheckin();
   }));
@@ -1079,10 +1084,11 @@ function renderCheckin(){
 $("#ckSave").addEventListener("click",()=>{
   const month=$("#ckMonth").value; if(!month){ alert("اختر الشهر"); return; }
   const income=parseFloat(($("#ckIncome").value||"0").replace(/,/g,""))||0;
+  const extra=parseFloat(($("#ckExtra").value||"0").replace(/,/g,""))||0;
   const expense=parseFloat(($("#ckExpense").value||"0").replace(/,/g,""))||0;
   const note=$("#ckNote").value.trim();
-  LOG=LOG.filter(r=>r.month!==month); LOG.push({month,income,expense,note}); saveLog();
-  $("#ckNote").value="";
+  LOG=LOG.filter(r=>r.month!==month); LOG.push({month,income,extra,expense,note}); saveLog();
+  $("#ckExtra").value=""; $("#ckNote").value="";
   renderCheckin();
 });
 
