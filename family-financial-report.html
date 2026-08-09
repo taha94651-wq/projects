@@ -500,8 +500,10 @@
 /* ============ الافتراضيات ============ */
 const DEFAULTS = {
   income0:21750, rent0:3545, food0:2000, varianceBuffer:719,
-  babyExtra:1200, babyOneTime:12000, aptSavings0:5843,
-  scheduleStart:"2026-08", babyDueDate:"2026-09", aptFreeDate:"2028-05", contractRenewalDate:"2027-01",
+  babyExtra:1200, babyOneTime:10500,
+  scheduleStart:"2026-08", babyDueDate:"2026-09", contractRenewalDate:"2027-01",
+  aptDepositAmount:41810, aptDepositDate:"2027-11",
+  aptFinalAmount:64161, aptFinalDate:"2028-05",
   installments:[
     {k:"قسط حاجات عز (مؤقت)",m:1000,left:2},
     {k:"قسط بسيطة (متناقص)",m:928,left:34},
@@ -572,7 +574,8 @@ function scenarioDefs(){
   defs.push({id:"income2raise",name:"زيادة مصدر الدخل 2 (4,000 → 6,000)",field:"dIncome",amount:2000,hint:"+2,000 (من 4,000 لـ 6,000)",req:"المطلوب: تأمين/تفاوض زيادة على مصدر الدخل التاني تحديداً"});
   if(ezz) defs.push({id:"ezz",name:"نهاية "+ezz.k,field:"dInstCut",amount:ezz.m,hint:"−"+fmt(ezz.m)+" قسط · بعد "+Math.max(0,ezz.left)+" شهر",req:"المطلوب: لا شيء — ينتهي تلقائياً (لا تستبدله بقسط جديد)"});
   if(loan) defs.push({id:"loan",name:"نهاية "+loan.k,field:"dInstCut",amount:loan.m,hint:"−"+fmt(loan.m)+" قسط · بعد "+Math.max(0,loan.left)+" شهر",req:"المطلوب: لا شيء — ينتهي تلقائياً"});
-  defs.push({id:"apt2028",name:"بعد "+fmtMonthAr(M.aptFreeDate),freeApt:true,amount:M.aptSavings0,hint:"تحرير "+fmt(M.aptSavings0)+" (دفعات الشقة)",req:"المطلوب: الوصول لهذا التاريخ"});
+  const aptReq=Math.round(aptRequiredMonthly(todayYM()));
+  defs.push({id:"aptSaving",name:"ابدأ ادخار دفعات الشقة الاستثنائية",aptOn:true,amount:aptReq,hint:"−"+fmt(aptReq)+"/شهر حتى "+fmtMonthAr(M.aptFinalDate),req:"المطلوب: تحويل يدوي شهري لحساب منفصل — وديعة صيانة "+fmt(M.aptDepositAmount)+" ("+fmtMonthAr(M.aptDepositDate)+") + قسط أخير "+fmt(M.aptFinalAmount)+" ("+fmtMonthAr(M.aptFinalDate)+")"});
   return defs;
 }
 function refreshScenarioDefs(){
@@ -597,6 +600,14 @@ function fmtMonthAr(ym){ if(!ym) return "—"; const [y,m]=ym.split("-").map(Num
 function monthsBetween(a,b){ const [ay,am]=a.split("-").map(Number),[by,bm]=b.split("-").map(Number); return (by-ay)*12+(bm-am); }
 function addMonthsStr(ym,n){ const [y,m]=ym.split("-").map(Number); const d=new Date(y,m-1+Math.max(0,n),1); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0"); }
 function todayYM(){ const d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0"); }
+function aptRequiredMonthly(fromYM){
+  let total=0;
+  const dep=monthsBetween(fromYM,M.aptDepositDate);
+  if(dep>0) total+=M.aptDepositAmount/dep;
+  const fin=monthsBetween(fromYM,M.aptFinalDate);
+  if(fin>0) total+=M.aptFinalAmount/fin;
+  return total;
+}
 function relTime(ts){
   if(!ts) return "بيانات افتراضية — لسه ما تعدّلتش";
   const diffMin=Math.round((Date.now()-ts)/60000);
@@ -613,16 +624,22 @@ function evalHG(v,g,w,labels){const c=v>=g?"good":v>=w?"warn":"bad";return{c,lab
 function buildEFSeries(R){
   const months=24;
   const babyOffset=Math.max(0,monthsBetween(M.scheduleStart,M.babyDueDate));
-  const aptFreeOffset=Math.max(0,monthsBetween(M.scheduleStart,M.aptFreeDate));
   const otherTotal=M.otherFixed.reduce((a,b)=>a+b.v,0);
   const baseExp=M.rent0+M.food0+otherTotal+M.varianceBuffer-R.dExpCut;
+  const depositOffset=Math.max(0,monthsBetween(M.scheduleStart,M.aptDepositDate));
+  const finalOffset=Math.max(0,monthsBetween(M.scheduleStart,M.aptFinalDate));
+  const rateDeposit=depositOffset>0?M.aptDepositAmount/depositOffset:0;
+  const rateFinal=finalOffset>0?M.aptFinalAmount/finalOffset:0;
   let bal=0; const series=[];
   for(let i=0;i<months;i++){
     let inst=0;
     M.installments.forEach(it=>{ if((it.left-i)>0) inst+=it.m; });
     inst=Math.max(0,inst-R.dInstCut);
     let net=R.income-baseExp-inst;
-    if(i<aptFreeOffset) net-=R.aptSavings;
+    if(R.aptOn){
+      if(i<depositOffset) net-=rateDeposit;
+      if(i<finalOffset) net-=rateFinal;
+    }
     if(i>=babyOffset) net-=M.babyExtra;
     if(i===babyOffset) net-=M.babyOneTime;
     bal+=net; series.push(Math.round(bal));
@@ -630,18 +647,18 @@ function buildEFSeries(R){
   return series;
 }
 function compute(){
-  let dIncome=0,dExpCut=0,dInstCut=0,freeApt=false;
+  let dIncome=0,dExpCut=0,dInstCut=0,aptOn=false;
   active.forEach(id=>{
     const s=SCENARIOS.find(x=>x.id===id); if(!s) return;
     const v=amt[id]||0;
     if(s.field==="dIncome")dIncome+=v; else if(s.field==="dExpCut")dExpCut+=v; else if(s.field==="dInstCut")dInstCut+=v;
-    if(s.freeApt)freeApt=true;
+    if(s.aptOn)aptOn=true;
   });
   const extraMonthly=extraIncomeMonthly();
   const income=M.income0+dIncome+extraMonthly;
   const instTotal0=M.installments.reduce((a,b)=>a+b.m,0);
   const installments=Math.max(0,instTotal0-dInstCut);
-  const aptSavings=freeApt?0:M.aptSavings0;
+  const aptSavings=aptOn?aptRequiredMonthly(todayYM()):0;
   const otherTotal=M.otherFixed.reduce((a,b)=>a+b.v,0);
   const recordedExp0=instTotal0+M.rent0+M.food0+otherTotal;
   const recordedExp=installments+M.rent0+M.food0+otherTotal-dExpCut;
@@ -651,7 +668,7 @@ function compute(){
   const apparentSurplus=income-recordedExp;
   const emergencyTarget=Math.round(recordedExp0*3);
 
-  const R={dIncome,dExpCut,dInstCut,freeApt,income,extraMonthly,installments,aptSavings,recordedExp,realisticExp,balance,apparentSurplus,fixed,emergencyTarget,
+  const R={dIncome,dExpCut,dInstCut,aptOn,income,extraMonthly,installments,aptSavings,recordedExp,realisticExp,balance,apparentSurplus,fixed,emergencyTarget,
     instRatio:installments/income,
     rentInstRatio:(M.rent0+installments)/income,
     debtPropRatio:(installments+aptSavings)/income,
@@ -686,17 +703,19 @@ function render(){
   $("#babyTag").textContent="متوقع "+fmtMonthAr(M.babyDueDate)+" · أولوية فورية";
   if(birthGap>0){
     $("#babyVerdict").innerHTML='<span class="gap">لا — نقص '+numT(fmt(birthGap))+" ريال</span>";
-    $("#babySolve").innerHTML="الحل: أوقف ادخار دفعات الشقة ("+numT(fmt(M.aptSavings0))+") شهر الولادة فقط، وعوّضه على الأشهر اللي بعدها.";
+    $("#babySolve").innerHTML="الحل: ادخار دفعات الشقة مش مفعّل حالياً فمفيش داعي توقفه. غطّي الفرق من مستحقات الشغل المتأخر أو من «دخل إضافي متغير» (قسم 12).";
   }else{
     $("#babyVerdict").innerHTML='<span class="ok">نعم — يكفي ويفضل '+numT(fmt(-birthGap))+" ريال</span>";
-    $("#babySolve").innerHTML="فائض شهر الولادة ("+numT(fmt(R.apparentSurplus))+") يغطّي التكلفة بالكامل — مش محتاج توقف ادخار الشقة.";
+    $("#babySolve").innerHTML="فائض شهر الولادة ("+numT(fmt(R.apparentSurplus))+") يغطّي التكلفة بالكامل.";
   }
 
   $("#vtag").className="vtag"+(on?" sim":"");
   $("#vtag").textContent=on?"عرض سيناريو — أرقام مُحاكاة":"أكبر خطر في الميزانية";
   const balCls=R.balance<0?"neg":"";
   let verdict="الالتزام المرتبط بالديون والعقار = <b>"+numT(pct(R.debtPropRatio))+"</b> من الدخل، والفائض بعد المولود <b class=\""+balCls+"\">"+numT(sgn(R.balance))+"</b> ريال/شهر";
-  verdict+= R.balance<0 ? (" — الميزانية مضغوطة حتى <b>"+fmtMonthAr(M.aptFreeDate)+"</b> وبعدها يتحرّر <b>"+numT(fmt(M.aptSavings0))+"</b> ريال شهرياً.") : " — الوضع متوازن حالياً.";
+  verdict+= R.aptOn
+    ? (R.balance<0 ? (" — لو بدأت ادخار دفعات الشقة الاستثنائية الميزانية تدخل عجز مؤقت حتى <b>"+fmtMonthAr(M.aptFinalDate)+"</b>.") : " — الوضع متوازن حتى مع ادخار دفعات الشقة.")
+    : " — ادخار دفعات الشقة الاستثنائية مش مفعّل حالياً (جرّبه في محاكي السيناريوهات).";
   if(on) verdict+=" الأرقام دي بعد تطبيق البدائل اللي اخترتها بالأسفل.";
   $("#verdict").innerHTML=verdict;
 
@@ -716,7 +735,7 @@ function render(){
   const rest=1-R.instRatio-R.aptSavings/R.income;
   $("#gaugeLegend").innerHTML=
     '<span><i style="background:#b35a54"></i>أقساط منتظمة <b>'+pct(R.instRatio)+'</b></span>'+
-    '<span><i style="background:#c89a41"></i>ادخار دفعات الشقة <b>'+pct(R.aptSavings/R.income)+"</b>"+(R.freeApt?' <span style="color:var(--safe)">(محرَّر)</span>':' <span style="color:var(--faint)">(حتى '+fmtMonthAr(M.aptFreeDate)+")</span>")+"</span>"+
+    '<span><i style="background:#c89a41"></i>ادخار دفعات الشقة <b>'+pct(R.aptSavings/R.income)+"</b>"+(R.aptOn?' <span style="color:var(--faint)">(حتى '+fmtMonthAr(M.aptFinalDate)+")</span>":' <span style="color:var(--safe)">(غير مفعّل)</span>')+"</span>"+
     '<span style="color:var(--faint)">المتبقي للمعيشة والادخار <b style="color:var(--sub)">'+pct(rest)+"</b></span>";
 
   const kpis=[
@@ -765,13 +784,13 @@ function render(){
   const baseRealistic=instTotal0+M.rent0+M.food0+otherTotal+M.varianceBuffer;
   const TARGET_LEVELS=[{k:"التعادل (بدون ادخار)",s:0},{k:"الحد الآمن",s:0.10},{k:"المريح (الموصى به)",s:0.20},{k:"الطموح",s:0.30}];
   $("#target tbody").innerHTML=TARGET_LEVELS.map(t=>{
-    const need=(baseRealistic+M.babyExtra+M.aptSavings0)/(1-t.s);
+    const need=(baseRealistic+M.babyExtra)/(1-t.s);
     const gap=Math.max(0,need-R.income);
     return "<tr><td>"+t.k+'</td><td class="n" style="color:var(--sub)">'+pct(t.s)+'</td><td class="n">'+fmt(need)+'</td><td class="plus '+(gap===0?"zero":"")+'">'+(gap===0?"✓ مُحقّق":"+"+fmt(gap))+"</td></tr>";
   }).join("");
 
   document.querySelectorAll("#simGrid .scn").forEach(card=>card.classList.toggle("on",active.has(card.dataset.id)));
-  const dBal=R.balance-(M.income0-baseRealistic-M.babyExtra-M.aptSavings0);
+  const dBal=R.balance-(M.income0-baseRealistic-M.babyExtra);
   const baseRentInst=(M.rent0+instTotal0)/M.income0;
   const dRi=R.rentInstRatio-baseRentInst;
   $("#simImpact").innerHTML=on?(
@@ -855,7 +874,8 @@ function buildScalarFields(){
   const defs=[
     ["income0","الدخل الشهري الموثوق"],["rent0","الإيجار"],["food0","الأكل (بيت + برا)"],
     ["varianceBuffer","مصاريف متغيرة غير مسجّلة (تقديري)"],["babyExtra","مصاريف المولود الشهرية"],
-    ["babyOneTime","تكلفة الولادة (مرة واحدة)"],["aptSavings0","ادخار دفعات الشقة الشهري"]
+    ["babyOneTime","تكلفة الولادة (مرة واحدة)"],
+    ["aptDepositAmount","وديعة صيانة الشقة"],["aptFinalAmount","قسط الشقة الأخير (دفعة كبيرة)"]
   ];
   $("#dataScalars").innerHTML=defs.map(([f,l])=>'<div class="field"><label>'+l+'</label><div class="inwrap"><input type="text" inputmode="decimal" data-scalar="'+f+'" value="'+M[f]+'"><span>ريال</span></div></div>').join("");
   document.querySelectorAll("[data-scalar]").forEach(inp=>inp.addEventListener("input",()=>{
@@ -864,7 +884,7 @@ function buildScalarFields(){
   }));
 }
 function buildDateFields(){
-  const defs=[["scheduleStart","شهر بداية الخطة (المرجع)"],["babyDueDate","شهر الولادة المتوقع"],["aptFreeDate","شهر تحرر دفعات الشقة"],["contractRenewalDate","شهر انتهاء العقد"]];
+  const defs=[["scheduleStart","شهر بداية الخطة (المرجع)"],["babyDueDate","شهر الولادة المتوقع"],["aptDepositDate","استحقاق وديعة صيانة الشقة"],["aptFinalDate","استحقاق قسط الشقة الأخير"],["contractRenewalDate","شهر انتهاء العقد"]];
   $("#dataDates").innerHTML=defs.map(([f,l])=>'<div class="field"><label>'+l+'</label><input type="month" data-date="'+f+'" value="'+M[f]+'"></div>').join("");
   document.querySelectorAll("[data-date]").forEach(inp=>inp.addEventListener("input",()=>{
     if(inp.value){ M[inp.dataset.date]=inp.value; saveData(); refreshScenarioDefs(); render(); }
@@ -938,10 +958,12 @@ async function exportCsv(){
   rows.push(["بيانات","مصاريف متغيرة غير مسجّلة",M.varianceBuffer,""]);
   rows.push(["بيانات","مصاريف المولود الشهرية",M.babyExtra,""]);
   rows.push(["بيانات","تكلفة الولادة (مرة واحدة)",M.babyOneTime,""]);
-  rows.push(["بيانات","ادخار دفعات الشقة الشهري",M.aptSavings0,""]);
+  rows.push(["بيانات","وديعة صيانة الشقة",M.aptDepositAmount,""]);
+  rows.push(["بيانات","قسط الشقة الأخير",M.aptFinalAmount,""]);
   rows.push(["تاريخ","شهر بداية الخطة",M.scheduleStart,""]);
   rows.push(["تاريخ","شهر الولادة المتوقع",M.babyDueDate,""]);
-  rows.push(["تاريخ","شهر تحرر دفعات الشقة",M.aptFreeDate,""]);
+  rows.push(["تاريخ","استحقاق وديعة صيانة الشقة",M.aptDepositDate,""]);
+  rows.push(["تاريخ","استحقاق قسط الشقة الأخير",M.aptFinalDate,""]);
   rows.push(["تاريخ","شهر انتهاء العقد",M.contractRenewalDate,""]);
   M.installments.forEach(it=>rows.push(["قسط",it.k,it.m,it.left]));
   M.otherFixed.forEach(it=>rows.push(["بند ثابت آخر",it.k,it.v,""]));
@@ -1000,7 +1022,8 @@ function computeReminders(){
   const ezz=findInst("عز"), loan=findInst("القرض");
   const base=[
     {id:"baby",title:"تجهيز ميزانية تكلفة الولادة ("+fmt(M.babyOneTime)+" ريال)",date:M.babyDueDate},
-    {id:"apt",title:"تحرر ادخار دفعات الشقة ("+fmt(M.aptSavings0)+" ريال/شهر)",date:M.aptFreeDate},
+    {id:"aptDeposit",title:"استحقاق وديعة صيانة الشقة ("+fmt(M.aptDepositAmount)+" ريال)",date:M.aptDepositDate},
+    {id:"aptFinal",title:"استحقاق قسط الشقة الأخير ("+fmt(M.aptFinalAmount)+" ريال)",date:M.aptFinalDate},
     {id:"contract",title:"انتهاء العقد الأساسي — ابدأ التفاوض بدري",date:M.contractRenewalDate},
     {id:"review",title:"مراجعة شهرية للمصاريف الفعلية",date:todayYM()}
   ];
