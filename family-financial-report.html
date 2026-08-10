@@ -245,6 +245,21 @@
   .ckdel:hover{color:var(--danger)}
   .chip.brass{background:#241d10;color:var(--brass-2)} .chip.brass:before{background:var(--brass)}
 
+  /* expense log */
+  #expForm select,#expForm input{background:var(--card2);border:1px solid var(--line2);border-radius:9px;padding:8px 12px;color:var(--ink);font-size:.85rem;width:100%;font-family:var(--sans)}
+  #expForm input[type=date]{font-family:var(--mono)}
+  #expForm select:focus,#expForm input:focus{outline:none;border-color:var(--brass)}
+  .exp-range{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+  .exp-range h4{font-size:.9rem;font-weight:600;margin-bottom:12px}
+  .exp-range-form{display:flex;gap:10px;flex-wrap:wrap;align-items:end;margin-bottom:14px}
+  .exp-range-form .field{min-width:130px}
+  .exp-range-form input[type=month]{background:var(--card2);border:1px solid var(--line2);border-radius:9px;padding:8px 12px;color:var(--ink);font-family:var(--mono);width:100%}
+  .exp-range-form input:focus{outline:none;border-color:var(--brass)}
+  .exp-cat-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 2px;border-bottom:1px solid var(--line);font-size:.85rem}
+  .exp-cat-row:last-child{border-bottom:none}
+  .exp-cat-row .bar{flex:1;max-width:none;margin:0 12px}
+  .exp-total-row{display:flex;justify-content:space-between;padding:12px 2px 0;font-weight:700;font-size:.92rem}
+
   /* bottom nav (mobile) */
   .bottomnav{display:none}
   #navBackup{background:var(--brass);border:none;color:#1a1305;font-weight:600;border-radius:9px;padding:9px 14px;cursor:pointer;font-family:var(--sans);font-size:.82rem}
@@ -490,6 +505,34 @@
       </div>
       <div class="tbl-wrap"><table id="eiTable"><thead><tr><th>تضمين</th><th>الشهر</th><th>النوع</th><th>المصدر</th><th>المبلغ</th><th></th></tr></thead><tbody></tbody></table></div>
       <p class="data-note" id="eiIncludedNote"></p>
+    </div>
+  </section>
+
+  <section id="expensesSection">
+    <div class="sec-head"><span class="no">13</span><h2>سجل المصاريف التفصيلي</h2><span class="tag" id="expSummaryTag"></span><div class="rule"></div></div>
+    <div class="card">
+      <p class="data-note" style="margin-top:0;margin-bottom:16px">اكتب وصف بس (مثلاً «غدا مع صحابي» أو «فاتورة كهرباء») والنظام بيحاول يصنّفه تلقائياً — عدّل التصنيف يدوياً وقت ما تحب. البيانات دي محفوظة على الجهاز فقط (مش متزامنة مع Google Calendar لأن حجمها بيكبر بسرعة) — استخدم التصدير تحت لعمل نسخة أو نقلها.</p>
+      <div class="checkin-form" id="expForm">
+        <div class="field"><label>التاريخ</label><input type="date" id="expDate"></div>
+        <div class="field wide"><label>الوصف</label><input type="text" id="expDesc" placeholder="مثلاً: غدا مطعم، فاتورة إنترنت، بامبرز..."></div>
+        <div class="field"><label>التصنيف (تلقائي، قابل للتعديل)</label>
+          <select id="expCategory"></select>
+        </div>
+        <div class="field"><label>المبلغ</label><input type="text" inputmode="decimal" id="expAmount"></div>
+        <button class="btn primary" id="expSave">+ إضافة</button>
+      </div>
+      <div class="tbl-wrap"><table id="expTable"><thead><tr><th>التاريخ</th><th>الوصف</th><th>التصنيف</th><th>المبلغ</th><th></th></tr></thead><tbody></tbody></table></div>
+
+      <div class="exp-range">
+        <h4>تحليل وتصدير فترة معيّنة</h4>
+        <div class="exp-range-form">
+          <div class="field"><label>من شهر</label><input type="month" id="expFrom"></div>
+          <div class="field"><label>لحد شهر</label><input type="month" id="expTo"></div>
+          <button class="btn" id="expAnalyze">حلّل الفترة</button>
+          <button class="btn primary" id="expExportRange">⬇ تصدير CSV للفترة</button>
+        </div>
+        <div id="expAnalysis"></div>
+      </div>
     </div>
   </section>
 
@@ -1231,6 +1274,98 @@ $("#eiSave").addEventListener("click",()=>{
   renderExtraIncome(); render();
 });
 
+/* ============ سجل المصاريف التفصيلي ============ */
+const EXPENSE_CATEGORIES=[
+  {name:"مولود وأطفال",kw:["بامبرز","حفاض","رضاعة","لبن اطفال","لبن أطفال","اطفال","أطفال","مولود","مواليد"]},
+  {name:"أكل بيت",kw:["سوبر ماركت","سوبرماركت","بقال","خضار","فاكهة","لحمة","لحوم","دجاج","كارفور","بنده","عثيم","لولو","تموينات","جمعية","خباز","فرن","جزار"]},
+  {name:"مطاعم وكافيهات",kw:["كافيه","كافية","مطعم","ستاربكس","starbucks","بيتزا","برجر","دليفري","طلبات","talabat","hungerstation","jahez","مندوب","قهوة","كافيهات","كنتاكي","ماكدونالدز","مطاعم","فطار برا","غدا برا","عشا برا"]},
+  {name:"مواصلات وبنزين",kw:["بنزين","وقود","تاكسي","اوبر","uber","كريم","careem","بترول","محطة بنزين","مشوار","مواصلات","تكسي"]},
+  {name:"فواتير ومرافق",kw:["كهرباء","مياه","فاتورة غاز","انترنت","إنترنت","فاتورة","اتصالات","stc","موبايلي","زين","شريحة","خط الموبايل"]},
+  {name:"تسوق وملابس",kw:["ملابس","شنطة","حذاء","تسوق","سنتر","امازون","نون","noon","amazon","شراء هدوم"]},
+  {name:"صحة وعلاج",kw:["دكتور","صيدلية","صيدليه","دواء","عياد","مستشفى","تحليل طبي","أشعة","اشعة","علاج"]},
+  {name:"ترفيه واشتراكات",kw:["سينما","رحلة","لعبة","اشتراك","نتفلكس","netflix","شاهد","بوبجي","ترفيه","نادي رياضي","جيم","gym"]},
+  {name:"تعليم",kw:["مدرسة","كورس","كتاب","دورة تدريبية","تعليم"]},
+  {name:"أقساط والتزامات",kw:["قسط","تقسيط","سداد"]}
+];
+function classifyExpense(desc){
+  const d=(desc||"").toLowerCase();
+  for(const c of EXPENSE_CATEGORIES){ if(c.kw.some(k=>d.includes(k.toLowerCase()))) return c.name; }
+  return "أخرى";
+}
+function buildExpCategorySelect(){
+  const opts=EXPENSE_CATEGORIES.map(c=>c.name).concat(["أخرى"]);
+  $("#expCategory").innerHTML=opts.map(o=>'<option value="'+o+'">'+o+"</option>").join("");
+}
+const LS_EXP="ffr_expenses_v1";
+function loadExpenses(){ try{return JSON.parse(localStorage.getItem(LS_EXP)||"[]")}catch(e){return []} }
+function saveExpenses(){ localStorage.setItem(LS_EXP,JSON.stringify(EXPENSES)); }
+let EXPENSES=loadExpenses();
+
+function renderExpenses(){
+  const tbody=document.querySelector("#expTable tbody");
+  const rows=EXPENSES.slice().sort((a,b)=>b.date.localeCompare(a.date)).slice(0,20);
+  tbody.innerHTML=rows.length?rows.map(r=>
+    "<tr><td>"+r.date+'</td><td>'+(r.desc||"—")+'</td><td><span class="chip brass">'+r.category+'</span></td><td class="n">'+fmt(r.amount)+'</td><td><button class="ckdel" data-expdel="'+r.id+'" type="button">حذف</button></td></tr>'
+  ).join(""):'<tr><td colspan="5" style="color:var(--faint);text-align:center">لسه ما فيش مصاريف مسجّلة</td></tr>';
+  tbody.querySelectorAll("[data-expdel]").forEach(btn=>btn.addEventListener("click",()=>{
+    EXPENSES=EXPENSES.filter(r=>r.id!==+btn.dataset.expdel); saveExpenses(); renderExpenses();
+  }));
+  const thisMonth=todayYM();
+  const monthTotal=EXPENSES.filter(r=>r.date.startsWith(thisMonth)).reduce((a,b)=>a+b.amount,0);
+  $("#expSummaryTag").textContent=EXPENSES.length?("هذا الشهر "+fmt(monthTotal)+" ريال · "+EXPENSES.length+" بند"):"لسه فاضي";
+}
+$("#expDesc").addEventListener("input",()=>{
+  const guess=classifyExpense($("#expDesc").value);
+  $("#expCategory").value=guess;
+});
+$("#expSave").addEventListener("click",()=>{
+  const date=$("#expDate").value; if(!date){ alert("اختر التاريخ"); return; }
+  const amount=parseFloat(($("#expAmount").value||"0").replace(/,/g,""))||0;
+  if(amount<=0){ alert("اكتب مبلغ أكبر من صفر"); return; }
+  const desc=$("#expDesc").value.trim();
+  const category=$("#expCategory").value||classifyExpense(desc);
+  EXPENSES.push({id:Date.now(),date,desc,category,amount}); saveExpenses();
+  $("#expDesc").value=""; $("#expAmount").value=""; $("#expCategory").value=EXPENSE_CATEGORIES[0].name;
+  renderExpenses();
+});
+
+function expRangeFilter(){
+  const from=$("#expFrom").value, to=$("#expTo").value;
+  if(!from||!to){ alert("اختر من شهر ولحد شهر"); return null; }
+  return EXPENSES.filter(r=>{ const m=r.date.slice(0,7); return m>=from && m<=to; });
+}
+$("#expAnalyze").addEventListener("click",()=>{
+  const list=expRangeFilter(); if(!list) return;
+  if(!list.length){ $("#expAnalysis").innerHTML='<p class="data-note">مفيش مصاريف مسجّلة في الفترة دي.</p>'; return; }
+  const total=list.reduce((a,b)=>a+b.amount,0);
+  const byCat={};
+  list.forEach(r=>{ byCat[r.category]=(byCat[r.category]||0)+r.amount; });
+  const rows=Object.entries(byCat).sort((a,b)=>b[1]-a[1]);
+  $("#expAnalysis").innerHTML=rows.map(([cat,amt])=>{
+    const pct2=(amt/total*100);
+    return '<div class="exp-cat-row"><span>'+cat+'</span><div class="bar"><i style="width:'+pct2.toFixed(0)+'%;background:var(--brass)"></i></div><span class="num">'+fmt(amt)+" ("+pct2.toFixed(0)+"%)</span></div>";
+  }).join("")+'<div class="exp-total-row"><span>الإجمالي ('+list.length+' بند)</span><span class="num">'+fmt(total)+" ريال</span></div>";
+});
+$("#expExportRange").addEventListener("click",async ()=>{
+  const list=expRangeFilter(); if(!list) return;
+  if(!list.length){ alert("مفيش مصاريف في الفترة دي"); return; }
+  const rows=[["التاريخ","الوصف","التصنيف","المبلغ"]];
+  list.slice().sort((a,b)=>a.date.localeCompare(b.date)).forEach(r=>rows.push([r.date,r.desc||"",r.category,r.amount]));
+  const text="﻿"+rows.map(r=>r.map(csvEsc).join(",")).join("\r\n");
+  const filename="expenses-"+$("#expFrom").value+"-to-"+$("#expTo").value+".csv";
+  if(window.claude&&window.claude.downloads){
+    try{ await window.claude.downloads.save({filename,data:text}); }
+    catch(e){
+      if(e&&e.code==="declined") return;
+      if(e&&(e.code==="rejected_extension"||e.code==="extension_not_enabled")) alert("تصدير CSV مش متاح في هذا العرض.");
+      else alert("تعذّر الحفظ: "+(e&&e.message?e.message:"غير معروف"));
+    }
+  }else{
+    const blob=new Blob([text],{type:"text/csv;charset=utf-8"});
+    const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=filename; a.click(); URL.revokeObjectURL(a.href);
+  }
+});
+
 /* ============ محاكي السيناريوهات ============ */
 function buildGrid(){
   $("#simGrid").innerHTML=SCENARIOS.map(s=>{
@@ -1292,6 +1427,11 @@ refreshScenarioDefs();
 $("#ckMonth").value=todayYM();
 $("#ckIncome").value=M.income0;
 $("#eiMonth").value=todayYM();
+buildExpCategorySelect();
+$("#expDate").value=new Date().toISOString().slice(0,10);
+$("#expFrom").value=todayYM();
+$("#expTo").value=todayYM();
+renderExpenses();
 render();
 gcalInit();
 </script>
