@@ -856,7 +856,7 @@ function render(){
   $("#vtag").className="vtag"+(on?" sim":"");
   $("#vtag").textContent=on?"عرض سيناريو — أرقام مُحاكاة":"أكبر خطر في الميزانية";
   const balCls=R.balance<0?"neg":"";
-  let verdict="الالتزام المرتبط بالديون والعقار = <b>"+numT(pct(R.debtPropRatio))+"</b> من الدخل، والفائض بعد المولود <b class=\""+balCls+"\">"+numT(sgn(R.balance))+"</b> ريال/شهر";
+  let verdict="الالتزام المرتبط بالديون والعقار = <b>"+numT(pct(R.debtPropRatio))+"</b> من الدخل، والفائض الشهري <b class=\""+balCls+"\">"+numT(sgn(R.balance))+"</b> ريال/شهر";
   verdict+= R.aptOn
     ? (R.balance<0 ? (" — لو بدأت ادخار دفعات الشقة الاستثنائية الميزانية تدخل عجز مؤقت حتى <b>"+fmtMonthAr(M.aptFinalDate)+"</b>.") : " — الوضع متوازن حتى مع ادخار دفعات الشقة.")
     : " — ادخار دفعات الشقة الاستثنائية مش مفعّل حالياً (جرّبه في محاكي السيناريوهات).";
@@ -866,7 +866,7 @@ function render(){
   const em=[
     {lbl:"الدخل الموثوق",v:fmt(R.income),u:"ريال",cls:(R.dIncome>0||R.extraMonthly>0)?"pos":""},
     {lbl:"إجمالي المصاريف",v:fmt(R.recordedExp),u:"ريال",cls:""},
-    {lbl:"الفائض بعد المولود",v:sgn(R.balance),u:"ريال",cls:R.balance<0?"neg":"pos"},
+    {lbl:"الفائض الشهري",v:sgn(R.balance),u:"ريال",cls:R.balance<0?"neg":"pos"},
     {lbl:"صندوق الطوارئ",v:"0",u:"من "+fmt(R.emergencyTarget),cls:"neg"}
   ];
   $("#execMetrics").innerHTML=em.map(m=>'<div><div class="lbl">'+m.lbl+'</div><div class="fig '+m.cls+'">'+numT(m.v)+'<span class="u">'+m.u+"</span></div></div>").join("");
@@ -885,7 +885,7 @@ function render(){
   const kpis=[
     {label:"الدخل الموثوق",val:R.income,sub:(R.extraMonthly>0?("+"+fmt(R.extraMonthly)+" دخل إضافي متضمّن · "):"")+(R.dIncome>0?("+"+fmt(R.dIncome)+" من السيناريو"):"عدّله من قسم البيانات"),cls:(R.dIncome>0||R.extraMonthly>0)?"pos":""},
     {label:"إجمالي المصاريف المسجّلة",val:R.recordedExp,sub:pct(R.recordedExp/R.income)+" من الدخل",flag:{t:"راجع المتغيرة",c:"warn"},cls:""},
-    {label:"الفائض بعد المولود",val:R.balance,sub:R.balance<0?"عجز — راجع محاكي السيناريوهات":"فائض قابل للادخار",cls:R.balance<0?"neg":"pos"},
+    {label:"الفائض الشهري",val:R.balance,sub:R.balance<0?"عجز — راجع محاكي السيناريوهات":"فائض قابل للادخار",cls:R.balance<0?"neg":"pos"},
     {label:"صندوق الطوارئ",val:0,sub:R.balance>0?("قدرة التكوين +"+fmt(R.balance)+"/شهر"):"العجز يمنع التكوين حالياً",flag:{t:"غير موجود",c:"bad"},cls:"neg"}
   ];
   $("#kpis").innerHTML=kpis.map(k=>{
@@ -939,7 +939,7 @@ function render(){
   const dRi=R.rentInstRatio-baseRentInst;
   $("#simImpact").innerHTML=on?(
     '<div class="im">الدخل<div class="v">'+numT(fmt(R.income))+' <span class="d up">'+(R.dIncome>0?"▲ +"+fmt(R.dIncome):"")+"</span></div></div>"+
-    '<div class="im">الفائض بعد المولود<div class="v" style="color:'+(R.balance<0?"var(--danger)":"var(--safe)")+'">'+numT(sgn(R.balance))+' <span class="d '+(dBal>0?"up":"down")+'">'+(dBal>0?"▲ +"+fmt(dBal):"▼ "+sgn(dBal))+"</span></div></div>"+
+    '<div class="im">الفائض الشهري<div class="v" style="color:'+(R.balance<0?"var(--danger)":"var(--safe)")+'">'+numT(sgn(R.balance))+' <span class="d '+(dBal>0?"up":"down")+'">'+(dBal>0?"▲ +"+fmt(dBal):"▼ "+sgn(dBal))+"</span></div></div>"+
     '<div class="im">إيجار + أقساط<div class="v">'+numT(pct(R.rentInstRatio))+' <span class="d '+(dRi<0?"up":"down")+'">'+(dRi<0?"▼":"▲")+" "+pct(Math.abs(dRi))+"</span></div></div>"+
     '<div class="im">معدل الادخار<div class="v" style="color:'+(R.savingsRate>=0.1?"var(--safe)":"var(--ink)")+'">'+numT(pct(R.savingsRate))+"</div></div>"
   ):'<div class="im" style="align-self:center;color:var(--faint)">اختر بديل أو أكتر من فوق — الأرقام والرسوم في التقرير كله هتتحدّث فوراً.</div>';
