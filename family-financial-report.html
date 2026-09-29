@@ -551,7 +551,7 @@
 const DEFAULTS = {
   income0:21750, rent0:3545, food0:2000, varianceBuffer:719,
   babyExtra:1200,
-  scheduleStart:"2026-08", babyDueDate:"2026-09", contractRenewalDate:"2027-01",
+  scheduleStart:"2026-08", contractRenewalDate:"2027-01",
   aptDepositAmount:41810, aptDepositDate:"2027-11",
   aptFinalAmount:64161, aptFinalDate:"2028-05",
   installments:[
@@ -570,14 +570,12 @@ const DEFAULTS = {
 const STATIC_ADVICE=[
   {h:"العجز من غير زيادة دخل يتقفل بضبط المصاريف",r:"مجموع التوفير المتاح (دمج الاتصالات + سقف مطاعم/تسوق/ترفيه + تأجيل النثريات) عادة أكبر من العجز نفسه. المشكلة إدارة مصاريف مش نقص دخل.",when:"فوري",conf:"مؤكد"},
   {h:"الفائض الظاهر ممكن يكون وهم",r:"المصاريف المتغيرة (مطاعم/تسوق/ترفيه) لو مش مسجّلة بدقة، سجّلها شهر كامل قبل أي قرار مبني على الفائض — الرقم الحقيقي غالباً أقل.",when:"فوري",conf:"مؤكد"},
-  {h:"استغل أي متأخرات مالية لتغطية تكلفة الولادة",r:"لو عندك مبالغ متأخرة من شغل حر أو إضافي، اربط تحصيلها باتفاق سداد وحطها كاملة لتكلفة الولادة بدل ما توقف ادخار الشقة.",when:"فوري",conf:"مرجّح"},
-  {h:"التأمين الصحي ممكن يقصّ آلاف من تكلفة الولادة",r:"لو إلزامي من صاحب العمل، أضف الزوجة والمولود وأكّد تغطية الولادة قبل الموعد — لو غطّى الولادة، العجز الكبير يختفي.",when:"فوري",conf:"مرجّح"},
   {h:"الأقساط اللي بتخلص — ماتستبدلهاش بقسط جديد",r:"حوّل قيمة أي قسط ينتهي لصندوق الطوارئ مباشرة. القاعدة: كل قسط يخلص يتحوّل ادخار مش مصروف جديد (debt snowball).",when:"قصير المدى",conf:"مؤكد"},
-  {h:"الطوارئ قبل تسريع أي قسط",r:"الترتيب الصح: ولادة → شهر مصاريف طوارئ → دفعات الشقة → ادخار طويل. الصندوق حساب منفصل بلا بطاقة صراف عشان ماتمسّهوش.",when:"قصير المدى",conf:"مؤكد"},
+  {h:"الطوارئ قبل تسريع أي قسط",r:"الترتيب الصح: شهر مصاريف طوارئ → دفعات الشقة → ادخار طويل. الصندوق حساب منفصل بلا بطاقة صراف عشان ماتمسّهوش.",when:"قصير المدى",conf:"مؤكد"},
   {h:"لو قسط بعملة أجنبية، راقب سعر الصرف",r:"القسط بعملة غير الريال يتأثر بتقلبات الصرف. لو الريال قوي وقت أي دفعة كبيرة، حوّل مبكّراً لتوفير فرق ملموس شهرياً.",when:"استراتيجي",conf:"مرجّح"},
   {h:"الحل الحقيقي دخل مش تقشف",r:"للوصول للحد الآمن (ادخار 10%) راجع جدول «الدخل المستهدف» تحت. أرخص مصدر عادة: زيادة على الشغل الإضافي + دخل حر يُخصص بالكامل للطوارئ.",when:"استراتيجي",conf:"مرجّح"},
   {h:"قيّم أي مبلغ متأخر بخصم مخاطرة، مش بقيمته الاسمية",r:"بعد مخاطرة التحصيل، أي عرض منتظم أعلى من نسبة كبيرة من المتأخر المتقطّع أحسن غالباً — فاوض على الانتظام مقابل تنازل بسيط.",when:"استراتيجي",conf:"مرجّح"},
-  {h:"ابدأ بدري قبل انتهاء العقد الأساسي",r:"حدّث السيرة والشبكة المهنية قبل ما الولادة تشغلك. عرض مكتوب في إيدك = أقوى ورقة تفاوض، سواء للتجديد بزيادة أو نقلة.",when:"استراتيجي",conf:"مرجّح"}
+  {h:"ابدأ بدري قبل انتهاء العقد الأساسي",r:"حدّث السيرة والشبكة المهنية بدري. عرض مكتوب في إيدك = أقوى ورقة تفاوض، سواء للتجديد بزيادة أو نقلة.",when:"استراتيجي",conf:"مرجّح"}
 ];
 
 /* ============ التخزين المحلي ============ */
@@ -767,7 +765,6 @@ function evalHG(v,g,w,labels){const c=v>=g?"good":v>=w?"warn":"bad";return{c,lab
 /* ============ الحساب ============ */
 function buildEFSeries(R){
   const months=24;
-  const babyOffset=Math.max(0,monthsBetween(M.scheduleStart,M.babyDueDate));
   const otherTotal=M.otherFixed.reduce((a,b)=>a+b.v,0);
   const baseExp=M.rent0+M.food0+otherTotal+M.varianceBuffer-R.dExpCut;
   const depositOffset=Math.max(0,monthsBetween(M.scheduleStart,M.aptDepositDate));
@@ -784,7 +781,7 @@ function buildEFSeries(R){
       if(i<depositOffset) net-=rateDeposit;
       if(i<finalOffset) net-=rateFinal;
     }
-    if(i>=babyOffset) net-=M.babyExtra;
+    net-=M.babyExtra;
     bal+=net; series.push(Math.round(bal));
   }
   return series;
@@ -842,7 +839,7 @@ function render(){
   const babyActual=EXPENSES.filter(e=>e.category==="مولود وأطفال"&&e.date.startsWith(todayYM())).reduce((a,b)=>a+b.amount,0);
   $("#babyActualVal").textContent=fmt(babyActual);
   $("#babyPctVal").textContent=pct(M.babyExtra/R.income);
-  $("#babyTag").textContent="جزء من المصاريف الثابتة · بدأت "+fmtMonthAr(M.babyDueDate);
+  $("#babyTag").textContent="جزء من المصاريف الثابتة الشهرية";
   const babyDiff=babyActual-M.babyExtra;
   const babyCell=$("#babyActualCell"); babyCell.className="big "+(babyActual===0?"ink":babyDiff>0?"":"ink");
   if(babyActual===0){
@@ -1030,7 +1027,7 @@ function buildScalarFields(){
   }));
 }
 function buildDateFields(){
-  const defs=[["scheduleStart","شهر بداية الخطة (المرجع)"],["babyDueDate","شهر الولادة المتوقع"],["aptDepositDate","استحقاق وديعة صيانة الشقة"],["aptFinalDate","استحقاق قسط الشقة الأخير"],["contractRenewalDate","شهر انتهاء العقد"]];
+  const defs=[["scheduleStart","شهر بداية الخطة (المرجع)"],["aptDepositDate","استحقاق وديعة صيانة الشقة"],["aptFinalDate","استحقاق قسط الشقة الأخير"],["contractRenewalDate","شهر انتهاء العقد"]];
   $("#dataDates").innerHTML=defs.map(([f,l])=>'<div class="field"><label>'+l+'</label><input type="month" data-date="'+f+'" value="'+M[f]+'"></div>').join("");
   document.querySelectorAll("[data-date]").forEach(inp=>inp.addEventListener("input",()=>{
     if(inp.value){ M[inp.dataset.date]=inp.value; saveData(); refreshScenarioDefs(); render(); }
@@ -1106,7 +1103,6 @@ async function exportCsv(){
   rows.push(["بيانات","وديعة صيانة الشقة",M.aptDepositAmount,""]);
   rows.push(["بيانات","قسط الشقة الأخير",M.aptFinalAmount,""]);
   rows.push(["تاريخ","شهر بداية الخطة",M.scheduleStart,""]);
-  rows.push(["تاريخ","شهر الولادة المتوقع",M.babyDueDate,""]);
   rows.push(["تاريخ","استحقاق وديعة صيانة الشقة",M.aptDepositDate,""]);
   rows.push(["تاريخ","استحقاق قسط الشقة الأخير",M.aptFinalDate,""]);
   rows.push(["تاريخ","شهر انتهاء العقد",M.contractRenewalDate,""]);
