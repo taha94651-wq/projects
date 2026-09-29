@@ -401,14 +401,14 @@
   </section>
 
   <section>
-    <div class="sec-head"><span class="no">03</span><h2>المولود القادم</h2><span class="tag" id="babyTag"></span><div class="rule"></div></div>
+    <div class="sec-head"><span class="no">03</span><h2>مصاريف المولود الشهرية</h2><span class="tag" id="babyTag"></span><div class="rule"></div></div>
     <div class="card baby">
       <div class="row">
-        <div class="cell"><div class="big"><span class="num" id="babyOneTimeVal"></span></div><div class="t">تكلفة لمرة واحدة (ولادة + تجهيزات + إقامة + أوراق)</div></div>
-        <div class="cell"><div class="big ink"><span class="num" id="babyMonthlyVal"></span></div><div class="t">مصاريف شهرية إضافية</div></div>
-        <div class="cell"><div class="big ink"><span class="num" id="babySurplus"></span></div><div class="t">الفائض المتاح شهر الولادة<br>(قبل ادخار الشقة)</div></div>
+        <div class="cell"><div class="big ink"><span class="num" id="babyMonthlyVal"></span></div><div class="t">الميزانية الشهرية المخصصة</div></div>
+        <div class="cell"><div class="big" id="babyActualCell"><span class="num" id="babyActualVal"></span></div><div class="t">الفعلي المسجّل هذا الشهر<br>(من سجل المصاريف، تصنيف «مولود وأطفال»)</div></div>
+        <div class="cell"><div class="big ink"><span class="num" id="babyPctVal"></span></div><div class="t">نسبتها من الدخل الموثوق</div></div>
         <div class="solve">
-          <div class="t" style="margin-bottom:5px">هل يكفي الفائض لتكلفة الولادة؟</div>
+          <div class="t" style="margin-bottom:5px">مقارنة الفعلي بالميزانية</div>
           <div id="babyVerdict"></div>
           <div class="t" id="babySolve" style="margin-top:6px"></div>
         </div>
@@ -550,7 +550,7 @@
 /* ============ الافتراضيات ============ */
 const DEFAULTS = {
   income0:21750, rent0:3545, food0:2000, varianceBuffer:719,
-  babyExtra:1200, babyOneTime:10500,
+  babyExtra:1200,
   scheduleStart:"2026-08", babyDueDate:"2026-09", contractRenewalDate:"2027-01",
   aptDepositAmount:41810, aptDepositDate:"2027-11",
   aptFinalAmount:64161, aptFinalDate:"2028-05",
@@ -785,7 +785,6 @@ function buildEFSeries(R){
       if(i<finalOffset) net-=rateFinal;
     }
     if(i>=babyOffset) net-=M.babyExtra;
-    if(i===babyOffset) net-=M.babyOneTime;
     bal+=net; series.push(Math.round(bal));
   }
   return series;
@@ -839,18 +838,22 @@ function render(){
   $("#mastIncome").textContent=fmt(R.income);
   $("#scpill").classList.toggle("show",on);
 
-  const surplusAfterBaby=R.apparentSurplus-M.babyExtra;
-  const birthGap=M.babyOneTime-R.apparentSurplus;
-  $("#babyOneTimeVal").textContent=fmt(M.babyOneTime);
   $("#babyMonthlyVal").textContent=fmt(M.babyExtra);
-  $("#babySurplus").textContent=fmt(surplusAfterBaby);
-  $("#babyTag").textContent="متوقع "+fmtMonthAr(M.babyDueDate)+" · أولوية فورية";
-  if(birthGap>0){
-    $("#babyVerdict").innerHTML='<span class="gap">لا — نقص '+numT(fmt(birthGap))+" ريال</span>";
-    $("#babySolve").innerHTML="الحل: ادخار دفعات الشقة مش مفعّل حالياً فمفيش داعي توقفه. غطّي الفرق من مستحقات الشغل المتأخر أو من «دخل إضافي متغير» (قسم 12).";
+  const babyActual=EXPENSES.filter(e=>e.category==="مولود وأطفال"&&e.date.startsWith(todayYM())).reduce((a,b)=>a+b.amount,0);
+  $("#babyActualVal").textContent=fmt(babyActual);
+  $("#babyPctVal").textContent=pct(M.babyExtra/R.income);
+  $("#babyTag").textContent="جزء من المصاريف الثابتة · بدأت "+fmtMonthAr(M.babyDueDate);
+  const babyDiff=babyActual-M.babyExtra;
+  const babyCell=$("#babyActualCell"); babyCell.className="big "+(babyActual===0?"ink":babyDiff>0?"":"ink");
+  if(babyActual===0){
+    $("#babyVerdict").innerHTML='<span class="t" style="color:var(--faint)">مفيش مصاريف مسجّلة الشهر ده لسه</span>';
+    $("#babySolve").innerHTML="سجّل مصاريف المولود أول بأول من «سجل المصاريف التفصيلي» (قسم 13) — وصف زي «بامبرز» أو «لبن أطفال» بيتصنّف تلقائي.";
+  }else if(babyDiff>0){
+    $("#babyVerdict").innerHTML='<span class="gap">أعلى من الميزانية بـ '+numT(fmt(babyDiff))+" ريال</span>";
+    $("#babySolve").innerHTML="راجع الميزانية الشهرية ("+numT(fmt(M.babyExtra))+") في «01 بيانات الأسرة» — يمكن محتاجة تتزوّد لو الفرق متكرر كل شهر.";
   }else{
-    $("#babyVerdict").innerHTML='<span class="ok">نعم — يكفي ويفضل '+numT(fmt(-birthGap))+" ريال</span>";
-    $("#babySolve").innerHTML="فائض شهر الولادة ("+numT(fmt(R.apparentSurplus))+") يغطّي التكلفة بالكامل.";
+    $("#babyVerdict").innerHTML='<span class="ok">ضمن الميزانية — باقي '+numT(fmt(-babyDiff))+" ريال</span>";
+    $("#babySolve").innerHTML="الفعلي المسجّل لسه تحت الميزانية المخصصة ("+numT(fmt(M.babyExtra))+" ريال/شهر).";
   }
 
   $("#vtag").className="vtag"+(on?" sim":"");
@@ -1018,7 +1021,6 @@ function buildScalarFields(){
   const defs=[
     ["income0","الدخل الشهري الموثوق"],["rent0","الإيجار"],["food0","الأكل (بيت + برا)"],
     ["varianceBuffer","مصاريف متغيرة غير مسجّلة (تقديري)"],["babyExtra","مصاريف المولود الشهرية"],
-    ["babyOneTime","تكلفة الولادة (مرة واحدة)"],
     ["aptDepositAmount","وديعة صيانة الشقة"],["aptFinalAmount","قسط الشقة الأخير (دفعة كبيرة)"]
   ];
   $("#dataScalars").innerHTML=defs.map(([f,l])=>'<div class="field"><label>'+l+'</label><div class="inwrap"><input type="text" inputmode="decimal" data-scalar="'+f+'" value="'+M[f]+'"><span>ريال</span></div></div>').join("");
@@ -1101,7 +1103,6 @@ async function exportCsv(){
   rows.push(["بيانات","الأكل (بيت + برا)",M.food0,""]);
   rows.push(["بيانات","مصاريف متغيرة غير مسجّلة",M.varianceBuffer,""]);
   rows.push(["بيانات","مصاريف المولود الشهرية",M.babyExtra,""]);
-  rows.push(["بيانات","تكلفة الولادة (مرة واحدة)",M.babyOneTime,""]);
   rows.push(["بيانات","وديعة صيانة الشقة",M.aptDepositAmount,""]);
   rows.push(["بيانات","قسط الشقة الأخير",M.aptFinalAmount,""]);
   rows.push(["تاريخ","شهر بداية الخطة",M.scheduleStart,""]);
@@ -1168,7 +1169,6 @@ function remStatus(date,key){
 function computeReminders(){
   const ezz=findInst("عز"), loan=findInst("القرض");
   const base=[
-    {id:"baby",title:"تجهيز ميزانية تكلفة الولادة ("+fmt(M.babyOneTime)+" ريال)",date:M.babyDueDate},
     {id:"aptDeposit",title:"استحقاق وديعة صيانة الشقة ("+fmt(M.aptDepositAmount)+" ريال)",date:M.aptDepositDate},
     {id:"aptFinal",title:"استحقاق قسط الشقة الأخير ("+fmt(M.aptFinalAmount)+" ريال)",date:M.aptFinalDate},
     {id:"contract",title:"انتهاء العقد الأساسي — ابدأ التفاوض بدري",date:M.contractRenewalDate},
@@ -1308,7 +1308,7 @@ function renderExpenses(){
     "<tr><td>"+r.date+'</td><td>'+(r.desc||"—")+'</td><td><span class="chip brass">'+r.category+'</span></td><td class="n">'+fmt(r.amount)+'</td><td><button class="ckdel" data-expdel="'+r.id+'" type="button">حذف</button></td></tr>'
   ).join(""):'<tr><td colspan="5" style="color:var(--faint);text-align:center">لسه ما فيش مصاريف مسجّلة</td></tr>';
   tbody.querySelectorAll("[data-expdel]").forEach(btn=>btn.addEventListener("click",()=>{
-    EXPENSES=EXPENSES.filter(r=>r.id!==+btn.dataset.expdel); saveExpenses(); renderExpenses();
+    EXPENSES=EXPENSES.filter(r=>r.id!==+btn.dataset.expdel); saveExpenses(); renderExpenses(); render();
   }));
   const thisMonth=todayYM();
   const monthTotal=EXPENSES.filter(r=>r.date.startsWith(thisMonth)).reduce((a,b)=>a+b.amount,0);
@@ -1326,7 +1326,7 @@ $("#expSave").addEventListener("click",()=>{
   const category=$("#expCategory").value||classifyExpense(desc);
   EXPENSES.push({id:Date.now(),date,desc,category,amount}); saveExpenses();
   $("#expDesc").value=""; $("#expAmount").value=""; $("#expCategory").value=EXPENSE_CATEGORIES[0].name;
-  renderExpenses();
+  renderExpenses(); render();
 });
 
 function expRangeFilter(){
