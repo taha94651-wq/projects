@@ -1,7 +1,40 @@
 (function () {
   "use strict";
 
-  const D = window.PORTFOLIO;
+  let D;
+
+  /* Fixed vocabularies — keys must match the select values in .pages.yml */
+  const VOCAB = {
+    types: {
+      retail: { ar: "متاجر", en: "Retail" },
+      gym: { ar: "صالات رياضية", en: "Gyms" },
+      residential: { ar: "سكني", en: "Residential" },
+      offices: { ar: "مكاتب", en: "Offices" },
+      hospitality: { ar: "ضيافة ومطاعم", en: "F&B & Hospitality" },
+      events: { ar: "فعاليات", en: "Events" },
+    },
+    aiKinds: {
+      images: { ar: "صور مولّدة", en: "Generated Images" },
+      sheets: { ar: "شيتات", en: "Sheets" },
+      workflows: { ar: "هيكلة المشاريع", en: "Project Structuring" },
+    },
+    status: {
+      built: { ar: "تم التنفيذ", en: "Built" },
+      progress: { ar: "قيد التنفيذ", en: "In progress" },
+      concept: { ar: "تصميم فقط", en: "Design only" },
+    },
+    phases: [
+      ["brief", { ar: "متطلبات العميل", en: "Client brief" }],
+      ["moodboard", { ar: "لوحة المزاج", en: "Mood board" }],
+      ["concept", { ar: "التصميم المبدئي", en: "Concept design" }],
+      ["render", { ar: "3D وإظهار", en: "3D & Render" }],
+      ["drawings", { ar: "رسومات تنفيذية", en: "Construction drawings" }],
+      ["materials", { ar: "اختيار المواد", en: "Material selection" }],
+      ["pricing", { ar: "التسعير", en: "Pricing" }],
+      ["supervision", { ar: "الإشراف على التنفيذ", en: "Site supervision" }],
+      ["handover", { ar: "التسليم", en: "Handover" }],
+    ],
+  };
   const app = document.getElementById("app");
   const html = document.documentElement;
 
@@ -15,7 +48,7 @@
       aiIntro: "How I use AI in practice: generated visuals, automated sheets and structured project workflows.",
       experience: "Experience", skills: "Skills", software: "Software", languages: "Languages", education: "Education",
       client: "Client", location: "Location", year: "Year", duration: "Duration", role: "Role", type: "Type", discipline: "Discipline",
-      scope: "Scope of work", overview: "Overview", backTo: "Back to index", next: "Next project",
+      scope: "Scope of work", status: "Status", area: "Area", tools: "Tools", myRole: "My role — phases", overview: "Overview", backTo: "Back to index", next: "Next project",
       contactEyebrow: "Contact", letsTalk: "Let’s work together", email: "Email", phone: "Phone", whatsapp: "WhatsApp",
       based: "Based in", online: "Online", empty: "Projects coming soon.", open: "Open", placeholder: "Image placeholder",
       rights: "All rights reserved.", execution: "Execution", design: "Design",
@@ -28,7 +61,7 @@
       aiIntro: "كيف أستخدم الذكاء الاصطناعي عمليًا: صور مولّدة، وشيتات مؤتمتة، وهيكلة سير عمل المشاريع.",
       experience: "الخبرات", skills: "المهارات", software: "البرامج", languages: "اللغات", education: "التعليم",
       client: "العميل", location: "الموقع", year: "السنة", duration: "المدة", role: "الدور", type: "النوع", discipline: "المجال",
-      scope: "نطاق العمل", overview: "نظرة عامة", backTo: "العودة للفهرس", next: "المشروع التالي",
+      scope: "نطاق العمل", status: "الحالة", area: "المساحة", tools: "البرامج", myRole: "دوري — المراحل", overview: "نظرة عامة", backTo: "العودة للفهرس", next: "المشروع التالي",
       contactEyebrow: "تواصل", letsTalk: "لنعمل معًا", email: "البريد", phone: "الهاتف", whatsapp: "واتساب",
       based: "المقر", online: "حسابات", empty: "المشاريع قريبًا.", open: "فتح", placeholder: "صورة مؤقتة",
       rights: "جميع الحقوق محفوظة.", execution: "التنفيذ", design: "التصميم",
@@ -50,7 +83,7 @@
       const s = localStorage.getItem("lang");
       if (s === "ar" || s === "en") return s;
     } catch (e) {}
-    return D.defaultLang || "en";
+    return (D && D.defaultLang) || "en";
   }
 
   /* ---------- Helpers ---------- */
@@ -335,7 +368,18 @@
       [u().year, t(p.year)],
       [u().duration, t(p.duration)],
       [u().role, t(p.role)],
+      [u().status, t(D.status[p.status])],
+      [u().area, t(p.area)],
+      [u().tools, (p.tools || []).join(" · ")],
     ].filter((m) => m[1]);
+
+    const done = new Set(p.phases || []);
+    const phases = done.size
+      ? `<span class="eyebrow">${esc(u().myRole)}</span>
+        <ol class="phases reveal">${VOCAB.phases
+          .map(([k, label], i) => `<li class="${done.has(k) ? "on" : ""}"><span>${pad(i + 1)}</span>${esc(t(label))}</li>`)
+          .join("")}</ol>`
+      : "";
 
     const media = p.media.length ? p.media : [{ type: "image", src: "" }];
     const gallery = media
@@ -344,7 +388,7 @@
         const cap = m.caption ? `<figcaption>${T(m.caption)}</figcaption>` : "";
         let inner;
         if (m.type === "video") inner = `<div class="frame"><video src="${esc(m.src)}" controls playsinline preload="metadata"></video></div>`;
-        else if (m.type === "youtube") inner = `<iframe src="https://www.youtube-nocookie.com/embed/${esc(m.id)}" title="${T(p.title)}" allowfullscreen loading="lazy"></iframe>`;
+        else if (m.type === "youtube") inner = `<iframe src="https://www.youtube-nocookie.com/embed/${esc(m.youtube || m.id)}" title="${T(p.title)}" allowfullscreen loading="lazy"></iframe>`;
         else {
           const src = img(m.src, p.id + "-" + i, t(p.title) + " — " + pad(i + 1));
           inner = `<div class="frame" data-zoom="${esc(src)}"><img loading="lazy" src="${esc(src)}" alt="${T(m.caption) || T(p.title)}" /></div>`;
@@ -366,6 +410,7 @@
         <span class="eyebrow">${esc(u().overview)}</span>
         <p class="pj__summary reveal">${T(p.summary)}</p>
         ${p.scope && p.scope.length ? `<span class="eyebrow">${esc(u().scope)}</span><div class="pj__scope reveal"><ul>${p.scope.map((s) => `<li>${T(s)}</li>`).join("")}</ul></div>` : ""}
+        ${phases}
       </div>
       <div class="gallery">${gallery}</div>
       <div class="wrap">
@@ -379,6 +424,7 @@
   /* ---------- Router ---------- */
   function route(force) {
     const h = location.hash;
+    if (h === "#/admin") return location.replace("https://app.pagescms.org/");
     renderChrome();
     if (h.startsWith("#/p/")) {
       const id = decodeURIComponent(h.slice(4));
@@ -491,10 +537,27 @@
     if (e.key === "Escape") { closeLightbox(); document.body.classList.remove("menu-open"); }
   });
 
-  route(true);
-  // honour an initial section hash (e.g. #contact)
-  if (location.hash.length > 1 && !location.hash.startsWith("#/p/")) {
-    const el = document.getElementById(location.hash.slice(1));
-    if (el) el.scrollIntoView();
+  function boot() {
+    route(true);
+    // honour an initial section hash (e.g. #contact)
+    if (location.hash.length > 1 && !location.hash.startsWith("#/")) {
+      const el = document.getElementById(location.hash.slice(1));
+      if (el) el.scrollIntoView();
+    }
   }
+
+  const load = (f) => fetch(f, { cache: "no-cache" }).then((r) => {
+    if (!r.ok) throw new Error(f + " " + r.status);
+    return r.json();
+  });
+  Promise.all([load("content/site.json"), load("content/projects.json"), load("content/ai.json")])
+    .then(([site, pj, ai]) => {
+      D = Object.assign({}, site, VOCAB, { projects: pj.projects || [], ai: ai.items || [] });
+      state.lang = pickLang();
+      boot();
+    })
+    .catch((err) => {
+      console.error(err);
+      app.innerHTML = '<p style="padding:120px 24px">Content failed to load. Please refresh.</p>';
+    });
 })();

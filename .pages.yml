@@ -1,0 +1,249 @@
+# Pages CMS — لوحة التحكم (https://app.pagescms.org)
+# كل الصور والملفات اللي بترفعها بتتحفظ جوه فولدر assets
+
+media:
+  input: assets
+  output: assets
+
+components:
+  bi:
+    type: object
+    fields:
+      - { name: en, label: English, type: string }
+      - { name: ar, label: عربي, type: string }
+  bitext:
+    type: object
+    fields:
+      - { name: en, label: English, type: text }
+      - { name: ar, label: عربي, type: text }
+
+content:
+  # ============================ PROJECTS ============================
+  - name: projects
+    label: Projects — المشاريع
+    type: file
+    path: content/projects.json
+    format: json
+    fields:
+      - name: projects
+        label: Projects
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title.en} — {type}"
+        fields:
+          - name: id
+            label: Link ID
+            description: "حروف إنجليزي صغيرة وشرطات بس — ده اللي بيظهر في لينك المشروع (مثال: assaf-perfumes)"
+            type: string
+            required: true
+            pattern: { regex: "^[a-z0-9-]+$", message: "a-z, 0-9 and - only" }
+          - { name: title, label: Project name — اسم المشروع, component: bi }
+          - name: disciplines
+            label: Section — القسم
+            type: select
+            required: true
+            options:
+              multiple: true
+              values:
+                - { value: execution, label: Execution — تنفيذ }
+                - { value: design, label: Design — تصميم }
+          - name: type
+            label: Project type — نوع المشروع
+            type: select
+            required: true
+            options:
+              values:
+                - { value: retail, label: Retail — متاجر }
+                - { value: gym, label: Gyms — صالات رياضية }
+                - { value: residential, label: Residential — سكني }
+                - { value: offices, label: Offices — مكاتب }
+                - { value: hospitality, label: F&B & Hospitality — ضيافة ومطاعم }
+                - { value: events, label: Events — فعاليات }
+          - name: status
+            label: Status — الحالة
+            type: select
+            options:
+              values:
+                - { value: built, label: Built — تم التنفيذ }
+                - { value: progress, label: In progress — قيد التنفيذ }
+                - { value: concept, label: Design only — تصميم فقط }
+          - { name: client, label: Client — العميل, component: bi }
+          - { name: location, label: Location — المكان, component: bi }
+          - { name: year, label: Year — السنة, type: string }
+          - { name: duration, label: Duration — المدة, component: bi }
+          - { name: area, label: "Area — المساحة (مثال: 250 m²)", type: string }
+          - { name: role, label: My role (short) — دوري باختصار, component: bi }
+          - name: phases
+            label: My role — phases I delivered / المراحل اللي عملتها
+            type: select
+            options:
+              multiple: true
+              values:
+                - { value: brief, label: Client brief — متطلبات العميل }
+                - { value: moodboard, label: Mood board — لوحة المزاج }
+                - { value: concept, label: Concept design — التصميم المبدئي }
+                - { value: render, label: 3D & Render — 3D وإظهار }
+                - { value: drawings, label: Construction drawings — رسومات تنفيذية }
+                - { value: materials, label: Material selection — اختيار المواد }
+                - { value: pricing, label: Pricing — التسعير }
+                - { value: supervision, label: Site supervision — الإشراف }
+                - { value: handover, label: Handover — التسليم }
+          - { name: tools, label: Tools / software — البرامج, type: string, list: true }
+          - { name: summary, label: Overview — وصف المشروع, component: bitext }
+          - name: scope
+            label: Scope of work — نطاق العمل
+            component: bi
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{en}"
+          - { name: cover, label: Cover image — صورة الغلاف, type: image }
+          - name: media
+            label: Gallery — معرض الصور والفيديو
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{type} {src}{youtube}"
+            fields:
+              - name: type
+                label: Type
+                type: select
+                default: image
+                options:
+                  values:
+                    - { value: image, label: Image — صورة }
+                    - { value: video, label: Video file — فيديو }
+                    - { value: youtube, label: YouTube }
+              - { name: src, label: Image / video file, type: file }
+              - { name: youtube, label: "YouTube video ID (e.g. dQw4w9WgXcQ)", type: string }
+              - { name: caption, label: Caption — تعليق, component: bi }
+
+  # ============================ AI WORK ============================
+  - name: ai
+    label: AI Work — شغل الذكاء الاصطناعي
+    type: file
+    path: content/ai.json
+    format: json
+    fields:
+      - name: items
+        label: Items
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title.en} — {kind}"
+        fields:
+          - name: kind
+            label: Category — التصنيف
+            type: select
+            required: true
+            options:
+              values:
+                - { value: images, label: Generated images — صور مولّدة }
+                - { value: sheets, label: Sheets — شيتات }
+                - { value: workflows, label: Project structuring — هيكلة المشاريع }
+          - { name: title, label: Title — العنوان, component: bi }
+          - { name: desc, label: Description — الوصف, component: bitext }
+          - { name: tools, label: Tools — الأدوات, type: string, list: true }
+          - { name: src, label: Image — صورة, type: image }
+          - { name: link, label: "External link (optional) — لينك خارجي", type: string }
+
+  # ============================ PROFILE ============================
+  - name: site
+    label: Profile & CV — البيانات والسيرة
+    type: file
+    path: content/site.json
+    format: json
+    fields:
+      - name: defaultLang
+        label: Default language — اللغة الأساسية
+        type: select
+        options:
+          values:
+            - { value: en, label: English }
+            - { value: ar, label: عربي }
+      - name: profile
+        label: Profile — البيانات الأساسية
+        type: object
+        fields:
+          - { name: name, label: Name — الاسم, component: bi }
+          - { name: title, label: Title — المسمى, component: bi }
+          - { name: summary, label: Summary (hero) — الوصف في الواجهة, component: bitext }
+          - { name: heroImage, label: Hero image — صورة الواجهة, type: image }
+          - { name: photo, label: Personal photo — صورتك, type: image }
+          - { name: cv, label: CV (PDF), type: file }
+          - { name: location, label: Location — المكان, component: bi }
+          - { name: email, label: Email, type: string }
+          - { name: phone, label: Phone, type: string }
+          - { name: whatsapp, label: "WhatsApp (digits only, e.g. 9665…)", type: string }
+          - name: socials
+            label: Social links
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{label}"
+            fields:
+              - { name: label, label: Name, type: string }
+              - { name: url, label: URL, type: string }
+      - name: experience
+        label: Experience — الخبرات
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{role.en} — {company.en}"
+        fields:
+          - { name: role, label: Role — المسمى, component: bi }
+          - { name: company, label: Company — الشركة, component: bi }
+          - { name: period, label: Period — الفترة, component: bi }
+          - name: points
+            label: Achievements — الإنجازات
+            component: bitext
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{en}"
+      - name: education
+        label: Education — التعليم
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title.en}"
+        fields:
+          - { name: title, label: Title, component: bi }
+          - { name: period, label: Period, type: string }
+      - name: skills
+        label: Skills — المهارات
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{group.en}"
+        fields:
+          - { name: group, label: Group, component: bi }
+          - { name: items, label: Skills, type: string, list: true }
+      - name: software
+        label: Software — البرامج
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{group.en}"
+        fields:
+          - { name: group, label: Group, component: bi }
+          - { name: items, label: Software, type: string, list: true }
+      - name: languages
+        label: Languages — اللغات
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name.en}"
+        fields:
+          - { name: name, label: Language, component: bi }
+          - { name: level, label: Level, component: bi }

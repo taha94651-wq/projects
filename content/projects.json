@@ -1,0 +1,562 @@
+{
+  "projects": [
+    {
+      "id": "makhazen-al-enaya",
+      "title": {
+        "ar": "مخازن العناية",
+        "en": "Makhazen Al Enaya"
+      },
+      "disciplines": [
+        "design",
+        "execution"
+      ],
+      "type": "retail",
+      "status": "built",
+      "client": {
+        "ar": "مخازن العناية",
+        "en": "Makhazen Al Enaya"
+      },
+      "location": {
+        "ar": "المملكة العربية السعودية",
+        "en": "Saudi Arabia"
+      },
+      "year": "",
+      "duration": {
+        "ar": "",
+        "en": ""
+      },
+      "area": "",
+      "role": {
+        "ar": "التصميم والتنفيذ",
+        "en": "Design & Execution"
+      },
+      "phases": [],
+      "tools": [],
+      "summary": {
+        "ar": "7 فروع جديدة مصممة وفق الهوية الجديدة للعلامة، وتجديد 7 فروع قائمة مع إعادة تصميم قسم المكياج.",
+        "en": "7 new branches designed to the new brand identity, and 7 existing branches renovated with a redesigned makeup section."
+      },
+      "scope": [
+        {
+          "ar": "تصميم الفروع الجديدة وفق الهوية الجديدة",
+          "en": "Branch design to the new brand identity"
+        },
+        {
+          "ar": "إعادة تصميم قسم المكياج",
+          "en": "Makeup section redesign"
+        },
+        {
+          "ar": "تنفيذ وتسليم 14 فرعًا",
+          "en": "Execution and handover of 14 branches"
+        }
+      ],
+      "cover": "",
+      "media": [
+        {
+          "type": "image",
+          "src": "",
+          "youtube": "",
+          "caption": {
+            "ar": "",
+            "en": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "",
+          "youtube": "",
+          "caption": {
+            "ar": "",
+            "en": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "",
+          "youtube": "",
+          "caption": {
+            "ar": "",
+            "en": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "assaf-perfumes",
+      "title": {
+        "ar": "عساف للعطور",
+        "en": "Assaf Perfumes"
+      },
+      "disciplines": [
+        "execution"
+      ],
+      "type": "retail",
+      "status": "built",
+      "client": {
+        "ar": "عساف للعطور",
+        "en": "Assaf Perfumes"
+      },
+      "location": {
+        "ar": "المملكة العربية السعودية",
+        "en": "Across KSA"
+      },
+      "year": "",
+      "duration": {
+        "ar": "",
+        "en": ""
+      },
+      "area": "",
+      "role": {
+        "ar": "التنفيذ",
+        "en": "Execution"
+      },
+      "phases": [],
+      "tools": [],
+      "summary": {
+        "ar": "11 متجرًا في أنحاء المملكة: وحدات عرض وأكشاك داخل المولات.",
+        "en": "11 stores across KSA: display units and in-mall booths."
+      },
+      "scope": [
+        {
+          "ar": "وحدات العرض",
+          "en": "Display units"
+        },
+        {
+          "ar": "أكشاك داخل المولات",
+          "en": "In-mall booths"
+        }
+      ],
+      "cover": "",
+      "media": [
+        {
+          "type": "image",
+          "src": "",
+          "youtube": "",
+          "caption": {
+            "ar": "",
+            "en": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "",
+          "youtube": "",
+          "caption": {
+            "ar": "",
+            "en": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "fitness-time-ladies",
+      "title": {
+        "ar": "فتنس تايم للسيدات",
+        "en": "Fitness Time Ladies"
+      },
+      "disciplines": [
+        "execution"
+      ],
+      "type": "gym",
+      "status": "built",
+      "client": {
+        "ar": "فتنس تايم",
+        "en": "Fitness Time"
+      },
+      "location": {
+        "ar": "خريص، الرياض",
+        "en": "Khurais, Riyadh"
+      },
+      "year": "",
+      "duration": {
+        "ar": "",
+        "en": ""
+      },
+      "area": "",
+      "role": {
+        "ar": "التنفيذ",
+        "en": "Execution"
+      },
+      "phases": [],
+      "tools": [],
+      "summary": {
+        "ar": "تنفيذ أعمال تشطيب صالة رياضية.",
+        "en": "Gym fit-out execution."
+      },
+      "scope": [],
+      "cover": "",
+      "media": [
+        {
+          "type": "image",
+          "src": "",
+          "youtube": "",
+          "caption": {
+            "ar": "",
+            "en": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "",
+          "youtube": "",
+          "caption": {
+            "ar": "",
+            "en": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "old-school-gym",
+      "title": {
+        "ar": "أولد سكول جيم",
+        "en": "Old School Gym"
+      },
+      "disciplines": [
+        "execution"
+      ],
+      "type": "gym",
+      "status": "built",
+      "client": {
+        "ar": "أولد سكول جيم",
+        "en": "Old School Gym"
+      },
+      "location": {
+        "ar": "",
+        "en": ""
+      },
+      "year": "",
+      "duration": {
+        "ar": "",
+        "en": ""
+      },
+      "area": "",
+      "role": {
+        "ar": "التنفيذ",
+        "en": "Execution"
+      },
+      "phases": [],
+      "tools": [],
+      "summary": {
+        "ar": "تنفيذ أعمال تشطيب صالة رياضية.",
+        "en": "Gym fit-out execution."
+      },
+      "scope": [],
+      "cover": "",
+      "media": [
+        {
+          "type": "image",
+          "src": "",
+          "youtube": "",
+          "caption": {
+            "ar": "",
+            "en": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "laverne-perfumes",
+      "title": {
+        "ar": "لافيرن للعطور",
+        "en": "Laverne Perfumes"
+      },
+      "disciplines": [
+        "execution"
+      ],
+      "type": "retail",
+      "status": "built",
+      "client": {
+        "ar": "لافيرن للعطور",
+        "en": "Laverne Perfumes"
+      },
+      "location": {
+        "ar": "",
+        "en": ""
+      },
+      "year": "",
+      "duration": {
+        "ar": "",
+        "en": ""
+      },
+      "area": "",
+      "role": {
+        "ar": "التنفيذ",
+        "en": "Execution"
+      },
+      "phases": [],
+      "tools": [],
+      "summary": {
+        "ar": "أكشاك عرض داخل المولات.",
+        "en": "In-mall display booths."
+      },
+      "scope": [],
+      "cover": "",
+      "media": [
+        {
+          "type": "image",
+          "src": "",
+          "youtube": "",
+          "caption": {
+            "ar": "",
+            "en": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "private-villa",
+      "title": {
+        "ar": "فيلا خاصة",
+        "en": "Private Villa"
+      },
+      "disciplines": [
+        "execution"
+      ],
+      "type": "residential",
+      "status": "built",
+      "client": {
+        "ar": "عميل رفيع المستوى",
+        "en": "High-profile client"
+      },
+      "location": {
+        "ar": "الرياض",
+        "en": "Riyadh"
+      },
+      "year": "",
+      "duration": {
+        "ar": "",
+        "en": ""
+      },
+      "area": "",
+      "role": {
+        "ar": "التنفيذ",
+        "en": "Execution"
+      },
+      "phases": [],
+      "tools": [],
+      "summary": {
+        "ar": "تنفيذ أعمال التشطيب لفيلا خاصة لعميل رفيع المستوى.",
+        "en": "Fit-out execution of a private villa for a high-profile client."
+      },
+      "scope": [],
+      "cover": "",
+      "media": [
+        {
+          "type": "image",
+          "src": "",
+          "youtube": "",
+          "caption": {
+            "ar": "",
+            "en": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "chadel-chalet",
+      "title": {
+        "ar": "شاليه شادل",
+        "en": "Chadel Chalet"
+      },
+      "disciplines": [
+        "execution"
+      ],
+      "type": "residential",
+      "status": "built",
+      "client": {
+        "ar": "",
+        "en": ""
+      },
+      "location": {
+        "ar": "الرياض",
+        "en": "Riyadh"
+      },
+      "year": "",
+      "duration": {
+        "ar": "",
+        "en": ""
+      },
+      "area": "",
+      "role": {
+        "ar": "التنفيذ",
+        "en": "Execution"
+      },
+      "phases": [],
+      "tools": [],
+      "summary": {
+        "ar": "تنفيذ أعمال التشطيب لشاليه.",
+        "en": "Chalet fit-out execution."
+      },
+      "scope": [],
+      "cover": "",
+      "media": [
+        {
+          "type": "image",
+          "src": "",
+          "youtube": "",
+          "caption": {
+            "ar": "",
+            "en": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "rasees-beluar",
+      "title": {
+        "ar": "رسيس وبلوار",
+        "en": "Rasees & Beluar"
+      },
+      "disciplines": [
+        "execution"
+      ],
+      "type": "events",
+      "status": "built",
+      "client": {
+        "ar": "رسيس وبلوار",
+        "en": "Rasees & Beluar"
+      },
+      "location": {
+        "ar": "",
+        "en": ""
+      },
+      "year": "",
+      "duration": {
+        "ar": "",
+        "en": ""
+      },
+      "area": "",
+      "role": {
+        "ar": "التنفيذ",
+        "en": "Execution"
+      },
+      "phases": [],
+      "tools": [],
+      "summary": {
+        "ar": "تنفيذ فعاليات لعلامات تجارية.",
+        "en": "Brand events execution."
+      },
+      "scope": [],
+      "cover": "",
+      "media": [
+        {
+          "type": "image",
+          "src": "",
+          "youtube": "",
+          "caption": {
+            "ar": "",
+            "en": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "design-project-01",
+      "title": {
+        "ar": "مشروع تصميم 01",
+        "en": "Design Project 01"
+      },
+      "disciplines": [
+        "design"
+      ],
+      "type": "offices",
+      "status": "",
+      "client": {
+        "ar": "",
+        "en": ""
+      },
+      "location": {
+        "ar": "",
+        "en": ""
+      },
+      "year": "",
+      "duration": {
+        "ar": "",
+        "en": ""
+      },
+      "area": "",
+      "role": {
+        "ar": "دورك في المشروع",
+        "en": "Your role"
+      },
+      "phases": [],
+      "tools": [],
+      "summary": {
+        "ar": "وصف المشروع.",
+        "en": "Project description."
+      },
+      "scope": [],
+      "cover": "",
+      "media": [
+        {
+          "type": "image",
+          "src": "",
+          "youtube": "",
+          "caption": {
+            "ar": "",
+            "en": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "",
+          "youtube": "",
+          "caption": {
+            "ar": "",
+            "en": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "design-project-02",
+      "title": {
+        "ar": "مشروع تصميم 02",
+        "en": "Design Project 02"
+      },
+      "disciplines": [
+        "design"
+      ],
+      "type": "residential",
+      "status": "",
+      "client": {
+        "ar": "",
+        "en": ""
+      },
+      "location": {
+        "ar": "",
+        "en": ""
+      },
+      "year": "",
+      "duration": {
+        "ar": "",
+        "en": ""
+      },
+      "area": "",
+      "role": {
+        "ar": "دورك في المشروع",
+        "en": "Your role"
+      },
+      "phases": [],
+      "tools": [],
+      "summary": {
+        "ar": "وصف المشروع.",
+        "en": "Project description."
+      },
+      "scope": [],
+      "cover": "",
+      "media": [
+        {
+          "type": "image",
+          "src": "",
+          "youtube": "",
+          "caption": {
+            "ar": "",
+            "en": ""
+          }
+        }
+      ]
+    }
+  ]
+}
