@@ -912,16 +912,46 @@
       },
       "area": "",
       "role": {
-        "ar": "التنفيذ",
-        "en": "Execution"
+        "en": "Specification, pricing, fabrication & installation",
+        "ar": "التوصيف والتسعير والتصنيع والتركيب"
       },
-      "phases": [],
+      "phases": [
+        "materials",
+        "pricing",
+        "supervision",
+        "handover"
+      ],
       "tools": [],
       "summary": {
-        "en": "An in-mall display booth for Laverne, the Saudi fragrance house, at Cenomi Al Nakheel Mall, Riyadh.",
-        "ar": "جناح عرض داخل المول لعلامة لافيرن السعودية للعطور في سينومي النخيل مول بالرياض."
+        "en": "An in-mall display booth for Laverne, the Saudi fragrance house, at Cenomi Al Nakheel Mall, Riyadh. I wrote the specifications, priced the booth, approved the materials and took it through fabrication to installation on the mall floor.",
+        "ar": "جناح عرض داخل المول لعلامة لافيرن السعودية للعطور في سينومي النخيل مول بالرياض. أعددت التوصيف الفني، وسعّرت الجناح، واعتمدت الخامات، وتابعت تصنيعه حتى تركيبه في المول."
       },
-      "scope": [],
+      "scope": [
+        {
+          "en": "Technical specification",
+          "ar": "إعداد التوصيف الفني"
+        },
+        {
+          "en": "Pricing and cost estimate",
+          "ar": "التسعير وتقدير التكلفة"
+        },
+        {
+          "en": "Material approvals",
+          "ar": "اعتماد الخامات"
+        },
+        {
+          "en": "Fabrication of the booth and display units",
+          "ar": "تصنيع الجناح ووحدات العرض"
+        },
+        {
+          "en": "On-site installation in the mall",
+          "ar": "التركيب في الموقع داخل المول"
+        },
+        {
+          "en": "Execution and handover",
+          "ar": "التنفيذ والتسليم"
+        }
+      ],
       "cover": "",
       "media": [
         {
