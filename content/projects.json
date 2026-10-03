@@ -898,8 +898,8 @@
       "type": "retail",
       "status": "built",
       "client": {
-        "en": "Laverne Perfumes",
-        "ar": "لافيرن للعطور"
+        "en": "Laverne",
+        "ar": "لافيرن"
       },
       "location": {
         "en": "Cenomi Al Nakheel Mall, Riyadh",
@@ -918,8 +918,8 @@
       "phases": [],
       "tools": [],
       "summary": {
-        "en": "An in-mall display booth for Laverne Perfumes, the Saudi fragrance house, at Cenomi Al Nakheel Mall, Riyadh.",
-        "ar": "جناح عرض داخل المول لعلامة لافيرن للعطور السعودية في سينومي النخيل مول بالرياض."
+        "en": "An in-mall display booth for Laverne, the Saudi fragrance house, at Cenomi Al Nakheel Mall, Riyadh.",
+        "ar": "جناح عرض داخل المول لعلامة لافيرن السعودية للعطور في سينومي النخيل مول بالرياض."
       },
       "scope": [],
       "cover": "",
