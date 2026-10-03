@@ -530,32 +530,137 @@
           "ar": "التسليم لشركة لجام للرياضة"
         }
       ],
-      "cover": "assets/images/fitness-time-ladies/02-reformer-studio.jpg",
+      "cover": "assets/images/fitness-time-ladies/05-green-wall-stair.jpg",
       "media": [
         {
-          "type": "image",
-          "src": "assets/images/fitness-time-ladies/02-reformer-studio.jpg",
+          "type": "video",
+          "src": "assets/videos/fitness-time-khurais.mp4",
           "youtube": "",
-          "poster": "",
-          "size": "half",
+          "poster": "assets/images/fitness-time-ladies/01-pilates-studio.jpg",
+          "size": "wide",
           "caption": {
-            "en": "Pilates studio with reformer beds",
-            "ar": "استوديو البيلاتس وأجهزة الريفورمر"
+            "en": "Walkthrough: pilates studio, staircase and court",
+            "ar": "جولة: صالة البيلاتس والدرج والملعب"
           },
           "section": {
-            "en": "Pilates studio",
-            "ar": "استوديو البيلاتس"
+            "en": "Walkthrough",
+            "ar": "جولة"
           }
         },
         {
           "type": "image",
-          "src": "assets/images/fitness-time-ladies/01-reformer-detail.jpg",
+          "src": "assets/images/fitness-time-ladies/01-pilates-studio.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Pilates studio with reformer beds",
+            "ar": "صالة البيلاتس وأجهزة الريفورمر"
+          },
+          "section": {
+            "en": "Pilates studio",
+            "ar": "صالة البيلاتس"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/fitness-time-ladies/02-pool-view.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Reformers along the pool-view windows",
+            "ar": "الريفورمر بجوار نوافذ المسبح"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/fitness-time-ladies/03-green-wall.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Green wall",
+            "ar": "الحائط الأخضر"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/fitness-time-ladies/05-green-wall-stair.jpg",
           "youtube": "",
           "poster": "",
           "size": "half",
           "caption": {
-            "en": "Reformer detail",
-            "ar": "تفصيلة جهاز الريفورمر"
+            "en": "Staircase: green wall and timber slats",
+            "ar": "الدرج: الحائط الأخضر والشرائح الخشبية"
+          },
+          "section": {
+            "en": "Staircase",
+            "ar": "منطقة الدرج"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/fitness-time-ladies/06-stair-ascent.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Staircase ascent",
+            "ar": "الصعود على الدرج"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/fitness-time-ladies/07-court-through-fence.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Multi-sport court with PU flooring",
+            "ar": "الملعب متعدد الرياضات بأرضيات PU"
+          },
+          "section": {
+            "en": "PU court",
+            "ar": "ملعب PU"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/fitness-time-ladies/08-court-entrance.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Court enclosure and entrance",
+            "ar": "سياج الملعب والمدخل"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/fitness-time-ladies/09-terrace-tiling.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Terrace tiling and pebble trim",
+            "ar": "بلاط التراس وحافة الحصى"
           },
           "section": {
             "en": "",
@@ -568,7 +673,7 @@
         "ar": ""
       },
       "result": "",
-      "coverVideo": "",
+      "coverVideo": "assets/videos/fitness-time-khurais-loop.mp4",
       "designer": {
         "en": "",
         "ar": ""
