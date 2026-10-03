@@ -195,7 +195,10 @@
         <div class="hero__meta eyebrow reveal"><span>${T(P.title)}</span><span>${T(P.location)}</span></div>
         <h1 class="hero__name reveal">${nameHTML}</h1>
         <div class="hero__role reveal">
-          <p class="hero__title">${esc(role)}${rest ? ` <em>/ ${esc(rest)}</em>` : ""}</p>
+          <div class="hero__id">
+            ${P.photo ? `<img class="hero__photo" src="${esc(P.photo)}" alt="${T(P.name)}" width="88" height="88" />` : ""}
+            <p class="hero__title">${esc(role)}${rest ? ` <em>/ ${esc(rest)}</em>` : ""}</p>
+          </div>
           <p class="hero__summary">${T(P.summary)}</p>
           <div class="hero__cta">
             <a class="btn btn--solid" href="#execution">${esc(u().viewWork)} <span>${arrow}</span></a>

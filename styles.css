@@ -120,7 +120,9 @@ html[lang="ar"] .hero__name .line-2 { padding-inline-start: 0; }
   padding-block: 28px 56px; border-top: 1px solid var(--line);
 }
 .hero__role .eyebrow { grid-column: 1 / span 4; }
-.hero__title { grid-column: 1 / span 5; margin: 0; font-size: clamp(22px, 2.2vw, 32px); font-weight: 400; letter-spacing: -0.02em; line-height: 1.15; }
+.hero__id { grid-column: 1 / span 5; display: flex; align-items: center; gap: 18px; align-self: start; }
+.hero__photo { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; flex: none; filter: grayscale(1); }
+.hero__title { margin: 0; font-size: clamp(22px, 2.2vw, 32px); font-weight: 400; letter-spacing: -0.02em; line-height: 1.15; }
 .hero__title em { font-style: normal; color: var(--gold); }
 .hero__summary { grid-column: 6 / span 7; margin: 0; font-size: clamp(17px, 1.45vw, 21px); line-height: 1.55; color: rgba(239, 235, 228, 0.82); font-weight: 300; }
 html[lang="ar"] .hero__summary { line-height: 1.9; }
