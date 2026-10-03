@@ -992,6 +992,272 @@
       ]
     },
     {
+      "id": "nova-15-apartment",
+      "title": {
+        "en": "Nova 15 Apartment",
+        "ar": "شقة نوفا 15"
+      },
+      "disciplines": [
+        "execution"
+      ],
+      "type": "residential",
+      "result": "",
+      "status": "built",
+      "client": {
+        "en": "AXIO Architects",
+        "ar": "AXIO Architects"
+      },
+      "company": {
+        "en": "",
+        "ar": ""
+      },
+      "location": {
+        "en": "Al Malqa, Riyadh",
+        "ar": "حي الملقا، الرياض"
+      },
+      "year": "2024",
+      "duration": {
+        "en": "2 months",
+        "ar": "شهران"
+      },
+      "area": "",
+      "role": {
+        "en": "Pricing, execution, material approval & furniture supply",
+        "ar": "التسعير والتنفيذ واعتماد الخامات وتوريد الأثاث"
+      },
+      "phases": [
+        "materials",
+        "pricing",
+        "supervision"
+      ],
+      "tools": [],
+      "summary": {
+        "en": "A residential apartment occupying part of a floor in the Nova 15 compound in Al Malqa, Riyadh, delivered for AXIO Architects. Over two months I priced the works, approved the finishing materials, supplied the furniture and supervised selected fit-out packages on site, from the double-height living area under the skylight to the kitchen, bedrooms and built-in joinery.",
+        "ar": "شقة سكنية تشغل جزءًا من دور في مجمع نوفا 15 بحي الملقا في الرياض، لصالح مكتب AXIO Architects. خلال شهرين تولّيت تسعير الأعمال واعتماد مواد التشطيب وتوريد الأثاث والإشراف على بنود مختارة من أعمال التشطيب في الموقع، من المعيشة بالارتفاع المزدوج تحت الشباك السقفي إلى المطبخ وغرف النوم وأعمال النجارة المدمجة."
+      },
+      "scope": [
+        {
+          "en": "Pricing and cost estimate",
+          "ar": "التسعير وتقدير التكلفة"
+        },
+        {
+          "en": "Finishing material submittals and approvals",
+          "ar": "تقديم واعتماد عينات مواد التشطيب"
+        },
+        {
+          "en": "Furniture supply and installation",
+          "ar": "توريد وتركيب الأثاث"
+        },
+        {
+          "en": "Supervision of selected fit-out packages",
+          "ar": "الإشراف على بنود مختارة من أعمال التشطيب"
+        },
+        {
+          "en": "Coordination with the design office (AXIO Architects)",
+          "ar": "التنسيق مع مكتب التصميم (AXIO Architects)"
+        }
+      ],
+      "cover": "assets/images/nova-15/cover.jpg",
+      "coverVideo": "assets/videos/nova-15.mp4",
+      "media": [
+        {
+          "type": "video",
+          "src": "assets/videos/nova-15.mp4",
+          "youtube": "",
+          "poster": "assets/images/nova-15/cover.jpg",
+          "size": "wide",
+          "caption": {
+            "en": "Walkthrough of the finished apartment",
+            "ar": "جولة في الشقة بعد التسليم"
+          },
+          "section": {
+            "en": "Walkthrough",
+            "ar": "جولة"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/nova-15/01-living-overview.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Living and dining",
+            "ar": "المعيشة والسفرة"
+          },
+          "section": {
+            "en": "Living",
+            "ar": "المعيشة"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/nova-15/02-skylight.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Double-height skylight",
+            "ar": "الشباك السقفي بالارتفاع المزدوج"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/nova-15/03-lounge.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Lounge",
+            "ar": "الجلسة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/nova-15/04-dining.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Dining",
+            "ar": "السفرة"
+          },
+          "section": {
+            "en": "Dining & hospitality",
+            "ar": "السفرة والضيافة"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/nova-15/05-coffee-bar.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Coffee bar shelving",
+            "ar": "رفوف ركن القهوة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/nova-15/06-fireplace.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Fireplace wall",
+            "ar": "حائط المدفأة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/nova-15/07-kitchen.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Kitchen",
+            "ar": "المطبخ"
+          },
+          "section": {
+            "en": "Kitchen",
+            "ar": "المطبخ"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/nova-15/08-kitchen-island.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Kitchen island",
+            "ar": "جزيرة المطبخ"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/nova-15/09-curved-column.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Curved column with concealed lighting",
+            "ar": "العمود المنحني بالإضاءة المخفية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/nova-15/10-bedroom.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Master bedroom",
+            "ar": "غرفة النوم الرئيسية"
+          },
+          "section": {
+            "en": "Bedrooms & joinery",
+            "ar": "غرف النوم والنجارة"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/nova-15/11-wardrobe.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Lit wardrobe joinery",
+            "ar": "دولاب بإضاءة مدمجة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/nova-15/12-kids-desk.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Children’s room desk",
+            "ar": "مكتب غرفة الأطفال"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        }
+      ]
+    },
+    {
       "id": "rasees-beluar",
       "title": {
         "ar": "رسيس وبلوار",
