@@ -100,6 +100,7 @@ content:
                 - { value: render, label: 3D & Render — 3D وإظهار }
                 - { value: drawings, label: Construction drawings — رسومات تنفيذية }
                 - { value: materials, label: Material selection — اختيار المواد }
+                - { value: sampleboard, label: Sample board — السامبل بورد }
                 - { value: pricing, label: Pricing — التسعير }
                 - { value: supervision, label: Site supervision — الإشراف }
                 - { value: handover, label: Handover — التسليم }

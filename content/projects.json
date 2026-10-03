@@ -395,25 +395,27 @@
         "en": "11 branches: Riyadh, Jeddah, Madinah, Taif, Hail, Buraydah, Unaizah, Tabuk",
         "ar": "11 فرعًا: الرياض، جدة، المدينة المنورة، الطائف، حائل، بريدة، عنيزة، تبوك"
       },
-      "year": "",
+      "year": "2026",
       "duration": {
         "en": "2 months (fabrication & installation, 11 branches)",
         "ar": "شهران (تصنيع وتركيب 11 فرعًا)"
       },
       "area": "",
       "role": {
-        "en": "Shop drawing review and full supervision of fabrication & installation",
-        "ar": "مراجعة الرسومات التنفيذية والإشراف الكامل على التصنيع والتركيب"
+        "en": "Shop drawing review, material selection & sample boards, full supervision of fabrication & installation",
+        "ar": "مراجعة الرسومات التنفيذية واختيار الخامات والسامبل بورد والإشراف الكامل على التصنيع والتركيب"
       },
       "phases": [
         "drawings",
+        "materials",
+        "sampleboard",
         "supervision",
         "handover"
       ],
       "tools": [],
       "summary": {
-        "en": "Display units and decoration for 11 Assaf Perfumes branches across Saudi Arabia, a mix of branches inside malls and standalone stores. My role was full supervision of the work for all 11 points of sale: reviewing the technical shop drawings, supervising fabrication of the complete display units (joinery, stainless steel, shelving and light boxes) and the decoration, including the horse sculptures, and supervising installation in every branch. The joinery was fabricated locally and the stainless steel and metal works were manufactured in China, both under my full supervision. Fabrication and installation for all 11 branches were completed in just two months.",
-        "ar": "وحدات عرض وديكورات لـ11 فرعًا من فروع عطور عساف في المملكة العربية السعودية، منها فروع داخل المولات وفروع مستقلة. كان دوري الإشراف الكامل على الأعمال في نقاط البيع الـ11: مراجعة الرسومات التنفيذية الفنية، والإشراف على تصنيع وحدات العرض المتكاملة (أعمال الخشب والستانلس ستيل والرفوف واللايت بوكس) والديكورات ومنها مجسمات الخيول، والإشراف على التركيب في كل فرع. صُنعت الأعمال الخشبية محليًا، وصُنعت أعمال الستانلس ستيل والمعادن في الصين، وكلاهما تحت إشرافي الكامل. اكتمل تصنيع وتركيب الفروع الـ11 كلها خلال شهرين فقط."
+        "en": "Display units and decoration for 11 Assaf Perfumes branches across Saudi Arabia, a mix of branches inside malls and standalone stores. I reviewed the technical shop drawings, led material selection and sourced the samples to build the sample boards myself, then took full supervision of fabrication and installation for all 11 points of sale. The work covered complete display units (joinery, stainless steel, shelving and light boxes) and the decoration, including the horse sculptures. The joinery was fabricated locally and the stainless steel and metal works were manufactured in China, both under my full supervision. Fabrication and installation for all 11 branches were completed in just two months.",
+        "ar": "وحدات عرض وديكورات لـ11 فرعًا من فروع عطور عساف في المملكة العربية السعودية، منها فروع داخل المولات وفروع مستقلة. راجعت الرسومات التنفيذية الفنية، وتوليت اختيار الخامات وجمعت العينات وجهّزت السامبل بورد بنفسي، ثم أشرفت إشرافًا كاملًا على التصنيع والتركيب في نقاط البيع الـ11. شملت الأعمال وحدات عرض متكاملة (أعمال الخشب والستانلس ستيل والرفوف واللايت بوكس) والديكورات ومنها مجسمات الخيول. صُنعت الأعمال الخشبية محليًا، وصُنعت أعمال الستانلس ستيل والمعادن في الصين، وكلاهما تحت إشرافي الكامل. اكتمل تصنيع وتركيب الفروع الـ11 كلها خلال شهرين فقط."
       },
       "scope": [
         {
@@ -421,12 +423,16 @@
           "ar": "مراجعة الرسومات التنفيذية الفنية"
         },
         {
-          "en": "Complete display units: joinery, stainless steel, shelving and light boxes",
-          "ar": "وحدات عرض متكاملة: أعمال خشب وستانلس ستيل ورفوف ولايت بوكس"
+          "en": "Material selection and sourcing of samples",
+          "ar": "اختيار الخامات وتوفير العينات"
         },
         {
-          "en": "Sample boards",
-          "ar": "السامبل بوردز (لوحات العينات)"
+          "en": "Sample boards, prepared by me",
+          "ar": "تجهيز السامبل بورد بنفسي"
+        },
+        {
+          "en": "Complete display units: joinery, stainless steel, shelving and light boxes",
+          "ar": "وحدات عرض متكاملة: أعمال خشب وستانلس ستيل ورفوف ولايت بوكس"
         },
         {
           "en": "Decoration, including horse sculptures",

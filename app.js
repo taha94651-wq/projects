@@ -57,6 +57,7 @@
       ["render", { ar: "3D وإظهار", en: "3D & Render" }],
       ["drawings", { ar: "رسومات تنفيذية", en: "Construction drawings" }],
       ["materials", { ar: "اختيار المواد", en: "Material selection" }],
+      ["sampleboard", { ar: "السامبل بورد", en: "Sample board" }],
       ["pricing", { ar: "التسعير", en: "Pricing" }],
       ["supervision", { ar: "الإشراف على التنفيذ", en: "Site supervision" }],
       ["handover", { ar: "التسليم", en: "Handover" }],
