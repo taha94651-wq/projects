@@ -1729,26 +1729,43 @@
         "ar": "بلوار"
       },
       "location": {
-        "ar": "",
-        "en": ""
+        "en": "Tuwaiq, Riyadh",
+        "ar": "حي طويق، الرياض"
       },
       "year": "2026",
       "duration": {
-        "ar": "",
-        "en": ""
+        "en": "3 days",
+        "ar": "3 أيام"
       },
       "area": "",
       "role": {
-        "ar": "التنفيذ",
-        "en": "Execution"
+        "en": "Shop drawing review & execution supervision",
+        "ar": "مراجعة الرسومات التنفيذية والإشراف على التنفيذ"
       },
-      "phases": [],
+      "phases": [
+        "drawings",
+        "supervision",
+        "handover"
+      ],
       "tools": [],
       "summary": {
-        "en": "Brand event execution for Beluar.",
-        "ar": "تنفيذ فعالية لعلامة بلوار التجارية."
+        "en": "A brand space for Beluar, the Saudi fragrance and smart-diffuser brand from the RASEES group, built in Tuwaiq, Riyadh, alongside the RASEES SAR 2 million gifts draw in February 2026. I supervised the shop drawings and led execution on site, delivering the space from start to handover in three days.",
+        "ar": "مساحة لعلامة بلوار، العلامة السعودية للعطور وأجهزة التعطير الذكية التابعة لمجموعة رسيس، أُنشئت في حي طويق بالرياض بالتزامن مع سحب هدايا رسيس بقيمة مليوني ريال في فبراير 2026. أشرفت على الرسومات التنفيذية وقُدت التنفيذ في الموقع، وسُلّمت المساحة من البداية حتى التسليم خلال ثلاثة أيام."
       },
-      "scope": [],
+      "scope": [
+        {
+          "en": "Shop drawing review and approval",
+          "ar": "مراجعة واعتماد الرسومات التنفيذية"
+        },
+        {
+          "en": "Full execution supervision on site",
+          "ar": "الإشراف الكامل على التنفيذ في الموقع"
+        },
+        {
+          "en": "Delivery from start to handover in three days",
+          "ar": "التنفيذ من البداية حتى التسليم خلال ثلاثة أيام"
+        }
+      ],
       "cover": "",
       "media": [
         {
