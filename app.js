@@ -12,11 +12,19 @@
       offices: { ar: "مكاتب", en: "Offices" },
       hospitality: { ar: "ضيافة ومطاعم", en: "F&B & Hospitality" },
       events: { ar: "فعاليات", en: "Events" },
+      urban: { ar: "عمراني وإسكان", en: "Urban & housing" },
+      furniture: { ar: "أثاث", en: "Furniture" },
     },
     aiKinds: {
       images: { ar: "صور مولّدة", en: "Generated Images" },
       sheets: { ar: "شيتات", en: "Sheets" },
       workflows: { ar: "هيكلة المشاريع", en: "Project Structuring" },
+    },
+    results: {
+      winner: { ar: "فوز", en: "Winner" },
+      shortlisted: { ar: "ضمن القائمة القصيرة", en: "Shortlisted" },
+      mention: { ar: "تنويه", en: "Honourable mention" },
+      participation: { ar: "مشاركة", en: "Participation" },
     },
     status: {
       built: { ar: "تم التنفيذ", en: "Built" },
@@ -41,37 +49,41 @@
   /* ---------- UI strings ---------- */
   const UI = {
     en: {
-      nav: { execution: "Execution", design: "Design", ai: "AI Work", profile: "Profile", contact: "Contact" },
+      nav: { execution: "Execution", design: "Design", competition: "Competitions", photography: "Photography", ai: "AI Work", profile: "Profile", contact: "Contact" },
       all: "All", index: "Index", profile: "Profile", viewWork: "View work", downloadCv: "Download CV",
       execIntro: "Projects delivered on site — my role, the scope I owned and the time it took.",
       designIntro: "Design work — project type, year and my exact role in each.",
+      compIntro: "Architecture competitions I entered, from student years onward.",
+      photoIntro: "Architectural photography — how I read spaces, light and material through the lens.",
       aiIntro: "How I use AI in practice: generated visuals, automated sheets and structured project workflows.",
-      experience: "Experience", skills: "Skills", software: "Software", languages: "Languages", education: "Education",
+      experience: "Experience", clients: "Key clients", skills: "Skills", software: "Software", languages: "Languages", education: "Education",
       client: "Client", location: "Location", year: "Year", duration: "Duration", role: "Role", type: "Type", discipline: "Discipline",
-      scope: "Scope of work", status: "Status", area: "Area", tools: "Tools", myRole: "My role — phases", overview: "Overview", backTo: "Back to index", next: "Next project",
+      scope: "Scope of work", company: "Firm", status: "Status", area: "Area", tools: "Tools", myRole: "My role — phases", overview: "Overview", backTo: "Back to index", next: "Next project",
       contactEyebrow: "Contact", letsTalk: "Let’s work together", email: "Email", phone: "Phone", whatsapp: "WhatsApp",
       based: "Based in", online: "Online", empty: "Projects coming soon.", open: "Open", placeholder: "Image placeholder",
-      rights: "All rights reserved.", execution: "Execution", design: "Design",
+      rights: "All rights reserved.", execution: "Execution", design: "Design", competition: "Competition", result: "Result",
     },
     ar: {
-      nav: { execution: "التنفيذ", design: "التصميم", ai: "الذكاء الاصطناعي", profile: "السيرة", contact: "تواصل" },
+      nav: { execution: "التنفيذ", design: "التصميم", competition: "المسابقات", photography: "التصوير", ai: "الذكاء الاصطناعي", profile: "السيرة", contact: "تواصل" },
       all: "الكل", index: "الفهرس", profile: "نبذة", viewWork: "شاهد الأعمال", downloadCv: "تحميل السيرة الذاتية",
       execIntro: "مشاريع تم تنفيذها في الموقع — دوري، ونطاق العمل الذي توليته، والمدة.",
       designIntro: "أعمال التصميم — نوع المشروع وسنته ودوري بالتحديد في كل مشروع.",
+      compIntro: "مسابقات معمارية شاركت فيها منذ سنوات الدراسة.",
+      photoIntro: "التصوير المعماري — كيف أقرأ الفراغ والضوء والخامة من خلال العدسة.",
       aiIntro: "كيف أستخدم الذكاء الاصطناعي عمليًا: صور مولّدة، وشيتات مؤتمتة، وهيكلة سير عمل المشاريع.",
-      experience: "الخبرات", skills: "المهارات", software: "البرامج", languages: "اللغات", education: "التعليم",
+      experience: "الخبرات", clients: "أهم العملاء", skills: "المهارات", software: "البرامج", languages: "اللغات", education: "التعليم",
       client: "العميل", location: "الموقع", year: "السنة", duration: "المدة", role: "الدور", type: "النوع", discipline: "المجال",
-      scope: "نطاق العمل", status: "الحالة", area: "المساحة", tools: "البرامج", myRole: "دوري — المراحل", overview: "نظرة عامة", backTo: "العودة للفهرس", next: "المشروع التالي",
+      scope: "نطاق العمل", company: "الشركة", status: "الحالة", area: "المساحة", tools: "البرامج", myRole: "دوري — المراحل", overview: "نظرة عامة", backTo: "العودة للفهرس", next: "المشروع التالي",
       contactEyebrow: "تواصل", letsTalk: "لنعمل معًا", email: "البريد", phone: "الهاتف", whatsapp: "واتساب",
       based: "المقر", online: "حسابات", empty: "المشاريع قريبًا.", open: "فتح", placeholder: "صورة مؤقتة",
-      rights: "جميع الحقوق محفوظة.", execution: "التنفيذ", design: "التصميم",
+      rights: "جميع الحقوق محفوظة.", execution: "التنفيذ", design: "التصميم", competition: "مسابقة", result: "النتيجة",
     },
   };
 
   /* ---------- State ---------- */
   const state = {
     lang: pickLang(),
-    filters: { execution: "all", design: "all", ai: "all" },
+    filters: { execution: "all", design: "all", competition: "all", ai: "all" },
     view: null,
     from: "execution",
   };
@@ -137,7 +149,7 @@
   const projectsIn = (disc) => D.projects.filter((p) => p.disciplines.includes(disc));
 
   /* ---------- Nav & menu ---------- */
-  const sections = ["execution", "design", "ai", "profile", "contact"];
+  const sections = ["execution", "design", "competition", "photography", "ai", "profile", "contact"];
 
   function renderChrome() {
     html.lang = state.lang;
@@ -225,12 +237,29 @@
     return list
       .map((p, i) => {
         const c3 = disc === "execution" ? t(p.duration) || t(p.year) : t(p.year);
+        if (disc === "competition") {
+          const res = t(D.results[p.result]);
+          const hi = p.result && p.result !== "participation";
+          return `
+        <li>
+          <a class="row" href="#/p/${esc(p.id)}" data-img="${esc(cover(p))}" data-from="${disc}">
+            <span class="row__no">${pad(i + 1)}</span>
+            <span class="row__thumb"><img loading="lazy" src="${esc(cover(p))}" alt="" /></span>
+            <span class="row__title"><bdi>${T(p.title)}</bdi></span>
+            <span class="row__cell${hi ? " row__cell--hi" : ""}">${esc(res) || "—"}</span>
+            <span class="row__cell row__cell--loc">${T(p.location) || "—"}</span>
+            <span class="row__cell">${esc(t(p.year))}</span>
+            <span class="row__sub">${esc(res)}${t(p.year) ? ` · ${esc(t(p.year))}` : ""}</span>
+            <span class="row__arrow">${arrow}</span>
+          </a>
+        </li>`;
+        }
         return `
         <li>
           <a class="row" href="#/p/${esc(p.id)}" data-img="${esc(cover(p))}" data-from="${disc}">
             <span class="row__no">${pad(i + 1)}</span>
             <span class="row__thumb"><img loading="lazy" src="${esc(cover(p))}" alt="" /></span>
-            <span class="row__title">${T(p.title)}</span>
+            <span class="row__title"><bdi>${T(p.title)}</bdi></span>
             <span class="row__cell">${T(D.types[p.type])}</span>
             <span class="row__cell row__cell--loc">${T(p.location) || "—"}</span>
             <span class="row__cell">${T(p.role)}${c3 ? ` · ${esc(c3)}` : ""}</span>
@@ -246,8 +275,8 @@
     const list = projectsIn(disc);
     return `
     <section class="section wrap" id="${disc}">
-      ${sectionHead(no, disc, u()[disc], list.length, intro)}
-      ${filtersHTML(disc, typeOptions(list))}
+      ${sectionHead(no, disc, disc === "competition" ? u().nav.competition : u()[disc], list.length, intro)}
+      ${disc === "competition" ? "" : filtersHTML(disc, typeOptions(list))}
       <ol class="index" data-list="${disc}">${rowsHTML(disc)}</ol>
     </section>`;
   }
@@ -271,6 +300,27 @@
       </article>`;
       })
       .join("");
+  }
+
+  function photoSection(no) {
+    const list = D.photos || [];
+    // editorial rhythm: wide + tall, three squares, tall + wide
+    const pattern = ["w7", "t5", "s4", "s4", "s4", "t5", "w7"];
+    const items = (list.length ? list : [{}, {}, {}, {}, {}, {}, {}])
+      .map((ph, i) => {
+        const src = img(ph.src, "photo-" + i, u().nav.photography + " " + pad(i + 1));
+        const label = [T(ph.title), [T(ph.location), esc(ph.year || "")].filter(Boolean).join(", ")].filter(Boolean).join(" — ");
+        return `<figure class="ph ph--${pattern[i % pattern.length]} unveil">
+          <div class="frame" data-zoom="${esc(src)}" data-cap="${label}"><div class="zoom"><img loading="lazy" src="${esc(src)}" alt="${label || esc(u().nav.photography)}" /></div></div>
+          ${label ? `<figcaption><span>${pad(i + 1)}</span>${label}</figcaption>` : ""}
+        </figure>`;
+      })
+      .join("");
+    return `
+    <section class="section wrap" id="photography">
+      ${sectionHead(no, "photography", u().nav.photography, list.length || null, u().photoIntro)}
+      <div class="photo-grid">${items}</div>
+    </section>`;
   }
 
   function aiSection(no) {
@@ -305,6 +355,9 @@
     const soft = D.software
       .map((g) => `<div class="col"><h3>${T(g.group)}</h3><div class="chips">${g.items.map((s) => `<span${/claude|chatgpt/i.test(s) ? ' class="ai"' : ""}>${esc(s)}</span>`).join("")}</div></div>`)
       .join("");
+    const clients = (D.clients || [])
+      .map((c) => `<li><span class="client__name"><bdi>${T(c.name)}</bdi></span>${T(c.sector) ? `<span class="client__sector">${T(c.sector)}</span>` : ""}</li>`)
+      .join("");
     const langs = D.languages.map((l) => `<li class="kv"><span>${T(l.name)}</span><span>${T(l.level)}</span></li>`).join("");
     const edu = D.education.map((e) => `<li class="kv"><span>${T(e.title)}</span><span>${esc(e.period || "")}</span></li>`).join("");
 
@@ -313,6 +366,7 @@
       <div class="wrap">
         ${sectionHead(no, "profile", u().nav.profile, null, null)}
         <div class="profile-grid">
+          ${clients ? `<div class="block reveal"><span class="eyebrow">${esc(u().clients)}</span><div class="block__body"><ul class="clients">${clients}</ul></div></div>` : ""}
           <div class="block reveal"><span class="eyebrow">${esc(u().experience)}</span><div class="block__body exp-list">${exp}</div></div>
           <div class="block reveal"><span class="eyebrow">${esc(u().skills)}</span><div class="block__body cols">${skills}</div></div>
           <div class="block reveal"><span class="eyebrow">${esc(u().software)}</span><div class="block__body cols">${soft}</div></div>
@@ -346,8 +400,10 @@
       heroHTML() +
       workSection(1, "execution", u().execIntro) +
       workSection(2, "design", u().designIntro) +
-      aiSection(3) +
-      profileSection(4) +
+      workSection(3, "competition", u().compIntro) +
+      photoSection(4) +
+      aiSection(5) +
+      profileSection(6) +
       contactSection();
     state.view = "home";
   }
@@ -364,10 +420,12 @@
       [u().discipline, p.disciplines.map((d) => u()[d]).join(" + ")],
       [u().type, t(D.types[p.type])],
       [u().client, t(p.client)],
+      [u().company, t(p.company)],
       [u().location, t(p.location)],
       [u().year, t(p.year)],
       [u().duration, t(p.duration)],
       [u().role, t(p.role)],
+      [u().result, t(D.results[p.result])],
       [u().status, t(D.status[p.status])],
       [u().area, t(p.area)],
       [u().tools, (p.tools || []).join(" · ")],
@@ -382,40 +440,69 @@
       : "";
 
     const media = p.media.length ? p.media : [{ type: "image", src: "" }];
+    let chapter = 0, halves = 0, thirds = 0, shot = 0;
     const gallery = media
       .map((m, i) => {
-        const wide = i === 0 || (media.length - 1) % 2 === 1 && i === media.length - 1;
-        const cap = m.caption ? `<figcaption>${T(m.caption)}</figcaption>` : "";
+        // full = edge-to-edge cinematic, wide = contained, half = paired & staggered
+        const size = m.size || (i === 0 ? "full" : (media.length - 1) % 2 === 1 && i === media.length - 1 ? "wide" : "half");
+        let head = "";
+        if (T(m.section)) {
+          halves = 0;
+          thirds = 0;
+          head = `<header class="chapter reveal"><span class="chapter__no">${pad(++chapter)}</span><h2>${T(m.section)}</h2></header>`;
+        }
+        halves = size === "half" ? halves + 1 : 0;
+        thirds = size === "third" ? thirds + 1 : 0;
+        const offset = (size === "half" && halves % 2 === 0) || (size === "third" && thirds % 3 === 2);
+        const capText = T(m.caption);
+        const cap = capText ? `<figcaption><span>${pad(++shot)}</span>${capText}</figcaption>` : "";
         let inner;
-        if (m.type === "video") inner = `<div class="frame"><video src="${esc(m.src)}" controls playsinline preload="metadata"></video></div>`;
+        if (m.type === "video")
+          inner = `<div class="frame frame--video"><video src="${esc(m.src)}"${m.poster ? ` poster="${esc(m.poster)}"` : ""} autoplay muted loop playsinline controls preload="metadata"></video></div>`;
         else if (m.type === "youtube") inner = `<iframe src="https://www.youtube-nocookie.com/embed/${esc(m.youtube || m.id)}" title="${T(p.title)}" allowfullscreen loading="lazy"></iframe>`;
         else {
           const src = img(m.src, p.id + "-" + i, t(p.title) + " — " + pad(i + 1));
-          inner = `<div class="frame" data-zoom="${esc(src)}"><img loading="lazy" src="${esc(src)}" alt="${T(m.caption) || T(p.title)}" /></div>`;
+          inner = `<div class="frame" data-zoom="${esc(src)}" data-cap="${capText}"><div class="zoom"><img loading="lazy" ${size === "full" ? "data-parallax " : ""}src="${esc(src)}" alt="${capText || T(p.title)}" /></div></div>`;
         }
-        return `<figure class="reveal${wide ? " wide" : ""}">${inner}${cap}</figure>`;
+        return `${head}<figure class="shot shot--${size}${offset ? " shot--offset" : ""} unveil">${inner}${cap}</figure>`;
       })
       .join("");
+
+    const kicker = [p.disciplines.map((d) => u()[d]).join(" + "), t(D.types[p.type]), t(p.year)].filter(Boolean).join(" · ");
+    const back = `<a class="pj__back" href="#${from}"><span>${state.lang === "ar" ? "→" : "←"}</span>${esc(u().backTo)}</a>`;
+    const nextHTML =
+      next && next !== p
+        ? `<a class="next" href="#/p/${esc(next.id)}">
+            <span class="next__media"><img loading="lazy" data-parallax src="${esc(cover(next))}" alt="" /></span>
+            <span class="next__text wrap"><span class="eyebrow">${esc(u().next)}</span><strong><bdi>${T(next.title)}</bdi> ${state.lang === "ar" ? "←" : "→"}</strong></span>
+          </a>`
+        : "";
 
     document.title = `${t(p.title)} — ${t(D.profile.name)}`;
     app.innerHTML = `
     <article class="pj">
+      <header class="pj-hero">
+        <div class="pj-hero__media">${
+          p.coverVideo
+            ? `<video data-parallax src="${esc(p.coverVideo)}" poster="${esc(cover(p))}" autoplay muted loop playsinline preload="metadata"></video>`
+            : `<img data-parallax src="${esc(cover(p))}" alt="${T(p.title)}" />`
+        }</div>
+        <div class="pj-hero__text wrap">
+          ${back}
+          <span class="eyebrow">${esc(kicker)}</span>
+          <h1 class="pj__title"><bdi>${T(p.title)}</bdi></h1>
+        </div>
+      </header>
       <div class="wrap">
-        <a class="pj__back" href="#${from}"><span>${state.lang === "ar" ? "→" : "←"}</span>${esc(u().backTo)}</a>
-        <h1 class="pj__title reveal">${T(p.title)}</h1>
-        <dl class="titleblock reveal">${meta.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("")}</dl>
+        <dl class="titleblock reveal">${meta.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd><bdi>${esc(v)}</bdi></dd></div>`).join("")}</dl>
       </div>
-      <figure class="bleed" style="margin:0"><img data-parallax src="${esc(cover(p))}" alt="${T(p.title)}" /></figure>
       <div class="wrap pj__body">
-        <span class="eyebrow">${esc(u().overview)}</span>
-        <p class="pj__summary reveal">${T(p.summary)}</p>
+        ${T(p.summary) ? `<span class="eyebrow">${esc(u().overview)}</span><p class="pj__summary reveal">${T(p.summary)}</p>` : ""}
         ${p.scope && p.scope.length ? `<span class="eyebrow">${esc(u().scope)}</span><div class="pj__scope reveal"><ul>${p.scope.map((s) => `<li>${T(s)}</li>`).join("")}</ul></div>` : ""}
         ${phases}
       </div>
       <div class="gallery">${gallery}</div>
-      <div class="wrap">
-        ${next && next !== p ? `<a class="next" href="#/p/${esc(next.id)}"><span class="eyebrow">${esc(u().next)}</span><strong>${T(next.title)} ${state.lang === "ar" ? "←" : "→"}</strong></a>` : ""}
-      </div>
+      ${nextHTML}
       ${contactSection()}
     </article>`;
     state.view = "project:" + id;
@@ -451,7 +538,7 @@
       (entries) => entries.forEach((e) => e.isIntersecting && (e.target.classList.add("in"), io.unobserve(e.target))),
       { rootMargin: "0px 0px -8% 0px" }
     );
-    document.querySelectorAll(".reveal:not(.in)").forEach((el) => io.observe(el));
+    document.querySelectorAll(".reveal:not(.in), .unveil:not(.in)").forEach((el) => io.observe(el));
   }
 
   // filters (delegated)
@@ -469,7 +556,7 @@
     const row = e.target.closest(".row");
     if (row) state.from = row.dataset.from;
     const z = e.target.closest("[data-zoom]");
-    if (z) openLightbox(z.dataset.zoom);
+    if (z) openLightbox(z);
   });
 
   // hover image that follows cursor
@@ -521,17 +608,49 @@
     }, { passive: true });
   }
 
-  // lightbox
+  // lightbox — full-screen viewer with previous / next
   const lb = document.getElementById("lightbox");
-  function openLightbox(src) {
-    lb.querySelector("img").src = src;
+  const lbImg = lb.querySelector("img");
+  lb.insertAdjacentHTML(
+    "beforeend",
+    `<button class="lightbox__nav lightbox__prev" type="button" aria-label="Previous">‹</button>
+     <button class="lightbox__nav lightbox__next" type="button" aria-label="Next">›</button>
+     <div class="lightbox__bar"><span class="lightbox__count"></span><span class="lightbox__cap"></span></div>`
+  );
+  let lbItems = [], lbIndex = 0;
+  function showLightbox(i) {
+    lbIndex = (i + lbItems.length) % lbItems.length;
+    const it = lbItems[lbIndex];
+    lbImg.classList.add("swap");
+    setTimeout(() => {
+      lbImg.src = it.dataset.zoom;
+      lbImg.onload = () => lbImg.classList.remove("swap");
+    }, 180);
+    lb.querySelector(".lightbox__count").textContent = lbItems.length > 1 ? `${pad(lbIndex + 1)} / ${pad(lbItems.length)}` : "";
+    lb.querySelector(".lightbox__cap").textContent = it.dataset.cap || "";
+    lb.classList.toggle("single", lbItems.length < 2);
+  }
+  function openLightbox(el) {
+    const scope = el.closest(".gallery, .ai-grid, .photo-grid") || app;
+    lbItems = [...scope.querySelectorAll("[data-zoom]")];
     lb.hidden = false;
     document.body.style.overflow = "hidden";
+    showLightbox(Math.max(0, lbItems.indexOf(el)));
   }
   function closeLightbox() {
     lb.hidden = true;
     document.body.style.overflow = "";
   }
+  lb.querySelector(".lightbox__prev").addEventListener("click", (e) => { e.stopPropagation(); showLightbox(lbIndex - 1); });
+  lb.querySelector(".lightbox__next").addEventListener("click", (e) => { e.stopPropagation(); showLightbox(lbIndex + 1); });
+  lbImg.addEventListener("click", (e) => { e.stopPropagation(); showLightbox(lbIndex + 1); });
+  document.addEventListener("keydown", (e) => {
+    if (lb.hidden) return;
+    const fwd = html.dir === "rtl" ? "ArrowLeft" : "ArrowRight";
+    const bwd = html.dir === "rtl" ? "ArrowRight" : "ArrowLeft";
+    if (e.key === fwd) showLightbox(lbIndex + 1);
+    if (e.key === bwd) showLightbox(lbIndex - 1);
+  });
   lb.addEventListener("click", closeLightbox);
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") { closeLightbox(); document.body.classList.remove("menu-open"); }
@@ -550,9 +669,9 @@
     if (!r.ok) throw new Error(f + " " + r.status);
     return r.json();
   });
-  Promise.all([load("content/site.json"), load("content/projects.json"), load("content/ai.json")])
-    .then(([site, pj, ai]) => {
-      D = Object.assign({}, site, VOCAB, { projects: pj.projects || [], ai: ai.items || [] });
+  Promise.all([load("content/site.json"), load("content/projects.json"), load("content/ai.json"), load("content/photos.json").catch(() => ({}))])
+    .then(([site, pj, ai, ph]) => {
+      D = Object.assign({}, site, VOCAB, { projects: pj.projects || [], ai: ai.items || [], photos: ph.items || [] });
       state.lang = pickLang();
       boot();
     })

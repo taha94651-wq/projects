@@ -1,6 +1,269 @@
 {
   "projects": [
     {
+      "id": "dar-wa-emaar-sales-office",
+      "title": {
+        "en": "Prefab Sales Office",
+        "ar": "مكتب مبيعات مسبق الصنع"
+      },
+      "disciplines": [
+        "design"
+      ],
+      "type": "offices",
+      "status": "built",
+      "client": {
+        "en": "Dar Wa Emaar",
+        "ar": "دار وإعمار"
+      },
+      "company": {
+        "en": "Safana Architects",
+        "ar": "صفانة للعمارة"
+      },
+      "location": {
+        "en": "Al Narjes, Riyadh",
+        "ar": "حي النرجس، الرياض"
+      },
+      "year": "2024",
+      "duration": {
+        "en": "",
+        "ar": ""
+      },
+      "area": "104 m²",
+      "role": {
+        "en": "Design, visualization & pricing",
+        "ar": "التصميم والإظهار والتسعير"
+      },
+      "phases": [
+        "moodboard",
+        "concept",
+        "render",
+        "materials",
+        "pricing"
+      ],
+      "tools": [
+        "Rhino",
+        "Lumion",
+        "AutoCAD",
+        "Photoshop",
+        "Canva"
+      ],
+      "summary": {
+        "en": "An L-shaped, 104 m² sales office for real-estate developer Dar Wa Emaar, built from modified shipping containers. The layout separates the customer journey into a pre-sales reception, two sales offices, an after-sales reception and a manager’s office, with a coffee bar for visitors. Full-height glazing opens the offices onto a landscaped courtyard, while vertical timber fins and a branded feature wall give the containers a permanent, premium presence. The palette follows the developer’s identity: white, signature orange, cement grey and black, finished with wood slats, black marble, terrazzo flooring and leather.",
+        "ar": "مكتب مبيعات على شكل حرف L بمساحة 104 م² لشركة دار وإعمار للتطوير العقاري، مُنشأ من حاويات شحن معدّلة. يفصل التصميم رحلة العميل بين استقبال ما قبل البيع، ومكتبين للمبيعات، واستقبال ما بعد البيع، ومكتب للمدير، مع ركن ضيافة للزوار. الواجهات الزجاجية بكامل الارتفاع تفتح المكاتب على فناء منسّق، والكسوة الخشبية الرأسية مع جدار الهوية تمنح الحاويات حضورًا دائمًا وفاخرًا. لوحة الألوان مستوحاة من هوية المطور: الأبيض، والبرتقالي المميز، والرمادي الأسمنتي، والأسود، مع شرائح الخشب والرخام الأسود وأرضيات التيرازو والجلد."
+      },
+      "scope": [
+        {
+          "en": "Mood board and colour palette from the developer’s identity",
+          "ar": "لوحة المزاج ولوحة الألوان من هوية المطور"
+        },
+        {
+          "en": "Space planning — L-shaped layout around the customer journey",
+          "ar": "توزيع الفراغات — مسقط على شكل L حسب رحلة العميل"
+        },
+        {
+          "en": "3D zoning and ceiling design",
+          "ar": "الزوننج ثلاثي الأبعاد وتصميم الأسقف"
+        },
+        {
+          "en": "Exterior and interior visualization",
+          "ar": "الإظهار الخارجي والداخلي"
+        },
+        {
+          "en": "Finishing material selection",
+          "ar": "اختيار مواد التشطيب"
+        },
+        {
+          "en": "Cost estimation and pricing",
+          "ar": "تقدير التكلفة والتسعير"
+        }
+      ],
+      "cover": "assets/images/dar-wa-emaar/cover-exterior.jpg",
+      "media": [
+        {
+          "type": "image",
+          "src": "assets/images/dar-wa-emaar/01-color-theme.jpg",
+          "youtube": "",
+          "size": "half",
+          "caption": {
+            "en": "Colour theme",
+            "ar": "لوحة الألوان"
+          },
+          "section": {
+            "en": "Concept",
+            "ar": "الفكرة"
+          },
+          "poster": ""
+        },
+        {
+          "type": "image",
+          "src": "assets/images/dar-wa-emaar/02-materials.jpg",
+          "youtube": "",
+          "size": "half",
+          "caption": {
+            "en": "Materials",
+            "ar": "المواد"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          },
+          "poster": ""
+        },
+        {
+          "type": "image",
+          "src": "assets/images/dar-wa-emaar/03-plan.jpg",
+          "youtube": "",
+          "size": "wide",
+          "caption": {
+            "en": "Plan — pre-sales, sales offices, after-sales and manager’s office",
+            "ar": "المسقط — استقبال ما قبل البيع، مكاتب المبيعات، ما بعد البيع ومكتب المدير"
+          },
+          "section": {
+            "en": "Planning",
+            "ar": "التخطيط"
+          },
+          "poster": ""
+        },
+        {
+          "type": "image",
+          "src": "assets/images/dar-wa-emaar/04-zoning.jpg",
+          "youtube": "",
+          "size": "half",
+          "caption": {
+            "en": "3D zoning",
+            "ar": "الزوننج ثلاثي الأبعاد"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          },
+          "poster": ""
+        },
+        {
+          "type": "image",
+          "src": "assets/images/dar-wa-emaar/05-ceiling.jpg",
+          "youtube": "",
+          "size": "half",
+          "caption": {
+            "en": "Ceiling design",
+            "ar": "تصميم الأسقف"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          },
+          "poster": ""
+        },
+        {
+          "type": "image",
+          "src": "assets/images/dar-wa-emaar/06-exterior-brand-wall.jpg",
+          "youtube": "",
+          "size": "full",
+          "caption": {
+            "en": "Branded feature wall and timber fins",
+            "ar": "جدار الهوية والكسوة الخشبية"
+          },
+          "section": {
+            "en": "Exterior",
+            "ar": "الواجهات"
+          },
+          "poster": ""
+        },
+        {
+          "type": "image",
+          "src": "assets/images/dar-wa-emaar/07-exterior-courtyard.jpg",
+          "youtube": "",
+          "size": "half",
+          "caption": {
+            "en": "Courtyard elevation",
+            "ar": "الواجهة على الفناء"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          },
+          "poster": ""
+        },
+        {
+          "type": "image",
+          "src": "assets/images/dar-wa-emaar/08-exterior-glazing.jpg",
+          "youtube": "",
+          "size": "half",
+          "caption": {
+            "en": "Full-height glazing",
+            "ar": "الواجهات الزجاجية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          },
+          "poster": ""
+        },
+        {
+          "type": "image",
+          "src": "assets/images/dar-wa-emaar/09-exterior-wide.jpg",
+          "youtube": "",
+          "size": "full",
+          "caption": {
+            "en": "The L-shaped volume",
+            "ar": "الكتلة على شكل L"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          },
+          "poster": ""
+        },
+        {
+          "type": "image",
+          "src": "assets/images/dar-wa-emaar/10-reception.jpg",
+          "youtube": "",
+          "size": "full",
+          "caption": {
+            "en": "Reception",
+            "ar": "الاستقبال"
+          },
+          "section": {
+            "en": "Interior",
+            "ar": "الداخل"
+          },
+          "poster": ""
+        },
+        {
+          "type": "image",
+          "src": "assets/images/dar-wa-emaar/11-sales-office-2.jpg",
+          "youtube": "",
+          "size": "half",
+          "caption": {
+            "en": "Sales office 2",
+            "ar": "مكتب المبيعات 2"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          },
+          "poster": ""
+        },
+        {
+          "type": "image",
+          "src": "assets/images/dar-wa-emaar/12-sales-office-1.jpg",
+          "youtube": "",
+          "size": "half",
+          "caption": {
+            "en": "Sales office 1",
+            "ar": "مكتب المبيعات 1"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          },
+          "poster": ""
+        }
+      ],
+      "result": "",
+      "coverVideo": ""
+    },
+    {
       "id": "makhazen-al-enaya",
       "title": {
         "ar": "مخازن العناية",
@@ -59,7 +322,13 @@
           "caption": {
             "ar": "",
             "en": ""
-          }
+          },
+          "size": "",
+          "section": {
+            "en": "",
+            "ar": ""
+          },
+          "poster": ""
         },
         {
           "type": "image",
@@ -68,7 +337,13 @@
           "caption": {
             "ar": "",
             "en": ""
-          }
+          },
+          "size": "",
+          "section": {
+            "en": "",
+            "ar": ""
+          },
+          "poster": ""
         },
         {
           "type": "image",
@@ -77,9 +352,21 @@
           "caption": {
             "ar": "",
             "en": ""
-          }
+          },
+          "size": "",
+          "section": {
+            "en": "",
+            "ar": ""
+          },
+          "poster": ""
         }
-      ]
+      ],
+      "company": {
+        "en": "",
+        "ar": ""
+      },
+      "result": "",
+      "coverVideo": ""
     },
     {
       "id": "assaf-perfumes",
@@ -135,7 +422,13 @@
           "caption": {
             "ar": "",
             "en": ""
-          }
+          },
+          "size": "",
+          "section": {
+            "en": "",
+            "ar": ""
+          },
+          "poster": ""
         },
         {
           "type": "image",
@@ -144,9 +437,21 @@
           "caption": {
             "ar": "",
             "en": ""
-          }
+          },
+          "size": "",
+          "section": {
+            "en": "",
+            "ar": ""
+          },
+          "poster": ""
         }
-      ]
+      ],
+      "company": {
+        "en": "",
+        "ar": ""
+      },
+      "result": "",
+      "coverVideo": ""
     },
     {
       "id": "fitness-time-ladies",
@@ -193,7 +498,13 @@
           "caption": {
             "ar": "",
             "en": ""
-          }
+          },
+          "size": "",
+          "section": {
+            "en": "",
+            "ar": ""
+          },
+          "poster": ""
         },
         {
           "type": "image",
@@ -202,9 +513,21 @@
           "caption": {
             "ar": "",
             "en": ""
-          }
+          },
+          "size": "",
+          "section": {
+            "en": "",
+            "ar": ""
+          },
+          "poster": ""
         }
-      ]
+      ],
+      "company": {
+        "en": "",
+        "ar": ""
+      },
+      "result": "",
+      "coverVideo": ""
     },
     {
       "id": "old-school-gym",
@@ -251,9 +574,21 @@
           "caption": {
             "ar": "",
             "en": ""
-          }
+          },
+          "size": "",
+          "section": {
+            "en": "",
+            "ar": ""
+          },
+          "poster": ""
         }
-      ]
+      ],
+      "company": {
+        "en": "",
+        "ar": ""
+      },
+      "result": "",
+      "coverVideo": ""
     },
     {
       "id": "laverne-perfumes",
@@ -300,9 +635,21 @@
           "caption": {
             "ar": "",
             "en": ""
-          }
+          },
+          "size": "",
+          "section": {
+            "en": "",
+            "ar": ""
+          },
+          "poster": ""
         }
-      ]
+      ],
+      "company": {
+        "en": "",
+        "ar": ""
+      },
+      "result": "",
+      "coverVideo": ""
     },
     {
       "id": "private-villa",
@@ -349,55 +696,297 @@
           "caption": {
             "ar": "",
             "en": ""
-          }
+          },
+          "size": "",
+          "section": {
+            "en": "",
+            "ar": ""
+          },
+          "poster": ""
         }
-      ]
+      ],
+      "company": {
+        "en": "",
+        "ar": ""
+      },
+      "result": "",
+      "coverVideo": ""
     },
     {
       "id": "chadel-chalet",
       "title": {
-        "ar": "شاليه شادل",
-        "en": "Chadel Chalet"
+        "en": "Chadel Chalet",
+        "ar": "شاليه شادل"
       },
       "disciplines": [
         "execution"
       ],
       "type": "residential",
+      "result": "",
       "status": "built",
       "client": {
-        "ar": "",
-        "en": ""
+        "en": "AXIO Architects",
+        "ar": "AXIO Architects"
+      },
+      "company": {
+        "en": "Safana Architects",
+        "ar": "صفانة للعمارة"
       },
       "location": {
-        "ar": "الرياض",
-        "en": "Riyadh"
+        "en": "Wadi Namar, Riyadh",
+        "ar": "وادي نمار، الرياض"
       },
-      "year": "",
+      "year": "2024",
       "duration": {
-        "ar": "",
-        "en": ""
+        "en": "3 months",
+        "ar": "3 أشهر"
       },
       "area": "",
       "role": {
-        "ar": "التنفيذ",
-        "en": "Execution"
+        "en": "Pricing, execution & material approval",
+        "ar": "التسعير والتنفيذ واعتماد الخامات"
       },
-      "phases": [],
+      "phases": [
+        "materials",
+        "pricing",
+        "supervision",
+        "handover"
+      ],
       "tools": [],
       "summary": {
-        "ar": "تنفيذ أعمال التشطيب لشاليه.",
-        "en": "Chalet fit-out execution."
+        "en": "A private chalet in Wadi Namar, Riyadh, taken over at core and shell and handed over fully finished and furnished in three months. I priced the works, approved every finishing material and led execution on site: fluted stone cladding, timber grid ceilings and joinery inside; the pool, padel court, outdoor bathroom, landscape and pergolas outside; then furniture installation and handover.",
+        "ar": "شاليه خاص في وادي نمار بالرياض، استلمته على مرحلة الهيكل (Core & Shell) وسلّمته كامل التشطيب والتأثيث خلال ثلاثة أشهر. تولّيت تسعير الأعمال واعتماد جميع مواد التشطيب وقيادة التنفيذ في الموقع: الكسوة الحجرية المحززة، والأسقف الخشبية الشبكية، وأعمال النجارة في الداخل؛ والمسبح، وملعب البادل، والحمام الخارجي، واللاندسكيب، والبرجولات في الخارج؛ وصولًا إلى تركيب الأثاث والتسليم."
       },
-      "scope": [],
-      "cover": "",
+      "scope": [
+        {
+          "en": "Pricing and cost estimate for the full fit-out",
+          "ar": "تسعير وتقدير تكلفة أعمال التشطيب بالكامل"
+        },
+        {
+          "en": "Material submittals and approvals",
+          "ar": "تقديم واعتماد عينات المواد"
+        },
+        {
+          "en": "Interior finishes, timber grid ceilings and joinery",
+          "ar": "التشطيبات الداخلية والأسقف الخشبية الشبكية وأعمال النجارة"
+        },
+        {
+          "en": "Bathrooms, including outdoor bath and shower",
+          "ar": "الحمامات، بما فيها البانيو والدش الخارجي"
+        },
+        {
+          "en": "Fluted stone façade cladding",
+          "ar": "الكسوة الحجرية المحززة للواجهات"
+        },
+        {
+          "en": "Pool, padel court and leisure areas",
+          "ar": "المسبح وملعب البادل ومناطق الترفيه"
+        },
+        {
+          "en": "Landscape and pergolas",
+          "ar": "اللاندسكيب والبرجولات"
+        },
+        {
+          "en": "Furniture supply, installation and handover",
+          "ar": "توريد وتركيب الأثاث والتسليم"
+        }
+      ],
+      "cover": "assets/images/chadel-chalet/cover.jpg",
+      "coverVideo": "assets/videos/chadel-chalet.mp4",
       "media": [
         {
-          "type": "image",
-          "src": "",
+          "type": "video",
+          "src": "assets/videos/chadel-chalet.mp4",
           "youtube": "",
+          "poster": "assets/images/chadel-chalet/cover.jpg",
+          "size": "wide",
           "caption": {
-            "ar": "",
-            "en": ""
+            "en": "Walkthrough of the finished chalet",
+            "ar": "جولة في الشاليه بعد التسليم"
+          },
+          "section": {
+            "en": "Walkthrough",
+            "ar": "جولة"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/chadel-chalet/01-exterior-pool.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Pool and sun deck",
+            "ar": "المسبح ومنطقة الاسترخاء"
+          },
+          "section": {
+            "en": "Exterior & pool",
+            "ar": "الخارج والمسبح"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/chadel-chalet/02-courtyard.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Courtyard",
+            "ar": "الفناء"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/chadel-chalet/03-stone-frame.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Fluted stone frame",
+            "ar": "الإطار الحجري المحزز"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/chadel-chalet/04-bedroom.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Bedroom under the timber grid ceiling",
+            "ar": "غرفة النوم تحت السقف الخشبي الشبكي"
+          },
+          "section": {
+            "en": "Interiors",
+            "ar": "الداخل"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/chadel-chalet/05-living.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Living area",
+            "ar": "المعيشة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/chadel-chalet/06-lounge.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Lounge and timber wall",
+            "ar": "الجلسة والحائط الخشبي"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/chadel-chalet/07-outdoor-bath.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Outdoor bath",
+            "ar": "البانيو الخارجي"
+          },
+          "section": {
+            "en": "Bathrooms & details",
+            "ar": "الحمامات والتفاصيل"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/chadel-chalet/08-bath-stone-wall.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Stone wall and freestanding tub",
+            "ar": "الحائط الحجري والبانيو"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/chadel-chalet/09-vanity-detail.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Vanity detail",
+            "ar": "تفصيلة المغسلة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/chadel-chalet/10-padel-court.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Padel court and table tennis",
+            "ar": "ملعب البادل وتنس الطاولة"
+          },
+          "section": {
+            "en": "Leisure & landscape",
+            "ar": "الترفيه واللاندسكيب"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/chadel-chalet/11-court-lighting.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Court lighting",
+            "ar": "إضاءة الملعب"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/chadel-chalet/12-landscape.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Landscape",
+            "ar": "اللاندسكيب"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
           }
         }
       ]
@@ -447,9 +1036,21 @@
           "caption": {
             "ar": "",
             "en": ""
-          }
+          },
+          "size": "",
+          "section": {
+            "en": "",
+            "ar": ""
+          },
+          "poster": ""
         }
-      ]
+      ],
+      "company": {
+        "en": "",
+        "ar": ""
+      },
+      "result": "",
+      "coverVideo": ""
     },
     {
       "id": "design-project-01",
@@ -496,7 +1097,13 @@
           "caption": {
             "ar": "",
             "en": ""
-          }
+          },
+          "size": "",
+          "section": {
+            "en": "",
+            "ar": ""
+          },
+          "poster": ""
         },
         {
           "type": "image",
@@ -505,9 +1112,21 @@
           "caption": {
             "ar": "",
             "en": ""
-          }
+          },
+          "size": "",
+          "section": {
+            "en": "",
+            "ar": ""
+          },
+          "poster": ""
         }
-      ]
+      ],
+      "company": {
+        "en": "",
+        "ar": ""
+      },
+      "result": "",
+      "coverVideo": ""
     },
     {
       "id": "design-project-02",
@@ -554,9 +1173,265 @@
           "caption": {
             "ar": "",
             "en": ""
-          }
+          },
+          "size": "",
+          "section": {
+            "en": "",
+            "ar": ""
+          },
+          "poster": ""
         }
-      ]
+      ],
+      "company": {
+        "en": "",
+        "ar": ""
+      },
+      "result": "",
+      "coverVideo": ""
+    },
+    {
+      "id": "120-hours",
+      "title": {
+        "en": "120 Hours",
+        "ar": "120 Hours"
+      },
+      "disciplines": [
+        "competition"
+      ],
+      "type": "",
+      "result": "shortlisted",
+      "status": "concept",
+      "client": {
+        "en": "",
+        "ar": ""
+      },
+      "company": {
+        "en": "",
+        "ar": ""
+      },
+      "location": {
+        "en": "",
+        "ar": ""
+      },
+      "year": "2020",
+      "duration": {
+        "en": "",
+        "ar": ""
+      },
+      "area": "",
+      "role": {
+        "en": "",
+        "ar": ""
+      },
+      "phases": [],
+      "tools": [],
+      "summary": {
+        "en": "",
+        "ar": ""
+      },
+      "scope": [],
+      "cover": "",
+      "media": [
+        {
+          "type": "image",
+          "src": "",
+          "youtube": "",
+          "size": "",
+          "caption": {
+            "en": "",
+            "ar": ""
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          },
+          "poster": ""
+        }
+      ],
+      "coverVideo": ""
+    },
+    {
+      "id": "elbadry-multi-use-furniture",
+      "title": {
+        "en": "Elbadry Multi-use Furniture",
+        "ar": "أثاث متعدد الاستخدامات — البدري"
+      },
+      "disciplines": [
+        "competition"
+      ],
+      "type": "furniture",
+      "result": "participation",
+      "status": "concept",
+      "client": {
+        "en": "",
+        "ar": ""
+      },
+      "company": {
+        "en": "",
+        "ar": ""
+      },
+      "location": {
+        "en": "",
+        "ar": ""
+      },
+      "year": "2020",
+      "duration": {
+        "en": "",
+        "ar": ""
+      },
+      "area": "",
+      "role": {
+        "en": "",
+        "ar": ""
+      },
+      "phases": [],
+      "tools": [],
+      "summary": {
+        "en": "",
+        "ar": ""
+      },
+      "scope": [],
+      "cover": "",
+      "media": [
+        {
+          "type": "image",
+          "src": "",
+          "youtube": "",
+          "size": "",
+          "caption": {
+            "en": "",
+            "ar": ""
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          },
+          "poster": ""
+        }
+      ],
+      "coverVideo": ""
+    },
+    {
+      "id": "syrian-refugee-settlements",
+      "title": {
+        "en": "Settlements for Syrian Refugees in Turkey",
+        "ar": "تجمعات سكنية للاجئين السوريين في تركيا"
+      },
+      "disciplines": [
+        "competition"
+      ],
+      "type": "urban",
+      "result": "participation",
+      "status": "concept",
+      "client": {
+        "en": "",
+        "ar": ""
+      },
+      "company": {
+        "en": "",
+        "ar": ""
+      },
+      "location": {
+        "en": "Turkey",
+        "ar": "تركيا"
+      },
+      "year": "2019",
+      "duration": {
+        "en": "",
+        "ar": ""
+      },
+      "area": "",
+      "role": {
+        "en": "",
+        "ar": ""
+      },
+      "phases": [],
+      "tools": [],
+      "summary": {
+        "en": "",
+        "ar": ""
+      },
+      "scope": [],
+      "cover": "",
+      "media": [
+        {
+          "type": "image",
+          "src": "",
+          "youtube": "",
+          "size": "",
+          "caption": {
+            "en": "",
+            "ar": ""
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          },
+          "poster": ""
+        }
+      ],
+      "coverVideo": ""
+    },
+    {
+      "id": "affordable-housing-cambodia",
+      "title": {
+        "en": "Affordable Housing in Cambodia",
+        "ar": "إسكان ميسّر في كمبوديا"
+      },
+      "disciplines": [
+        "competition"
+      ],
+      "type": "urban",
+      "result": "participation",
+      "status": "concept",
+      "client": {
+        "en": "",
+        "ar": ""
+      },
+      "company": {
+        "en": "",
+        "ar": ""
+      },
+      "location": {
+        "en": "Cambodia",
+        "ar": "كمبوديا"
+      },
+      "year": "2017",
+      "duration": {
+        "en": "",
+        "ar": ""
+      },
+      "area": "",
+      "role": {
+        "en": "",
+        "ar": ""
+      },
+      "phases": [],
+      "tools": [],
+      "summary": {
+        "en": "",
+        "ar": ""
+      },
+      "scope": [],
+      "cover": "",
+      "media": [
+        {
+          "type": "image",
+          "src": "",
+          "youtube": "",
+          "size": "",
+          "caption": {
+            "en": "",
+            "ar": ""
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          },
+          "poster": ""
+        }
+      ],
+      "coverVideo": ""
     }
   ]
 }

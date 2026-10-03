@@ -77,7 +77,7 @@
         "en": "Architect & Supervisor (Business Development & Pricing)"
       },
       "company": {
-        "ar": "سفانة للعمارة",
+        "ar": "صفانة للعمارة",
         "en": "Safana Architects"
       },
       "period": {
@@ -317,6 +317,88 @@
       "level": {
         "ar": "متوسط",
         "en": "Intermediate"
+      }
+    }
+  ],
+  "clients": [
+    {
+      "name": {
+        "en": "Makhazen Al Enaya",
+        "ar": "مخازن العناية"
+      },
+      "sector": {
+        "en": "Retail",
+        "ar": "متاجر"
+      }
+    },
+    {
+      "name": {
+        "en": "Assaf Perfumes",
+        "ar": "عساف للعطور"
+      },
+      "sector": {
+        "en": "Retail",
+        "ar": "متاجر"
+      }
+    },
+    {
+      "name": {
+        "en": "Fitness Time",
+        "ar": "فتنس تايم"
+      },
+      "sector": {
+        "en": "Gyms",
+        "ar": "صالات رياضية"
+      }
+    },
+    {
+      "name": {
+        "en": "Dar Wa Emaar",
+        "ar": "دار وإعمار"
+      },
+      "sector": {
+        "en": "Real estate",
+        "ar": "تطوير عقاري"
+      }
+    },
+    {
+      "name": {
+        "en": "AXIO Architects",
+        "ar": "AXIO Architects"
+      },
+      "sector": {
+        "en": "Architecture office",
+        "ar": "مكتب معماري"
+      }
+    },
+    {
+      "name": {
+        "en": "Laverne Perfumes",
+        "ar": "لافيرن للعطور"
+      },
+      "sector": {
+        "en": "Retail",
+        "ar": "متاجر"
+      }
+    },
+    {
+      "name": {
+        "en": "Old School Gym",
+        "ar": "أولد سكول جيم"
+      },
+      "sector": {
+        "en": "Gyms",
+        "ar": "صالات رياضية"
+      }
+    },
+    {
+      "name": {
+        "en": "Rasees & Beluar",
+        "ar": "رسيس وبلوار"
+      },
+      "sector": {
+        "en": "Brands & events",
+        "ar": "علامات تجارية وفعاليات"
       }
     }
   ]

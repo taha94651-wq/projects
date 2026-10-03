@@ -49,10 +49,10 @@ content:
               values:
                 - { value: execution, label: Execution — تنفيذ }
                 - { value: design, label: Design — تصميم }
+                - { value: competition, label: Competition — مسابقة }
           - name: type
             label: Project type — نوع المشروع
             type: select
-            required: true
             options:
               values:
                 - { value: retail, label: Retail — متاجر }
@@ -61,6 +61,17 @@ content:
                 - { value: offices, label: Offices — مكاتب }
                 - { value: hospitality, label: F&B & Hospitality — ضيافة ومطاعم }
                 - { value: events, label: Events — فعاليات }
+                - { value: urban, label: Urban & housing — عمراني وإسكان }
+                - { value: furniture, label: Furniture — أثاث }
+          - name: result
+            label: Competition result — نتيجة المسابقة
+            type: select
+            options:
+              values:
+                - { value: winner, label: Winner — فوز }
+                - { value: shortlisted, label: Shortlisted — القائمة القصيرة }
+                - { value: mention, label: Honourable mention — تنويه }
+                - { value: participation, label: Participation — مشاركة }
           - name: status
             label: Status — الحالة
             type: select
@@ -70,6 +81,7 @@ content:
                 - { value: progress, label: In progress — قيد التنفيذ }
                 - { value: concept, label: Design only — تصميم فقط }
           - { name: client, label: Client — العميل, component: bi }
+          - { name: company, label: Firm I worked for — الشركة اللي كنت شغال فيها, component: bi }
           - { name: location, label: Location — المكان, component: bi }
           - { name: year, label: Year — السنة, type: string }
           - { name: duration, label: Duration — المدة, component: bi }
@@ -100,6 +112,7 @@ content:
                 collapsed: true
                 summary: "{en}"
           - { name: cover, label: Cover image — صورة الغلاف, type: image }
+          - { name: coverVideo, label: "Cover video (optional) — فيديو الغلاف", type: file }
           - name: media
             label: Gallery — معرض الصور والفيديو
             type: object
@@ -119,7 +132,18 @@ content:
                     - { value: youtube, label: YouTube }
               - { name: src, label: Image / video file, type: file }
               - { name: youtube, label: "YouTube video ID (e.g. dQw4w9WgXcQ)", type: string }
+              - { name: poster, label: "Video poster image (optional) — صورة الفيديو قبل التشغيل", type: image }
               - { name: caption, label: Caption — تعليق, component: bi }
+              - name: size
+                label: Size — الحجم
+                type: select
+                options:
+                  values:
+                    - { value: full, label: Full screen (cinematic) — بعرض الشاشة كاملة }
+                    - { value: wide, label: Wide — بعرض الصفحة }
+                    - { value: half, label: Half — نص الصفحة }
+                    - { value: third, label: Third (vertical shots) — تلت الصفحة للصور الطولية }
+              - { name: section, label: "Chapter title (optional) — عنوان مرحلة قبل الصورة", component: bi }
 
   # ============================ AI WORK ============================
   - name: ai
@@ -150,6 +174,26 @@ content:
           - { name: tools, label: Tools — الأدوات, type: string, list: true }
           - { name: src, label: Image — صورة, type: image }
           - { name: link, label: "External link (optional) — لينك خارجي", type: string }
+
+  # ======================= ARCHITECTURAL PHOTOGRAPHY =======================
+  - name: photography
+    label: Photography — التصوير المعماري
+    type: file
+    path: content/photos.json
+    format: json
+    fields:
+      - name: items
+        label: Photos
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title.en} {src}"
+        fields:
+          - { name: src, label: Photo — الصورة, type: image, required: true }
+          - { name: title, label: "Title (optional) — العنوان", component: bi }
+          - { name: location, label: "Location (optional) — المكان", component: bi }
+          - { name: year, label: "Year (optional) — السنة", type: string }
 
   # ============================ PROFILE ============================
   - name: site
@@ -189,6 +233,16 @@ content:
             fields:
               - { name: label, label: Name, type: string }
               - { name: url, label: URL, type: string }
+      - name: clients
+        label: Key clients — أهم العملاء
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name.en}"
+        fields:
+          - { name: name, label: Client — العميل, component: bi }
+          - { name: sector, label: Sector — المجال, component: bi }
       - name: experience
         label: Experience — الخبرات
         type: object
