@@ -379,8 +379,8 @@
     {
       "id": "assaf-perfumes",
       "title": {
-        "ar": "عساف للعطور",
-        "en": "Assaf Perfumes"
+        "en": "Assaf Display Units",
+        "ar": "وحدات عرض عساف"
       },
       "disciplines": [
         "execution"
@@ -392,8 +392,8 @@
         "en": "Assaf Perfumes"
       },
       "location": {
-        "ar": "المملكة العربية السعودية",
-        "en": "Across KSA"
+        "en": "11 branches across Saudi Arabia",
+        "ar": "11 فرعًا في المملكة العربية السعودية"
       },
       "year": "",
       "duration": {
@@ -402,56 +402,196 @@
       },
       "area": "",
       "role": {
-        "ar": "التنفيذ",
-        "en": "Execution"
+        "en": "Shop drawing review and full supervision of fabrication & installation",
+        "ar": "مراجعة الرسومات التنفيذية والإشراف الكامل على التصنيع والتركيب"
       },
-      "phases": [],
+      "phases": [
+        "drawings",
+        "supervision",
+        "handover"
+      ],
       "tools": [],
       "summary": {
-        "ar": "11 متجرًا في أنحاء المملكة: وحدات عرض وأكشاك داخل المولات.",
-        "en": "11 stores across KSA: display units and in-mall booths."
+        "en": "Display units and decoration for Assaf Perfumes across 11 branches in Saudi Arabia. I reviewed the technical shop drawings for the design and supervised all fabrication and installation for the 11 branches. The work covered complete display units, including joinery, stainless steel, shelving and light boxes, together with the horse sculptures and decorative pieces. The joinery was made locally and the stainless steel and metal parts were manufactured in China, both under my full supervision.",
+        "ar": "وحدات عرض وديكورات لعطور عساف في 11 فرعًا بالمملكة العربية السعودية. راجعت الرسومات التنفيذية الفنية للتصميم، وأشرفت على كامل أعمال التصنيع والتركيب للفروع الـ11. شملت الأعمال وحدات عرض متكاملة من أعمال خشب وستانلس ستيل ورفوف ولايت بوكس، إلى جانب مجسمات الخيول والقطع الديكورية. صُنعت الأعمال الخشبية محليًا، وصُنعت أعمال الستانلس ستيل والمعادن في الصين، وكلاهما تحت إشرافي الكامل."
       },
       "scope": [
         {
-          "ar": "وحدات العرض",
-          "en": "Display units"
+          "en": "Technical shop drawing review",
+          "ar": "مراجعة الرسومات التنفيذية الفنية"
         },
         {
-          "ar": "أكشاك داخل المولات",
-          "en": "In-mall booths"
+          "en": "Complete display units: joinery, stainless steel, shelving and light boxes",
+          "ar": "وحدات عرض متكاملة: أعمال خشب وستانلس ستيل ورفوف ولايت بوكس"
+        },
+        {
+          "en": "Decoration, including horse sculptures",
+          "ar": "الديكورات، ومنها مجسمات الخيول"
+        },
+        {
+          "en": "Local joinery fabrication under my supervision",
+          "ar": "تصنيع الأعمال الخشبية محليًا تحت إشرافي"
+        },
+        {
+          "en": "Stainless steel and metal works manufactured in China under my supervision",
+          "ar": "تصنيع أعمال الستانلس ستيل والمعادن في الصين تحت إشرافي"
+        },
+        {
+          "en": "Supervision of installation across all 11 branches",
+          "ar": "الإشراف على التركيب في الفروع الـ11"
         }
       ],
-      "cover": "",
+      "cover": "assets/images/assaf-perfumes/cover.jpg",
       "media": [
         {
-          "type": "image",
-          "src": "",
+          "type": "video",
+          "src": "assets/videos/assaf-roshn.mp4",
           "youtube": "",
+          "poster": "assets/images/assaf-perfumes/poster.jpg",
+          "size": "wide",
           "caption": {
-            "ar": "",
-            "en": ""
+            "en": "Roshn Front branch, film by VIVID",
+            "ar": "فرع روشن فرونت، فيلم من VIVID"
           },
-          "size": "",
           "section": {
-            "en": "",
-            "ar": ""
-          },
-          "poster": ""
+            "en": "Roshn Front branch",
+            "ar": "فرع روشن فرونت"
+          }
         },
         {
           "type": "image",
-          "src": "",
+          "src": "assets/images/assaf-perfumes/01-entrance.jpg",
           "youtube": "",
+          "poster": "",
+          "size": "third",
           "caption": {
-            "ar": "",
-            "en": ""
+            "en": "Shopfront and entrance",
+            "ar": "الواجهة والمدخل"
           },
-          "size": "",
           "section": {
             "en": "",
             "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/02-round-display.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Round display table",
+            "ar": "طاولة العرض الدائرية"
           },
-          "poster": ""
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/03-display-wall.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Display table and wall units",
+            "ar": "طاولة العرض ووحدات الحائط"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/05-arrogate-wall.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "ARROGATE wall with stainless steel shelves",
+            "ar": "حائط ARROGATE برفوف ستانلس ستيل"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/06-horse-sculptures.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Horse sculptures and bag display",
+            "ar": "مجسمات الخيول وعرض الحقائب"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/07-perfume-wall.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Perfume wall with light boxes",
+            "ar": "حائط العطور مع اللايت بوكس"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/08-counter.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Service counter",
+            "ar": "كاونتر الخدمة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/09-new-era-wall.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "NEW ERA wall unit",
+            "ar": "وحدة حائط NEW ERA"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/10-horse-relief.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Horse emblem light box",
+            "ar": "لايت بوكس شعار الخيل"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
         }
       ],
       "company": {
@@ -459,7 +599,7 @@
         "ar": ""
       },
       "result": "",
-      "coverVideo": "",
+      "coverVideo": "assets/videos/assaf-roshn-loop.mp4",
       "designer": {
         "en": "",
         "ar": ""
