@@ -1460,15 +1460,15 @@
         "ar": "VIVID Design / PHZYN Construction"
       },
       "location": {
-        "en": "",
-        "ar": ""
+        "en": "Tuwaiq, Riyadh",
+        "ar": "حي طويق، الرياض"
       },
       "year": "2026",
       "duration": {
         "en": "5 days",
         "ar": "5 أيام"
       },
-      "area": "",
+      "area": "600 m²",
       "role": {
         "en": "Shop drawing review & execution supervision",
         "ar": "مراجعة الرسومات التنفيذية والإشراف على التنفيذ"
@@ -1480,8 +1480,8 @@
       ],
       "tools": [],
       "summary": {
-        "en": "A brand event for RASEES PERFUMES, the Saudi luxury fragrance house, designed and built in five days. I supervised the shop drawings and led execution on site through to handover: the illuminated RASEES lettering and brand walls, perfume display shelving, the patterned screen, a lounge corner and a car display beneath suspended light boxes.",
-        "ar": "فعالية لعلامة رسيس للعطور، دار العطور السعودية الفاخرة، صُممت ونُفذت خلال خمسة أيام. أشرفت على الرسومات التنفيذية وقُدت التنفيذ في الموقع حتى التسليم: حروف رسيس المضيئة وجدران الهوية، ووحدات عرض العطور، والشاشة ذات النقش، وركن الجلوس، ومنطقة عرض السيارات تحت الصناديق الضوئية المعلقة."
+        "en": "A 600 m² brand venue for RASEES PERFUMES, the Saudi luxury fragrance house, built for its SAR 2 million gifts draw in February 2026. The space combined the prize draw, a car display and a set for celebrity and advertising shoots, and went from start to handover in five days. I supervised the shop drawings and led execution on site: the illuminated RASEES lettering and brand walls, perfume display shelving, the patterned screen, the RASEES ELITE corner and the car display beneath suspended light boxes.",
+        "ar": "موقع فعالية بمساحة 600 م² لعلامة رسيس للعطور، دار العطور السعودية الفاخرة، أُنشئ لسحب هدايا رسيس بقيمة مليوني ريال في فبراير 2026. جمع المكان بين منصة السحب ومنطقة عرض السيارات وموقع تصوير للمشاهير والإعلانات، ونُفّذ من البداية حتى التسليم خلال خمسة أيام. أشرفت على الرسومات التنفيذية وقُدت التنفيذ في الموقع: حروف رسيس المضيئة وجدران الهوية، ووحدات عرض العطور، والشاشة ذات النقش، وركن رسيس النخبة، ومنطقة عرض السيارات تحت الصناديق الضوئية المعلقة."
       },
       "scope": [
         {
@@ -1499,6 +1499,10 @@
         {
           "en": "Perfume display shelving and counters",
           "ar": "وحدات عرض العطور والكاونترات"
+        },
+        {
+          "en": "Celebrity and advertising shoot set",
+          "ar": "موقع تصوير للمشاهير والإعلانات"
         },
         {
           "en": "Car display area under suspended light boxes",
