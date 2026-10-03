@@ -1761,8 +1761,8 @@
       ],
       "tools": [],
       "summary": {
-        "en": "A brand space for BELUAR, the Saudi fragrance and smart-diffuser brand from the RASEES group, built in Tuwaiq, Riyadh, alongside the RASEES SAR 2 million gifts draw in February 2026. I priced the works, selected the materials, supervised the shop drawings and led execution on site, delivering the space from start to handover in three days.",
-        "ar": "مساحة لعلامة بلوار، العلامة السعودية للعطور وأجهزة التعطير الذكية التابعة لمجموعة رسيس، أُنشئت في حي طويق بالرياض بالتزامن مع سحب هدايا رسيس بقيمة مليوني ريال في فبراير 2026. سعّرت الأعمال واخترت الخامات وأشرفت على الرسومات التنفيذية وقُدت التنفيذ في الموقع، وسُلّمت المساحة من البداية حتى التسليم خلال ثلاثة أيام."
+        "en": "A brand space for BELUAR, the Saudi fragrance and smart-diffuser brand from the RASEES group, built in Tuwaiq, Riyadh, for the “Million BELUAR” prize draw alongside the RASEES SAR 2 million gifts draw in February 2026. I priced the works, selected the materials, supervised the shop drawings and led execution on site: crystal chandeliers over a dark hall, Mercedes cars on lit platforms, the illuminated prize sign and BELUAR brand walls, and the jewellery and gift counters. The space went from start to handover in three days.",
+        "ar": "مساحة لعلامة بلوار، العلامة السعودية للعطور وأجهزة التعطير الذكية التابعة لمجموعة رسيس، أُنشئت في حي طويق بالرياض لسحب «مليون بلوار» بالتزامن مع سحب هدايا رسيس بقيمة مليوني ريال في فبراير 2026. سعّرت الأعمال واخترت الخامات وأشرفت على الرسومات التنفيذية وقُدت التنفيذ في الموقع: ثريات كريستال فوق صالة داكنة، وسيارات مرسيدس على منصات مضيئة، ولوحة السحب المضيئة وجدران هوية بلوار، وكاونترات المجوهرات والهدايا. سُلّمت المساحة من البداية حتى التسليم خلال ثلاثة أيام."
       },
       "scope": [
         {
@@ -1782,26 +1782,132 @@
           "ar": "الإشراف الكامل على التنفيذ في الموقع"
         },
         {
+          "en": "Crystal chandelier ceiling",
+          "ar": "سقف الثريات الكريستال"
+        },
+        {
+          "en": "Lit car display platforms",
+          "ar": "منصات عرض السيارات المضيئة"
+        },
+        {
+          "en": "Brand walls and illuminated prize sign",
+          "ar": "جدران الهوية ولوحة السحب المضيئة"
+        },
+        {
+          "en": "Jewellery and gift counters",
+          "ar": "كاونترات المجوهرات والهدايا"
+        },
+        {
           "en": "Delivery from start to handover in three days",
           "ar": "التنفيذ من البداية حتى التسليم خلال ثلاثة أيام"
         }
       ],
-      "cover": "",
+      "cover": "assets/images/beluar-event/cover.jpg",
       "media": [
         {
-          "type": "image",
-          "src": "",
+          "type": "video",
+          "src": "assets/videos/beluar-event.mp4",
           "youtube": "",
+          "poster": "assets/images/beluar-event/cover.jpg",
+          "size": "wide",
           "caption": {
-            "ar": "",
-            "en": ""
+            "en": "Event film by VIVID",
+            "ar": "فيلم الفعالية من VIVID"
           },
-          "size": "",
+          "section": {
+            "en": "Film",
+            "ar": "الفيلم"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/beluar-event/01-brand-wall.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "BELUAR brand wall",
+            "ar": "جدار هوية بلوار"
+          },
+          "section": {
+            "en": "Brand & prize",
+            "ar": "الهوية والسحب"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/beluar-event/02-prize-sign.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "“Million BELUAR” prize sign",
+            "ar": "لوحة سحب «مليون بلوار»"
+          },
           "section": {
             "en": "",
             "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/beluar-event/03-car-plate.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Prize car on display",
+            "ar": "سيارة الجائزة"
           },
-          "poster": ""
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/beluar-event/04-jewellery-display.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Jewellery display",
+            "ar": "عرض المجوهرات"
+          },
+          "section": {
+            "en": "The hall",
+            "ar": "الصالة"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/beluar-event/05-gift-counter.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Gift counter",
+            "ar": "كاونتر الهدايا"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/beluar-event/06-chandelier-aisle.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Chandelier aisle and car platforms",
+            "ar": "ممر الثريات ومنصات السيارات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
         }
       ],
       "company": {
@@ -1809,7 +1915,7 @@
         "ar": "VIVID Design / PHZYN Construction"
       },
       "result": "",
-      "coverVideo": "",
+      "coverVideo": "assets/videos/beluar-event-loop.mp4",
       "designer": {
         "en": "",
         "ar": ""
