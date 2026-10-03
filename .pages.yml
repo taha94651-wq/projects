@@ -81,6 +81,7 @@ content:
                 - { value: progress, label: In progress — قيد التنفيذ }
                 - { value: concept, label: Design only — تصميم فقط }
           - { name: client, label: Client — العميل, component: bi }
+          - { name: designer, label: "Design office (if not me) — مكتب التصميم", component: bi }
           - { name: company, label: Firm I worked for — الشركة اللي كنت شغال فيها, component: bi }
           - { name: location, label: Location — المكان, component: bi }
           - { name: year, label: Year — السنة, type: string }

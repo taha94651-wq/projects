@@ -261,7 +261,11 @@
         }
       ],
       "result": "",
-      "coverVideo": ""
+      "coverVideo": "",
+      "designer": {
+        "en": "",
+        "ar": ""
+      }
     },
     {
       "id": "makhazen-al-enaya",
@@ -366,7 +370,11 @@
         "ar": ""
       },
       "result": "",
-      "coverVideo": ""
+      "coverVideo": "",
+      "designer": {
+        "en": "",
+        "ar": ""
+      }
     },
     {
       "id": "assaf-perfumes",
@@ -451,7 +459,11 @@
         "ar": ""
       },
       "result": "",
-      "coverVideo": ""
+      "coverVideo": "",
+      "designer": {
+        "en": "",
+        "ar": ""
+      }
     },
     {
       "id": "fitness-time-ladies",
@@ -527,7 +539,11 @@
         "ar": ""
       },
       "result": "",
-      "coverVideo": ""
+      "coverVideo": "",
+      "designer": {
+        "en": "",
+        "ar": ""
+      }
     },
     {
       "id": "old-school-gym",
@@ -588,7 +604,11 @@
         "ar": ""
       },
       "result": "",
-      "coverVideo": ""
+      "coverVideo": "",
+      "designer": {
+        "en": "",
+        "ar": ""
+      }
     },
     {
       "id": "laverne-perfumes",
@@ -649,7 +669,11 @@
         "ar": ""
       },
       "result": "",
-      "coverVideo": ""
+      "coverVideo": "",
+      "designer": {
+        "en": "",
+        "ar": ""
+      }
     },
     {
       "id": "private-villa",
@@ -710,7 +734,11 @@
         "ar": ""
       },
       "result": "",
-      "coverVideo": ""
+      "coverVideo": "",
+      "designer": {
+        "en": "",
+        "ar": ""
+      }
     },
     {
       "id": "chadel-chalet",
@@ -989,7 +1017,11 @@
             "ar": ""
           }
         }
-      ]
+      ],
+      "designer": {
+        "en": "",
+        "ar": ""
+      }
     },
     {
       "id": "nova-15-apartment",
@@ -1004,8 +1036,8 @@
       "result": "",
       "status": "built",
       "client": {
-        "en": "AXIO Architects",
-        "ar": "AXIO Architects"
+        "en": "Private client",
+        "ar": "عميل خاص"
       },
       "company": {
         "en": "",
@@ -1032,8 +1064,8 @@
       ],
       "tools": [],
       "summary": {
-        "en": "A residential apartment occupying part of a floor in the Nova 15 compound in Al Malqa, Riyadh, delivered for AXIO Architects. Over two months I priced the works, approved the finishing materials, supplied the furniture and supervised selected fit-out packages on site, from the double-height living area under the skylight to the kitchen, bedrooms and built-in joinery.",
-        "ar": "شقة سكنية تشغل جزءًا من دور في مجمع نوفا 15 بحي الملقا في الرياض، لصالح مكتب AXIO Architects. خلال شهرين تولّيت تسعير الأعمال واعتماد مواد التشطيب وتوريد الأثاث والإشراف على بنود مختارة من أعمال التشطيب في الموقع، من المعيشة بالارتفاع المزدوج تحت الشباك السقفي إلى المطبخ وغرف النوم وأعمال النجارة المدمجة."
+        "en": "A residential apartment occupying part of a floor in the Nova 15 compound in Al Malqa, Riyadh, designed by AXIO Architects for a private client. Over two months I priced the works, approved the finishing materials, supplied the furniture and supervised selected fit-out packages on site, from the double-height living area under the skylight to the kitchen, bedrooms and built-in joinery.",
+        "ar": "شقة سكنية تشغل جزءًا من دور في مجمع نوفا 15 بحي الملقا في الرياض، من تصميم مكتب AXIO Architects لعميل خاص. خلال شهرين تولّيت تسعير الأعمال واعتماد مواد التشطيب وتوريد الأثاث والإشراف على بنود مختارة من أعمال التشطيب في الموقع، من المعيشة بالارتفاع المزدوج تحت الشباك السقفي إلى المطبخ وغرف النوم وأعمال النجارة المدمجة."
       },
       "scope": [
         {
@@ -1255,7 +1287,11 @@
             "ar": ""
           }
         }
-      ]
+      ],
+      "designer": {
+        "en": "AXIO Architects",
+        "ar": "AXIO Architects"
+      }
     },
     {
       "id": "rasees-beluar",
@@ -1316,7 +1352,11 @@
         "ar": ""
       },
       "result": "",
-      "coverVideo": ""
+      "coverVideo": "",
+      "designer": {
+        "en": "",
+        "ar": ""
+      }
     },
     {
       "id": "design-project-01",
@@ -1392,7 +1432,11 @@
         "ar": ""
       },
       "result": "",
-      "coverVideo": ""
+      "coverVideo": "",
+      "designer": {
+        "en": "",
+        "ar": ""
+      }
     },
     {
       "id": "design-project-02",
@@ -1453,7 +1497,11 @@
         "ar": ""
       },
       "result": "",
-      "coverVideo": ""
+      "coverVideo": "",
+      "designer": {
+        "en": "",
+        "ar": ""
+      }
     },
     {
       "id": "120-hours",
@@ -1514,7 +1562,11 @@
           "poster": ""
         }
       ],
-      "coverVideo": ""
+      "coverVideo": "",
+      "designer": {
+        "en": "",
+        "ar": ""
+      }
     },
     {
       "id": "elbadry-multi-use-furniture",
@@ -1575,7 +1627,11 @@
           "poster": ""
         }
       ],
-      "coverVideo": ""
+      "coverVideo": "",
+      "designer": {
+        "en": "",
+        "ar": ""
+      }
     },
     {
       "id": "syrian-refugee-settlements",
@@ -1636,7 +1692,11 @@
           "poster": ""
         }
       ],
-      "coverVideo": ""
+      "coverVideo": "",
+      "designer": {
+        "en": "",
+        "ar": ""
+      }
     },
     {
       "id": "affordable-housing-cambodia",
@@ -1697,7 +1757,11 @@
           "poster": ""
         }
       ],
-      "coverVideo": ""
+      "coverVideo": "",
+      "designer": {
+        "en": "",
+        "ar": ""
+      }
     }
   ]
 }
