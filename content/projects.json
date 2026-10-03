@@ -602,6 +602,81 @@
             "en": "",
             "ar": ""
           }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/11-workshop-counter.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Service counter carcass in MDF",
+            "ar": "هيكل كاونتر الخدمة من الـMDF"
+          },
+          "section": {
+            "en": "Joinery fabrication — workshop",
+            "ar": "تصنيع الوحدات الخشبية — المصنع"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/12-workshop-carcasses.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Display unit carcasses ready for finishing",
+            "ar": "هياكل وحدات العرض قبل التشطيب"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/13-workshop-round-unit.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Round-ended display unit after paint",
+            "ar": "وحدة عرض بأطراف دائرية بعد الدهان"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/14-workshop-curved-ends.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Curved ends and shelving modules",
+            "ar": "الأطراف المنحنية ووحدات الرفوف"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/15-workshop-finishing.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Paint finish on a curved unit",
+            "ar": "تشطيب الدهان على وحدة منحنية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
         }
       ],
       "company": {
