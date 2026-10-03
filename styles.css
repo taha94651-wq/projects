@@ -120,7 +120,6 @@ html[lang="ar"] .hero__name .line-2 { padding-inline-start: 0; }
   padding-block: 28px 56px; border-top: 1px solid var(--line);
 }
 .hero__role .eyebrow { grid-column: 1 / span 4; }
-.hero__id { grid-column: 1 / span 5; align-self: start; }
 .hero__title { margin: 0; font-size: clamp(22px, 2.2vw, 32px); font-weight: 400; letter-spacing: -0.02em; line-height: 1.15; }
 .hero__title em { font-style: normal; color: var(--gold); }
 .hero__summary { grid-column: 6 / span 7; margin: 0; font-size: clamp(17px, 1.45vw, 21px); line-height: 1.55; color: rgba(239, 235, 228, 0.82); font-weight: 300; }
@@ -542,54 +541,53 @@ html[lang="ar"] .next strong { letter-spacing: 0; line-height: 1.15; }
 .about__meta { margin: 6px 0 0; color: var(--muted); font-size: 15px; }
 @media (max-width: 760px) { .about__photo { width: 112px; height: 112px; } }
 
-/* hero portrait */
-.hero__head { display: grid; grid-template-columns: minmax(0, 1fr); align-items: end; }
-.hero__head.has-portrait { grid-template-columns: auto auto; justify-content: start; align-items: center; column-gap: clamp(28px, 4vw, 72px); }
-html[dir="rtl"] .hero__head.has-portrait .hero__portrait { order: -1; }
-.hero__head.has-portrait .hero__name { font-size: clamp(60px, 13.2vw, 240px); }
-html[lang="ar"] .hero__head.has-portrait .hero__name { font-size: clamp(56px, 12vw, 220px); }
-.hero__portrait { margin: 0; padding: clamp(14px, 1.2vw, 20px); }
-.hero__portrait img { display: block; filter: grayscale(1) contrast(1.05); transform: scaleX(-1); }
-.hero__portrait--round img {
-  width: clamp(150px, 16vw, 250px); height: auto; aspect-ratio: 1; border-radius: 50%; object-fit: cover;
-  outline: 1px solid var(--gold); outline-offset: clamp(8px, 0.9vw, 14px);
-}
-.hero__portrait--tall .frame { width: clamp(190px, 21vw, 330px); aspect-ratio: 3 / 4; overflow: hidden; background: var(--ink); }
-.hero__portrait--tall .zoom { height: 100%; }
-.hero__portrait--tall img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
-@media (max-width: 760px) {
-  .hero__head.has-portrait { grid-template-columns: 1fr; }
-  .hero__portrait, html[dir="rtl"] .hero__head.has-portrait .hero__portrait { order: -1; padding: 24px 10px 4px; }
-  .hero__portrait--round img { width: 120px; outline-offset: 7px; }
-  .hero__portrait--tall .frame { width: 58%; }
-}
 
-/* edge portrait: pinned to the page edge, fading into the background */
-.hero { position: relative; overflow: hidden; }
-.hero > .wrap { position: relative; }
-.hero__meta, .hero__name, .hero__role { position: relative; z-index: 1; }
-.hero__head.has-portrait { grid-template-columns: minmax(0, 1fr); }
+/* hero with portrait: text column + photo column pinned to the page edge */
+.hero--portrait {
+  display: grid; grid-template-columns: minmax(0, 1fr) clamp(360px, 44vw, 760px);
+  padding-top: 0; position: relative; overflow: hidden;
+}
+.hero--portrait .hero__text { grid-column: 1; grid-row: 1; padding-top: 120px; padding-bottom: clamp(48px, 6vw, 96px); position: relative; z-index: 1; min-width: 0; }
+.hero--portrait .hero__meta { padding-inline-end: clamp(16px, 3vw, 48px); }
+.hero--portrait .hero__name { font-size: clamp(64px, 12vw, 210px); line-height: 0.9; }
+html[lang="ar"] .hero--portrait .hero__name { font-size: clamp(60px, 11vw, 196px); line-height: 1.06; }
+.hero--portrait .hero__name .line-2 { padding-inline-start: 0; }
+.hero--portrait .hero__role { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; padding-block: 28px 0; max-width: 60ch; }
+.hero--portrait .hero__role > * { grid-column: 1 / -1 !important; }
+.hero--portrait .hero__title { font-size: clamp(22px, 2vw, 30px); }
+.hero--portrait .hero__summary { font-size: clamp(16px, 1.25vw, 19px); }
+.hero--portrait .hero__cta { margin-top: 6px; }
+
+/* photo keeps its own ratio so the head scales with the name; the side fade
+   sits on the figure and the top/bottom fade on the image (no mask-composite) */
 .hero__portrait--edge {
-  position: absolute; z-index: 0; top: 0; inset-inline-end: 0; margin: 0; padding: 0;
-  height: clamp(520px, 46vw, 780px); aspect-ratio: 1163 / 1353; pointer-events: none;
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 42%); mask-image: linear-gradient(to right, transparent 0%, #000 42%);
-  animation: portraitIn 2.2s var(--ease) both;
+  grid-column: 2; grid-row: 1; align-self: start; position: relative;
+  margin: clamp(88px, 9.6vw, 170px) 0 0; aspect-ratio: 1163 / 1353;
+  pointer-events: none; animation: portraitIn 2.2s var(--ease) both;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 24%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 24%);
 }
 html[dir="rtl"] .hero__portrait--edge {
-  -webkit-mask-image: linear-gradient(to left, transparent 0%, #000 42%); mask-image: linear-gradient(to left, transparent 0%, #000 42%);
+  -webkit-mask-image: linear-gradient(to left, transparent 0%, #000 24%);
+  mask-image: linear-gradient(to left, transparent 0%, #000 24%);
 }
 .hero__portrait--edge img {
-  display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%; transform: scaleX(-1); filter: none;
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 52%, transparent 94%);
-  mask-image: linear-gradient(to bottom, transparent 0%, #000 14%, #000 52%, transparent 94%);
+  display: block; width: 100%; height: 100%; object-fit: cover;
+  transform: scaleX(-1); filter: none;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 9%, #000 60%, transparent 98%);
+  mask-image: linear-gradient(to bottom, transparent 0%, #000 9%, #000 60%, transparent 98%);
 }
 html[dir="rtl"] .hero__portrait--edge img { transform: none; }
 @keyframes portraitIn { from { opacity: 0; } to { opacity: 1; } }
 @media (max-width: 760px) {
+  .hero--portrait { display: flex; flex-direction: column; }
   .hero__portrait--edge, html[dir="rtl"] .hero__portrait--edge {
-    position: relative; inset: auto; width: calc(100% + 2 * var(--gutter)); margin-inline: calc(var(--gutter) * -1); height: auto; aspect-ratio: 1 / 0.95;
+    order: -1; width: 100%; aspect-ratio: auto; height: min(104vw, 520px); margin: 64px 0 -56px;
     -webkit-mask-image: none; mask-image: none;
   }
-  .hero__portrait--edge img { object-position: 50% 12%; }
+  .hero__portrait--edge img { object-position: 50% 8%;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 10%, #000 58%, transparent 96%);
+    mask-image: linear-gradient(to bottom, transparent 0%, #000 10%, #000 58%, transparent 96%); }
+  .hero--portrait .hero__text { padding-top: 0; }
 }
 @media (prefers-reduced-motion: reduce) { .hero__portrait--edge { animation: none; } }
