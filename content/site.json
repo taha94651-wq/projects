@@ -393,12 +393,22 @@
     },
     {
       "name": {
-        "en": "Rasees & Beluar",
-        "ar": "رسيس وبلوار"
+        "en": "Rasees",
+        "ar": "رسيس"
       },
       "sector": {
-        "en": "Brands & events",
-        "ar": "علامات تجارية وفعاليات"
+        "en": "Brand events",
+        "ar": "فعاليات العلامات التجارية"
+      }
+    },
+    {
+      "name": {
+        "en": "Beluar",
+        "ar": "بلوار"
+      },
+      "sector": {
+        "en": "Brand events",
+        "ar": "فعاليات العلامات التجارية"
       }
     }
   ]

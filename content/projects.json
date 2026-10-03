@@ -1436,10 +1436,10 @@
       }
     },
     {
-      "id": "rasees-beluar",
+      "id": "rasees-event",
       "title": {
-        "ar": "رسيس وبلوار",
-        "en": "Rasees & Beluar"
+        "en": "Rasees Event",
+        "ar": "فعالية رسيس"
       },
       "disciplines": [
         "execution"
@@ -1447,14 +1447,14 @@
       "type": "events",
       "status": "built",
       "client": {
-        "ar": "رسيس وبلوار",
-        "en": "Rasees & Beluar"
+        "en": "Rasees",
+        "ar": "رسيس"
       },
       "location": {
         "ar": "",
         "en": ""
       },
-      "year": "",
+      "year": "2026",
       "duration": {
         "ar": "",
         "en": ""
@@ -1467,8 +1467,8 @@
       "phases": [],
       "tools": [],
       "summary": {
-        "ar": "تنفيذ فعاليات لعلامات تجارية.",
-        "en": "Brand events execution."
+        "en": "Brand event execution for Rasees.",
+        "ar": "تنفيذ فعالية لعلامة رسيس التجارية."
       },
       "scope": [],
       "cover": "",
@@ -1490,8 +1490,73 @@
         }
       ],
       "company": {
+        "en": "VIVID Design / PHZYN Construction",
+        "ar": "VIVID Design / PHZYN Construction"
+      },
+      "result": "",
+      "coverVideo": "",
+      "designer": {
         "en": "",
         "ar": ""
+      }
+    },
+    {
+      "id": "beluar-event",
+      "title": {
+        "en": "Beluar Event",
+        "ar": "فعالية بلوار"
+      },
+      "disciplines": [
+        "execution"
+      ],
+      "type": "events",
+      "status": "built",
+      "client": {
+        "en": "Beluar",
+        "ar": "بلوار"
+      },
+      "location": {
+        "ar": "",
+        "en": ""
+      },
+      "year": "2026",
+      "duration": {
+        "ar": "",
+        "en": ""
+      },
+      "area": "",
+      "role": {
+        "ar": "التنفيذ",
+        "en": "Execution"
+      },
+      "phases": [],
+      "tools": [],
+      "summary": {
+        "en": "Brand event execution for Beluar.",
+        "ar": "تنفيذ فعالية لعلامة بلوار التجارية."
+      },
+      "scope": [],
+      "cover": "",
+      "media": [
+        {
+          "type": "image",
+          "src": "",
+          "youtube": "",
+          "caption": {
+            "ar": "",
+            "en": ""
+          },
+          "size": "",
+          "section": {
+            "en": "",
+            "ar": ""
+          },
+          "poster": ""
+        }
+      ],
+      "company": {
+        "en": "VIVID Design / PHZYN Construction",
+        "ar": "VIVID Design / PHZYN Construction"
       },
       "result": "",
       "coverVideo": "",
