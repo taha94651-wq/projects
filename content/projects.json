@@ -392,8 +392,8 @@
         "en": "Assaf Perfumes"
       },
       "location": {
-        "en": "11 branches across Saudi Arabia",
-        "ar": "11 فرعًا في المملكة العربية السعودية"
+        "en": "11 branches: Riyadh, Jeddah, Madinah, Taif, Hail, Buraydah, Unaizah, Tabuk",
+        "ar": "11 فرعًا: الرياض، جدة، المدينة المنورة، الطائف، حائل، بريدة، عنيزة، تبوك"
       },
       "year": "",
       "duration": {
@@ -603,7 +603,53 @@
       "designer": {
         "en": "",
         "ar": ""
-      }
+      },
+      "branches": [
+        {
+          "en": "Assaf Madinah — Madinah",
+          "ar": "عساف المدينة — المدينة المنورة"
+        },
+        {
+          "en": "Assaf Roshn Front — Roshn Front, Riyadh",
+          "ar": "عساف واجهة روشن — واجهة روشن، الرياض"
+        },
+        {
+          "en": "Assaf Compass — Compass complex, Riyadh",
+          "ar": "عساف كومباس — مجمع كومباس، الرياض"
+        },
+        {
+          "en": "Assaf Othaim Mall — Othaim Mall, Hail",
+          "ar": "عساف العثيم مول — العثيم مول، حائل"
+        },
+        {
+          "en": "Assaf Buraydah — Buraydah",
+          "ar": "عساف بريدة — بريدة"
+        },
+        {
+          "en": "Assaf Unaizah — Unaizah",
+          "ar": "عساف عنيزة — عنيزة"
+        },
+        {
+          "en": "Assaf Jeddah Park — Jeddah Park Mall, Jeddah",
+          "ar": "عساف جدة بارك — جدة بارك مول، جدة"
+        },
+        {
+          "en": "Assaf Al Yasmin — Al Yasmin Mall, Jeddah",
+          "ar": "عساف الياسمين — الياسمين مول، جدة"
+        },
+        {
+          "en": "Assaf Tahlia — Tahlia, Jeddah",
+          "ar": "عساف التحلية — التحلية، جدة"
+        },
+        {
+          "en": "Assaf Jouri Mall — Jouri Mall, Taif",
+          "ar": "عساف جوري مول — جوري مول، الطائف"
+        },
+        {
+          "en": "Assaf Tabuk — Tabuk",
+          "ar": "عساف تبوك — تبوك"
+        }
+      ]
     },
     {
       "id": "fitness-time-ladies",
