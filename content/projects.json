@@ -907,8 +907,8 @@
       },
       "year": "2026",
       "duration": {
-        "ar": "",
-        "en": ""
+        "en": "10 days (fabrication & installation)",
+        "ar": "10 أيام (تصنيع وتركيب)"
       },
       "area": "",
       "role": {
@@ -952,22 +952,157 @@
           "ar": "التنفيذ والتسليم"
         }
       ],
-      "cover": "",
+      "cover": "assets/images/laverne-perfumes/cover.jpg",
       "media": [
         {
-          "type": "image",
-          "src": "",
+          "type": "video",
+          "src": "assets/videos/laverne-perfumes.mp4",
           "youtube": "",
+          "poster": "assets/images/laverne-perfumes/poster.jpg",
+          "size": "wide",
           "caption": {
-            "ar": "",
-            "en": ""
+            "en": "Booth walkthrough",
+            "ar": "جولة في الجناح"
           },
-          "size": "",
+          "section": {
+            "en": "Film",
+            "ar": "الفيلم"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/laverne-perfumes/01-booth-front.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "The booth on the mall floor",
+            "ar": "الجناح في ممر المول"
+          },
+          "section": {
+            "en": "The booth",
+            "ar": "الجناح"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/laverne-perfumes/02-arabic-sign.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Arabic brand sign over the main counter",
+            "ar": "لوحة الاسم العربي فوق الكاونتر الرئيسي"
+          },
           "section": {
             "en": "",
             "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/laverne-perfumes/08-booth-wide.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Gift-box frame and display units",
+            "ar": "إطار الهدية ووحدات العرض"
           },
-          "poster": ""
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/laverne-perfumes/07-laverne-sign.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Raised LAVERNE letters on the frame",
+            "ar": "حروف LAVERNE البارزة على الإطار"
+          },
+          "section": {
+            "en": "Details",
+            "ar": "التفاصيل"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/laverne-perfumes/03-ribbon-column.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Gold ribbon bow on the corner column",
+            "ar": "فيونكة ذهبية على العمود الركني"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/laverne-perfumes/06-ribbon-pedestal.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Curved pedestal with gold trim and bow",
+            "ar": "قاعدة منحنية بحليات وفيونكة ذهبية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/laverne-perfumes/04-gift-box-display.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Gift-box display unit",
+            "ar": "وحدة عرض على شكل علبة هدية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/laverne-perfumes/05-perfume-gift-set.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Product display counter",
+            "ar": "كاونتر عرض المنتجات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/laverne-perfumes/09-aerial.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "The booth from the upper level",
+            "ar": "الجناح من الدور العلوي"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
         }
       ],
       "company": {
@@ -975,7 +1110,7 @@
         "ar": "VIVID Design / PHZYN Construction"
       },
       "result": "",
-      "coverVideo": "",
+      "coverVideo": "assets/videos/laverne-perfumes-loop.mp4",
       "designer": {
         "en": "",
         "ar": ""
