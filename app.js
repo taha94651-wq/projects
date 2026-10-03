@@ -56,7 +56,7 @@
       compIntro: "Architecture competitions I entered, from student years onward.",
       photoIntro: "Architectural photography — how I read spaces, light and material through the lens.",
       aiIntro: "How I use AI in practice: generated visuals, automated sheets and structured project workflows.",
-      experience: "Experience", clients: "Key clients", skills: "Skills", software: "Software", languages: "Languages", education: "Education",
+      experience: "Experience", about: "About", clients: "Key clients", skills: "Skills", software: "Software", languages: "Languages", education: "Education",
       client: "Client", location: "Location", year: "Year", duration: "Duration", role: "Role", type: "Type", discipline: "Discipline",
       scope: "Scope of work", company: "Firm", designer: "Design office", status: "Status", area: "Area", tools: "Tools", myRole: "My role — phases", overview: "Overview", backTo: "Back to index", next: "Next project",
       contactEyebrow: "Contact", letsTalk: "Let’s work together", email: "Email", phone: "Phone", whatsapp: "WhatsApp",
@@ -71,7 +71,7 @@
       compIntro: "مسابقات معمارية شاركت فيها منذ سنوات الدراسة.",
       photoIntro: "التصوير المعماري — كيف أقرأ الفراغ والضوء والخامة من خلال العدسة.",
       aiIntro: "كيف أستخدم الذكاء الاصطناعي عمليًا: صور مولّدة، وشيتات مؤتمتة، وهيكلة سير عمل المشاريع.",
-      experience: "الخبرات", clients: "أهم العملاء", skills: "المهارات", software: "البرامج", languages: "اللغات", education: "التعليم",
+      experience: "الخبرات", about: "نبذة", clients: "أهم العملاء", skills: "المهارات", software: "البرامج", languages: "اللغات", education: "التعليم",
       client: "العميل", location: "الموقع", year: "السنة", duration: "المدة", role: "الدور", type: "النوع", discipline: "المجال",
       scope: "نطاق العمل", company: "الشركة", designer: "مكتب التصميم", status: "الحالة", area: "المساحة", tools: "البرامج", myRole: "دوري — المراحل", overview: "نظرة عامة", backTo: "العودة للفهرس", next: "المشروع التالي",
       contactEyebrow: "تواصل", letsTalk: "لنعمل معًا", email: "البريد", phone: "الهاتف", whatsapp: "واتساب",
@@ -366,6 +366,10 @@
       <div class="wrap">
         ${sectionHead(no, "profile", u().nav.profile, null, null)}
         <div class="profile-grid">
+          ${D.profile.photo ? `<div class="block reveal"><span class="eyebrow">${esc(u().about)}</span><div class="block__body about">
+            <img class="about__photo" src="${esc(D.profile.photo)}" alt="${T(D.profile.name)}" width="164" height="164" />
+            <div><p class="about__name">${T(D.profile.name)}</p><p class="about__meta">${T(D.profile.title)} · ${T(D.profile.location)}</p></div>
+          </div></div>` : ""}
           ${clients ? `<div class="block reveal"><span class="eyebrow">${esc(u().clients)}</span><div class="block__body"><ul class="clients">${clients}</ul></div></div>` : ""}
           <div class="block reveal"><span class="eyebrow">${esc(u().experience)}</span><div class="block__body exp-list">${exp}</div></div>
           <div class="block reveal"><span class="eyebrow">${esc(u().skills)}</span><div class="block__body cols">${skills}</div></div>
