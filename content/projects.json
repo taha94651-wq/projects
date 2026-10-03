@@ -689,8 +689,23 @@
             "ar": "لحام إطارات الرفوف الستانلس ستيل"
           },
           "section": {
-            "en": "Fabrication in China — stainless steel shelving",
-            "ar": "التصنيع في الصين — رفوف الستانلس ستيل"
+            "en": "Fabrication in China — stainless steel",
+            "ar": "التصنيع في الصين — الستانلس ستيل"
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/assaf-china-finishing.mp4",
+          "youtube": "",
+          "poster": "assets/images/assaf-perfumes/china-finishing-poster.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Grinding and polishing the stainless steel (sped up)",
+            "ar": "جلخ وتلميع الستانلس ستيل (مُسرّع)"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
           }
         },
         {
@@ -704,6 +719,21 @@
             "ar": "تجربة سكك التثبيت على حائط تجريبي قبل الشحن"
           },
           "section": {
+            "en": "Shelving — mounting method",
+            "ar": "الرفوف — طريقة التثبيت"
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/assaf-china-rails.mp4",
+          "youtube": "",
+          "poster": "assets/images/assaf-perfumes/china-rails-poster.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Setting out and fixing the wall rails (sped up)",
+            "ar": "قياس وتثبيت السكك على الحائط (مُسرّع)"
+          },
+          "section": {
             "en": "",
             "ar": ""
           }
@@ -715,8 +745,8 @@
           "poster": "assets/images/assaf-perfumes/china-shelving-poster.jpg",
           "size": "third",
           "caption": {
-            "en": "Shelf units: hanging and fixing method (sped up)",
-            "ar": "وحدات الرفوف: طريقة التعليق والتثبيت (مُسرّع)"
+            "en": "Hanging the shelf units on the rails (sped up)",
+            "ar": "تعليق وحدات الرفوف على السكك (مُسرّع)"
           },
           "section": {
             "en": "",
@@ -730,12 +760,27 @@
           "poster": "assets/images/assaf-perfumes/china-perfume-stands-poster.jpg",
           "size": "third",
           "caption": {
-            "en": "Stainless steel perfume stand with the Assaf horse emblem",
-            "ar": "ستاند عطور ستانلس ستيل بشعار خيل عساف"
+            "en": "Fitting the perfume stand with the Assaf horse emblem",
+            "ar": "تركيب ستاند العطور بشعار خيل عساف"
           },
           "section": {
             "en": "Stainless steel perfume stands",
             "ar": "ستاندات العطور الستانلس ستيل"
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/assaf-china-horse-lightbox.mp4",
+          "youtube": "",
+          "poster": "assets/images/assaf-perfumes/china-horse-lightbox-poster.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Horse emblem light box: LEDs and acrylic face (sped up)",
+            "ar": "لايت بوكس شعار الخيل: الإضاءة والوجه الأكريليك (مُسرّع)"
+          },
+          "section": {
+            "en": "Light boxes",
+            "ar": "اللايت بوكس"
           }
         },
         {
@@ -745,12 +790,12 @@
           "poster": "assets/images/assaf-perfumes/china-light-boxes-poster.jpg",
           "size": "third",
           "caption": {
-            "en": "Light box panel: fitting and lighting test (sped up)",
-            "ar": "بانل اللايت بوكس: التركيب واختبار الإضاءة (مُسرّع)"
+            "en": "Wall light box panel: fitting and lighting test (sped up)",
+            "ar": "بانل اللايت بوكس الحائطي: التركيب واختبار الإضاءة (مُسرّع)"
           },
           "section": {
-            "en": "Light boxes",
-            "ar": "اللايت بوكس"
+            "en": "",
+            "ar": ""
           }
         },
         {
