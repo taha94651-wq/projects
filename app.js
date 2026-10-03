@@ -193,9 +193,16 @@
     <section class="hero" id="top">
       <div class="wrap">
         <div class="hero__meta eyebrow reveal"><span>${T(P.title)}</span><span>${T(P.location)}</span></div>
-        <h1 class="hero__name reveal">${nameHTML}</h1>
+        <div class="hero__head${P.photoLarge ? " has-portrait" : ""}">
+          <h1 class="hero__name reveal">${nameHTML}</h1>
+          ${P.photoLarge
+            ? `<figure class="hero__portrait hero__portrait--tall unveil"><div class="frame"><div class="zoom"><img src="${esc(P.photoLarge)}" alt="${T(P.name)}" /></div></div></figure>`
+            : ""}
+        </div>
         <div class="hero__role reveal">
-          <p class="hero__title">${esc(role)}${rest ? ` <em>/ ${esc(rest)}</em>` : ""}</p>
+          <div class="hero__id">
+            <p class="hero__title">${esc(role)}${rest ? ` <em>/ ${esc(rest)}</em>` : ""}</p>
+          </div>
           <p class="hero__summary">${T(P.summary)}</p>
           <div class="hero__cta">
             <a class="btn btn--solid" href="#execution">${esc(u().viewWork)} <span>${arrow}</span></a>
@@ -203,7 +210,7 @@
           </div>
         </div>
       </div>
-      <figure class="bleed" style="margin:0"><img data-parallax src="${img(P.heroImage, "hero", t(P.name))}" alt="" /></figure>
+      ${P.heroImage ? `<figure class="bleed" style="margin:0"><img data-parallax src="${esc(P.heroImage)}" alt="" /></figure>` : ""}
     </section>`;
   }
 
