@@ -730,12 +730,12 @@
           "poster": "",
           "size": "half",
           "caption": {
-            "en": "Mounting rails set out on a test wall before shipping — in China",
-            "ar": "تجربة سكك التثبيت على حائط تجريبي قبل الشحن — في الصين"
+            "en": "Mounting rails for the glasses unit set out on a test wall",
+            "ar": "سكك تثبيت وحدة النظارات على حائط تجريبي"
           },
           "section": {
-            "en": "China — shelving mounting method",
-            "ar": "الصين — طريقة تثبيت الرفوف"
+            "en": "China — glasses hanging unit",
+            "ar": "الصين — وحدة النظارات المعلّقة"
           }
         },
         {
@@ -745,8 +745,8 @@
           "poster": "assets/images/assaf-perfumes/china-rails-poster.jpg",
           "size": "third",
           "caption": {
-            "en": "Setting out and fixing the wall rails (sped up) — in China",
-            "ar": "قياس وتثبيت السكك على الحائط (مُسرّع) — في الصين"
+            "en": "Setting out and fixing the rails for the glasses unit (sped up)",
+            "ar": "قياس وتثبيت سكك وحدة النظارات (مُسرّع)"
           },
           "section": {
             "en": "",
@@ -760,12 +760,27 @@
           "poster": "assets/images/assaf-perfumes/china-shelving-poster.jpg",
           "size": "third",
           "caption": {
-            "en": "Hanging the shelf units on the rails (sped up) — in China",
-            "ar": "تعليق وحدات الرفوف على السكك (مُسرّع) — في الصين"
+            "en": "Hanging and fixing the glasses unit on its rails (sped up)",
+            "ar": "تعليق وتثبيت وحدة النظارات على السكك (مُسرّع)"
           },
           "section": {
             "en": "",
             "ar": ""
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/assaf-china-hanging-shelf.mp4",
+          "youtube": "",
+          "poster": "assets/images/assaf-perfumes/china-hanging-shelf-poster.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Fixing the hanging shelf brackets (sped up)",
+            "ar": "تثبيت حوامل الرف المعلّق (مُسرّع)"
+          },
+          "section": {
+            "en": "China — hanging shelf",
+            "ar": "الصين — الرف المعلّق"
           }
         },
         {
