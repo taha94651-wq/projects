@@ -477,30 +477,59 @@
       "type": "gym",
       "status": "built",
       "client": {
-        "en": "Fitness Time Ladies",
-        "ar": "فتنس تايم ليديز"
+        "en": "Leejam Sports Company (Fitness Time)",
+        "ar": "شركة لجام للرياضة (فتنس تايم)"
       },
       "location": {
         "en": "Khurais Road, Riyadh",
         "ar": "طريق خريص، الرياض"
       },
-      "year": "",
+      "year": "2025",
       "duration": {
-        "ar": "",
-        "en": ""
+        "en": "2 months",
+        "ar": "شهران"
       },
-      "area": "",
+      "area": "850 m²",
       "role": {
-        "ar": "التنفيذ",
-        "en": "Execution"
+        "en": "Pricing, execution & handover",
+        "ar": "التسعير والتنفيذ والتسليم"
       },
-      "phases": [],
+      "phases": [
+        "pricing",
+        "supervision",
+        "handover"
+      ],
       "tools": [],
       "summary": {
-        "ar": "تنفيذ أعمال تشطيب صالة رياضية.",
-        "en": "Gym fit-out execution."
+        "en": "An 850 m² upgrade of the Fitness Time Ladies club on Khurais Road, Riyadh, for Leejam Sports Company. I priced the works, executed them and handed the club back to Leejam in two months: a full fit-out of the pilates studio, a new court with PU sports flooring, a decorative treatment for the staircase area and general finishing works.",
+        "ar": "تطوير نادي فتنس تايم ليديز على طريق خريص بالرياض بمساحة 850 م² لصالح شركة لجام للرياضة. سعّرت الأعمال ونفّذتها وسلّمت النادي لشركة لجام خلال شهرين: تشطيب كامل لصالة البيلاتس، وتأسيس ملعب بأرضيات PU الرياضية، وأعمال ديكور لمنطقة الدرج، وأعمال تشطيبات عامة."
       },
-      "scope": [],
+      "scope": [
+        {
+          "en": "Pricing and cost estimate",
+          "ar": "التسعير وتقدير التكلفة"
+        },
+        {
+          "en": "Full fit-out of the pilates studio",
+          "ar": "تشطيب كامل لصالة البيلاتس"
+        },
+        {
+          "en": "New court with PU sports flooring",
+          "ar": "تأسيس ملعب بأرضيات PU الرياضية"
+        },
+        {
+          "en": "Decorative treatment of the staircase area",
+          "ar": "أعمال ديكور منطقة الدرج"
+        },
+        {
+          "en": "General finishing works",
+          "ar": "أعمال تشطيبات عامة"
+        },
+        {
+          "en": "Handover to Leejam Sports Company",
+          "ar": "التسليم لشركة لجام للرياضة"
+        }
+      ],
       "cover": "assets/images/fitness-time-ladies/02-reformer-studio.jpg",
       "media": [
         {
