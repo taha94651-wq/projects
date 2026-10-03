@@ -874,6 +874,21 @@
           }
         },
         {
+          "type": "video",
+          "src": "assets/videos/assaf-china-graphic-lightboxes.mp4",
+          "youtube": "",
+          "poster": "assets/images/assaf-perfumes/china-graphic-lightboxes-poster.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Printed graphic light boxes: lighting check before shipping (edited)",
+            "ar": "لايت بوكس الصور المطبوعة: فحص الإضاءة قبل الشحن (مختصر)"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
           "type": "image",
           "src": "assets/images/assaf-perfumes/18-china-letters-lit.jpg",
           "youtube": "",
