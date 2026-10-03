@@ -1836,6 +1836,21 @@
         },
         {
           "type": "image",
+          "src": "assets/images/beluar-event/07-brand-column.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Brand column and perfume pedestals",
+            "ar": "عمود الهوية وقواعد العطور"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
           "src": "assets/images/beluar-event/02-prize-sign.jpg",
           "youtube": "",
           "poster": "",
@@ -1851,13 +1866,43 @@
         },
         {
           "type": "image",
+          "src": "assets/images/beluar-event/08-car-platform.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Prize car on a lit platform",
+            "ar": "سيارة الجائزة على منصة مضيئة"
+          },
+          "section": {
+            "en": "Car display",
+            "ar": "عرض السيارات"
+          }
+        },
+        {
+          "type": "image",
           "src": "assets/images/beluar-event/03-car-plate.jpg",
           "youtube": "",
           "poster": "",
           "size": "third",
           "caption": {
-            "en": "Prize car on display",
-            "ar": "سيارة الجائزة"
+            "en": "BELUAR number plate",
+            "ar": "لوحة سيارة بلوار"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/beluar-event/09-sign-over-cars.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Prize sign over the car line-up",
+            "ar": "لوحة السحب فوق صف السيارات"
           },
           "section": {
             "en": "",
