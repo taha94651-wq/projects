@@ -196,7 +196,7 @@
         <div class="hero__head${P.photoLarge ? " has-portrait" : ""}">
           <h1 class="hero__name reveal">${nameHTML}</h1>
           ${P.photoLarge
-            ? `<figure class="hero__portrait hero__portrait--tall unveil"><div class="frame"><div class="zoom"><img src="${esc(P.photoLarge)}" alt="${T(P.name)}" /></div></div></figure>`
+            ? `<figure class="hero__portrait hero__portrait--edge" aria-hidden="true"><img src="${esc(P.photoLarge)}" alt="" /></figure>`
             : ""}
         </div>
         <div class="hero__role reveal">
