@@ -677,6 +677,126 @@
             "en": "",
             "ar": ""
           }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/16-china-steel-frames.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Stainless steel shelf frames being welded",
+            "ar": "لحام إطارات الرفوف الستانلس ستيل"
+          },
+          "section": {
+            "en": "Fabrication in China — stainless steel shelving",
+            "ar": "التصنيع في الصين — رفوف الستانلس ستيل"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/17-china-mounting-rails.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Mounting rails set out on a test wall before shipping",
+            "ar": "تجربة سكك التثبيت على حائط تجريبي قبل الشحن"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/assaf-china-shelving.mp4",
+          "youtube": "",
+          "poster": "assets/images/assaf-perfumes/china-shelving-poster.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Shelf units: hanging and fixing method (sped up)",
+            "ar": "وحدات الرفوف: طريقة التعليق والتثبيت (مُسرّع)"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/assaf-china-perfume-stands.mp4",
+          "youtube": "",
+          "poster": "assets/images/assaf-perfumes/china-perfume-stands-poster.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Stainless steel perfume stand with the Assaf horse emblem",
+            "ar": "ستاند عطور ستانلس ستيل بشعار خيل عساف"
+          },
+          "section": {
+            "en": "Stainless steel perfume stands",
+            "ar": "ستاندات العطور الستانلس ستيل"
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/assaf-china-light-boxes.mp4",
+          "youtube": "",
+          "poster": "assets/images/assaf-perfumes/china-light-boxes-poster.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Light box panel: fitting and lighting test (sped up)",
+            "ar": "بانل اللايت بوكس: التركيب واختبار الإضاءة (مُسرّع)"
+          },
+          "section": {
+            "en": "Light boxes",
+            "ar": "اللايت بوكس"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/18-china-letters-lit.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "wide",
+          "caption": {
+            "en": "Back-lit letters under lighting test",
+            "ar": "اختبار إضاءة الحروف البارزة"
+          },
+          "section": {
+            "en": "Back-lit acrylic letters",
+            "ar": "الحروف الأكريليك المضيئة"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/19-china-letters-table.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "ARROGATE and GLASSES letter sets",
+            "ar": "أطقم حروف ARROGATE وGLASSES"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/20-china-letters-batch.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "FRANKEL and PEGASUS letter sets for all branches",
+            "ar": "أطقم حروف FRANKEL وPEGASUS لكل الفروع"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
         }
       ],
       "company": {
