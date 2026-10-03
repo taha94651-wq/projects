@@ -611,3 +611,6 @@ html[dir="rtl"] .hero__portrait--edge img { transform: none; }
 @keyframes smapPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.18); } }
 @media (max-width: 760px) { .smap__name { display: none; } .smap__label { font-size: 24px; } }
 @media (prefers-reduced-motion: reduce) { .smap__halo { animation: none; } }
+.smap__sea { fill: currentColor; fill-opacity: 0.32; font-size: 13px; letter-spacing: 0.3em; }
+@media (max-width: 760px) { .smap__sea { font-size: 18px; } }
+html[lang="ar"] .smap__sea { letter-spacing: 0; font-size: 15px; }

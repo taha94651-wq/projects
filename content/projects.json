@@ -685,12 +685,12 @@
           "poster": "",
           "size": "half",
           "caption": {
-            "en": "Stainless steel shelf frames being welded",
-            "ar": "لحام إطارات الرفوف الستانلس ستيل"
+            "en": "Stainless steel perfume stands being welded",
+            "ar": "لحام ستاندات العطور الستانلس ستيل"
           },
           "section": {
-            "en": "Fabrication in China — stainless steel",
-            "ar": "التصنيع في الصين — الستانلس ستيل"
+            "en": "Fabrication in China — stainless steel perfume stands",
+            "ar": "التصنيع في الصين — ستاندات العطور الستانلس ستيل"
           }
         },
         {
@@ -700,8 +700,23 @@
           "poster": "assets/images/assaf-perfumes/china-finishing-poster.jpg",
           "size": "third",
           "caption": {
-            "en": "Grinding and polishing the stainless steel (sped up)",
-            "ar": "جلخ وتلميع الستانلس ستيل (مُسرّع)"
+            "en": "Grinding and polishing the perfume stands (sped up)",
+            "ar": "جلخ وتلميع ستاندات العطور (مُسرّع)"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/assaf-china-perfume-stands.mp4",
+          "youtube": "",
+          "poster": "assets/images/assaf-perfumes/china-perfume-stands-poster.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Fitting the perfume stand with the Assaf horse emblem",
+            "ar": "تركيب ستاند العطور بشعار خيل عساف"
           },
           "section": {
             "en": "",
@@ -751,21 +766,6 @@
           "section": {
             "en": "",
             "ar": ""
-          }
-        },
-        {
-          "type": "video",
-          "src": "assets/videos/assaf-china-perfume-stands.mp4",
-          "youtube": "",
-          "poster": "assets/images/assaf-perfumes/china-perfume-stands-poster.jpg",
-          "size": "third",
-          "caption": {
-            "en": "Fitting the perfume stand with the Assaf horse emblem",
-            "ar": "تركيب ستاند العطور بشعار خيل عساف"
-          },
-          "section": {
-            "en": "China — stainless steel perfume stands",
-            "ar": "الصين — ستاندات العطور الستانلس ستيل"
           }
         },
         {

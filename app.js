@@ -567,7 +567,7 @@
       }).join("");
       map = `<span class="eyebrow">${esc(u().branchMap)}</span>
         <figure class="smap reveal" aria-label="${esc(u().branchMap)}">
-          <svg viewBox="-60 10 900 680" role="img"><path class="smap__land" d="${KSA_PATH}" />${pins}</svg>
+          <svg viewBox="-60 10 900 680" role="img"><path class="smap__land" d="${KSA_PATH}" /><text class="smap__sea" x="70" y="560" transform="rotate(52 70 560)">${state.lang === "ar" ? "البحر الأحمر" : "RED SEA"}</text><text class="smap__sea" x="640" y="190" transform="rotate(38 640 190)">${state.lang === "ar" ? "الخليج العربي" : "ARABIAN GULF"}</text>${pins}</svg>
         </figure>`;
     }
     return `<span class="eyebrow">${esc(u().branches)}</span><div class="pj__scope reveal"><ul>${items}</ul></div>${map}`;
