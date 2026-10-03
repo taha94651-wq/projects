@@ -604,6 +604,66 @@
           }
         },
         {
+          "type": "video",
+          "src": "assets/videos/assaf-sample-boards.mp4",
+          "youtube": "",
+          "poster": "assets/images/assaf-perfumes/sample-boards-poster.jpg",
+          "size": "third",
+          "caption": {
+            "en": "From board layout to approved samples",
+            "ar": "من تصميم البورد حتى اعتماد العينات"
+          },
+          "section": {
+            "en": "Sample boards — material selection",
+            "ar": "السامبل بورد — اختيار الخامات"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/21-sample-board-design.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Sample board layout prepared for approval",
+            "ar": "تصميم لوحة العينات للاعتماد"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/23-sample-boards-finished.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Finished ASSAF sample board",
+            "ar": "لوحة عينات عساف بعد التنفيذ"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/22-sample-wall-finishes.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "wide",
+          "caption": {
+            "en": "3D and fluted wall finish samples",
+            "ar": "عينات تشطيبات الحوائط ثلاثية الأبعاد والمضلّعة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
           "type": "image",
           "src": "assets/images/assaf-perfumes/11-workshop-counter.jpg",
           "youtube": "",
