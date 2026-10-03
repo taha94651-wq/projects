@@ -219,6 +219,7 @@ content:
           - { name: summary, label: Summary (hero) — الوصف في الواجهة, component: bitext }
           - { name: heroImage, label: Hero image — صورة الواجهة, type: image }
           - { name: photo, label: Personal photo — صورتك, type: image }
+          - { name: photoLarge, label: "Large portrait 3:4 (optional) — صورة شخصية كبيرة", type: image }
           - { name: cv, label: CV (PDF), type: file }
           - { name: location, label: Location — المكان, component: bi }
           - { name: email, label: Email, type: string }

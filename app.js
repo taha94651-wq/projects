@@ -193,10 +193,16 @@
     <section class="hero" id="top">
       <div class="wrap">
         <div class="hero__meta eyebrow reveal"><span>${T(P.title)}</span><span>${T(P.location)}</span></div>
-        <h1 class="hero__name reveal">${nameHTML}</h1>
+        <div class="hero__head${P.photoLarge || P.photo ? " has-portrait" : ""}">
+          <h1 class="hero__name reveal">${nameHTML}</h1>
+          ${P.photoLarge
+            ? `<figure class="hero__portrait hero__portrait--tall unveil"><div class="frame"><div class="zoom"><img src="${esc(P.photoLarge)}" alt="${T(P.name)}" /></div></div></figure>`
+            : P.photo
+            ? `<figure class="hero__portrait hero__portrait--round reveal"><img src="${esc(P.photo)}" alt="${T(P.name)}" /></figure>`
+            : ""}
+        </div>
         <div class="hero__role reveal">
           <div class="hero__id">
-            ${P.photo ? `<img class="hero__photo" src="${esc(P.photo)}" alt="${T(P.name)}" width="88" height="88" />` : ""}
             <p class="hero__title">${esc(role)}${rest ? ` <em>/ ${esc(rest)}</em>` : ""}</p>
           </div>
           <p class="hero__summary">${T(P.summary)}</p>

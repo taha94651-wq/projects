@@ -120,8 +120,7 @@ html[lang="ar"] .hero__name .line-2 { padding-inline-start: 0; }
   padding-block: 28px 56px; border-top: 1px solid var(--line);
 }
 .hero__role .eyebrow { grid-column: 1 / span 4; }
-.hero__id { grid-column: 1 / span 5; display: flex; align-items: center; gap: 18px; align-self: start; }
-.hero__photo { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; flex: none; filter: grayscale(1); }
+.hero__id { grid-column: 1 / span 5; align-self: start; }
 .hero__title { margin: 0; font-size: clamp(22px, 2.2vw, 32px); font-weight: 400; letter-spacing: -0.02em; line-height: 1.15; }
 .hero__title em { font-style: normal; color: var(--gold); }
 .hero__summary { grid-column: 6 / span 7; margin: 0; font-size: clamp(17px, 1.45vw, 21px); line-height: 1.55; color: rgba(239, 235, 228, 0.82); font-weight: 300; }
@@ -542,3 +541,25 @@ html[lang="ar"] .next strong { letter-spacing: 0; line-height: 1.15; }
 .about__name { margin: 0; font-size: clamp(26px, 2.6vw, 40px); letter-spacing: -0.02em; line-height: 1.1; }
 .about__meta { margin: 6px 0 0; color: var(--muted); font-size: 15px; }
 @media (max-width: 760px) { .about__photo { width: 112px; height: 112px; } }
+
+/* hero portrait */
+.hero__head { display: grid; grid-template-columns: minmax(0, 1fr); align-items: end; }
+.hero__head.has-portrait { grid-template-columns: auto auto; justify-content: start; align-items: center; column-gap: clamp(28px, 4vw, 72px); }
+html[dir="rtl"] .hero__head.has-portrait .hero__portrait { order: -1; }
+.hero__head.has-portrait .hero__name { font-size: clamp(60px, 13.2vw, 240px); }
+html[lang="ar"] .hero__head.has-portrait .hero__name { font-size: clamp(56px, 12vw, 220px); }
+.hero__portrait { margin: 0; padding: clamp(14px, 1.2vw, 20px); }
+.hero__portrait img { display: block; filter: grayscale(1) contrast(1.05); transform: scaleX(-1); }
+.hero__portrait--round img {
+  width: clamp(150px, 16vw, 250px); height: auto; aspect-ratio: 1; border-radius: 50%; object-fit: cover;
+  outline: 1px solid var(--gold); outline-offset: clamp(8px, 0.9vw, 14px);
+}
+.hero__portrait--tall .frame { width: clamp(190px, 21vw, 330px); aspect-ratio: 3 / 4; overflow: hidden; background: var(--ink); }
+.hero__portrait--tall .zoom { height: 100%; }
+.hero__portrait--tall img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
+@media (max-width: 760px) {
+  .hero__head.has-portrait { grid-template-columns: 1fr; }
+  .hero__portrait, html[dir="rtl"] .hero__head.has-portrait .hero__portrait { order: -1; padding: 24px 10px 4px; }
+  .hero__portrait--round img { width: 120px; outline-offset: 7px; }
+  .hero__portrait--tall .frame { width: 58%; }
+}
