@@ -112,6 +112,13 @@ content:
               collapsible:
                 collapsed: true
                 summary: "{en}"
+          - name: branches
+            label: "Branches (optional) — الفروع"
+            component: bi
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{en}"
           - { name: cover, label: Cover image — صورة الغلاف, type: image }
           - { name: coverVideo, label: "Cover video (optional) — فيديو الغلاف", type: file }
           - name: media
