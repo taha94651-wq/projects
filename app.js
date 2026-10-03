@@ -185,24 +185,19 @@
   function heroHTML() {
     const P = D.profile;
     const name = t(P.name).split(" ");
-    const nameHTML = state.lang === "ar"
-      ? `<span>${esc(name.join(" "))}</span>`
-      : `<span>${esc(name[0])}</span><span class="line-2">${esc(name.slice(1).join(" "))}</span>`;
+    // two lines in both languages so the name keeps the same proportion
+    const nameHTML = `<span>${esc(name[0])}</span><span class="line-2">${esc(name.slice(1).join(" "))}</span>`;
     const [role, rest] = t(P.title).split("|").map((s) => s.trim());
+    const portrait = P.photoLarge
+      ? `<figure class="hero__portrait--edge" aria-hidden="true"><img src="${esc(P.photoLarge)}" alt="" /></figure>`
+      : "";
     return `
-    <section class="hero" id="top">
-      <div class="wrap">
+    <section class="hero${portrait ? " hero--portrait" : ""}" id="top">
+      <div class="wrap hero__text">
         <div class="hero__meta eyebrow reveal"><span>${T(P.title)}</span><span>${T(P.location)}</span></div>
-        <div class="hero__head${P.photoLarge ? " has-portrait" : ""}">
-          <h1 class="hero__name reveal">${nameHTML}</h1>
-          ${P.photoLarge
-            ? `<figure class="hero__portrait hero__portrait--edge" aria-hidden="true"><img src="${esc(P.photoLarge)}" alt="" /></figure>`
-            : ""}
-        </div>
+        <h1 class="hero__name reveal">${nameHTML}</h1>
         <div class="hero__role reveal">
-          <div class="hero__id">
-            <p class="hero__title">${esc(role)}${rest ? ` <em>/ ${esc(rest)}</em>` : ""}</p>
-          </div>
+          <p class="hero__title">${esc(role)}${rest ? ` <em>/ ${esc(rest)}</em>` : ""}</p>
           <p class="hero__summary">${T(P.summary)}</p>
           <div class="hero__cta">
             <a class="btn btn--solid" href="#execution">${esc(u().viewWork)} <span>${arrow}</span></a>
@@ -210,9 +205,11 @@
           </div>
         </div>
       </div>
-      ${P.heroImage ? `<figure class="bleed" style="margin:0"><img data-parallax src="${esc(P.heroImage)}" alt="" /></figure>` : ""}
+      ${portrait}
+      ${P.heroImage ? `<figure class="bleed" style="margin:0; grid-column: 1 / -1"><img data-parallax src="${esc(P.heroImage)}" alt="" /></figure>` : ""}
     </section>`;
   }
+
 
   function sectionHead(no, id, title, count, intro) {
     return `
