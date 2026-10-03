@@ -161,6 +161,7 @@ content:
                     - { value: image, label: Image — صورة }
                     - { value: video, label: Video file — فيديو }
                     - { value: youtube, label: YouTube }
+                    - { value: pdf, label: "PDF (file + poster image) — ملف PDF" }
               - { name: src, label: Image / video file, type: file }
               - { name: youtube, label: "YouTube video ID (e.g. dQw4w9WgXcQ)", type: string }
               - { name: poster, label: "Video poster image (optional) — صورة الفيديو قبل التشغيل", type: image }

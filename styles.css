@@ -614,3 +614,6 @@ html[dir="rtl"] .hero__portrait--edge img { transform: none; }
 .smap__sea { fill: currentColor; fill-opacity: 0.32; font-size: 13px; letter-spacing: 0.3em; }
 @media (max-width: 760px) { .smap__sea { font-size: 18px; } }
 html[lang="ar"] .smap__sea { letter-spacing: 0; font-size: 15px; }
+.frame--pdf { display: block; cursor: pointer; }
+.frame--pdf img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pdf-badge { position: absolute; inset-block-end: 14px; inset-inline-end: 14px; padding: 6px 12px; border-radius: 999px; background: var(--gold); color: var(--black); font-size: 13px; font-weight: 600; letter-spacing: 0.04em; }

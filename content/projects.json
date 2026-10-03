@@ -679,14 +679,14 @@
           }
         },
         {
-          "type": "image",
-          "src": "assets/images/assaf-perfumes/23-sample-boards-finished.jpg",
+          "type": "pdf",
+          "src": "assets/docs/assaf-samples-board.pdf",
           "youtube": "",
-          "poster": "",
+          "poster": "assets/images/assaf-perfumes/sample-board-pdf-cover.jpg",
           "size": "third",
           "caption": {
-            "en": "Finished ASSAF sample board",
-            "ar": "لوحة عينات عساف بعد التنفيذ"
+            "en": "Samples board — full PDF (opens in a new tab)",
+            "ar": "السامبل بورد — ملف PDF كامل (يفتح في صفحة جديدة)"
           },
           "section": {
             "en": "",
