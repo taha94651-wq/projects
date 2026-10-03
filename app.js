@@ -3,8 +3,27 @@
 
   let D;
 
+  /* Saudi Arabia outline (Natural Earth 1:50m), lon/lat projected to an 800×680 box */
+  const KSA_PATH = "M657.0,560.2 648.3,561.4 640.0,562.7 630.7,564.0 619.4,565.7 610.6,567.0 597.7,568.9 586.1,570.6 575.3,572.2 564.4,573.8 555.2,575.2 549.6,576.8 543.2,580.2 533.2,585.5 523.1,590.9 517.9,593.7 512.4,600.9 509.7,604.5 504.5,611.1 500.7,616.1 496.2,622.0 494.3,627.4 491.2,635.5 488.6,637.6 484.3,640.2 480.3,642.1 474.1,641.9 470.7,636.8 466.9,631.5 465.1,629.4 463.5,629.3 457.3,629.9 449.8,630.8 441.1,629.9 431.0,628.8 421.5,627.9 416.8,627.2 410.6,623.8 409.0,623.1 407.3,622.9 400.1,622.8 392.7,622.7 385.3,623.8 378.4,623.4 371.1,624.0 368.5,625.4 365.7,625.3 363.9,626.5 362.4,627.0 360.5,626.0 358.2,626.3 354.9,625.4 352.7,623.1 350.7,621.1 348.6,620.0 346.3,619.4 344.2,619.3 341.5,620.6 339.9,621.8 335.9,625.6 335.7,627.0 337.6,629.3 336.9,630.4 334.6,631.8 333.9,635.5 333.5,637.5 333.1,642.3 334.2,646.1 335.6,647.5 335.7,649.2 335.0,652.4 332.7,653.4 331.1,656.5 330.1,658.0 328.4,659.7 321.5,665.2 321.1,662.0 319.0,657.2 318.9,653.8 317.8,650.5 316.0,647.9 312.6,645.3 312.2,641.6 309.7,638.0 306.4,635.1 304.4,629.7 303.1,622.6 294.3,613.2 283.3,604.6 279.8,599.7 274.3,589.7 271.5,581.9 264.2,572.9 263.9,569.4 262.7,565.2 261.0,560.4 260.1,556.7 252.6,540.4 250.2,537.8 248.1,534.1 247.6,531.3 246.9,529.8 241.8,527.1 236.8,520.2 222.2,509.3 215.0,508.3 209.3,504.4 205.1,499.3 200.6,490.5 192.7,481.1 186.2,467.6 188.3,462.7 188.1,459.3 186.0,453.4 183.8,449.0 182.2,444.8 183.5,438.6 183.9,431.8 185.2,428.2 186.2,424.3 185.0,416.3 182.7,412.0 183.0,409.2 180.5,407.8 178.4,404.7 180.5,404.8 176.7,400.4 175.2,398.1 173.8,392.3 172.0,387.8 166.0,377.7 163.1,371.5 156.7,363.6 149.7,357.7 145.4,355.0 143.3,352.6 139.6,352.5 135.6,349.0 132.9,348.9 129.5,348.4 125.4,341.6 122.0,335.4 116.2,327.2 117.6,325.0 119.3,321.6 118.5,317.1 117.6,314.0 115.1,308.4 106.7,294.3 104.5,292.3 100.9,290.0 98.8,283.9 97.8,278.4 92.0,275.8 82.2,256.2 76.5,249.3 74.2,244.8 67.6,237.2 64.5,229.6 57.8,222.7 52.0,210.7 43.2,198.6 39.4,196.5 30.3,195.7 26.3,194.8 22.8,197.4 22.5,194.1 25.0,189.4 28.4,179.7 29.2,171.2 34.7,145.9 42.5,147.1 49.0,148.2 58.3,149.8 68.0,151.4 73.7,152.4 75.5,152.0 83.4,145.8 90.5,140.2 94.7,133.4 98.8,126.7 100.7,125.3 107.0,124.1 117.0,122.1 126.8,120.2 129.9,114.2 132.8,107.5 134.1,106.1 141.2,102.3 145.4,100.0 139.3,93.2 133.5,86.9 127.1,79.7 121.7,74.1 113.4,65.8 108.2,60.3 117.5,57.8 127.6,55.0 137.9,52.1 150.3,48.7 159.9,46.1 174.3,42.1 181.3,40.2 182.6,39.7 188.0,35.0 196.2,36.3 208.4,38.3 220.2,40.2 232.7,42.4 236.8,44.3 248.8,51.0 256.7,55.3 265.8,60.5 277.2,66.8 285.0,71.2 295.1,76.8 302.9,83.2 312.9,91.3 323.6,100.2 332.6,107.1 344.9,116.6 357.2,126.0 369.0,135.3 378.6,142.6 390.6,151.9 403.8,153.3 420.2,154.8 436.6,156.2 451.5,157.5 458.0,156.2 464.9,157.0 474.4,158.2 480.1,158.9 490.8,160.4 494.1,166.5 495.3,170.7 496.4,174.9 499.5,178.7 506.9,178.6 513.3,178.5 521.4,178.4 527.8,178.3 529.8,182.1 530.7,185.8 534.5,194.7 539.9,201.6 541.1,204.1 542.0,208.0 541.1,209.4 540.7,211.0 544.6,214.8 551.4,218.0 553.9,218.9 556.7,220.3 554.5,222.5 558.5,227.6 562.9,232.8 567.8,233.9 574.4,241.8 584.1,246.8 590.2,253.5 587.8,253.0 585.7,252.1 585.0,255.7 585.7,258.9 588.7,261.8 591.5,263.8 592.5,267.7 590.3,276.0 588.2,275.2 586.6,275.1 587.7,281.6 589.4,286.2 591.6,289.8 593.5,295.1 594.9,297.3 601.3,303.0 603.2,307.7 605.0,316.6 609.0,321.4 611.2,325.2 614.1,328.4 615.9,332.8 618.6,336.2 620.0,337.0 622.0,337.4 624.6,337.4 627.7,336.6 630.9,335.7 633.6,337.4 636.2,337.2 636.5,338.8 634.8,340.9 632.5,346.4 635.7,347.3 638.6,347.7 640.8,348.6 642.0,349.7 642.1,354.9 642.9,356.8 644.2,358.6 646.2,361.2 648.2,363.9 650.3,366.5 652.3,369.1 654.2,371.7 656.3,374.3 658.3,376.9 660.3,379.5 662.3,382.2 664.4,384.8 666.3,387.4 668.3,390.0 670.4,392.7 672.4,395.3 674.4,397.9 676.3,400.5 678.0,402.7 681.1,403.1 684.9,403.6 689.1,404.2 694.7,404.9 701.3,405.8 708.7,406.8 716.6,407.8 724.7,408.9 732.9,410.0 740.7,411.1 748.0,412.0 754.7,412.9 760.3,413.7 764.6,414.3 767.4,414.6 771.2,415.2 774.2,411.8 776.8,416.4 779.1,420.1 782.1,425.3 785.4,430.8 788.5,436.0 790.8,440.0 789.6,444.0 788.3,448.4 787.0,452.8 785.5,457.3 784.2,461.7 782.9,466.1 781.6,470.6 780.3,475.0 778.8,479.4 777.5,483.8 776.2,488.3 774.9,492.7 773.5,497.1 772.2,501.6 770.8,506.0 769.5,510.4 768.2,514.8 766.6,520.2 762.6,521.6 756.4,523.8 750.1,526.1 743.8,528.4 737.5,530.8 731.2,533.1 725.0,535.4 718.7,537.7 712.4,540.0 706.1,542.2 699.7,544.5 693.6,546.8 687.2,549.1 680.9,551.4 674.6,553.7 668.4,556.0 662.1,558.3 657.0,560.2ZM291.9,651.4 294.7,651.6 293.5,650.3 294.6,647.9 298.5,651.7 298.4,656.1 297.1,656.2 296.0,654.3 295.0,653.1 291.0,653.8 288.6,652.7 285.1,648.8 284.2,646.1 285.6,645.6 287.2,644.3 288.1,642.1 287.2,639.9 289.3,640.2 290.5,642.5 290.6,647.7 290.4,650.0 291.9,651.4ZM106.1,304.7 102.5,302.0 101.1,300.0 99.5,298.6 92.5,295.9 91.4,294.2 92.6,292.5 93.3,294.2 94.6,295.2 100.4,297.7 106.8,303.0 108.0,303.4 106.1,304.7ZM94.9,291.5 92.9,290.6 93.0,287.5 94.3,285.8 94.2,288.2 94.9,290.6Z";
+
   /* Fixed vocabularies — keys must match the select values in .pages.yml */
   const VOCAB = {
+    cities: {
+      riyadh: { en: "Riyadh", ar: "الرياض", xy: [465, 332], side: "r" },
+      jeddah: { en: "Jeddah", ar: "جدة", xy: [189, 458], side: "l" },
+      makkah: { en: "Makkah", ar: "مكة المكرمة", xy: [213, 463], side: "l" },
+      madinah: { en: "Madinah", ar: "المدينة المنورة", xy: [205, 341], side: "l" },
+      taif: { en: "Taif", ar: "الطائف", xy: [235, 469], side: "r" },
+      hail: { en: "Hail", ar: "حائل", xy: [281, 219], side: "r" },
+      buraydah: { en: "Buraydah", ar: "بريدة", xy: [367, 260], side: "r", dy: -4 },
+      unaizah: { en: "Unaizah", ar: "عنيزة", xy: [363, 284], side: "l", dy: 6 },
+      tabuk: { en: "Tabuk", ar: "تبوك", xy: [94, 185], side: "r" },
+      dammam: { en: "Dammam", ar: "الدمام", xy: [588, 263], side: "r" },
+      khobar: { en: "Al Khobar", ar: "الخبر", xy: [592, 269], side: "r", dy: 22 },
+      abha: { en: "Abha", ar: "أبها", xy: [311, 591], side: "r" },
+      najran: { en: "Najran", ar: "نجران", xy: [370, 620], side: "r" },
+      jazan: { en: "Jazan", ar: "جازان", xy: [312, 644], side: "l" },
+    },
     types: {
       retail: { ar: "متاجر", en: "Retail" },
       gym: { ar: "صالات رياضية", en: "Gyms" },
@@ -58,7 +77,7 @@
       aiIntro: "How I use AI in practice: generated visuals, automated sheets and structured project workflows.",
       experience: "Experience", about: "About", clients: "Key clients", skills: "Skills", software: "Software", languages: "Languages", education: "Education",
       client: "Client", location: "Location", year: "Year", duration: "Duration", role: "Role", type: "Type", discipline: "Discipline",
-      scope: "Scope of work", branches: "Branches", company: "Firm", designer: "Design office", status: "Status", area: "Area", tools: "Tools", myRole: "My role — phases", overview: "Overview", backTo: "Back to index", next: "Next project",
+      scope: "Scope of work", branches: "Branches", branchMap: "Branch locations", company: "Firm", designer: "Design office", status: "Status", area: "Area", tools: "Tools", myRole: "My role — phases", overview: "Overview", backTo: "Back to index", next: "Next project",
       contactEyebrow: "Contact", letsTalk: "Let’s work together", email: "Email", phone: "Phone", whatsapp: "WhatsApp",
       based: "Based in", online: "Online", empty: "Projects coming soon.", open: "Open", placeholder: "Image placeholder",
       rights: "All rights reserved.", execution: "Execution", design: "Design", competition: "Competition", result: "Result",
@@ -73,7 +92,7 @@
       aiIntro: "كيف أستخدم الذكاء الاصطناعي عمليًا: صور مولّدة، وشيتات مؤتمتة، وهيكلة سير عمل المشاريع.",
       experience: "الخبرات", about: "نبذة", clients: "أهم العملاء", skills: "المهارات", software: "البرامج", languages: "اللغات", education: "التعليم",
       client: "العميل", location: "الموقع", year: "السنة", duration: "المدة", role: "الدور", type: "النوع", discipline: "المجال",
-      scope: "نطاق العمل", branches: "الفروع", company: "الشركة", designer: "مكتب التصميم", status: "الحالة", area: "المساحة", tools: "البرامج", myRole: "دوري — المراحل", overview: "نظرة عامة", backTo: "العودة للفهرس", next: "المشروع التالي",
+      scope: "نطاق العمل", branches: "الفروع", branchMap: "مواقع الفروع", company: "الشركة", designer: "مكتب التصميم", status: "الحالة", area: "المساحة", tools: "البرامج", myRole: "دوري — المراحل", overview: "نظرة عامة", backTo: "العودة للفهرس", next: "المشروع التالي",
       contactEyebrow: "تواصل", letsTalk: "لنعمل معًا", email: "البريد", phone: "الهاتف", whatsapp: "واتساب",
       based: "المقر", online: "حسابات", empty: "المشاريع قريبًا.", open: "فتح", placeholder: "صورة مؤقتة",
       rights: "جميع الحقوق محفوظة.", execution: "التنفيذ", design: "التصميم", competition: "مسابقة", result: "النتيجة",
@@ -508,7 +527,7 @@
       <div class="wrap pj__body">
         ${T(p.summary) ? `<span class="eyebrow">${esc(u().overview)}</span><p class="pj__summary reveal">${T(p.summary)}</p>` : ""}
         ${p.scope && p.scope.length ? `<span class="eyebrow">${esc(u().scope)}</span><div class="pj__scope reveal"><ul>${p.scope.map((s) => `<li>${T(s)}</li>`).join("")}</ul></div>` : ""}
-        ${p.branches && p.branches.length ? `<span class="eyebrow">${esc(u().branches)}</span><div class="pj__scope reveal"><ul>${p.branches.map((s) => `<li><bdi>${T(s)}</bdi></li>`).join("")}</ul></div>` : ""}
+        ${branchesHTML(p)}
         ${phases}
       </div>
       <div class="gallery">${gallery}</div>
@@ -516,6 +535,41 @@
       ${contactSection()}
     </article>`;
     state.view = "project:" + id;
+  }
+
+  /* Branch list + line map of Saudi Arabia with each city's branches */
+  function branchesHTML(p) {
+    const list = (p.branches || []).filter((b) => t(b.name));
+    if (!list.length) return "";
+    const cityName = (c) => (VOCAB.cities[c] ? t(VOCAB.cities[c]) : "");
+    const items = list.map((b) => {
+      const where = [t(b.place), cityName(b.city)].filter(Boolean).join(state.lang === "ar" ? "، " : ", ");
+      return `<li><bdi>${esc(t(b.name))}${where ? ` <span class="muted">— ${esc(where)}</span>` : ""}</bdi></li>`;
+    }).join("");
+    const groups = {};
+    list.forEach((b) => { if (VOCAB.cities[b.city]) (groups[b.city] = groups[b.city] || []).push(b); });
+    const keys = Object.keys(groups);
+    let map = "";
+    if (keys.length) {
+      const pins = keys.map((c) => {
+        const C = VOCAB.cities[c], [x, y] = C.xy, n = groups[c].length;
+        const left = C.side === "l", tx = left ? x - 22 : x + 22, ty = y + (C.dy || 0) + 5;
+        const anchor = left ? "end" : "start";
+        const names = groups[c].map((b, i) => `<text class="smap__name" x="${tx}" y="${ty + 19 + i * 17}" text-anchor="${anchor}">${esc(t(b.place) || t(b.name))}</text>`).join("");
+        return `<g class="smap__city">
+          <circle class="smap__halo" cx="${x}" cy="${y}" r="${15 + n * 2}" />
+          <circle class="smap__dot" cx="${x}" cy="${y}" r="${9 + n}" />
+          <text class="smap__count" x="${x}" y="${y + 4.5}" text-anchor="middle">${n}</text>
+          <text class="smap__label" x="${tx}" y="${ty}" text-anchor="${anchor}">${esc(cityName(c))}</text>
+          ${names}
+        </g>`;
+      }).join("");
+      map = `<span class="eyebrow">${esc(u().branchMap)}</span>
+        <figure class="smap reveal" aria-label="${esc(u().branchMap)}">
+          <svg viewBox="-60 10 900 680" role="img"><path class="smap__land" d="${KSA_PATH}" />${pins}</svg>
+        </figure>`;
+    }
+    return `<span class="eyebrow">${esc(u().branches)}</span><div class="pj__scope reveal"><ul>${items}</ul></div>${map}`;
   }
 
   /* ---------- Router ---------- */

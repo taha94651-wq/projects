@@ -425,6 +425,10 @@
           "ar": "وحدات عرض متكاملة: أعمال خشب وستانلس ستيل ورفوف ولايت بوكس"
         },
         {
+          "en": "Sample boards",
+          "ar": "السامبل بوردز (لوحات العينات)"
+        },
+        {
           "en": "Decoration, including horse sculptures",
           "ar": "الديكورات، ومنها مجسمات الخيول"
         },
@@ -606,48 +610,125 @@
       },
       "branches": [
         {
-          "en": "Assaf Madinah — Madinah",
-          "ar": "عساف المدينة — المدينة المنورة"
+          "name": {
+            "en": "Assaf Madinah",
+            "ar": "عساف المدينة"
+          },
+          "place": {
+            "en": "",
+            "ar": ""
+          },
+          "city": "madinah"
         },
         {
-          "en": "Assaf Roshn Front — Roshn Front, Riyadh",
-          "ar": "عساف واجهة روشن — واجهة روشن، الرياض"
+          "name": {
+            "en": "Assaf Roshn Front",
+            "ar": "عساف واجهة روشن"
+          },
+          "place": {
+            "en": "Roshn Front",
+            "ar": "واجهة روشن"
+          },
+          "city": "riyadh"
         },
         {
-          "en": "Assaf Compass — Compass complex, Riyadh",
-          "ar": "عساف كومباس — مجمع كومباس، الرياض"
+          "name": {
+            "en": "Assaf Compass",
+            "ar": "عساف كومباس"
+          },
+          "place": {
+            "en": "Compass complex",
+            "ar": "مجمع كومباس"
+          },
+          "city": "riyadh"
         },
         {
-          "en": "Assaf Othaim Mall — Othaim Mall, Hail",
-          "ar": "عساف العثيم مول — العثيم مول، حائل"
+          "name": {
+            "en": "Assaf Othaim Mall",
+            "ar": "عساف العثيم مول"
+          },
+          "place": {
+            "en": "Othaim Mall",
+            "ar": "العثيم مول"
+          },
+          "city": "hail"
         },
         {
-          "en": "Assaf Buraydah — Buraydah",
-          "ar": "عساف بريدة — بريدة"
+          "name": {
+            "en": "Assaf Buraydah",
+            "ar": "عساف بريدة"
+          },
+          "place": {
+            "en": "",
+            "ar": ""
+          },
+          "city": "buraydah"
         },
         {
-          "en": "Assaf Unaizah — Unaizah",
-          "ar": "عساف عنيزة — عنيزة"
+          "name": {
+            "en": "Assaf Unaizah",
+            "ar": "عساف عنيزة"
+          },
+          "place": {
+            "en": "",
+            "ar": ""
+          },
+          "city": "unaizah"
         },
         {
-          "en": "Assaf Jeddah Park — Jeddah Park Mall, Jeddah",
-          "ar": "عساف جدة بارك — جدة بارك مول، جدة"
+          "name": {
+            "en": "Assaf Jeddah Park",
+            "ar": "عساف جدة بارك"
+          },
+          "place": {
+            "en": "Jeddah Park Mall",
+            "ar": "جدة بارك مول"
+          },
+          "city": "jeddah"
         },
         {
-          "en": "Assaf Al Yasmin — Al Yasmin Mall, Jeddah",
-          "ar": "عساف الياسمين — الياسمين مول، جدة"
+          "name": {
+            "en": "Assaf Al Yasmin",
+            "ar": "عساف الياسمين"
+          },
+          "place": {
+            "en": "Al Yasmin Mall",
+            "ar": "الياسمين مول"
+          },
+          "city": "jeddah"
         },
         {
-          "en": "Assaf Tahlia — Tahlia, Jeddah",
-          "ar": "عساف التحلية — التحلية، جدة"
+          "name": {
+            "en": "Assaf Tahlia",
+            "ar": "عساف التحلية"
+          },
+          "place": {
+            "en": "Tahlia",
+            "ar": "التحلية"
+          },
+          "city": "jeddah"
         },
         {
-          "en": "Assaf Jouri Mall — Jouri Mall, Taif",
-          "ar": "عساف جوري مول — جوري مول، الطائف"
+          "name": {
+            "en": "Assaf Jouri Mall",
+            "ar": "عساف جوري مول"
+          },
+          "place": {
+            "en": "Jouri Mall",
+            "ar": "جوري مول"
+          },
+          "city": "taif"
         },
         {
-          "en": "Assaf Tabuk — Tabuk",
-          "ar": "عساف تبوك — تبوك"
+          "name": {
+            "en": "Assaf Tabuk",
+            "ar": "عساف تبوك"
+          },
+          "place": {
+            "en": "",
+            "ar": ""
+          },
+          "city": "tabuk"
         }
       ]
     },

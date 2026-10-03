@@ -595,3 +595,19 @@ html[dir="rtl"] .hero__portrait--edge img { transform: none; }
   .hero--portrait .hero__meta { margin-inline-end: 0; }
 }
 @media (prefers-reduced-motion: reduce) { .hero__portrait--edge { animation: none; } }
+
+/* branch map */
+.smap { grid-column: 4 / span 8; margin: 0 0 8px; }
+.smap svg { display: block; width: 100%; height: auto; overflow: visible; }
+.smap text { direction: ltr; unicode-bidi: plaintext; }
+.smap__land { fill: none; stroke: currentColor; stroke-opacity: 0.55; stroke-width: 1; vector-effect: non-scaling-stroke; stroke-linejoin: round; }
+.smap__dot { fill: var(--gold); }
+.smap__halo { fill: var(--gold); fill-opacity: 0.1; stroke: var(--gold); stroke-opacity: 0.45; stroke-width: 1; vector-effect: non-scaling-stroke; transform-box: fill-box; transform-origin: center; animation: smapPulse 3.2s var(--ease) infinite; }
+.smap__label { fill: currentColor; font-size: 17px; letter-spacing: 0.02em; }
+.smap__count { fill: var(--black); font-size: 12.5px; font-weight: 600; }
+.smap__name { fill: currentColor; fill-opacity: 0.62; font-size: 13px; }
+.smap__city:hover .smap__name { fill-opacity: 1; }
+.muted { color: var(--muted); }
+@keyframes smapPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.18); } }
+@media (max-width: 760px) { .smap__name { display: none; } .smap__label { font-size: 24px; } }
+@media (prefers-reduced-motion: reduce) { .smap__halo { animation: none; } }
