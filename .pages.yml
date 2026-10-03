@@ -113,12 +113,34 @@ content:
                 collapsed: true
                 summary: "{en}"
           - name: branches
-            label: "Branches (optional) — الفروع"
-            component: bi
+            label: "Branches (optional) — الفروع (بتظهر على خريطة السعودية)"
+            type: object
             list:
               collapsible:
                 collapsed: true
-                summary: "{en}"
+                summary: "{name.en} — {city}"
+            fields:
+              - { name: name, label: Branch name — اسم الفرع, component: bi }
+              - { name: place, label: "Mall / complex (optional) — المول أو المجمع", component: bi }
+              - name: city
+                label: City — المدينة
+                type: select
+                options:
+                  values:
+                    - { value: riyadh, label: Riyadh — الرياض }
+                    - { value: jeddah, label: Jeddah — جدة }
+                    - { value: makkah, label: Makkah — مكة }
+                    - { value: madinah, label: Madinah — المدينة }
+                    - { value: taif, label: Taif — الطائف }
+                    - { value: hail, label: Hail — حائل }
+                    - { value: buraydah, label: Buraydah — بريدة }
+                    - { value: unaizah, label: Unaizah — عنيزة }
+                    - { value: tabuk, label: Tabuk — تبوك }
+                    - { value: dammam, label: Dammam — الدمام }
+                    - { value: khobar, label: Al Khobar — الخبر }
+                    - { value: abha, label: Abha — أبها }
+                    - { value: najran, label: Najran — نجران }
+                    - { value: jazan, label: Jazan — جازان }
           - { name: cover, label: Cover image — صورة الغلاف, type: image }
           - { name: coverVideo, label: "Cover video (optional) — فيديو الغلاف", type: file }
           - name: media
