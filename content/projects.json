@@ -468,8 +468,8 @@
     {
       "id": "fitness-time-ladies",
       "title": {
-        "ar": "فتنس تايم للسيدات",
-        "en": "Fitness Time Ladies"
+        "en": "Fitness Time Ladies Khurais",
+        "ar": "فتنس تايم ليديز خريص"
       },
       "disciplines": [
         "execution"
@@ -477,12 +477,12 @@
       "type": "gym",
       "status": "built",
       "client": {
-        "ar": "فتنس تايم",
-        "en": "Fitness Time"
+        "en": "Fitness Time Ladies",
+        "ar": "فتنس تايم ليديز"
       },
       "location": {
-        "ar": "خريص، الرياض",
-        "en": "Khurais, Riyadh"
+        "en": "Khurais Road, Riyadh",
+        "ar": "طريق خريص، الرياض"
       },
       "year": "",
       "duration": {
