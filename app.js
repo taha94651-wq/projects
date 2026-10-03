@@ -203,7 +203,7 @@
           </div>
         </div>
       </div>
-      <figure class="bleed" style="margin:0"><img data-parallax src="${img(P.heroImage, "hero", t(P.name))}" alt="" /></figure>
+      ${P.heroImage ? `<figure class="bleed" style="margin:0"><img data-parallax src="${esc(P.heroImage)}" alt="" /></figure>` : ""}
     </section>`;
   }
 
