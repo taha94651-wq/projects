@@ -1114,6 +1114,227 @@
       ]
     },
     {
+      "id": "assaf-galeria-mall",
+      "title": {
+        "en": "Assaf Booth — Galeria Mall",
+        "ar": "جناح عساف — جاليريا مول"
+      },
+      "disciplines": [
+        "execution"
+      ],
+      "type": "retail",
+      "result": "",
+      "status": "built",
+      "client": {
+        "en": "Assaf Perfumes",
+        "ar": "عطور عساف"
+      },
+      "designer": {
+        "en": "VIVID Design",
+        "ar": "VIVID Design"
+      },
+      "company": {
+        "en": "",
+        "ar": ""
+      },
+      "location": {
+        "en": "Galeria Mall, Jubail",
+        "ar": "جاليريا مول، الجبيل"
+      },
+      "year": "",
+      "duration": {
+        "en": "8 days (shop drawings to handover)",
+        "ar": "8 أيام (من الرسومات التنفيذية حتى التسليم)"
+      },
+      "area": "",
+      "role": {
+        "en": "Shop drawings, fabrication, installation & handover",
+        "ar": "الرسومات التنفيذية والتصنيع والتركيب والتسليم"
+      },
+      "phases": [
+        "drawings",
+        "supervision",
+        "handover"
+      ],
+      "tools": [],
+      "summary": {
+        "en": "An in-mall perfume booth for Assaf Perfumes at Galeria Mall in Jubail. I prepared the shop drawings, then took the booth through fabrication and on-site installation in Jubail to handover, all within eight days. The booth combines lit display plinths, a back-lit mirror niche, the Assaf horse emblem column and brand light boxes, finished in white and warm timber.",
+        "ar": "جناح عطور داخل المول لعطور عساف في جاليريا مول بمدينة الجبيل. أعددت الرسومات التنفيذية، ثم تابعت الجناح من التصنيع إلى التركيب في الموقع بالجبيل حتى التسليم، وكل ذلك خلال ثمانية أيام. يجمع الجناح بين منصات عرض مضيئة، ونيش مرآة بإضاءة خلفية، وعمود شعار خيل عساف، ولايت بوكس الهوية، بتشطيبات بيضاء وخشب دافئ."
+      },
+      "scope": [
+        {
+          "en": "Shop drawings",
+          "ar": "الرسومات التنفيذية"
+        },
+        {
+          "en": "Fabrication of the booth and display units",
+          "ar": "تصنيع الجناح ووحدات العرض"
+        },
+        {
+          "en": "Installation on site in Jubail",
+          "ar": "التركيب في الموقع بالجبيل"
+        },
+        {
+          "en": "Handover in eight days",
+          "ar": "التسليم خلال ثمانية أيام"
+        }
+      ],
+      "cover": "assets/images/assaf-galeria-mall/cover.jpg",
+      "coverVideo": "assets/videos/assaf-galeria-loop.mp4",
+      "media": [
+        {
+          "type": "video",
+          "src": "assets/videos/assaf-galeria.mp4",
+          "youtube": "",
+          "poster": "assets/images/assaf-galeria-mall/poster.jpg",
+          "size": "wide",
+          "caption": {
+            "en": "Booth film by VIVID",
+            "ar": "فيلم الجناح من VIVID"
+          },
+          "section": {
+            "en": "Film",
+            "ar": "الفيلم"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-galeria-mall/01-aerial.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "The booth from the upper level",
+            "ar": "الجناح من الدور العلوي"
+          },
+          "section": {
+            "en": "The booth",
+            "ar": "الجناح"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-galeria-mall/02-mall-view.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Booth on the mall floor",
+            "ar": "الجناح في ساحة المول"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-galeria-mall/06-booth-overview.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Front of the booth with the emblem column",
+            "ar": "واجهة الجناح مع عمود الشعار"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-galeria-mall/03-counter.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "ASSAF counter and display plinths",
+            "ar": "كاونتر عساف ومنصات العرض"
+          },
+          "section": {
+            "en": "Details",
+            "ar": "التفاصيل"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-galeria-mall/04-mirror-niche.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Back-lit mirror niche",
+            "ar": "نيش المرآة بالإضاءة الخلفية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-galeria-mall/05-display-plinth.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Lit display plinth",
+            "ar": "منصة عرض مضيئة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-galeria-mall/07-fragrance-detail.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Fragrance display detail",
+            "ar": "تفصيلة عرض العطور"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-galeria-mall/08-emblem-column.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Horse emblem column",
+            "ar": "عمود شعار الخيل"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-galeria-mall/09-booth-wide.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "The booth at night",
+            "ar": "الجناح ليلًا"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        }
+      ]
+    },
+    {
       "id": "fitness-time-ladies",
       "title": {
         "en": "Fitness Time Ladies Khurais",
