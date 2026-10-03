@@ -604,14 +604,14 @@
           }
         },
         {
-          "type": "video",
-          "src": "assets/videos/assaf-sample-boards.mp4",
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/sample-board-sheet-01.jpg",
           "youtube": "",
-          "poster": "assets/images/assaf-perfumes/sample-boards-poster.jpg",
-          "size": "third",
+          "poster": "",
+          "size": "half",
           "caption": {
-            "en": "From board layout to approved samples",
-            "ar": "من تصميم البورد حتى اعتماد العينات"
+            "en": "Sample board layout — sheet 1 of 4",
+            "ar": "تصميم السامبل بورد — لوحة 1 من 4"
           },
           "section": {
             "en": "Sample boards — material selection",
@@ -620,13 +620,58 @@
         },
         {
           "type": "image",
-          "src": "assets/images/assaf-perfumes/21-sample-board-design.jpg",
+          "src": "assets/images/assaf-perfumes/sample-board-sheet-02.jpg",
           "youtube": "",
           "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Sample board layout — sheet 2 of 4",
+            "ar": "تصميم السامبل بورد — لوحة 2 من 4"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/sample-board-sheet-03.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Sample board layout — sheet 3 of 4",
+            "ar": "تصميم السامبل بورد — لوحة 3 من 4"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/sample-board-sheet-04.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Sample board layout — sheet 4 of 4",
+            "ar": "تصميم السامبل بورد — لوحة 4 من 4"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/assaf-sample-boards.mp4",
+          "youtube": "",
+          "poster": "assets/images/assaf-perfumes/sample-boards-poster.jpg",
           "size": "third",
           "caption": {
-            "en": "Sample board layout prepared for approval",
-            "ar": "تصميم لوحة العينات للاعتماد"
+            "en": "From board layout to approved samples",
+            "ar": "من تصميم البورد حتى اعتماد العينات"
           },
           "section": {
             "en": "",
@@ -653,7 +698,7 @@
           "src": "assets/images/assaf-perfumes/22-sample-wall-finishes.jpg",
           "youtube": "",
           "poster": "",
-          "size": "half",
+          "size": "third",
           "caption": {
             "en": "3D and fluted wall finish samples",
             "ar": "عينات تشطيبات الحوائط ثلاثية الأبعاد والمضلّعة"
