@@ -1445,60 +1445,269 @@
         "execution"
       ],
       "type": "events",
+      "result": "",
       "status": "built",
       "client": {
-        "en": "Rasees",
-        "ar": "رسيس"
+        "en": "RASEES PERFUMES",
+        "ar": "رسيس للعطور"
       },
-      "location": {
-        "ar": "",
-        "en": ""
+      "designer": {
+        "en": "",
+        "ar": ""
       },
-      "year": "2026",
-      "duration": {
-        "ar": "",
-        "en": ""
-      },
-      "area": "",
-      "role": {
-        "ar": "التنفيذ",
-        "en": "Execution"
-      },
-      "phases": [],
-      "tools": [],
-      "summary": {
-        "en": "Brand event execution for Rasees.",
-        "ar": "تنفيذ فعالية لعلامة رسيس التجارية."
-      },
-      "scope": [],
-      "cover": "",
-      "media": [
-        {
-          "type": "image",
-          "src": "",
-          "youtube": "",
-          "caption": {
-            "ar": "",
-            "en": ""
-          },
-          "size": "",
-          "section": {
-            "en": "",
-            "ar": ""
-          },
-          "poster": ""
-        }
-      ],
       "company": {
         "en": "VIVID Design / PHZYN Construction",
         "ar": "VIVID Design / PHZYN Construction"
       },
-      "result": "",
-      "coverVideo": "",
-      "designer": {
+      "location": {
         "en": "",
         "ar": ""
-      }
+      },
+      "year": "2026",
+      "duration": {
+        "en": "5 days",
+        "ar": "5 أيام"
+      },
+      "area": "",
+      "role": {
+        "en": "Shop drawing review & execution supervision",
+        "ar": "مراجعة الرسومات التنفيذية والإشراف على التنفيذ"
+      },
+      "phases": [
+        "drawings",
+        "supervision",
+        "handover"
+      ],
+      "tools": [],
+      "summary": {
+        "en": "A brand event for RASEES PERFUMES, the Saudi luxury fragrance house, designed and built in five days. I supervised the shop drawings and led execution on site through to handover: the illuminated RASEES lettering and brand walls, perfume display shelving, the patterned screen, a lounge corner and a car display beneath suspended light boxes.",
+        "ar": "فعالية لعلامة رسيس للعطور، دار العطور السعودية الفاخرة، صُممت ونُفذت خلال خمسة أيام. أشرفت على الرسومات التنفيذية وقُدت التنفيذ في الموقع حتى التسليم: حروف رسيس المضيئة وجدران الهوية، ووحدات عرض العطور، والشاشة ذات النقش، وركن الجلوس، ومنطقة عرض السيارات تحت الصناديق الضوئية المعلقة."
+      },
+      "scope": [
+        {
+          "en": "Shop drawing review and approval",
+          "ar": "مراجعة واعتماد الرسومات التنفيذية"
+        },
+        {
+          "en": "Full execution supervision on site",
+          "ar": "الإشراف الكامل على التنفيذ في الموقع"
+        },
+        {
+          "en": "Brand walls and illuminated lettering",
+          "ar": "جدران الهوية والحروف المضيئة"
+        },
+        {
+          "en": "Perfume display shelving and counters",
+          "ar": "وحدات عرض العطور والكاونترات"
+        },
+        {
+          "en": "Car display area under suspended light boxes",
+          "ar": "منطقة عرض السيارات تحت الصناديق الضوئية"
+        },
+        {
+          "en": "Delivery from start to handover in five days",
+          "ar": "التنفيذ من البداية حتى التسليم خلال خمسة أيام"
+        }
+      ],
+      "cover": "assets/images/rasees-event/cover.jpg",
+      "coverVideo": "assets/videos/rasees-event-loop.mp4",
+      "media": [
+        {
+          "type": "video",
+          "src": "assets/videos/rasees-event.mp4",
+          "youtube": "",
+          "poster": "assets/images/rasees-event/cover.jpg",
+          "size": "wide",
+          "caption": {
+            "en": "Event film by VIVID",
+            "ar": "فيلم الفعالية من VIVID"
+          },
+          "section": {
+            "en": "Film",
+            "ar": "الفيلم"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/rasees-event/01-booth-front.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Booth front and RASEES lettering",
+            "ar": "واجهة الجناح وحروف رسيس"
+          },
+          "section": {
+            "en": "The booth",
+            "ar": "الجناح"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/rasees-event/06-brand-wall.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Brand wall",
+            "ar": "جدار الهوية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/rasees-event/07-reception-desk.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Reception desk",
+            "ar": "مكتب الاستقبال"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/rasees-event/02-perfume-wall.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Perfume display wall",
+            "ar": "حائط عرض العطور"
+          },
+          "section": {
+            "en": "Display & details",
+            "ar": "العرض والتفاصيل"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/rasees-event/05-shelving.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Display shelving",
+            "ar": "وحدات العرض"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/rasees-event/04-gift-display.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Gift display",
+            "ar": "عرض الهدايا"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/rasees-event/03-pattern-screen.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Patterned screen",
+            "ar": "الشاشة ذات النقش"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/rasees-event/08-lounge.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Lounge corner",
+            "ar": "ركن الجلوس"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/rasees-event/11-elite-sign.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "RASEES ELITE signage",
+            "ar": "لوحة رسيس النخبة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/rasees-event/09-car-display.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Car display",
+            "ar": "منطقة عرض السيارات"
+          },
+          "section": {
+            "en": "Car display",
+            "ar": "عرض السيارات"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/rasees-event/10-ceiling-lights.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Suspended light boxes",
+            "ar": "الصناديق الضوئية المعلقة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/rasees-event/12-overview.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Overview",
+            "ar": "نظرة عامة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        }
+      ]
     },
     {
       "id": "beluar-event",
