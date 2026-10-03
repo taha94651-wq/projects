@@ -501,37 +501,37 @@
         "en": "Gym fit-out execution."
       },
       "scope": [],
-      "cover": "",
+      "cover": "assets/images/fitness-time-ladies/02-reformer-studio.jpg",
       "media": [
         {
           "type": "image",
-          "src": "",
+          "src": "assets/images/fitness-time-ladies/02-reformer-studio.jpg",
           "youtube": "",
+          "poster": "",
+          "size": "half",
           "caption": {
-            "ar": "",
-            "en": ""
+            "en": "Pilates studio with reformer beds",
+            "ar": "استوديو البيلاتس وأجهزة الريفورمر"
           },
-          "size": "",
           "section": {
-            "en": "",
-            "ar": ""
-          },
-          "poster": ""
+            "en": "Pilates studio",
+            "ar": "استوديو البيلاتس"
+          }
         },
         {
           "type": "image",
-          "src": "",
+          "src": "assets/images/fitness-time-ladies/01-reformer-detail.jpg",
           "youtube": "",
+          "poster": "",
+          "size": "half",
           "caption": {
-            "ar": "",
-            "en": ""
+            "en": "Reformer detail",
+            "ar": "تفصيلة جهاز الريفورمر"
           },
-          "size": "",
           "section": {
             "en": "",
             "ar": ""
-          },
-          "poster": ""
+          }
         }
       ],
       "company": {
