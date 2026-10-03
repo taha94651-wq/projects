@@ -379,8 +379,8 @@
     {
       "id": "assaf-perfumes",
       "title": {
-        "ar": "عساف للعطور",
-        "en": "Assaf Perfumes"
+        "en": "Assaf Display Units",
+        "ar": "وحدات عرض عساف"
       },
       "disciplines": [
         "execution"
@@ -392,8 +392,8 @@
         "en": "Assaf Perfumes"
       },
       "location": {
-        "ar": "المملكة العربية السعودية",
-        "en": "Across KSA"
+        "en": "11 branches across Saudi Arabia",
+        "ar": "11 فرعًا في المملكة العربية السعودية"
       },
       "year": "",
       "duration": {
@@ -402,23 +402,43 @@
       },
       "area": "",
       "role": {
-        "ar": "التنفيذ",
-        "en": "Execution"
+        "en": "Shop drawing review, fabrication supervision (local & China) and installation",
+        "ar": "مراجعة الرسومات التنفيذية والإشراف على التصنيع (محليًا وفي الصين) والتركيب"
       },
-      "phases": [],
+      "phases": [
+        "drawings",
+        "supervision",
+        "handover"
+      ],
       "tools": [],
       "summary": {
-        "ar": "11 متجرًا في أنحاء المملكة: وحدات عرض وأكشاك داخل المولات.",
-        "en": "11 stores across KSA: display units and in-mall booths."
+        "en": "Display units and decoration for Assaf Perfumes, rolled out across 11 branches in Saudi Arabia. I reviewed the technical shop drawings for the design, then supervised fabrication of complete display units, covering joinery, stainless steel, shelving and light boxes, together with the horse sculptures and decorative pieces. The joinery was made locally and the stainless steel and metal parts were manufactured in China, both under my full supervision, before I led installation in each branch.",
+        "ar": "وحدات عرض وديكورات لعطور عساف في 11 فرعًا بالمملكة العربية السعودية. راجعت الرسومات التنفيذية الفنية للتصميم، ثم أشرفت على تصنيع وحدات عرض متكاملة تشمل أعمال الخشب والستانلس ستيل والرفوف واللايت بوكس، إلى جانب مجسمات الخيول والقطع الديكورية. صُنعت الأعمال الخشبية محليًا، وصُنعت أعمال الستانلس ستيل والمعادن في الصين، وكلاهما تحت إشرافي الكامل، ثم قُدت التركيب في كل فرع."
       },
       "scope": [
         {
-          "ar": "وحدات العرض",
-          "en": "Display units"
+          "en": "Technical shop drawing review",
+          "ar": "مراجعة الرسومات التنفيذية الفنية"
         },
         {
-          "ar": "أكشاك داخل المولات",
-          "en": "In-mall booths"
+          "en": "Complete display units: joinery, stainless steel, shelving and light boxes",
+          "ar": "وحدات عرض متكاملة: أعمال خشب وستانلس ستيل ورفوف ولايت بوكس"
+        },
+        {
+          "en": "Decoration, including horse sculptures",
+          "ar": "الديكورات، ومنها مجسمات الخيول"
+        },
+        {
+          "en": "Local joinery fabrication under my supervision",
+          "ar": "تصنيع الأعمال الخشبية محليًا تحت إشرافي"
+        },
+        {
+          "en": "Stainless steel and metal works manufactured in China under my supervision",
+          "ar": "تصنيع أعمال الستانلس ستيل والمعادن في الصين تحت إشرافي"
+        },
+        {
+          "en": "Installation across 11 branches",
+          "ar": "التركيب في 11 فرعًا"
         }
       ],
       "cover": "",
