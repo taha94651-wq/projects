@@ -1,0 +1,52 @@
+{
+  "items": [
+    {
+      "kind": "images",
+      "title": {
+        "ar": "صور مولّدة — مثال",
+        "en": "Generated visuals — sample"
+      },
+      "desc": {
+        "ar": "وصف قصير: الأداة المستخدمة والهدف.",
+        "en": "Short note: tool used and purpose."
+      },
+      "tools": [
+        "Claude"
+      ],
+      "src": "",
+      "link": ""
+    },
+    {
+      "kind": "sheets",
+      "title": {
+        "ar": "شيت تسعير — مثال",
+        "en": "Pricing sheet — sample"
+      },
+      "desc": {
+        "ar": "وصف قصير لما يوفره الشيت.",
+        "en": "Short note on what the sheet automates."
+      },
+      "tools": [
+        "Claude in Excel"
+      ],
+      "src": "",
+      "link": ""
+    },
+    {
+      "kind": "workflows",
+      "title": {
+        "ar": "هيكلة مشروع — مثال",
+        "en": "Project structure — sample"
+      },
+      "desc": {
+        "ar": "وصف قصير لطريقة التنظيم.",
+        "en": "Short note on the structure."
+      },
+      "tools": [
+        "Claude Code"
+      ],
+      "src": "",
+      "link": ""
+    }
+  ]
+}

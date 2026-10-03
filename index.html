@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mostafa Taha — Fit-Out Manager</title>
+  <meta name="description" content="Mostafa Taha — Fit-Out Manager & Architect based in Riyadh. Design and execution portfolio." />
+  <meta name="theme-color" content="#0b0b0a" />
+  <meta property="og:title" content="Mostafa Taha — Fit-Out Manager" />
+  <meta property="og:description" content="Design and execution portfolio — retail, gyms, residential and offices fit-out in Riyadh." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300..600&family=Almarai:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav" id="nav">
+    <a class="nav__brand" href="#top" data-home></a>
+    <nav class="nav__links" id="navLinks"></nav>
+    <div class="nav__tools">
+      <button class="nav__lang" id="langBtn" type="button"></button>
+      <button class="nav__menu" id="menuBtn" type="button" aria-label="Menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="app"></main>
+
+  <div class="cursor-img" id="cursorImg" aria-hidden="true"><img alt="" /></div>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox__close" type="button" aria-label="Close">×</button>
+    <img alt="" />
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
