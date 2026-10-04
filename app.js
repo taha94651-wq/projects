@@ -488,6 +488,8 @@
         let inner;
         if (m.type === "video")
           inner = `<div class="frame frame--video"><video src="${esc(m.src)}"${m.poster ? ` poster="${esc(m.poster)}"` : ""} autoplay muted loop playsinline controls preload="metadata"></video></div>`;
+        else if (m.type === "link")
+          return `${head}<div class="shot shot--link"><a class="btn" href="${esc(m.src)}">${capText} <span>${state.lang === "ar" ? "←" : "→"}</span></a></div>`;
         else if (m.type === "pdf")
           inner = `<a class="frame frame--pdf" href="${esc(m.src)}" target="_blank" rel="noopener"><div class="zoom"><img loading="lazy" src="${esc(m.poster || "")}" alt="${capText || T(p.title)}" /></div><span class="pdf-badge">PDF ↗</span></a>`;
         else if (m.type === "youtube") inner = `<iframe src="https://www.youtube-nocookie.com/embed/${esc(m.youtube || m.id)}" title="${T(p.title)}" allowfullscreen loading="lazy"></iframe>`;
