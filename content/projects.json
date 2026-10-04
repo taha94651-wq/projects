@@ -3030,22 +3030,202 @@
           "ar": "التسليم خلال ثلاثة أشهر"
         }
       ],
-      "cover": "",
+      "cover": "assets/images/private-villa/cover.jpg",
       "media": [
         {
-          "type": "image",
-          "src": "",
+          "type": "video",
+          "src": "assets/videos/villa-joinery.mp4",
           "youtube": "",
+          "poster": "assets/images/private-villa/joinery-poster.jpg",
+          "size": "third",
           "caption": {
-            "ar": "",
-            "en": ""
+            "en": "Wardrobes, dressing room and bedroom (sped up)",
+            "ar": "الخزائن وغرفة الملابس وغرفة النوم (مُسرّع)"
           },
-          "size": "",
+          "section": {
+            "en": "Joinery & furniture",
+            "ar": "النجارة والأثاث"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/private-villa/04-arched-wardrobe.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Arched rattan wardrobe with vanity niche",
+            "ar": "خزانة بأبواب مقوّسة من الراتان مع نيش تسريحة"
+          },
           "section": {
             "en": "",
             "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/private-villa/06-dressing-room.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Walnut dressing room",
+            "ar": "غرفة الملابس من الجوز"
           },
-          "poster": ""
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/private-villa/05-wardrobe-wall.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Full-height rattan wardrobe wall",
+            "ar": "جدار خزائن الراتان بكامل الارتفاع"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/private-villa/07-bedroom.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Bedroom with built-in headboard and wardrobes",
+            "ar": "غرفة نوم بظهر سرير وخزائن مدمجة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/private-villa/09-vanity-cabinet.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Walnut vanity cabinet",
+            "ar": "وحدة مغسلة من الجوز"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/villa-installation.mp4",
+          "youtube": "",
+          "poster": "assets/images/private-villa/installation-poster.jpg",
+          "size": "third",
+          "caption": {
+            "en": "From shop drawing to installation (sped up)",
+            "ar": "من الرسومات التنفيذية حتى التركيب (مُسرّع)"
+          },
+          "section": {
+            "en": "From drawing to installation",
+            "ar": "من الرسم حتى التركيب"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/private-villa/01-shop-drawing.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Wardrobe shop drawing",
+            "ar": "الرسم التنفيذي للخزانة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/private-villa/02-wardrobe-carcass.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Wardrobe carcasses on site",
+            "ar": "هياكل الخزائن في الموقع"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/private-villa/03-arched-dresser.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Arched dresser and wardrobe installed",
+            "ar": "التسريحة المقوّسة والخزانة بعد التركيب"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/private-villa/10-storage-bed.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Fitting the storage bed",
+            "ar": "تركيب السرير بالتخزين"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/villa-bathrooms.mp4",
+          "youtube": "",
+          "poster": "assets/images/private-villa/bathrooms-poster.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Bathroom vanities",
+            "ar": "وحدات المغاسل"
+          },
+          "section": {
+            "en": "Bathrooms",
+            "ar": "الحمامات"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/private-villa/08-bathroom-vanity.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Double vanity with stone top and back-lit mirror",
+            "ar": "مغسلة مزدوجة بسطح حجري ومرآة بإضاءة خلفية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
         }
       ],
       "company": {
@@ -3053,7 +3233,7 @@
         "ar": "سفانة للعمارة"
       },
       "result": "",
-      "coverVideo": "",
+      "coverVideo": "assets/videos/villa-loop.mp4",
       "designer": {
         "en": "Badr Aldamegh Design",
         "ar": "مكتب بدر الدامغ للتصميم"
