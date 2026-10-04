@@ -1272,7 +1272,7 @@
       "disciplines": [
         "execution"
       ],
-      "type": "retail",
+      "type": "booths",
       "result": "",
       "status": "built",
       "client": {
@@ -1914,7 +1914,7 @@
       "disciplines": [
         "execution"
       ],
-      "type": "retail",
+      "type": "booths",
       "status": "built",
       "client": {
         "en": "Laverne",
