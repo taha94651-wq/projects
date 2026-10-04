@@ -3130,7 +3130,7 @@
           "size": "third",
           "caption": {
             "en": "From shop drawing to installation (sped up)",
-            "ar": "من الرسومات التنفيذية حتى التركيب (مُسرّع)"
+            "ar": "من الرسم التنفيذي حتى التركيب (مُسرّع)"
           },
           "section": {
             "en": "From drawing to installation",
@@ -3183,18 +3183,18 @@
           }
         },
         {
-          "type": "image",
-          "src": "assets/images/private-villa/10-storage-bed.jpg",
+          "type": "video",
+          "src": "assets/videos/villa-storage-bed.mp4",
           "youtube": "",
-          "poster": "",
+          "poster": "assets/images/private-villa/storage-bed-poster.jpg",
           "size": "third",
           "caption": {
-            "en": "Fitting the storage bed",
-            "ar": "تركيب السرير بالتخزين"
+            "en": "Storage bed: the lift mechanism opens the storage below, then the mattress closes over it",
+            "ar": "سرير بتخزين: ميكانيزم الرفع يفتح التخزين أسفل السرير ثم تُغلق المرتبة فوقه"
           },
           "section": {
-            "en": "",
-            "ar": ""
+            "en": "Storage bed mechanism",
+            "ar": "ميكانيزم السرير بالتخزين"
           }
         },
         {
