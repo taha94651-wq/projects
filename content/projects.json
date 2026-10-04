@@ -3034,6 +3034,21 @@
       "media": [
         {
           "type": "video",
+          "src": "assets/videos/villa-materials.mp4",
+          "youtube": "",
+          "poster": "assets/images/private-villa/materials-poster.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Material selection with the client: samples, marble at the stone yard, walnut tone and fabrics (sped up)",
+            "ar": "اختيار الخامات مع العميل: العينات، والرخام من المصنع، ولون الجوز، والأقمشة (مُسرّع)"
+          },
+          "section": {
+            "en": "Material selection",
+            "ar": "اختيار الخامات"
+          }
+        },
+        {
+          "type": "video",
           "src": "assets/videos/villa-joinery.mp4",
           "youtube": "",
           "poster": "assets/images/private-villa/joinery-poster.jpg",
