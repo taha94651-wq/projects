@@ -2138,12 +2138,11 @@
     {
       "id": "seel31-apartment",
       "title": {
-        "en": "Seel 31 Apartment",
-        "ar": "شقة سيل 31"
+        "en": "Seel 31 Apartment — Design & Build",
+        "ar": "شقة سيل 31 — تصميم وتنفيذ"
       },
       "disciplines": [
-        "execution",
-        "design"
+        "execution"
       ],
       "type": "residential",
       "result": "",
@@ -2219,6 +2218,36 @@
       "cover": "assets/images/seel31-apartment/cover.jpg",
       "coverVideo": "assets/videos/seel31-apartment.mp4",
       "media": [
+        {
+          "type": "image",
+          "src": "assets/images/seel31-apartment/r2-living-dining.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Design: living and dining",
+            "ar": "التصميم: المعيشة والطعام"
+          },
+          "section": {
+            "en": "The design",
+            "ar": "التصميم"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/seel31-apartment/r3-entrance-wall.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Design: textured entrance wall and walnut panel",
+            "ar": "التصميم: جدار المدخل البارز ولوح الجوز"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
         {
           "type": "video",
           "src": "assets/videos/seel31-apartment.mp4",
@@ -2384,7 +2413,185 @@
             "ar": ""
           }
         }
-      ]
+      ],
+      "related": "seel31-apartment-design",
+      "relatedLabel": {
+        "en": "See the full design",
+        "ar": "شاهد التصميم كاملًا"
+      }
+    },
+    {
+      "id": "seel31-apartment-design",
+      "title": {
+        "en": "Seel 31 Apartment — Interior Design",
+        "ar": "شقة سيل 31 — التصميم الداخلي"
+      },
+      "disciplines": [
+        "design"
+      ],
+      "type": "residential",
+      "result": "",
+      "status": "built",
+      "client": {
+        "en": "Private client",
+        "ar": "عميل خاص"
+      },
+      "designer": {
+        "en": "",
+        "ar": ""
+      },
+      "company": {
+        "en": "Safana Architects",
+        "ar": "صفانة للعمارة"
+      },
+      "location": {
+        "en": "Seel 31 complex, Al Nada, Riyadh",
+        "ar": "مجمع سيل 31، حي الندى، الرياض"
+      },
+      "year": "2024",
+      "duration": {
+        "en": "",
+        "ar": ""
+      },
+      "area": "160 m²",
+      "role": {
+        "en": "Interior designer: concept, 3D design and construction drawings",
+        "ar": "المصمم الداخلي: الفكرة والتصميم ثلاثي الأبعاد والرسومات التنفيذية"
+      },
+      "phases": [
+        "brief",
+        "moodboard",
+        "concept",
+        "render",
+        "drawings",
+        "materials"
+      ],
+      "tools": [],
+      "summary": {
+        "en": "Interior design for a 160 m² apartment in the Seel 31 complex in Al Nada, Riyadh. A calm, warm palette of walnut, linen and soft grey: a sculpted plaster entrance wall beside a full-height walnut panel, a low walnut coffee table and plinth sofa, a marble dining table under leaf-shaped pendants with a timber lattice bulkhead, and a white media wall with a plaster base and lit niche. The design was then built on site under my supervision.",
+        "ar": "تصميم داخلي لشقة بمساحة 160 م² في مجمع سيل 31 بحي الندى في الرياض. لوحة ألوان هادئة ودافئة من الجوز والكتان والرمادي الفاتح: جدار مدخل جبسي منحوت بجوار لوح جوز بكامل الارتفاع، وطاولة قهوة منخفضة من الجوز مع كنبة على قاعدة خشبية، وطاولة طعام رخامية تحت ثريات على شكل أوراق مع سقف خشبي مفرّغ، وجدار تلفزيون أبيض بقاعدة جبسية ونيش مضاء. نُفّذ التصميم بعد ذلك في الموقع تحت إشرافي."
+      },
+      "scope": [
+        {
+          "en": "Client brief and concept",
+          "ar": "متطلبات العميل والفكرة"
+        },
+        {
+          "en": "Space planning",
+          "ar": "توزيع المساحات"
+        },
+        {
+          "en": "3D design and renders",
+          "ar": "التصميم والإظهار ثلاثي الأبعاد"
+        },
+        {
+          "en": "Construction drawings",
+          "ar": "الرسومات التنفيذية"
+        },
+        {
+          "en": "Material and furniture selection",
+          "ar": "اختيار المواد والأثاث"
+        }
+      ],
+      "cover": "assets/images/seel31-apartment/r2-living-dining.jpg",
+      "coverVideo": "",
+      "media": [
+        {
+          "type": "image",
+          "src": "assets/images/seel31-apartment/r1-living-room.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "wide",
+          "caption": {
+            "en": "Living room",
+            "ar": "غرفة المعيشة"
+          },
+          "section": {
+            "en": "Living",
+            "ar": "المعيشة"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/seel31-apartment/r2-living-dining.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Living and dining",
+            "ar": "المعيشة والطعام"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/seel31-apartment/r6-living-top-view.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Living area from above",
+            "ar": "منطقة المعيشة من أعلى"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/seel31-apartment/r3-entrance-wall.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "wide",
+          "caption": {
+            "en": "Sculpted entrance wall and walnut panel",
+            "ar": "جدار المدخل المنحوت ولوح الجوز"
+          },
+          "section": {
+            "en": "Entrance & dining",
+            "ar": "المدخل والطعام"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/seel31-apartment/r4-dining-day.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Dining — day",
+            "ar": "الطعام — نهارًا"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/seel31-apartment/r5-dining-night.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Dining — evening light",
+            "ar": "الطعام — إضاءة المساء"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "related": "seel31-apartment",
+      "relatedLabel": {
+        "en": "See it built",
+        "ar": "شاهد التنفيذ"
+      }
     },
     {
       "id": "private-villa",

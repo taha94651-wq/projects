@@ -78,7 +78,7 @@
       aiIntro: "How I use AI in practice: generated visuals, automated sheets and structured project workflows.",
       experience: "Experience", about: "About", clients: "Key clients", skills: "Skills", software: "Software", languages: "Languages", education: "Education",
       client: "Client", location: "Location", year: "Year", duration: "Duration", role: "Role", type: "Type", discipline: "Discipline",
-      scope: "Scope of work", branches: "Branches", branchMap: "Branch locations", company: "Firm", designer: "Design office", status: "Status", area: "Area", tools: "Tools", myRole: "My role — phases", overview: "Overview", backTo: "Back to index", next: "Next project",
+      scope: "Scope of work", branches: "Branches", branchMap: "Branch locations", company: "Firm", designer: "Design office", status: "Status", area: "Area", tools: "Tools", myRole: "My role — phases", overview: "Overview", backTo: "Back to index", next: "Next project", related: "Related",
       contactEyebrow: "Contact", letsTalk: "Let’s work together", email: "Email", phone: "Phone", whatsapp: "WhatsApp",
       based: "Based in", online: "Online", empty: "Projects coming soon.", open: "Open", placeholder: "Image placeholder",
       rights: "All rights reserved.", execution: "Execution", design: "Design", competition: "Competition", result: "Result",
@@ -93,7 +93,7 @@
       aiIntro: "كيف أستخدم الذكاء الاصطناعي عمليًا: صور مولّدة، وشيتات مؤتمتة، وهيكلة سير عمل المشاريع.",
       experience: "الخبرات", about: "نبذة", clients: "أهم العملاء", skills: "المهارات", software: "البرامج", languages: "اللغات", education: "التعليم",
       client: "العميل", location: "الموقع", year: "السنة", duration: "المدة", role: "الدور", type: "النوع", discipline: "المجال",
-      scope: "نطاق العمل", branches: "الفروع", branchMap: "مواقع الفروع", company: "الشركة", designer: "مكتب التصميم", status: "الحالة", area: "المساحة", tools: "البرامج", myRole: "دوري — المراحل", overview: "نظرة عامة", backTo: "العودة للفهرس", next: "المشروع التالي",
+      scope: "نطاق العمل", branches: "الفروع", branchMap: "مواقع الفروع", company: "الشركة", designer: "مكتب التصميم", status: "الحالة", area: "المساحة", tools: "البرامج", myRole: "دوري — المراحل", overview: "نظرة عامة", backTo: "العودة للفهرس", next: "المشروع التالي", related: "ذو صلة",
       contactEyebrow: "تواصل", letsTalk: "لنعمل معًا", email: "البريد", phone: "الهاتف", whatsapp: "واتساب",
       based: "المقر", online: "حسابات", empty: "المشاريع قريبًا.", open: "فتح", placeholder: "صورة مؤقتة",
       rights: "جميع الحقوق محفوظة.", execution: "التنفيذ", design: "التصميم", competition: "مسابقة", result: "النتيجة",
@@ -509,6 +509,15 @@
           </a>`
         : "";
 
+    // optional companion page (e.g. design page <-> design & build page)
+    const rel = p.related && D.projects.find((x) => x.id === p.related);
+    const relHTML = rel
+      ? `<a class="next next--related" href="#/p/${esc(rel.id)}">
+            <span class="next__media"><img loading="lazy" data-parallax src="${esc(cover(rel))}" alt="" /></span>
+            <span class="next__text wrap"><span class="eyebrow">${esc(t(p.relatedLabel) || u().related)}</span><strong><bdi>${T(rel.title)}</bdi> ${state.lang === "ar" ? "←" : "→"}</strong></span>
+          </a>`
+      : "";
+
     document.title = `${t(p.title)} — ${t(D.profile.name)}`;
     app.innerHTML = `
     <article class="pj">
@@ -534,6 +543,7 @@
         ${phases}
       </div>
       <div class="gallery">${gallery}</div>
+      ${relHTML}
       ${nextHTML}
       ${contactSection()}
     </article>`;
