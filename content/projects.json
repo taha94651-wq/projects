@@ -2468,8 +2468,8 @@
       ],
       "tools": [],
       "summary": {
-        "en": "Interior design for a 160 m² apartment in the Seel 31 complex in Al Nada, Riyadh. A calm, warm palette of walnut, linen and soft grey: a sculpted plaster entrance wall beside a full-height walnut panel, a low walnut coffee table and plinth sofa, a marble dining table under leaf-shaped pendants with a timber lattice bulkhead, and a white media wall with a plaster base and lit niche. The design was then built on site under my supervision.",
-        "ar": "تصميم داخلي لشقة بمساحة 160 م² في مجمع سيل 31 بحي الندى في الرياض. لوحة ألوان هادئة ودافئة من الجوز والكتان والرمادي الفاتح: جدار مدخل جبسي منحوت بجوار لوح جوز بكامل الارتفاع، وطاولة قهوة منخفضة من الجوز مع كنبة على قاعدة خشبية، وطاولة طعام رخامية تحت ثريات على شكل أوراق مع سقف خشبي مفرّغ، وجدار تلفزيون أبيض بقاعدة جبسية ونيش مضاء. نُفّذ التصميم بعد ذلك في الموقع تحت إشرافي."
+        "en": "Interior design for a 160 m² apartment in the Seel 31 complex in Al Nada, Riyadh. A calm, warm palette of walnut, linen and soft grey: a sculpted plaster entrance wall beside a full-height walnut panel, a low walnut coffee table and plinth sofa, a marble dining table under leaf-shaped pendants with a timber lattice bulkhead, a white media wall with a plaster base and lit niche, a walnut and white kitchen with a stone backsplash, and a bedroom with a lit walnut headboard wall and fabric wall panels. The design was then built on site under my supervision.",
+        "ar": "تصميم داخلي لشقة بمساحة 160 م² في مجمع سيل 31 بحي الندى في الرياض. لوحة ألوان هادئة ودافئة من الجوز والكتان والرمادي الفاتح: جدار مدخل جبسي منحوت بجوار لوح جوز بكامل الارتفاع، وطاولة قهوة منخفضة من الجوز مع كنبة على قاعدة خشبية، وطاولة طعام رخامية تحت ثريات على شكل أوراق مع سقف خشبي مفرّغ، وجدار تلفزيون أبيض بقاعدة جبسية ونيش مضاء، ومطبخ من الجوز والأبيض مع حجر خلفي، وغرفة نوم بجدار سرير من الجوز بإضاءة مخفية وألواح حائط قماشية. نُفّذ التصميم بعد ذلك في الموقع تحت إشرافي."
       },
       "scope": [
         {
@@ -2580,6 +2580,96 @@
           "caption": {
             "en": "Dining — evening light",
             "ar": "الطعام — إضاءة المساء"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/seel31-apartment/r7-kitchen.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Kitchen: walnut upper units, white base units and stone backsplash",
+            "ar": "المطبخ: خزائن علوية من الجوز وسفلية بيضاء مع حجر خلفي"
+          },
+          "section": {
+            "en": "Kitchen",
+            "ar": "المطبخ"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/seel31-apartment/r8-kitchen-tall-units.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Tall units with built-in appliances",
+            "ar": "الخزائن الطويلة مع الأجهزة المدمجة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/seel31-apartment/r9-kitchen-sink.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Sink run under the window",
+            "ar": "منطقة المغسلة أسفل النافذة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/seel31-apartment/r10-bedroom.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "wide",
+          "caption": {
+            "en": "Bedroom: walnut headboard wall with concealed lighting",
+            "ar": "غرفة النوم: جدار السرير من الجوز بإضاءة مخفية"
+          },
+          "section": {
+            "en": "Bedroom",
+            "ar": "غرفة النوم"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/seel31-apartment/r12-bedroom-mirror.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Fabric wall panels and floor mirror",
+            "ar": "ألواح الحائط القماشية والمرآة الأرضية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/seel31-apartment/r11-bedroom-corner.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Reading corner",
+            "ar": "ركن الجلوس"
           },
           "section": {
             "en": "",
