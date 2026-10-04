@@ -3214,6 +3214,21 @@
         },
         {
           "type": "video",
+          "src": "assets/videos/villa-finishing.mp4",
+          "youtube": "",
+          "poster": "assets/images/private-villa/finishing-poster.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Finished spaces: living room, sideboard design vs. reality, bathroom and kitchen counter",
+            "ar": "المساحات بعد التشطيب: الصالة، والبوفيه بين التصميم والتنفيذ، والحمام، وكاونتر المطبخ"
+          },
+          "section": {
+            "en": "Finishing",
+            "ar": "التشطيب النهائي"
+          }
+        },
+        {
+          "type": "video",
           "src": "assets/videos/villa-bathrooms.mp4",
           "youtube": "",
           "poster": "assets/images/private-villa/bathrooms-poster.jpg",
