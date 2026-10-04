@@ -26,6 +26,7 @@
     },
     types: {
       retail: { ar: "متاجر", en: "Retail" },
+      booths: { ar: "أجنحة وأكشاك", en: "Booths & Kiosks" },
       gym: { ar: "صالات رياضية", en: "Gyms" },
       residential: { ar: "سكني", en: "Residential" },
       offices: { ar: "مكاتب", en: "Offices" },
