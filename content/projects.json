@@ -1130,8 +1130,8 @@
         }
       ],
       "company": {
-        "en": "",
-        "ar": ""
+        "en": "VIVID Design / PHZYN Construction",
+        "ar": "VIVID Design / PHZYN Construction"
       },
       "result": "",
       "coverVideo": "assets/videos/assaf-roshn-loop.mp4",
@@ -1280,12 +1280,12 @@
         "ar": "عساف"
       },
       "designer": {
-        "en": "VIVID Design",
-        "ar": "VIVID Design"
-      },
-      "company": {
         "en": "",
         "ar": ""
+      },
+      "company": {
+        "en": "VIVID Design / PHZYN Construction",
+        "ar": "VIVID Design / PHZYN Construction"
       },
       "location": {
         "en": "Galeria Mall, Jubail",
