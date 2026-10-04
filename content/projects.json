@@ -2136,6 +2136,257 @@
       }
     },
     {
+      "id": "seel31-apartment",
+      "title": {
+        "en": "Seel 31 Apartment",
+        "ar": "شقة سيل 31"
+      },
+      "disciplines": [
+        "execution",
+        "design"
+      ],
+      "type": "residential",
+      "result": "",
+      "status": "built",
+      "client": {
+        "en": "Private client",
+        "ar": "عميل خاص"
+      },
+      "designer": {
+        "en": "",
+        "ar": ""
+      },
+      "company": {
+        "en": "Safana Architects",
+        "ar": "صفانة للعمارة"
+      },
+      "location": {
+        "en": "Seel 31 complex, Al Nada, Riyadh",
+        "ar": "مجمع سيل 31، حي الندى، الرياض"
+      },
+      "year": "2024",
+      "duration": {
+        "en": "",
+        "ar": ""
+      },
+      "area": "160 m²",
+      "role": {
+        "en": "Design to handover: concept, design, drawings, pricing, execution",
+        "ar": "من التصميم حتى التسليم: الفكرة والتصميم والرسومات والتسعير والتنفيذ"
+      },
+      "phases": [
+        "brief",
+        "moodboard",
+        "concept",
+        "render",
+        "drawings",
+        "materials",
+        "pricing",
+        "supervision",
+        "handover"
+      ],
+      "tools": [],
+      "summary": {
+        "en": "A 160 m² apartment in the Seel 31 complex in Al Nada, Riyadh, for a private client. I took it from first brief to handover: the concept and interior design, the construction drawings, material selection and pricing, then site execution and handover. The design pairs warm walnut joinery with soft white surfaces: a back-lit textured entrance wall, a marble dining table under a sculptural pendant with a timber lattice screen, a full-height walnut corridor wall, a black glass and white kitchen with a central island, and a bedroom suite with built-in dresser and vanity.",
+        "ar": "شقة بمساحة 160 م² في مجمع سيل 31 بحي الندى في الرياض لعميل خاص. توليت المشروع من أول متطلبات العميل حتى التسليم: الفكرة والتصميم الداخلي، والرسومات التنفيذية، واختيار المواد والتسعير، ثم التنفيذ في الموقع والتسليم. يجمع التصميم بين نجارة الجوز الدافئة والأسطح البيضاء الهادئة: جدار مدخل بملمس بارز وإضاءة خلفية، وطاولة طعام رخامية تحت ثريا منحوتة مع ستارة خشبية مفرّغة، وجدار ممر خشبي بكامل الارتفاع، ومطبخ بخزائن زجاج أسود وجزيرة بيضاء، وغرفة نوم بتسريحة ووحدة مغسلة مدمجتين."
+      },
+      "scope": [
+        {
+          "en": "Client brief and concept",
+          "ar": "متطلبات العميل والفكرة"
+        },
+        {
+          "en": "Interior design and 3D renders",
+          "ar": "التصميم الداخلي والإظهار ثلاثي الأبعاد"
+        },
+        {
+          "en": "Construction drawings",
+          "ar": "الرسومات التنفيذية"
+        },
+        {
+          "en": "Material selection and pricing",
+          "ar": "اختيار المواد والتسعير"
+        },
+        {
+          "en": "Joinery: entrance wall, corridor wall, kitchen and bedroom units",
+          "ar": "أعمال النجارة: جدار المدخل وجدار الممر والمطبخ ووحدات غرفة النوم"
+        },
+        {
+          "en": "Site execution and handover",
+          "ar": "التنفيذ في الموقع والتسليم"
+        }
+      ],
+      "cover": "assets/images/seel31-apartment/cover.jpg",
+      "coverVideo": "assets/videos/seel31-apartment.mp4",
+      "media": [
+        {
+          "type": "video",
+          "src": "assets/videos/seel31-apartment.mp4",
+          "youtube": "",
+          "poster": "assets/images/seel31-apartment/poster.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Walkthrough after handover",
+            "ar": "جولة بعد التسليم"
+          },
+          "section": {
+            "en": "After handover",
+            "ar": "بعد التسليم"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/seel31-apartment/01-entrance-wall.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Back-lit textured entrance wall",
+            "ar": "جدار المدخل بالملمس البارز والإضاءة الخلفية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/seel31-apartment/02-living-room.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Living room",
+            "ar": "غرفة المعيشة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/seel31-apartment/03-dining.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Dining area with timber lattice screen",
+            "ar": "منطقة الطعام مع الستارة الخشبية المفرّغة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/seel31-apartment/04-dining-table.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Marble dining table and pendant",
+            "ar": "طاولة الطعام الرخامية والثريا"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/seel31-apartment/05-corridor-joinery.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Full-height walnut corridor wall",
+            "ar": "جدار الممر الخشبي بكامل الارتفاع"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/seel31-apartment/06-kitchen.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Kitchen with black glass tall units",
+            "ar": "المطبخ بخزائن الزجاج الأسود"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/seel31-apartment/07-kitchen-island.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Kitchen island",
+            "ar": "جزيرة المطبخ"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/seel31-apartment/08-bedroom.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Bedroom",
+            "ar": "غرفة النوم"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/seel31-apartment/09-dresser.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Built-in dresser and vanity mirror",
+            "ar": "التسريحة المدمجة والمرآة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/seel31-apartment/10-bathroom.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Bathroom vanity",
+            "ar": "وحدة المغسلة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        }
+      ]
+    },
+    {
       "id": "private-villa",
       "title": {
         "ar": "فيلا خاصة",
