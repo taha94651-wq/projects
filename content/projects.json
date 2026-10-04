@@ -388,8 +388,8 @@
       "type": "retail",
       "status": "built",
       "client": {
-        "ar": "عساف للعطور",
-        "en": "Assaf Perfumes"
+        "en": "ASSAF",
+        "ar": "عساف"
       },
       "location": {
         "en": "11 branches: Riyadh, Jeddah, Madinah, Taif, Hail, Buraydah, Unaizah, Tabuk",
@@ -1276,8 +1276,8 @@
       "result": "",
       "status": "built",
       "client": {
-        "en": "Assaf Perfumes",
-        "ar": "عطور عساف"
+        "en": "ASSAF",
+        "ar": "عساف"
       },
       "designer": {
         "en": "VIVID Design",
