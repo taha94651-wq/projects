@@ -604,6 +604,156 @@
           }
         },
         {
+          "type": "video",
+          "src": "assets/videos/assaf-jeddah-park.mp4",
+          "youtube": "",
+          "poster": "assets/images/assaf-perfumes/jp-poster.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Walkthrough of the Jeddah Park branch",
+            "ar": "جولة في فرع جدة بارك"
+          },
+          "section": {
+            "en": "Jeddah Park Mall branch, Jeddah",
+            "ar": "فرع جدة بارك مول، جدة"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/35-jp-storefront.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Shopfront with back-lit ASSAF letters",
+            "ar": "الواجهة بحروف عساف المضيئة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/30-jp-horse-relief.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Horse relief wall behind the glass",
+            "ar": "جدار الخيل البارز خلف الزجاج"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/39-jp-round-display.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Round perfume display table",
+            "ar": "طاولة عرض العطور الدائرية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/34-jp-bag-counter.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Bag display counter",
+            "ar": "كاونتر عرض الحقائب"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/33-jp-assaf-wall.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "ASSAF wall with jewellery showcases",
+            "ar": "حائط عساف مع فاترينات المجوهرات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/36-jp-pegasus-wall.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "PEGASUS and FRANKEL walls with light boxes",
+            "ar": "حائطا PEGASUS وFRANKEL مع اللايت بوكس"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/38-jp-lady-wall.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "LADY wall and display counter",
+            "ar": "حائط LADY وكاونتر العرض"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/37-jp-glasses-wall.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "GLASSES wall with the stainless steel units",
+            "ar": "حائط GLASSES بوحدات الستانلس ستيل"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-perfumes/32-jp-glasses-unit.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "On site at the glasses unit",
+            "ar": "في الموقع عند وحدة النظارات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
           "type": "image",
           "src": "assets/images/assaf-perfumes/sample-board-sheet-01.jpg",
           "youtube": "",
