@@ -2265,6 +2265,66 @@
         },
         {
           "type": "video",
+          "src": "assets/videos/sayl-materials.mp4",
+          "youtube": "",
+          "poster": "assets/images/seel31-apartment/ig-materials-poster.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Site arrival and material selection: walnut, plaster and fabric samples",
+            "ar": "الوصول للموقع واختيار الخامات: عينات الجوز والجبس والأقمشة"
+          },
+          "section": {
+            "en": "Material selection",
+            "ar": "اختيار الخامات"
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/sayl-manufacturing.mp4",
+          "youtube": "",
+          "poster": "assets/images/seel31-apartment/ig-manufacturing-poster.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Joinery in the workshop: curved units, coffee table and fluted column (sped up)",
+            "ar": "النجارة في الورشة: الوحدات المنحنية وطاولة القهوة والعمود المضلّع (مُسرّع)"
+          },
+          "section": {
+            "en": "Manufacturing",
+            "ar": "التصنيع"
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/sayl-details.mp4",
+          "youtube": "",
+          "poster": "assets/images/seel31-apartment/ig-details-poster.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Detailing on site and furniture approval (sped up)",
+            "ar": "التفاصيل في الموقع واعتماد الأثاث (مُسرّع)"
+          },
+          "section": {
+            "en": "Details on site",
+            "ar": "التفاصيل في الموقع"
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/sayl-design-reality.mp4",
+          "youtube": "",
+          "poster": "assets/images/seel31-apartment/ig-design-reality-poster.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Kitchen: design vs. reality",
+            "ar": "المطبخ: التصميم مقابل الواقع"
+          },
+          "section": {
+            "en": "Design vs. reality",
+            "ar": "التصميم مقابل الواقع"
+          }
+        },
+        {
+          "type": "video",
           "src": "assets/videos/seel31-apartment.mp4",
           "youtube": "",
           "poster": "assets/images/seel31-apartment/poster.jpg",
