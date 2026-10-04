@@ -2138,8 +2138,8 @@
     {
       "id": "seel31-apartment",
       "title": {
-        "en": "Seel 31 Apartment — Design & Build",
-        "ar": "شقة سيل 31 — تصميم وتنفيذ"
+        "en": "Sayl 31 Apartment — Design & Build",
+        "ar": "شقة سايل 31 — تصميم وتنفيذ"
       },
       "disciplines": [
         "execution"
@@ -2160,8 +2160,8 @@
         "ar": "صفانة للعمارة"
       },
       "location": {
-        "en": "Seel 31 complex, Al Nada, Riyadh",
-        "ar": "مجمع سيل 31، حي الندى، الرياض"
+        "en": "Sayl 31 complex, Al Nada, Riyadh",
+        "ar": "مجمع سايل 31، حي الندى، الرياض"
       },
       "year": "2024",
       "duration": {
@@ -2175,19 +2175,19 @@
       },
       "phases": [
         "brief",
-        "moodboard",
         "concept",
         "render",
         "drawings",
         "materials",
+        "sampleboard",
         "pricing",
         "supervision",
         "handover"
       ],
       "tools": [],
       "summary": {
-        "en": "A 160 m² apartment in the Seel 31 complex in Al Nada, Riyadh, for a private client. I took it from first brief to handover: the concept and interior design, the construction drawings, material selection and pricing, then site execution and handover. The design pairs warm walnut joinery with soft white surfaces: a back-lit textured entrance wall, a marble dining table under a sculptural pendant with a timber lattice screen, a full-height walnut corridor wall, a black glass and white kitchen with a central island, and a bedroom suite with built-in dresser and vanity.",
-        "ar": "شقة بمساحة 160 م² في مجمع سيل 31 بحي الندى في الرياض لعميل خاص. توليت المشروع من أول متطلبات العميل حتى التسليم: الفكرة والتصميم الداخلي، والرسومات التنفيذية، واختيار المواد والتسعير، ثم التنفيذ في الموقع والتسليم. يجمع التصميم بين نجارة الجوز الدافئة والأسطح البيضاء الهادئة: جدار مدخل بملمس بارز وإضاءة خلفية، وطاولة طعام رخامية تحت ثريا منحوتة مع ستارة خشبية مفرّغة، وجدار ممر خشبي بكامل الارتفاع، ومطبخ بخزائن زجاج أسود وجزيرة بيضاء، وغرفة نوم بتسريحة ووحدة مغسلة مدمجتين."
+        "en": "A 160 m² apartment in the Sayl 31 complex in Al Nada, Riyadh, for a private client. I took it from first brief to handover: the concept and interior design, the construction drawings, material selection and pricing, then site execution and handover. The design pairs warm walnut joinery with soft white surfaces: a back-lit textured entrance wall, a marble dining table under a sculptural pendant with a timber lattice screen, a full-height walnut corridor wall, a black glass and white kitchen with a central island, and a bedroom suite with built-in dresser and vanity.",
+        "ar": "شقة بمساحة 160 م² في مجمع سايل 31 بحي الندى في الرياض لعميل خاص. توليت المشروع من أول متطلبات العميل حتى التسليم: الفكرة والتصميم الداخلي، والرسومات التنفيذية، واختيار المواد والتسعير، ثم التنفيذ في الموقع والتسليم. يجمع التصميم بين نجارة الجوز الدافئة والأسطح البيضاء الهادئة: جدار مدخل بملمس بارز وإضاءة خلفية، وطاولة طعام رخامية تحت ثريا منحوتة مع ستارة خشبية مفرّغة، وجدار ممر خشبي بكامل الارتفاع، ومطبخ بخزائن زجاج أسود وجزيرة بيضاء، وغرفة نوم بتسريحة ووحدة مغسلة مدمجتين."
       },
       "scope": [
         {
@@ -2220,13 +2220,13 @@
       "media": [
         {
           "type": "image",
-          "src": "assets/images/seel31-apartment/r2-living-dining.jpg",
+          "src": "assets/images/seel31-apartment/r1-living-room.jpg",
           "youtube": "",
           "poster": "",
           "size": "half",
           "caption": {
-            "en": "Design: living and dining",
-            "ar": "التصميم: المعيشة والطعام"
+            "en": "Design: living room",
+            "ar": "التصميم: غرفة المعيشة"
           },
           "section": {
             "en": "The design",
@@ -2235,13 +2235,28 @@
         },
         {
           "type": "image",
-          "src": "assets/images/seel31-apartment/r3-entrance-wall.jpg",
+          "src": "assets/images/seel31-apartment/r10-bedroom.jpg",
           "youtube": "",
           "poster": "",
           "size": "half",
           "caption": {
-            "en": "Design: textured entrance wall and walnut panel",
-            "ar": "التصميم: جدار المدخل البارز ولوح الجوز"
+            "en": "Design: bedroom",
+            "ar": "التصميم: غرفة النوم"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "link",
+          "src": "#/p/seel31-apartment-design",
+          "youtube": "",
+          "poster": "",
+          "size": "",
+          "caption": {
+            "en": "Go to the full design",
+            "ar": "اذهب إلى التصميم كاملًا"
           },
           "section": {
             "en": "",
@@ -2423,8 +2438,8 @@
     {
       "id": "seel31-apartment-design",
       "title": {
-        "en": "Seel 31 Apartment — Interior Design",
-        "ar": "شقة سيل 31 — التصميم الداخلي"
+        "en": "Sayl 31 Apartment — Interior Design",
+        "ar": "شقة سايل 31 — التصميم الداخلي"
       },
       "disciplines": [
         "design"
@@ -2445,8 +2460,8 @@
         "ar": "صفانة للعمارة"
       },
       "location": {
-        "en": "Seel 31 complex, Al Nada, Riyadh",
-        "ar": "مجمع سيل 31، حي الندى، الرياض"
+        "en": "Sayl 31 complex, Al Nada, Riyadh",
+        "ar": "مجمع سايل 31، حي الندى، الرياض"
       },
       "year": "2024",
       "duration": {
@@ -2460,16 +2475,16 @@
       },
       "phases": [
         "brief",
-        "moodboard",
         "concept",
         "render",
         "drawings",
-        "materials"
+        "materials",
+        "sampleboard"
       ],
       "tools": [],
       "summary": {
-        "en": "Interior design for a 160 m² apartment in the Seel 31 complex in Al Nada, Riyadh. A calm, warm palette of walnut, linen and soft grey: a sculpted plaster entrance wall beside a full-height walnut panel, a low walnut coffee table and plinth sofa, a marble dining table under leaf-shaped pendants with a timber lattice bulkhead, a white media wall with a plaster base and lit niche, a walnut and white kitchen with a stone backsplash, and a bedroom with a lit walnut headboard wall and fabric wall panels. The design was then built on site under my supervision.",
-        "ar": "تصميم داخلي لشقة بمساحة 160 م² في مجمع سيل 31 بحي الندى في الرياض. لوحة ألوان هادئة ودافئة من الجوز والكتان والرمادي الفاتح: جدار مدخل جبسي منحوت بجوار لوح جوز بكامل الارتفاع، وطاولة قهوة منخفضة من الجوز مع كنبة على قاعدة خشبية، وطاولة طعام رخامية تحت ثريات على شكل أوراق مع سقف خشبي مفرّغ، وجدار تلفزيون أبيض بقاعدة جبسية ونيش مضاء، ومطبخ من الجوز والأبيض مع حجر خلفي، وغرفة نوم بجدار سرير من الجوز بإضاءة مخفية وألواح حائط قماشية. نُفّذ التصميم بعد ذلك في الموقع تحت إشرافي."
+        "en": "Interior design for a 160 m² apartment in the Sayl 31 complex in Al Nada, Riyadh. A calm, warm palette of walnut, linen and soft grey: a sculpted plaster entrance wall beside a full-height walnut panel, a low walnut coffee table and plinth sofa, a marble dining table under leaf-shaped pendants with a timber lattice bulkhead, a white media wall with a plaster base and lit niche, a walnut and white kitchen with a stone backsplash, and a bedroom with a lit walnut headboard wall and fabric wall panels. The design was then built on site under my supervision.",
+        "ar": "تصميم داخلي لشقة بمساحة 160 م² في مجمع سايل 31 بحي الندى في الرياض. لوحة ألوان هادئة ودافئة من الجوز والكتان والرمادي الفاتح: جدار مدخل جبسي منحوت بجوار لوح جوز بكامل الارتفاع، وطاولة قهوة منخفضة من الجوز مع كنبة على قاعدة خشبية، وطاولة طعام رخامية تحت ثريات على شكل أوراق مع سقف خشبي مفرّغ، وجدار تلفزيون أبيض بقاعدة جبسية ونيش مضاء، ومطبخ من الجوز والأبيض مع حجر خلفي، وغرفة نوم بجدار سرير من الجوز بإضاءة مخفية وألواح حائط قماشية. نُفّذ التصميم بعد ذلك في الموقع تحت إشرافي."
       },
       "scope": [
         {

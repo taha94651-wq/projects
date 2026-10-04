@@ -617,3 +617,4 @@ html[lang="ar"] .smap__sea { letter-spacing: 0; font-size: 15px; }
 .frame--pdf { display: block; cursor: pointer; }
 .frame--pdf img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .pdf-badge { position: absolute; inset-block-end: 14px; inset-inline-end: 14px; padding: 6px 12px; border-radius: 999px; background: var(--gold); color: var(--black); font-size: 13px; font-weight: 600; letter-spacing: 0.04em; }
+.shot--link { grid-column: 1 / -1; display: flex; justify-content: flex-start; margin-block: -8px 8px; }
