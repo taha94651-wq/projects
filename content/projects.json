@@ -1485,6 +1485,212 @@
       ]
     },
     {
+      "id": "assaf-photo-booth",
+      "title": {
+        "en": "ASSAF Photo Booth — Campaign Set",
+        "ar": "فوتو بوث عساف — موقع تصوير الحملة"
+      },
+      "disciplines": [
+        "execution"
+      ],
+      "type": "booths",
+      "result": "",
+      "status": "built",
+      "client": {
+        "en": "ASSAF",
+        "ar": "عساف"
+      },
+      "designer": {
+        "en": "",
+        "ar": ""
+      },
+      "company": {
+        "en": "VIVID Design / PHZYN Construction",
+        "ar": "VIVID Design / PHZYN Construction"
+      },
+      "location": {
+        "en": "Riyadh",
+        "ar": "الرياض"
+      },
+      "year": "2026",
+      "duration": {
+        "en": "3 days (fabrication & installation)",
+        "ar": "3 أيام (تصنيع وتركيب)"
+      },
+      "area": "24 m² (4 × 6 m)",
+      "role": {
+        "en": "Shop drawing review, fabrication & full installation",
+        "ar": "مراجعة الرسومات التنفيذية والتصنيع والتركيب الكامل"
+      },
+      "phases": [
+        "drawings",
+        "supervision",
+        "handover"
+      ],
+      "tools": [],
+      "summary": {
+        "en": "A 24 m² photo booth set built for an ASSAF advertising shoot in 2026. I took it from shop drawing review through fabrication to full installation, all delivered in three days. The set combines a back-lit sculpted rose ring on the ASSAF brand wall, white display counters with the horse emblem, brand light boxes and stacked gift-box displays.",
+        "ar": "فوتو بوث بمساحة 24 م² نُفّذ لتصوير حملة إعلانية لعساف في 2026. توليت المشروع من مراجعة الرسومات التنفيذية مرورًا بالتصنيع حتى التركيب الكامل، وكل ذلك خلال ثلاثة أيام. يجمع الموقع بين حلقة وردة منحوتة بإضاءة خلفية على جدار هوية عساف، وكاونترات عرض بيضاء بشعار الخيل، ولايت بوكس الهوية، ومجسمات علب الهدايا."
+      },
+      "scope": [
+        {
+          "en": "Shop drawing review",
+          "ar": "مراجعة الرسومات التنفيذية"
+        },
+        {
+          "en": "Fabrication of walls, counters and light boxes",
+          "ar": "تصنيع الجدران والكاونترات واللايت بوكس"
+        },
+        {
+          "en": "Full installation on site",
+          "ar": "التركيب الكامل في الموقع"
+        },
+        {
+          "en": "Delivered in three days",
+          "ar": "التسليم خلال ثلاثة أيام"
+        }
+      ],
+      "cover": "assets/images/assaf-photo-booth/cover.jpg",
+      "coverVideo": "assets/videos/assaf-photo-booth-loop.mp4",
+      "media": [
+        {
+          "type": "video",
+          "src": "assets/videos/assaf-photo-booth.mp4",
+          "youtube": "",
+          "poster": "assets/images/assaf-photo-booth/poster.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Walkthrough of the set",
+            "ar": "جولة في موقع التصوير"
+          },
+          "section": {
+            "en": "The set",
+            "ar": "الموقع"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-photo-booth/07-wide.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "The set with the ASSAF brand wall",
+            "ar": "الموقع مع جدار هوية عساف"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-photo-booth/01-overview.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Overview of the booth",
+            "ar": "نظرة عامة على البوث"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-photo-booth/05-rose-ring.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Back-lit rose ring and display counter",
+            "ar": "حلقة الوردة المضيئة وكاونتر العرض"
+          },
+          "section": {
+            "en": "Details",
+            "ar": "التفاصيل"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-photo-booth/10-rose-relief.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Sculpted rose relief",
+            "ar": "الوردة المنحوتة البارزة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-photo-booth/06-lightbox.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Light boxes and display counter",
+            "ar": "اللايت بوكس وكاونتر العرض"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-photo-booth/03-counter.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Display counter with the horse emblem",
+            "ar": "كاونتر العرض بشعار الخيل"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-photo-booth/08-counter-detail.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Counter detail",
+            "ar": "تفصيلة الكاونتر"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/assaf-photo-booth/02-gift-tower.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Gift-box tower and GIFT light box",
+            "ar": "برج علب الهدايا ولايت بوكس GIFT"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        }
+      ]
+    },
+    {
       "id": "fitness-time-ladies",
       "title": {
         "en": "Fitness Time Ladies Khurais",
