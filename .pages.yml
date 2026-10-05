@@ -244,6 +244,29 @@ content:
           - { name: title, label: "Title (optional) — العنوان", component: bi }
           - { name: location, label: "Location (optional) — المكان", component: bi }
           - { name: year, label: "Year (optional) — السنة", type: string }
+          - { name: caption, label: "Cover caption (optional) — وصف صورة الغلاف", component: bi }
+          - { name: desc, label: "About the place (optional) — نبذة عن المكان", component: bi }
+          - { name: thumb, label: "Small version (optional) — نسخة صغيرة", type: image }
+          - name: frame
+            label: Frame — شكل الإطار
+            type: select
+            options:
+              values:
+                - { value: "", label: Auto — تلقائي }
+                - { value: wide, label: Wide — عريض }
+                - { value: tall, label: Tall — طولي }
+                - { value: square, label: Square — مربع }
+          - name: gallery
+            label: "More photos of the same place (series) — صور تانية لنفس المكان"
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{caption.en} {src}"
+            fields:
+              - { name: src, label: Photo — الصورة, type: image, required: true }
+              - { name: thumb, label: "Small version (optional) — نسخة صغيرة", type: image }
+              - { name: caption, label: "Caption (optional) — الوصف", component: bi }
 
   # ============================ PROFILE ============================
   - name: site

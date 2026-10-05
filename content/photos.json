@@ -1,7 +1,8 @@
 {
   "items": [
     {
-      "src": "assets/images/photography/sakakini-palace-2023.jpg",
+      "src": "assets/images/photography/sakakini-sepia.jpg",
+      "thumb": "assets/images/photography/sakakini-sepia-sm.jpg",
       "title": {
         "en": "Habib Pasha Sakakini Palace",
         "ar": "قصر حبيب باشا السكاكيني"
@@ -10,7 +11,193 @@
         "en": "Sakakini Square, El Daher, Cairo",
         "ar": "ميدان السكاكيني، حي الظاهر، القاهرة"
       },
-      "year": "2023"
+      "year": "2023",
+      "caption": {
+        "en": "The palace in sepia",
+        "ar": "القصر بدرجات السيبيا"
+      },
+      "desc": {
+        "en": "Built in 1897 for Habib Pasha Sakakini by Italian architects, a Rococo landmark of Cairo",
+        "ar": "شُيّد عام 1897 لحبيب باشا السكاكيني على يد معماريين إيطاليين، من أبرز معالم طراز الروكوكو في القاهرة"
+      },
+      "frame": "",
+      "gallery": [
+        {
+          "src": "assets/images/photography/sakakini-color.jpg",
+          "thumb": "assets/images/photography/sakakini-color-sm.jpg",
+          "caption": {
+            "en": "The domes against the sky",
+            "ar": "القباب في مواجهة السماء"
+          }
+        }
+      ]
+    },
+    {
+      "src": "assets/images/photography/sh-rosette.jpg",
+      "thumb": "assets/images/photography/sh-rosette-sm.jpg",
+      "title": {
+        "en": "Mosque & Madrasa of Sultan Hassan",
+        "ar": "مسجد ومدرسة السلطان حسن"
+      },
+      "location": {
+        "en": "Salah El-Din Square, El Khalifa, Cairo",
+        "ar": "ميدان صلاح الدين (القلعة)، حي الخليفة، القاهرة"
+      },
+      "year": "2019",
+      "caption": {
+        "en": "Pierced rosette medallion",
+        "ar": "جامة دائرية مفرغة"
+      },
+      "desc": {
+        "en": "Architectural vocabulary and carvings from the Mamluk masterpiece (757–764 AH / 1356–1363 AD)",
+        "ar": "مفردات معمارية ونقوش من تحفة العمارة المملوكية (757–764 هـ / 1356–1363م)"
+      },
+      "frame": "",
+      "gallery": [
+        {
+          "src": "assets/images/photography/sh-plaque.jpg",
+          "thumb": "assets/images/photography/sh-plaque-sm.jpg",
+          "caption": {
+            "en": "Foundation plaque, 757 AH / 1356 AD",
+            "ar": "لوحة التأسيس، 757 هـ / 1356م"
+          }
+        },
+        {
+          "src": "assets/images/photography/sh-maliki-door.jpg",
+          "thumb": "assets/images/photography/sh-maliki-door-sm.jpg",
+          "caption": {
+            "en": "Door of the Maliki madrasa",
+            "ar": "باب المدرسة المالكية"
+          }
+        },
+        {
+          "src": "assets/images/photography/sh-interlace.jpg",
+          "thumb": "assets/images/photography/sh-interlace-sm.jpg",
+          "caption": {
+            "en": "Interlaced stone carving",
+            "ar": "زخرفة حجرية متشابكة"
+          }
+        },
+        {
+          "src": "assets/images/photography/sh-frieze.jpg",
+          "thumb": "assets/images/photography/sh-frieze-sm.jpg",
+          "caption": {
+            "en": "Carved stone frieze",
+            "ar": "إفريز حجري محفور"
+          }
+        },
+        {
+          "src": "assets/images/photography/sh-frieze-persp.jpg",
+          "thumb": "assets/images/photography/sh-frieze-persp-sm.jpg",
+          "caption": {
+            "en": "The frieze in perspective",
+            "ar": "الإفريز في منظور"
+          }
+        },
+        {
+          "src": "assets/images/photography/sh-panel.jpg",
+          "thumb": "assets/images/photography/sh-panel-sm.jpg",
+          "caption": {
+            "en": "Carved arabesque panel",
+            "ar": "حشوة بزخارف أرابيسك محفورة"
+          }
+        },
+        {
+          "src": "assets/images/photography/sh-gold-floral.jpg",
+          "thumb": "assets/images/photography/sh-gold-floral-sm.jpg",
+          "caption": {
+            "en": "Gilded floral carving",
+            "ar": "نقش نباتي مذهّب"
+          }
+        },
+        {
+          "src": "assets/images/photography/sh-relief.jpg",
+          "thumb": "assets/images/photography/sh-relief-sm.jpg",
+          "caption": {
+            "en": "Arabesque relief",
+            "ar": "نقش أرابيسك بارز"
+          }
+        },
+        {
+          "src": "assets/images/photography/sh-pendant.jpg",
+          "thumb": "assets/images/photography/sh-pendant-sm.jpg",
+          "caption": {
+            "en": "Drop-shaped pierced ornament",
+            "ar": "حلية مفرغة على شكل قطرة"
+          }
+        }
+      ]
+    },
+    {
+      "src": "assets/images/photography/amr-fountain.jpg",
+      "thumb": "assets/images/photography/amr-fountain-sm.jpg",
+      "title": {
+        "en": "Mosque of Amr ibn al-As",
+        "ar": "جامع عمرو بن العاص"
+      },
+      "location": {
+        "en": "Sidi Hassan Al-Anwar St., Fustat, Old Cairo",
+        "ar": "شارع سيدي حسن الأنور، الفسطاط، مصر القديمة، القاهرة"
+      },
+      "year": "2019",
+      "caption": {
+        "en": "Ablution fountain in the courtyard",
+        "ar": "فسقية الوضوء في الصحن"
+      },
+      "desc": {
+        "en": "The first mosque built in Egypt and Africa (21 AH / 641–642 AD)",
+        "ar": "أول جامع بُني في مصر وأفريقيا (21 هـ / 641–642م)"
+      },
+      "frame": "",
+      "gallery": [
+        {
+          "src": "assets/images/photography/amr-gate.jpg",
+          "thumb": "assets/images/photography/amr-gate-sm.jpg",
+          "caption": {
+            "en": "Main gate",
+            "ar": "البوابة الرئيسية"
+          }
+        },
+        {
+          "src": "assets/images/photography/amr-hall.jpg",
+          "thumb": "assets/images/photography/amr-hall-sm.jpg",
+          "caption": {
+            "en": "Arcades of the prayer hall",
+            "ar": "أروقة بيت الصلاة"
+          }
+        },
+        {
+          "src": "assets/images/photography/amr-capital.jpg",
+          "thumb": "assets/images/photography/amr-capital-sm.jpg",
+          "caption": {
+            "en": "A column capital",
+            "ar": "تاج أحد الأعمدة"
+          }
+        }
+      ]
+    },
+    {
+      "src": "assets/images/photography/ship.jpg",
+      "thumb": "assets/images/photography/ship-sm.jpg",
+      "title": {
+        "en": "Ship 212, moored on the Suez Canal",
+        "ar": "سفينة سجم عطبرة"
+      },
+      "location": {
+        "en": "Suez Canal waterfront",
+        "ar": "ساحل قناة السويس"
+      },
+      "year": "2022",
+      "caption": {
+        "en": "",
+        "ar": ""
+      },
+      "desc": {
+        "en": "",
+        "ar": ""
+      },
+      "frame": "",
+      "gallery": []
     }
   ]
 }
