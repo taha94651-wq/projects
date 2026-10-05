@@ -3139,6 +3139,21 @@
         },
         {
           "type": "video",
+          "src": "assets/videos/villa-manufacturing.mp4",
+          "youtube": "",
+          "poster": "assets/images/private-villa/manufacturing-poster.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Furniture manufacturing: armchair frames and wardrobe units in the workshop, built to the design",
+            "ar": "تصنيع الأثاث: هياكل الكراسي ووحدات الخزائن في الورشة وفق التصميم"
+          },
+          "section": {
+            "en": "Furniture manufacturing",
+            "ar": "تصنيع الأثاث"
+          }
+        },
+        {
+          "type": "video",
           "src": "assets/videos/villa-installation.mp4",
           "youtube": "",
           "poster": "assets/images/private-villa/installation-poster.jpg",
