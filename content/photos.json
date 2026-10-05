@@ -256,7 +256,24 @@
         "en": "Completed in 879 AD (265 AH), the oldest mosque in Cairo to survive in its original form",
         "ar": "اكتمل بناؤه عام 265 هـ / 879م، وهو أقدم جامع في القاهرة باقٍ على هيئته الأصلية"
       },
-      "gallery": []
+      "gallery": [
+        {
+          "src": "assets/images/photography/tulun-arcade.jpg",
+          "thumb": "assets/images/photography/tulun-arcade-sm.jpg",
+          "caption": {
+            "en": "The arcades in light and shadow",
+            "ar": "الأروقة بين الضوء والظل"
+          }
+        },
+        {
+          "src": "assets/images/photography/tulun-dome.jpg",
+          "thumb": "assets/images/photography/tulun-dome-sm.jpg",
+          "caption": {
+            "en": "Inside the fountain dome: muqarnas and windows",
+            "ar": "من داخل قبة الفسقية: المقرنصات والنوافذ"
+          }
+        }
+      ]
     },
     {
       "src": "assets/images/photography/unknown-soldier.jpg",
