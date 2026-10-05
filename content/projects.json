@@ -4813,8 +4813,8 @@
     {
       "id": "120-hours",
       "title": {
-        "en": "120 Hours",
-        "ar": "120 Hours"
+        "en": "120 HOURS — International Student Competition",
+        "ar": "120 HOURS — مسابقة معمارية عالمية للطلاب"
       },
       "disciplines": [
         "competition"
@@ -4823,21 +4823,21 @@
       "result": "shortlisted",
       "status": "concept",
       "client": {
-        "en": "",
-        "ar": ""
+        "en": "120 HOURS (Oslo, Norway)",
+        "ar": "120 HOURS (أوسلو، النرويج)"
       },
       "company": {
         "en": "",
         "ar": ""
       },
       "location": {
-        "en": "",
-        "ar": ""
+        "en": "International — organised in Norway",
+        "ar": "عالمية — تُنظَّم من النرويج"
       },
       "year": "2020",
       "duration": {
-        "en": "",
-        "ar": ""
+        "en": "120 hours (5 days)",
+        "ar": "120 ساعة (5 أيام)"
       },
       "area": "",
       "role": {
@@ -4847,8 +4847,8 @@
       "phases": [],
       "tools": [],
       "summary": {
-        "en": "",
-        "ar": ""
+        "en": "Entry to 120 HOURS, the world’s largest architecture competition for and by students, run since 2010 by students of the Oslo School of Architecture and Design and Norway’s architecture schools. The brief is kept secret until the start, and every entrant has exactly 120 hours, five days, from its release to the deadline to deliver a complete design proposal.",
+        "ar": "مشاركة في مسابقة 120 HOURS، أكبر مسابقة معمارية عالمية للطلاب ومن تنظيم الطلاب، تُقام منذ 2010 بمبادرة من طلاب كلية أوسلو للعمارة والتصميم ومدارس العمارة في النرويج. يُبقى موضوع المسابقة سرًا حتى لحظة الإطلاق، ولكل مشارك 120 ساعة فقط، أي خمسة أيام، من إعلان الموضوع حتى التسليم لتقديم مقترح تصميمي كامل."
       },
       "scope": [],
       "cover": "",
@@ -4888,16 +4888,16 @@
       "result": "participation",
       "status": "concept",
       "client": {
-        "en": "",
-        "ar": ""
+        "en": "Elbadry Home Furniture",
+        "ar": "البدري للأثاث"
       },
       "company": {
         "en": "",
         "ar": ""
       },
       "location": {
-        "en": "",
-        "ar": ""
+        "en": "Egypt",
+        "ar": "مصر"
       },
       "year": "2020",
       "duration": {
@@ -4912,8 +4912,8 @@
       "phases": [],
       "tools": [],
       "summary": {
-        "en": "",
-        "ar": ""
+        "en": "Entry to a design competition held in Egypt by Elbadry Home Furniture, the Egyptian furniture maker founded in 1932, for multi-use furniture: pieces that adapt to more than one function to suit smaller, flexible living spaces.",
+        "ar": "مشاركة في مسابقة تصميم أقامتها في مصر شركة البدري للأثاث، الشركة المصرية لصناعة الأثاث منذ 1932، لتصميم أثاث متعدد الاستخدامات: قطع تتحول لأكثر من وظيفة لتناسب المساحات السكنية الصغيرة والمرنة."
       },
       "scope": [],
       "cover": "",
