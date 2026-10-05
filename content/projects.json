@@ -6174,6 +6174,112 @@
       }
     },
     {
+      "id": "food-truck-concept",
+      "title": {
+        "en": "Street Food Kiosk — Quick Concept",
+        "ar": "فود تراك — فكرة سريعة"
+      },
+      "disciplines": [
+        "design"
+      ],
+      "type": "booths",
+      "result": "",
+      "status": "concept",
+      "client": {
+        "en": "",
+        "ar": ""
+      },
+      "designer": {
+        "en": "",
+        "ar": ""
+      },
+      "company": {
+        "en": "",
+        "ar": ""
+      },
+      "location": {
+        "en": "Riyadh",
+        "ar": "الرياض"
+      },
+      "year": "2024",
+      "duration": {
+        "en": "1 day",
+        "ar": "يوم واحد"
+      },
+      "area": "",
+      "role": {
+        "en": "Concept and 3D model in one day",
+        "ar": "الفكرة والموديل ثلاثي الأبعاد في يوم واحد"
+      },
+      "phases": [
+        "concept",
+        "render"
+      ],
+      "tools": [],
+      "summary": {
+        "en": "A one-day concept for a street food kiosk built into a shipping container. A single cut-out serving window with a fold-down counter and a slim canopy, a round signage arm that reads from down the street, and a flat panel for the menu. A quick study in getting a working idea onto paper fast.",
+        "ar": "فكرة اتعملت في يوم واحد لكشك أكل في الشارع داخل كونتينر شحن: شباك بيع واحد برف خدمة قابل للطي ومظلة رفيعة، ويافطة دايرية على ذراع بتتشاف من أول الشارع، ولوحة مسطحة للمنيو. تمرين على تحويل فكرة شغالة لتصميم بسرعة."
+      },
+      "scope": [
+        {
+          "en": "Concept",
+          "ar": "الفكرة"
+        },
+        {
+          "en": "3D model",
+          "ar": "الموديل ثلاثي الأبعاد"
+        }
+      ],
+      "cover": "assets/images/food-truck/front.jpg",
+      "coverVideo": "",
+      "media": [
+        {
+          "type": "image",
+          "src": "assets/images/food-truck/front.jpg",
+          "size": "lead",
+          "caption": {
+            "en": "Front perspective",
+            "ar": "منظور أمامي"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/food-truck/axonometric.jpg",
+          "size": "side",
+          "caption": {
+            "en": "Axonometric view",
+            "ar": "منظور علوي (أكسونومتري)"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/food-truck/elevation.jpg",
+          "size": "side",
+          "caption": {
+            "en": "Front elevation",
+            "ar": "الواجهة الأمامية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "related": "",
+      "relatedLabel": {
+        "en": "",
+        "ar": ""
+      }
+    },
+    {
       "id": "design-project-01",
       "title": {
         "ar": "مشروع تصميم 01",
