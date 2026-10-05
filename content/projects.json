@@ -413,7 +413,8 @@
             "ar": "الثمامة"
           },
           "city": "riyadh",
-          "kind": "new"
+          "kind": "new",
+          "status": "progress"
         },
         {
           "name": {

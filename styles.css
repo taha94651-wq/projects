@@ -699,3 +699,4 @@ html[lang="ar"] .br__tag { letter-spacing: 0; font-size: 12px; }
 .fam a[aria-current] span { color: #0b0b0a; }
 .row__fam { display: inline-block; margin-inline-start: 10px; padding: 2px 8px; border: 1px solid var(--line); border-radius: 999px; color: var(--gold); font-size: 11px; letter-spacing: 0.04em; vertical-align: middle; white-space: nowrap; }
 .br__area { color: var(--gold); font-size: 12px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.br__wip { display: inline-block; margin-inline-start: 10px; padding: 1px 8px; border: 1px dashed var(--line); border-radius: 999px; color: var(--muted); font-size: 11px; letter-spacing: 0.04em; vertical-align: middle; }

@@ -128,6 +128,13 @@ content:
               - { name: name, label: Branch name — اسم الفرع, component: bi }
               - { name: place, label: "Mall / complex (optional) — المول أو المجمع", component: bi }
               - { name: area, label: "Area m² (optional) — المساحة م²", type: string }
+              - name: status
+                label: "Status (optional) — الحالة"
+                type: select
+                options:
+                  values:
+                    - { value: "", label: Done — جاهز }
+                    - { value: progress, label: In design — قيد التصميم }
               - name: kind
                 label: "Type (optional) — نوع الفرع"
                 type: select
