@@ -336,21 +336,34 @@
 
   function photoSection(no) {
     const list = D.photos || [];
-    // editorial rhythm: wide + tall, three squares, tall + wide
-    const pattern = ["w7", "t5", "s4", "s4", "s4", "t5", "w7"];
-    const items = (list.length ? list : [{}, {}, {}, {}, {}, {}, {}])
+    // editorial rhythm: wide + tall, tall + wide (an item can pin its own frame)
+    const pattern = ["w7", "t5", "t5", "w7"];
+    const frames = { wide: "w7", tall: "t5", square: "s4" };
+    const count = (n) => (state.lang === "ar" ? `${n} ${n === 2 ? "صورتان" : n <= 10 ? "صور" : "صورة"}` : `${n} photos`);
+    const total = list.reduce((n, ph) => n + 1 + (ph.gallery || []).filter((g) => g && g.src).length, 0);
+    const items = (list.length ? list : [{}, {}, {}, {}])
       .map((ph, i) => {
         const src = img(ph.src, "photo-" + i, u().nav.photography + " " + pad(i + 1));
-        const label = [T(ph.title), [T(ph.location), esc(ph.year || "")].filter(Boolean).join(", ")].filter(Boolean).join(" — ");
-        return `<figure class="ph ph--${pattern[i % pattern.length]} unveil">
-          <div class="frame" data-zoom="${esc(src)}" data-cap="${label}"><div class="zoom"><img loading="lazy" src="${esc(src)}" alt="${label || esc(u().nav.photography)}" /></div></div>
+        const title = T(ph.title);
+        const where = [T(ph.location), esc(ph.year || "")].filter(Boolean).join(", ");
+        const label = [title, where].filter(Boolean).join(" — ");
+        const capOf = (c) => [title, T(c)].filter(Boolean).join(" — ");
+        // a series: the cover plus a strip of the remaining shots, browsed together in the lightbox
+        const set = (ph.gallery || []).filter((g) => g && g.src);
+        const coverCap = [capOf(ph.caption), T(ph.desc)].filter(Boolean).join(". ") || label;
+        const thumbs = set.length
+          ? `<div class="ph__thumbs">${set.map((g) => `<button type="button" class="ph__thumb" data-zoom="${esc(g.src)}" data-cap="${capOf(g.caption)}"><img loading="lazy" src="${esc(g.thumb || g.src)}" alt="${capOf(g.caption)}" /></button>`).join("")}</div>`
+          : "";
+        return `<figure class="ph ph--${frames[ph.frame] || pattern[i % pattern.length]}${set.length ? " ph--set" : ""} unveil">
+          <div class="frame" data-zoom="${esc(src)}" data-cap="${coverCap}"><div class="zoom"><img loading="lazy" src="${esc(src)}" alt="${label || esc(u().nav.photography)}" /></div>${set.length ? `<span class="ph__count">${esc(count(set.length + 1))}</span>` : ""}</div>
+          ${thumbs}
           ${label ? `<figcaption><span>${pad(i + 1)}</span>${label}</figcaption>` : ""}
         </figure>`;
       })
       .join("");
     return `
     <section class="section wrap" id="photography">
-      ${sectionHead(no, "photography", u().nav.photography, list.length || null, u().photoIntro)}
+      ${sectionHead(no, "photography", u().nav.photography, total || null, u().photoIntro)}
       <div class="photo-grid">${items}</div>
     </section>`;
   }
@@ -731,7 +744,7 @@
     lb.classList.toggle("single", lbItems.length < 2);
   }
   function openLightbox(el) {
-    const scope = el.closest(".gallery, .ai-grid, .photo-grid") || app;
+    const scope = el.closest(".ph--set, .gallery, .ai-grid, .photo-grid") || app;
     lbItems = [...scope.querySelectorAll("[data-zoom]")];
     lb.hidden = false;
     document.body.style.overflow = "hidden";
