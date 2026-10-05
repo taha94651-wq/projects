@@ -976,11 +976,545 @@
           }
         }
       ],
+      "related": "makhazen-al-enaya-units",
+      "relatedLabel": {
+        "en": "See the display units catalogue",
+        "ar": "شاهد كتالوج وحدات العرض"
+      }
+    },
+    {
+      "id": "makhazen-al-enaya-units",
+      "title": {
+        "en": "Makhazen Al Enaya — Display Units Catalogue",
+        "ar": "مخازن العناية — كتالوج وحدات العرض"
+      },
+      "disciplines": [
+        "design"
+      ],
+      "type": "retail",
+      "result": "",
+      "status": "built",
+      "client": {
+        "en": "Makhazen Al Enaya",
+        "ar": "مخازن العناية"
+      },
+      "designer": {
+        "en": "",
+        "ar": ""
+      },
+      "company": {
+        "en": "VIVID Design / PHZYN Construction",
+        "ar": "VIVID Design / PHZYN Construction"
+      },
+      "location": {
+        "en": "Riyadh, Jeddah, Dammam, Al Khobar",
+        "ar": "الرياض، جدة، الدمام، الخبر"
+      },
+      "year": "2026",
+      "duration": {
+        "en": "",
+        "ar": ""
+      },
+      "area": "",
+      "role": {
+        "en": "Design team: display unit design and technical detailing",
+        "ar": "ضمن فريق التصميم: تصميم وحدات العرض وتفاصيلها الفنية"
+      },
+      "phases": [
+        "concept",
+        "render",
+        "materials",
+        "drawings",
+        "supervision"
+      ],
+      "tools": [],
+      "summary": {
+        "en": "The display-unit catalogue behind the makeup section renovation: 17 units, from cashier desks and makeup try-me stations to gift booths, coffee bars and the entrance portal. Each unit is documented with a 3D perspective, finishes and lighting callouts, and a technical drawing set (plan, elevations and sections) ready for fabrication, then rolled out across the branches.",
+        "ar": "كتالوج وحدات العرض الذي بُني عليه ترميم قسم الميكب: 17 وحدة، من كاونترات الكاشير ومحطات تجربة الميكب إلى بوث الهدايا وبار القهوة وبوابة المدخل. كل وحدة موثقة بمنظور ثلاثي الأبعاد مع التشطيبات والإضاءة، وبمجموعة رسومات فنية (مسقط وواجهات وقطاعات) جاهزة للتصنيع، ثم تم تعميمها على الفروع."
+      },
+      "scope": [
+        {
+          "en": "Display unit design to the new identity",
+          "ar": "تصميم وحدات العرض وفق الهوية الجديدة"
+        },
+        {
+          "en": "Finishes, materials and lighting specification",
+          "ar": "تحديد التشطيبات والمواد والإضاءة"
+        },
+        {
+          "en": "Technical drawings for fabrication",
+          "ar": "الرسومات الفنية للتصنيع"
+        },
+        {
+          "en": "Unit catalogues per branch",
+          "ar": "كتالوج وحدات لكل فرع"
+        }
+      ],
+      "cover": "assets/images/makhazen-units/overview-cover.jpg",
+      "coverVideo": "",
+      "media": [
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/overview.jpg",
+          "size": "wide",
+          "caption": {
+            "en": "The full family of display units",
+            "ar": "عائلة وحدات العرض كاملة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/cs01-3d.jpg",
+          "size": "half",
+          "caption": {
+            "en": "MA-CS-01 — Cashier desk",
+            "ar": "MA-CS-01 — كاونتر الكاشير"
+          },
+          "section": {
+            "en": "Cashier & checkout",
+            "ar": "الكاشير ومنطقة الدفع"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/cs01-tech.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Technical drawing — plan, elevations, sections",
+            "ar": "الرسومات الفنية — مسقط وواجهات وقطاعات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/cs02-3d.jpg",
+          "size": "half",
+          "caption": {
+            "en": "MA-CS-02 — Cashier grab & go display",
+            "ar": "MA-CS-02 — وحدة عرض بجانب الكاشير"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/cs02-tech.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Technical drawing — plan, elevations, sections",
+            "ar": "الرسومات الفنية — مسقط وواجهات وقطاعات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/cs-panel-3d.jpg",
+          "size": "half",
+          "caption": {
+            "en": "MA-CS-01 — Cashier identification light panel",
+            "ar": "MA-CS-01 — لوحة إضاءة تعريف الكاشير"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/cs-panel-tech.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Technical drawing — plan, elevations, sections",
+            "ar": "الرسومات الفنية — مسقط وواجهات وقطاعات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/mu04-3d.jpg",
+          "size": "half",
+          "caption": {
+            "en": "MA-MU-04 — Makeup try-me area",
+            "ar": "MA-MU-04 — منطقة تجربة الميكب"
+          },
+          "section": {
+            "en": "Makeup display",
+            "ar": "وحدات عرض الميكب"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/mu04-tech.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Technical drawing — plan, elevations, sections",
+            "ar": "الرسومات الفنية — مسقط وواجهات وقطاعات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/mu01-3d.jpg",
+          "size": "half",
+          "caption": {
+            "en": "MA-MU-01 — Repeated makeup display unit",
+            "ar": "MA-MU-01 — وحدة عرض الميكب المتكررة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/mu01-tech.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Technical drawing — plan, elevations, sections",
+            "ar": "الرسومات الفنية — مسقط وواجهات وقطاعات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/du01-3d.jpg",
+          "size": "half",
+          "caption": {
+            "en": "MA-DU-01 — Section side display unit",
+            "ar": "MA-DU-01 — وحدة عرض جانبية للأقسام"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/du01-tech.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Technical drawing — plan, elevations, sections",
+            "ar": "الرسومات الفنية — مسقط وواجهات وقطاعات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/mu02-3d.jpg",
+          "size": "half",
+          "caption": {
+            "en": "MA-MU-02 — Quick try & test unit",
+            "ar": "MA-MU-02 — وحدة التجربة السريعة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/mu02-tech.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Technical drawing — plan, elevations, sections",
+            "ar": "الرسومات الفنية — مسقط وواجهات وقطاعات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/central-3d.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Central island unit",
+            "ar": "الوحدة المركزية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/central-tech.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Technical drawing — plan, elevations, sections",
+            "ar": "الرسومات الفنية — مسقط وواجهات وقطاعات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/du02-3d.jpg",
+          "size": "half",
+          "caption": {
+            "en": "MA-DU-02 — Customer service island counter",
+            "ar": "MA-DU-02 — كاونتر خدمة العملاء"
+          },
+          "section": {
+            "en": "Gifts & customer service",
+            "ar": "الهدايا وخدمة العملاء"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/du02-tech.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Technical drawing — plan, elevations, sections",
+            "ar": "الرسومات الفنية — مسقط وواجهات وقطاعات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/gift-booth-3d.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Gift booth with suspended canopy",
+            "ar": "بوث الهدايا بالمظلة المعلقة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/gift-booth-tech.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Technical drawing — plan, elevations, sections",
+            "ar": "الرسومات الفنية — مسقط وواجهات وقطاعات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/gift-area-3d.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Gift-wrapping area",
+            "ar": "منطقة تغليف الهدايا"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/gift-area-tech.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Technical drawing — plan, elevations, sections",
+            "ar": "الرسومات الفنية — مسقط وواجهات وقطاعات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/mu03-3d.jpg",
+          "size": "half",
+          "caption": {
+            "en": "MA-MU-03 — Orbit planter lounge",
+            "ar": "MA-MU-03 — جلسة دائرية بأحواض زرع"
+          },
+          "section": {
+            "en": "Lounge & coffee corner",
+            "ar": "الجلسات وركن القهوة"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/mu03-tech.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Technical drawing — plan, elevations, sections",
+            "ar": "الرسومات الفنية — مسقط وواجهات وقطاعات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/coffee-bar-3d.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Coffee bar",
+            "ar": "بار القهوة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/coffee-bar-tech.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Technical drawing — plan, elevations, sections",
+            "ar": "الرسومات الفنية — مسقط وواجهات وقطاعات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/coffee-shelf-3d.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Coffee shelf",
+            "ar": "رف القهوة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/coffee-shelf-tech.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Technical drawing — plan, elevations, sections",
+            "ar": "الرسومات الفنية — مسقط وواجهات وقطاعات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/coffee-stand-3d.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Coffee stand",
+            "ar": "ستاند القهوة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/coffee-stand-tech.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Technical drawing — plan, elevations, sections",
+            "ar": "الرسومات الفنية — مسقط وواجهات وقطاعات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/entrance-3d.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Entrance A — makeup section portal",
+            "ar": "المدخل A — بوابة قسم الميكب"
+          },
+          "section": {
+            "en": "Entrance & ceiling",
+            "ar": "المدخل والسقف"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/entrance-tech.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Technical drawing — plan, elevations, sections",
+            "ar": "الرسومات الفنية — مسقط وواجهات وقطاعات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/ceiling-3d.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Stretch ceiling light boxes & schedule",
+            "ar": "إضاءة السقف المشدود وجدول الوحدات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-units/ceiling-tech.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Technical drawing — plan, elevations, sections",
+            "ar": "الرسومات الفنية — مسقط وواجهات وقطاعات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
       "related": "makhazen-al-enaya-build",
       "relatedLabel": {
         "en": "See the display units I built",
         "ar": "شاهد وحدات العرض التي نفذتها"
-      }
+      },
+      "noStagger": true
     },
     {
       "id": "makhazen-al-enaya-build",
