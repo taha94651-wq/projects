@@ -477,6 +477,7 @@
         "survey",
         "concept",
         "render",
+        "materials",
         "drawings",
         "supervision"
       ],
@@ -586,28 +587,102 @@
       "media": [
         {
           "type": "image",
+          "src": "assets/images/makhazen-al-enaya/qassim-stations-wide.jpg",
+          "size": "lead",
+          "caption": {
+            "en": "",
+            "ar": ""
+          },
+          "section": {
+            "en": "Qassim branch",
+            "ar": "فرع القصيم"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/qassim-eyeshadow-unit.jpg",
+          "size": "side",
+          "caption": {
+            "en": "Eyeshadow feature unit and wall displays",
+            "ar": "وحدة الظلال المميزة ووحدات الحائط"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/qassim-island-units.jpg",
+          "size": "side",
+          "caption": {
+            "en": "Island display units",
+            "ar": "وحدات العرض الوسطية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/qassim-makeup-home.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Makeup Home entrance portal",
+            "ar": "بوابة مدخل Makeup Home"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/qassim-brand-wall.jpg",
+          "size": "third",
+          "caption": {
+            "en": "",
+            "ar": ""
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/qassim-gift-counter.jpg",
+          "size": "third",
+          "caption": {
+            "en": "",
+            "ar": ""
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
           "src": "assets/images/makhazen-al-enaya/hamra-canopy.jpg",
-          "youtube": "",
-          "poster": "",
-          "size": "wide",
+          "size": "lead",
           "caption": {
             "en": "Patterned identity canopy over the makeup section",
             "ar": "مظلة نقشة الهوية فوق قسم الميكب"
           },
           "section": {
-            "en": "The identity across the branches",
-            "ar": "الهوية عبر الفروع"
+            "en": "Al Hamra, Riyadh branch",
+            "ar": "فرع حي الحمراء، الرياض"
           }
         },
         {
           "type": "image",
-          "src": "assets/images/makhazen-al-enaya/khobar-gift-counter.jpg",
-          "youtube": "",
-          "poster": "",
-          "size": "half",
+          "src": "assets/images/makhazen-al-enaya/hamra-entrance.jpg",
+          "size": "side",
           "caption": {
-            "en": "Gift-wrapping counter with the patterned identity",
-            "ar": "كاونتر تغليف الهدايا بنقشة الهوية"
+            "en": "Makeup section from the store entrance",
+            "ar": "قسم الميكب من مدخل الفرع"
           },
           "section": {
             "en": "",
@@ -616,13 +691,11 @@
         },
         {
           "type": "image",
-          "src": "assets/images/makhazen-al-enaya/dammam-makeup-home-pink.jpg",
-          "youtube": "",
-          "poster": "",
-          "size": "half",
+          "src": "assets/images/makhazen-al-enaya/hamra-foundation.jpg",
+          "size": "side",
           "caption": {
-            "en": "Makeup Home portal and brand bays",
-            "ar": "بوابة Makeup Home وأقسام العلامات"
+            "en": "Foundation Nation feature column",
+            "ar": "عمود Foundation Nation"
           },
           "section": {
             "en": "",
@@ -631,13 +704,24 @@
         },
         {
           "type": "image",
-          "src": "assets/images/makhazen-al-enaya/jeddah-beauty-stations.jpg",
-          "youtube": "",
-          "poster": "",
+          "src": "assets/images/makhazen-al-enaya/hamra-checkout.jpg",
           "size": "third",
           "caption": {
-            "en": "Beauty stations",
-            "ar": "محطات التجميل"
+            "en": "Numbered checkout lanes",
+            "ar": "ممرات الدفع المرقّمة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/hamra-aisle.jpg",
+          "size": "third",
+          "caption": {
+            "en": "",
+            "ar": ""
           },
           "section": {
             "en": "",
@@ -647,8 +731,6 @@
         {
           "type": "image",
           "src": "assets/images/makhazen-al-enaya/hamra-coffee.jpg",
-          "youtube": "",
-          "poster": "",
           "size": "third",
           "caption": {
             "en": "In-store coffee corner",
@@ -662,117 +744,10 @@
         {
           "type": "image",
           "src": "assets/images/makhazen-al-enaya/dammam-plan-view.jpg",
-          "youtube": "",
-          "poster": "",
-          "size": "third",
+          "size": "lead",
           "caption": {
             "en": "Aerial view of the renovated makeup section",
             "ar": "منظر علوي لقسم الميكب بعد التجديد"
-          },
-          "section": {
-            "en": "",
-            "ar": ""
-          }
-        },
-        {
-          "type": "image",
-          "src": "assets/images/makhazen-al-enaya/qassim-eyeshadow-unit.jpg",
-          "youtube": "",
-          "poster": "",
-          "size": "third",
-          "caption": {
-            "en": "Eyeshadow feature unit and wall displays",
-            "ar": "وحدة الظلال المميزة ووحدات الحائط"
-          },
-          "section": {
-            "en": "Qassim branch",
-            "ar": "فرع القصيم"
-          }
-        },
-        {
-          "type": "image",
-          "src": "assets/images/makhazen-al-enaya/qassim-island-units.jpg",
-          "youtube": "",
-          "poster": "",
-          "size": "third",
-          "caption": {
-            "en": "Island display units",
-            "ar": "وحدات العرض الوسطية"
-          },
-          "section": {
-            "en": "",
-            "ar": ""
-          }
-        },
-        {
-          "type": "image",
-          "src": "assets/images/makhazen-al-enaya/qassim-makeup-home.jpg",
-          "youtube": "",
-          "poster": "",
-          "size": "third",
-          "caption": {
-            "en": "Makeup Home entrance portal",
-            "ar": "بوابة مدخل Makeup Home"
-          },
-          "section": {
-            "en": "",
-            "ar": ""
-          }
-        },
-        {
-          "type": "image",
-          "src": "assets/images/makhazen-al-enaya/hamra-entrance.jpg",
-          "youtube": "",
-          "poster": "",
-          "size": "third",
-          "caption": {
-            "en": "Makeup section from the store entrance",
-            "ar": "قسم الميكب من مدخل الفرع"
-          },
-          "section": {
-            "en": "Al Hamra, Riyadh branch",
-            "ar": "فرع حي الحمراء، الرياض"
-          }
-        },
-        {
-          "type": "image",
-          "src": "assets/images/makhazen-al-enaya/hamra-checkout.jpg",
-          "youtube": "",
-          "poster": "",
-          "size": "third",
-          "caption": {
-            "en": "Numbered checkout lanes",
-            "ar": "ممرات الدفع المرقّمة"
-          },
-          "section": {
-            "en": "",
-            "ar": ""
-          }
-        },
-        {
-          "type": "image",
-          "src": "assets/images/makhazen-al-enaya/hamra-foundation.jpg",
-          "youtube": "",
-          "poster": "",
-          "size": "third",
-          "caption": {
-            "en": "Foundation Nation feature column",
-            "ar": "عمود Foundation Nation"
-          },
-          "section": {
-            "en": "",
-            "ar": ""
-          }
-        },
-        {
-          "type": "image",
-          "src": "assets/images/makhazen-al-enaya/dammam-gift-counter.jpg",
-          "youtube": "",
-          "poster": "",
-          "size": "third",
-          "caption": {
-            "en": "Gift-wrapping counter",
-            "ar": "كاونتر تغليف الهدايا"
           },
           "section": {
             "en": "Dammam branch",
@@ -781,9 +756,33 @@
         },
         {
           "type": "image",
+          "src": "assets/images/makhazen-al-enaya/dammam-gift-counter.jpg",
+          "size": "side",
+          "caption": {
+            "en": "Gift-wrapping counter",
+            "ar": "كاونتر تغليف الهدايا"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/dammam-makeup-home-pink.jpg",
+          "size": "side",
+          "caption": {
+            "en": "Makeup Home portal and brand bays",
+            "ar": "بوابة Makeup Home وأقسام العلامات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
           "src": "assets/images/makhazen-al-enaya/dammam-island.jpg",
-          "youtube": "",
-          "poster": "",
           "size": "third",
           "caption": {
             "en": "Island display and wall shelving",
@@ -797,8 +796,6 @@
         {
           "type": "image",
           "src": "assets/images/makhazen-al-enaya/dammam-cashier.jpg",
-          "youtube": "",
-          "poster": "",
           "size": "third",
           "caption": {
             "en": "Cashier counter with the patterned identity",
@@ -811,10 +808,21 @@
         },
         {
           "type": "image",
-          "src": "assets/images/makhazen-al-enaya/khobar-plan-view.jpg",
-          "youtube": "",
-          "poster": "",
+          "src": "assets/images/makhazen-al-enaya/dammam-seating.jpg",
           "size": "third",
+          "caption": {
+            "en": "",
+            "ar": ""
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/khobar-plan-view.jpg",
+          "size": "lead",
           "caption": {
             "en": "Aerial view of the renovated makeup section",
             "ar": "منظر علوي لقسم الميكب بعد التجديد"
@@ -827,9 +835,7 @@
         {
           "type": "image",
           "src": "assets/images/makhazen-al-enaya/khobar-colour-column.jpg",
-          "youtube": "",
-          "poster": "",
-          "size": "third",
+          "size": "side",
           "caption": {
             "en": "“A Touch of Colour” feature column",
             "ar": "عمود «يمنح اللون الحياة»"
@@ -841,9 +847,20 @@
         },
         {
           "type": "image",
+          "src": "assets/images/makhazen-al-enaya/khobar-gift-counter.jpg",
+          "size": "side",
+          "caption": {
+            "en": "Gift-wrapping counter with the patterned identity",
+            "ar": "كاونتر تغليف الهدايا بنقشة الهوية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
           "src": "assets/images/makhazen-al-enaya/khobar-yellow-columns.jpg",
-          "youtube": "",
-          "poster": "",
           "size": "third",
           "caption": {
             "en": "Yellow patterned columns between the bays",
@@ -856,13 +873,37 @@
         },
         {
           "type": "image",
-          "src": "assets/images/makhazen-al-enaya/jeddah-patterned-ceiling.jpg",
-          "youtube": "",
-          "poster": "",
+          "src": "assets/images/makhazen-al-enaya/khobar-beauty-stations.jpg",
           "size": "third",
           "caption": {
-            "en": "Aisle under the patterned identity bulkhead",
-            "ar": "ممر تحت سقف نقشة الهوية"
+            "en": "",
+            "ar": ""
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/khobar-coffee.jpg",
+          "size": "third",
+          "caption": {
+            "en": "",
+            "ar": ""
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/jeddah-plan-view.jpg",
+          "size": "lead",
+          "caption": {
+            "en": "",
+            "ar": ""
           },
           "section": {
             "en": "Al Salamah, Jeddah branch",
@@ -871,9 +912,33 @@
         },
         {
           "type": "image",
+          "src": "assets/images/makhazen-al-enaya/jeddah-patterned-ceiling.jpg",
+          "size": "side",
+          "caption": {
+            "en": "Aisle under the patterned identity bulkhead",
+            "ar": "ممر تحت سقف نقشة الهوية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/jeddah-beauty-stations.jpg",
+          "size": "side",
+          "caption": {
+            "en": "Beauty stations",
+            "ar": "محطات التجميل"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
           "src": "assets/images/makhazen-al-enaya/jeddah-seating.jpg",
-          "youtube": "",
-          "poster": "",
           "size": "third",
           "caption": {
             "en": "Seating island and feature column",
@@ -886,9 +951,20 @@
         },
         {
           "type": "image",
+          "src": "assets/images/makhazen-al-enaya/jeddah-island.jpg",
+          "size": "third",
+          "caption": {
+            "en": "",
+            "ar": ""
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
           "src": "assets/images/makhazen-al-enaya/jeddah-coffee.jpg",
-          "youtube": "",
-          "poster": "",
           "size": "third",
           "caption": {
             "en": "Coffee corner",

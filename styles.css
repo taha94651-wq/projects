@@ -527,6 +527,18 @@ html[lang="ar"] .next strong { letter-spacing: 0; line-height: 1.15; }
   .shot--third figcaption { font-size: 12px; }
 }
 
+/* cluster: a large lead shot with side shots stacked beside it */
+.cluster { grid-column: 1 / -1; display: grid; grid-template-columns: 2fr 1fr; gap: clamp(12px, 1.6vw, 24px); }
+.cluster .shot--lead { grid-row: span 2; }
+.cluster .shot { display: flex; flex-direction: column; }
+.cluster .frame { flex: 1; min-height: 0; }
+.cluster .zoom { height: 100%; }
+.cluster .frame img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 760px) {
+  .cluster { grid-template-columns: 1fr 1fr; }
+  .cluster .shot--lead { grid-column: 1 / -1; grid-row: auto; }
+}
+
 /* key clients */
 .clients { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); }
 .clients li { display: grid; gap: 4px; align-content: start; padding: 18px 16px 18px 0; border-bottom: 1px solid var(--line); }
