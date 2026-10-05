@@ -635,3 +635,7 @@ html[lang="ar"] .smap__sea { letter-spacing: 0; font-size: 15px; }
   .ai-series__item:nth-child(even) { transform: none; }
 }
 .ai-series { min-width: 0; max-width: 100%; }
+.smap__name--new { fill: var(--gold); fill-opacity: 0.9; }
+.smap__legend { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 10px; font-size: 13px; color: var(--muted); }
+.smap__key::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-inline-end: 8px; vertical-align: middle; background: currentColor; }
+.smap__key--new { color: var(--gold); }

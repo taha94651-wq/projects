@@ -95,11 +95,13 @@ content:
             options:
               multiple: true
               values:
+                - { value: survey, label: Site survey — الرفع المساحي }
                 - { value: brief, label: Client brief — متطلبات العميل }
                 - { value: moodboard, label: Mood board — لوحة المزاج }
                 - { value: concept, label: Concept design — التصميم المبدئي }
                 - { value: render, label: 3D & Render — 3D وإظهار }
                 - { value: drawings, label: Construction drawings — رسومات تنفيذية }
+                - { value: facades, label: Facade design — تصميم الواجهات }
                 - { value: materials, label: Material selection — اختيار المواد }
                 - { value: sampleboard, label: Sample board — السامبل بورد }
                 - { value: pricing, label: Pricing — التسعير }
@@ -124,6 +126,13 @@ content:
             fields:
               - { name: name, label: Branch name — اسم الفرع, component: bi }
               - { name: place, label: "Mall / complex (optional) — المول أو المجمع", component: bi }
+              - name: kind
+                label: "Type (optional) — نوع الفرع"
+                type: select
+                options:
+                  values:
+                    - { value: new, label: New branch — فرع جديد }
+                    - { value: refit, label: Refit — ترميم }
               - name: city
                 label: City — المدينة
                 type: select
@@ -135,6 +144,7 @@ content:
                     - { value: madinah, label: Madinah — المدينة }
                     - { value: taif, label: Taif — الطائف }
                     - { value: hail, label: Hail — حائل }
+                    - { value: qassim, label: Qassim — القصيم }
                     - { value: buraydah, label: Buraydah — بريدة }
                     - { value: unaizah, label: Unaizah — عنيزة }
                     - { value: tabuk, label: Tabuk — تبوك }

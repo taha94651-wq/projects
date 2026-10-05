@@ -16,10 +16,11 @@
       taif: { en: "Taif", ar: "الطائف", xy: [235, 469], side: "r" },
       hail: { en: "Hail", ar: "حائل", xy: [281, 219], side: "r" },
       buraydah: { en: "Buraydah", ar: "بريدة", xy: [367, 260], side: "r", dy: -4 },
+      qassim: { en: "Qassim", ar: "القصيم", xy: [365, 267], side: "r" },
       unaizah: { en: "Unaizah", ar: "عنيزة", xy: [363, 284], side: "l", dy: 6 },
       tabuk: { en: "Tabuk", ar: "تبوك", xy: [94, 185], side: "r" },
-      dammam: { en: "Dammam", ar: "الدمام", xy: [588, 263], side: "r" },
-      khobar: { en: "Al Khobar", ar: "الخبر", xy: [592, 269], side: "r", dy: 22 },
+      dammam: { en: "Dammam", ar: "الدمام", xy: [586, 258], side: "l", dy: -8 },
+      khobar: { en: "Al Khobar", ar: "الخبر", xy: [594, 274], side: "r", dy: 10 },
       abha: { en: "Abha", ar: "أبها", xy: [311, 591], side: "r" },
       najran: { en: "Najran", ar: "نجران", xy: [370, 620], side: "r" },
       jazan: { en: "Jazan", ar: "جازان", xy: [312, 644], side: "l" },
@@ -52,10 +53,12 @@
       concept: { ar: "تصميم فقط", en: "Design only" },
     },
     phases: [
+      ["survey", { ar: "الرفع المساحي", en: "Site survey" }],
       ["brief", { ar: "متطلبات العميل", en: "Client brief" }],
       ["moodboard", { ar: "لوحة المزاج", en: "Mood board" }],
       ["concept", { ar: "التصميم المبدئي", en: "Concept design" }],
       ["render", { ar: "3D وإظهار", en: "3D & Render" }],
+      ["facades", { ar: "تصميم الواجهات", en: "Facade design" }],
       ["drawings", { ar: "رسومات تنفيذية", en: "Construction drawings" }],
       ["materials", { ar: "اختيار المواد", en: "Material selection" }],
       ["sampleboard", { ar: "السامبل بورد", en: "Sample board" }],
@@ -79,7 +82,7 @@
       aiIntro: "How I use AI in practice: generated visuals, automated sheets and structured project workflows.",
       experience: "Experience", about: "About", clients: "Key clients", skills: "Skills", software: "Software", languages: "Languages", education: "Education",
       client: "Client", location: "Location", year: "Year", duration: "Duration", role: "Role", type: "Type", discipline: "Discipline",
-      scope: "Scope of work", branches: "Branches", branchMap: "Branch locations", company: "Firm", designer: "Design office", status: "Status", area: "Area", tools: "Tools", myRole: "My role — phases", overview: "Overview", backTo: "Back to index", next: "Next project", related: "Related",
+      scope: "Scope of work", branches: "Branches", branchMap: "Branch locations", branchKinds: { new: "New branches", refit: "Makeup section refit" }, company: "Firm", designer: "Design office", status: "Status", area: "Area", tools: "Tools", myRole: "My role — phases", overview: "Overview", backTo: "Back to index", next: "Next project", related: "Related",
       contactEyebrow: "Contact", letsTalk: "Let’s work together", email: "Email", phone: "Phone", whatsapp: "WhatsApp",
       based: "Based in", online: "Online", empty: "Projects coming soon.", open: "Open", placeholder: "Image placeholder",
       rights: "All rights reserved.", execution: "Execution", design: "Design", competition: "Competition", result: "Result",
@@ -94,7 +97,7 @@
       aiIntro: "كيف أستخدم الذكاء الاصطناعي عمليًا: صور مولّدة، وشيتات مؤتمتة، وهيكلة سير عمل المشاريع.",
       experience: "الخبرات", about: "نبذة", clients: "أهم العملاء", skills: "المهارات", software: "البرامج", languages: "اللغات", education: "التعليم",
       client: "العميل", location: "الموقع", year: "السنة", duration: "المدة", role: "الدور", type: "النوع", discipline: "المجال",
-      scope: "نطاق العمل", branches: "الفروع", branchMap: "مواقع الفروع", company: "الشركة", designer: "مكتب التصميم", status: "الحالة", area: "المساحة", tools: "البرامج", myRole: "دوري — المراحل", overview: "نظرة عامة", backTo: "العودة للفهرس", next: "المشروع التالي", related: "ذو صلة",
+      scope: "نطاق العمل", branches: "الفروع", branchMap: "مواقع الفروع", branchKinds: { new: "فروع جديدة", refit: "ترميم قسم الميكب" }, company: "الشركة", designer: "مكتب التصميم", status: "الحالة", area: "المساحة", tools: "البرامج", myRole: "دوري — المراحل", overview: "نظرة عامة", backTo: "العودة للفهرس", next: "المشروع التالي", related: "ذو صلة",
       contactEyebrow: "تواصل", letsTalk: "لنعمل معًا", email: "البريد", phone: "الهاتف", whatsapp: "واتساب",
       based: "المقر", online: "حسابات", empty: "المشاريع قريبًا.", open: "فتح", placeholder: "صورة مؤقتة",
       rights: "جميع الحقوق محفوظة.", execution: "التنفيذ", design: "التصميم", competition: "مسابقة", result: "النتيجة",
@@ -569,13 +572,14 @@
     const groups = {};
     list.forEach((b) => { if (VOCAB.cities[b.city]) (groups[b.city] = groups[b.city] || []).push(b); });
     const keys = Object.keys(groups);
+    const kinds = [...new Set(list.map((b) => b.kind).filter(Boolean))];
     let map = "";
     if (keys.length) {
       const pins = keys.map((c) => {
         const C = VOCAB.cities[c], [x, y] = C.xy, n = groups[c].length;
         const left = C.side === "l", tx = left ? x - 22 : x + 22, ty = y + (C.dy || 0) + 5;
         const anchor = left ? "end" : "start";
-        const names = groups[c].map((b, i) => `<text class="smap__name" x="${tx}" y="${ty + 19 + i * 17}" text-anchor="${anchor}">${esc(t(b.place) || t(b.name))}</text>`).join("");
+        const names = groups[c].map((b, i) => `<text class="smap__name${b.kind ? " smap__name--" + esc(b.kind) : ""}" x="${tx}" y="${ty + 19 + i * 17}" text-anchor="${anchor}">${esc(t(b.place) || t(b.name))}</text>`).join("");
         return `<g class="smap__city">
           <circle class="smap__halo" cx="${x}" cy="${y}" r="${15 + n * 2}" />
           <circle class="smap__dot" cx="${x}" cy="${y}" r="${9 + n}" />
@@ -587,6 +591,7 @@
       map = `<span class="eyebrow">${esc(u().branchMap)}</span>
         <figure class="smap reveal" aria-label="${esc(u().branchMap)}">
           <svg viewBox="-60 10 900 680" role="img"><path class="smap__land" d="${KSA_PATH}" /><text class="smap__sea" x="70" y="560" transform="rotate(52 70 560)">${state.lang === "ar" ? "البحر الأحمر" : "RED SEA"}</text><text class="smap__sea" x="640" y="190" transform="rotate(38 640 190)">${state.lang === "ar" ? "الخليج العربي" : "ARABIAN GULF"}</text>${pins}</svg>
+          ${kinds.length > 1 ? `<figcaption class="smap__legend">${kinds.map((k) => `<span class="smap__key smap__key--${esc(k)}">${esc(u().branchKinds[k] || k)}</span>`).join("")}</figcaption>` : ""}
         </figure>`;
     }
     return `<span class="eyebrow">${esc(u().branches)}</span><div class="pj__scope reveal"><ul>${items}</ul></div>${map}`;
