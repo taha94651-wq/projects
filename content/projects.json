@@ -624,6 +624,366 @@
             "en": "",
             "ar": ""
           }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/hamra-canopy.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "wide",
+          "caption": {
+            "en": "Patterned identity canopy over the makeup section",
+            "ar": "مظلة نقشة الهوية فوق قسم الميكب"
+          },
+          "section": {
+            "en": "Al Hamra branch, Riyadh — makeup section renovation",
+            "ar": "فرع حي الحمراء، الرياض — ترميم قسم الميكب"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/hamra-entrance.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Makeup section from the store entrance",
+            "ar": "قسم الميكب من مدخل الفرع"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/hamra-checkout.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Numbered checkout lanes",
+            "ar": "ممرات الدفع المرقّمة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/hamra-service-counter.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Service counter under the round pendant",
+            "ar": "كاونتر الخدمة تحت الثريا الدائرية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/hamra-foundation.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Foundation Nation feature column",
+            "ar": "عمود Foundation Nation"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/hamra-seating.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Seating island with planter",
+            "ar": "جلسة وسطية مع نباتات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/hamra-aisle.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Makeup aisle leading to the coffee corner",
+            "ar": "ممر الميكب المؤدي إلى ركن القهوة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/hamra-coffee.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "In-store coffee corner",
+            "ar": "ركن القهوة داخل الفرع"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/dammam-plan-view.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "wide",
+          "caption": {
+            "en": "Aerial view of the renovated makeup section",
+            "ar": "منظر علوي لقسم الميكب بعد التجديد"
+          },
+          "section": {
+            "en": "Dammam branch — makeup section renovation",
+            "ar": "فرع الدمام — ترميم قسم الميكب"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/dammam-gift-counter.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Gift-wrapping counter",
+            "ar": "كاونتر تغليف الهدايا"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/dammam-beauty-stations.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Beauty stations",
+            "ar": "محطات التجميل"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/dammam-island.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Island display and wall shelving",
+            "ar": "وحدة عرض وسطية ورفوف الحائط"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/dammam-seating.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Seating island with planter",
+            "ar": "جلسة وسطية مع نباتات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/dammam-makeup-home.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Makeup Home portal",
+            "ar": "بوابة Makeup Home"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/dammam-makeup-home-pink.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Makeup Home portal and brand bays",
+            "ar": "بوابة Makeup Home وأقسام العلامات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/dammam-cashier.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Cashier counter with the patterned identity",
+            "ar": "كاونتر الكاشير بنقشة الهوية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/khobar-plan-view.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "wide",
+          "caption": {
+            "en": "Aerial view of the renovated makeup section",
+            "ar": "منظر علوي لقسم الميكب بعد التجديد"
+          },
+          "section": {
+            "en": "Al Khobar branch — makeup section renovation",
+            "ar": "فرع الخبر — ترميم قسم الميكب"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/khobar-gift-counter.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Gift-wrapping counter with the patterned identity",
+            "ar": "كاونتر تغليف الهدايا بنقشة الهوية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/khobar-beauty-stations.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Beauty stations",
+            "ar": "محطات التجميل"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/khobar-seating.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Seating island and brand gondolas",
+            "ar": "جلسة وسطية ووحدات العلامات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/khobar-colour-column.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "“A Touch of Colour” feature column",
+            "ar": "عمود «يمنح اللون الحياة»"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/khobar-yellow-columns.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Yellow patterned columns between the bays",
+            "ar": "أعمدة النقشة الصفراء بين الأقسام"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/khobar-column-detail.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Patterned column detail",
+            "ar": "تفصيلة العمود المنقوش"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/khobar-coffee.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Coffee kiosk",
+            "ar": "كشك القهوة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
         }
       ],
       "related": "makhazen-al-enaya-build",
