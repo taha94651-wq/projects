@@ -632,7 +632,8 @@
         // typed branch: short place name + city, with a coloured tag
         const place = t(b.place) || t(b.name), city = cityName(b.city);
         const where = city && city !== place ? ` <span class="muted">— ${esc(city)}</span>` : "";
-        return `<li class="br br--${esc(b.kind)}"><bdi>${esc(place)}${where}</bdi><span class="br__tag">${esc((u().branchTag || {})[b.kind] || b.kind)}</span></li>`;
+        const area = `<span class="br__area">${b.area ? `${esc(b.area)} ${state.lang === "ar" ? "م²" : "m²"}` : ""}</span>`;
+        return `<li class="br br--${esc(b.kind)}"><bdi>${esc(place)}${where}</bdi>${area}<span class="br__tag">${esc((u().branchTag || {})[b.kind] || b.kind)}</span></li>`;
       }
       const where = [t(b.place), cityName(b.city)].filter(Boolean).join(state.lang === "ar" ? "، " : ", ");
       return `<li><bdi>${esc(t(b.name))}${where ? ` <span class="muted">— ${esc(where)}</span>` : ""}</bdi></li>`;

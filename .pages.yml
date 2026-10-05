@@ -126,6 +126,7 @@ content:
             fields:
               - { name: name, label: Branch name — اسم الفرع, component: bi }
               - { name: place, label: "Mall / complex (optional) — المول أو المجمع", component: bi }
+              - { name: area, label: "Area m² (optional) — المساحة م²", type: string }
               - name: kind
                 label: "Type (optional) — نوع الفرع"
                 type: select
