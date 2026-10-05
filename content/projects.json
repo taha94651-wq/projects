@@ -502,9 +502,130 @@
           "kind": "refit"
         }
       ],
-      "cover": "",
+      "cover": "assets/images/makhazen-al-enaya/qassim-eyeshadow-unit.jpg",
       "coverVideo": "",
-      "media": [],
+      "media": [
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/qassim-eyeshadow-unit.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "wide",
+          "caption": {
+            "en": "Eyeshadow feature unit and wall displays",
+            "ar": "وحدة الظلال المميزة ووحدات الحائط"
+          },
+          "section": {
+            "en": "Qassim branch — 3D design",
+            "ar": "فرع القصيم — التصميم ثلاثي الأبعاد"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/qassim-beauty-stations.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Beauty stations under the lit canopy",
+            "ar": "محطات التجميل تحت المظلة المضيئة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/qassim-island-units.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Island display units",
+            "ar": "وحدات العرض الوسطية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/qassim-brand-wall.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Brand wall shelving with the patterned identity",
+            "ar": "رفوف الحائط مع نقشة الهوية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/qassim-makeup-home.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Makeup Home entrance portal",
+            "ar": "بوابة مدخل Makeup Home"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/qassim-gift-counter.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Gift-wrapping counter",
+            "ar": "كاونتر تغليف الهدايا"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/qassim-seating-zone.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Seating zone and planter",
+            "ar": "منطقة الجلوس والنباتات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/qassim-stations-wide.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Makeup stations along the brand wall",
+            "ar": "محطات الميكب بمحاذاة جدار العلامات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
       "related": "makhazen-al-enaya-build",
       "relatedLabel": {
         "en": "See the display units built",
