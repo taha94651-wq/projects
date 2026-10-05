@@ -4610,6 +4610,121 @@
       }
     },
     {
+      "id": "rawdah-villa-living",
+      "title": {
+        "en": "Al Rawdah Villa — Living Room",
+        "ar": "فيلا الروضة — صالة المعيشة"
+      },
+      "disciplines": [
+        "design"
+      ],
+      "type": "residential",
+      "result": "",
+      "status": "concept",
+      "client": {
+        "en": "Private client",
+        "ar": "عميل خاص"
+      },
+      "designer": {
+        "en": "",
+        "ar": ""
+      },
+      "company": {
+        "en": "",
+        "ar": ""
+      },
+      "location": {
+        "en": "Al Rawdah, Riyadh",
+        "ar": "حي الروضة، الرياض"
+      },
+      "year": "2024",
+      "duration": {
+        "en": "",
+        "ar": ""
+      },
+      "area": "",
+      "role": {
+        "en": "Interior design of the living room",
+        "ar": "التصميم الداخلي لصالة المعيشة"
+      },
+      "phases": [
+        "concept",
+        "render",
+        "materials"
+      ],
+      "tools": [],
+      "summary": {
+        "en": "A living room for a private villa in Al Rawdah, Riyadh, built around a calm, earthy palette. The TV wall is carved into plaster niches, square and arched, that hold ceramics and dried stems, finished with a floating timber bench and corner shelves. Rattan pendants, linen curtains and a sculpted round table keep the room soft and textured, with a coffee corner tucked beside the window.",
+        "ar": "صالة معيشة لفيلا خاصة في حي الروضة بالرياض، مبنية على باليتة ألوان ترابية هادئة. جدار التلفزيون منحوت على شكل نيشات من البلاستر، مربعة ومقوّسة، تحمل قطع الخزف والنباتات المجففة، ومعها بنش خشبي معلّق ورفوف ركنية. الإضاءات المعلقة من الراتان وستائر الكتان والطاولة الدائرية المنحوتة بتدّي الفراغ إحساس ناعم وغني بالخامات، مع ركن قهوة جنب الشباك."
+      },
+      "scope": [
+        {
+          "en": "Living room concept",
+          "ar": "فكرة صالة المعيشة"
+        },
+        {
+          "en": "TV wall with plaster niches",
+          "ar": "جدار التلفزيون بنيشات البلاستر"
+        },
+        {
+          "en": "Furniture, lighting and material selection",
+          "ar": "اختيار الأثاث والإضاءة والخامات"
+        },
+        {
+          "en": "3D visualization",
+          "ar": "التصميم ثلاثي الأبعاد"
+        }
+      ],
+      "cover": "assets/images/rawdah-villa-living/living-tv-wall.jpg",
+      "coverVideo": "",
+      "media": [
+        {
+          "type": "image",
+          "src": "assets/images/rawdah-villa-living/living-tv-wall.jpg",
+          "size": "lead",
+          "caption": {
+            "en": "The TV wall: plaster niches and floating timber bench",
+            "ar": "جدار التلفزيون: نيشات البلاستر والبنش الخشبي المعلّق"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/rawdah-villa-living/living-window.jpg",
+          "size": "side",
+          "caption": {
+            "en": "Towards the window and the coffee corner",
+            "ar": "باتجاه الشباك وركن القهوة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/rawdah-villa-living/living-niches.jpg",
+          "size": "side",
+          "caption": {
+            "en": "Arched niches and corner shelves",
+            "ar": "النيشات المقوّسة والرفوف الركنية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "related": "",
+      "relatedLabel": {
+        "en": "",
+        "ar": ""
+      }
+    },
+    {
       "id": "private-villa",
       "title": {
         "en": "Al Nakheel Villa",
