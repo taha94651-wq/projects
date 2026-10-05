@@ -35,6 +35,7 @@
       events: { ar: "فعاليات", en: "Events" },
       urban: { ar: "عمراني وإسكان", en: "Urban & housing" },
       furniture: { ar: "أثاث", en: "Furniture" },
+      landscape: { ar: "لاندسكيب", en: "Landscape" },
     },
     aiKinds: {
       images: { ar: "صور مولّدة", en: "Generated Images" },

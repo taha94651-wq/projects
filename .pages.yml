@@ -64,6 +64,7 @@ content:
                 - { value: events, label: Events — فعاليات }
                 - { value: urban, label: Urban & housing — عمراني وإسكان }
                 - { value: furniture, label: Furniture — أثاث }
+                - { value: landscape, label: Landscape — لاندسكيب }
           - name: result
             label: Competition result — نتيجة المسابقة
             type: select

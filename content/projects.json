@@ -4725,6 +4725,126 @@
       }
     },
     {
+      "id": "damietta-villa-landscape",
+      "title": {
+        "en": "Beachfront Villa — Backyard Landscape",
+        "ar": "فيلا على البحر — لاندسكيب الحديقة الخلفية"
+      },
+      "disciplines": [
+        "design"
+      ],
+      "type": "landscape",
+      "result": "",
+      "status": "concept",
+      "client": {
+        "en": "Private client",
+        "ar": "عميل خاص"
+      },
+      "designer": {
+        "en": "",
+        "ar": ""
+      },
+      "company": {
+        "en": "",
+        "ar": ""
+      },
+      "location": {
+        "en": "New Damietta, Egypt",
+        "ar": "دمياط الجديدة، مصر"
+      },
+      "year": "2021",
+      "duration": {
+        "en": "",
+        "ar": ""
+      },
+      "area": "",
+      "role": {
+        "en": "Landscape design of the backyard",
+        "ar": "تصميم لاندسكيب الحديقة الخلفية"
+      },
+      "phases": [
+        "concept",
+        "render",
+        "materials"
+      ],
+      "tools": [],
+      "summary": {
+        "en": "The backyard of a residential villa on the Mediterranean coast in New Damietta. A pool framed by timber decking and a stepped planter edge, a sunken lounge on its own deck, and natural stone paving that ties them back to the house. Stone-clad garden walls and stairs climb to the upper terrace, with palms set along the boundary to give shade and privacy from the beach.",
+        "ar": "الحديقة الخلفية لفيلا سكنية على ساحل البحر المتوسط في دمياط الجديدة. حمام سباحة محاط بديك خشبي وحوض زرع متدرج، وجلسة منخفضة على ديك مستقل، وممرات من الحجر الطبيعي بتربطهم بالبيت. جدران الحديقة والسلالم مكسية بالحجر وبتطلع للتراس العلوي، والنخيل موزع على الحدود عشان يدي ظل وخصوصية من ناحية الشاطئ."
+      },
+      "scope": [
+        {
+          "en": "Backyard layout and zoning",
+          "ar": "تخطيط وتقسيم الحديقة الخلفية"
+        },
+        {
+          "en": "Pool and timber decking",
+          "ar": "حمام السباحة والديك الخشبي"
+        },
+        {
+          "en": "Outdoor lounge and seating",
+          "ar": "الجلسات الخارجية"
+        },
+        {
+          "en": "Hardscape, planting and material selection",
+          "ar": "الهاردسكيب والزراعة واختيار الخامات"
+        },
+        {
+          "en": "3D visualization",
+          "ar": "التصميم ثلاثي الأبعاد"
+        }
+      ],
+      "cover": "assets/images/damietta-villa-landscape/backyard.jpg",
+      "coverVideo": "",
+      "media": [
+        {
+          "type": "image",
+          "src": "assets/images/damietta-villa-landscape/backyard.jpg",
+          "size": "wide",
+          "caption": {
+            "en": "The backyard: pool, sunken lounge and stone terraces",
+            "ar": "الحديقة الخلفية: حمام السباحة والجلسة المنخفضة والتراسات الحجرية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/damietta-villa-landscape/top-view.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Top view of the plot",
+            "ar": "منظور علوي للأرض"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/damietta-villa-landscape/pool-deck.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Pool deck and boundary planting",
+            "ar": "ديك حمام السباحة والزراعة على الحدود"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "noStagger": true,
+      "related": "",
+      "relatedLabel": {
+        "en": "",
+        "ar": ""
+      }
+    },
+    {
       "id": "private-villa",
       "title": {
         "en": "Al Nakheel Villa",
