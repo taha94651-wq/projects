@@ -511,42 +511,6 @@
       "branches": [
         {
           "name": {
-            "en": "Makeup renovation — Al Hamra",
-            "ar": "ترميم الميكب — حي الحمراء"
-          },
-          "place": {
-            "en": "Al Hamra",
-            "ar": "حي الحمراء"
-          },
-          "city": "riyadh",
-          "kind": "refit"
-        },
-        {
-          "name": {
-            "en": "Makeup renovation — Anas Ibn Malik Rd",
-            "ar": "ترميم الميكب — طريق أنس بن مالك"
-          },
-          "place": {
-            "en": "Anas Ibn Malik Rd",
-            "ar": "طريق أنس بن مالك"
-          },
-          "city": "riyadh",
-          "kind": "refit"
-        },
-        {
-          "name": {
-            "en": "Makeup renovation — Al Salamah",
-            "ar": "ترميم الميكب — حي السلامة"
-          },
-          "place": {
-            "en": "Al Salamah",
-            "ar": "حي السلامة"
-          },
-          "city": "jeddah",
-          "kind": "refit"
-        },
-        {
-          "name": {
             "en": "Makeup renovation — Dammam",
             "ar": "ترميم الميكب — الدمام"
           },
@@ -571,6 +535,30 @@
         },
         {
           "name": {
+            "en": "Makeup renovation — Al Salamah",
+            "ar": "ترميم الميكب — حي السلامة"
+          },
+          "place": {
+            "en": "Al Salamah",
+            "ar": "حي السلامة"
+          },
+          "city": "jeddah",
+          "kind": "refit"
+        },
+        {
+          "name": {
+            "en": "Makeup renovation — Al Hamra",
+            "ar": "ترميم الميكب — حي الحمراء"
+          },
+          "place": {
+            "en": "Al Hamra",
+            "ar": "حي الحمراء"
+          },
+          "city": "riyadh",
+          "kind": "refit"
+        },
+        {
+          "name": {
             "en": "Makeup renovation — Qassim",
             "ar": "ترميم الميكب — القصيم"
           },
@@ -580,167 +568,23 @@
           },
           "city": "qassim",
           "kind": "refit"
+        },
+        {
+          "name": {
+            "en": "Makeup renovation — Anas Ibn Malik Rd",
+            "ar": "ترميم الميكب — طريق أنس بن مالك"
+          },
+          "place": {
+            "en": "Anas Ibn Malik Rd",
+            "ar": "طريق أنس بن مالك"
+          },
+          "city": "riyadh",
+          "kind": "refit"
         }
       ],
       "cover": "assets/images/makhazen-al-enaya/hamra-canopy.jpg",
       "coverVideo": "",
       "media": [
-        {
-          "type": "image",
-          "src": "assets/images/makhazen-al-enaya/qassim-stations-wide.jpg",
-          "size": "lead",
-          "caption": {
-            "en": "",
-            "ar": ""
-          },
-          "section": {
-            "en": "Qassim branch",
-            "ar": "فرع القصيم"
-          }
-        },
-        {
-          "type": "image",
-          "src": "assets/images/makhazen-al-enaya/qassim-eyeshadow-unit.jpg",
-          "size": "side",
-          "caption": {
-            "en": "Eyeshadow feature unit and wall displays",
-            "ar": "وحدة الظلال المميزة ووحدات الحائط"
-          },
-          "section": {
-            "en": "",
-            "ar": ""
-          }
-        },
-        {
-          "type": "image",
-          "src": "assets/images/makhazen-al-enaya/qassim-island-units.jpg",
-          "size": "side",
-          "caption": {
-            "en": "Island display units",
-            "ar": "وحدات العرض الوسطية"
-          },
-          "section": {
-            "en": "",
-            "ar": ""
-          }
-        },
-        {
-          "type": "image",
-          "src": "assets/images/makhazen-al-enaya/qassim-makeup-home.jpg",
-          "size": "third",
-          "caption": {
-            "en": "Makeup Home entrance portal",
-            "ar": "بوابة مدخل Makeup Home"
-          },
-          "section": {
-            "en": "",
-            "ar": ""
-          }
-        },
-        {
-          "type": "image",
-          "src": "assets/images/makhazen-al-enaya/qassim-brand-wall.jpg",
-          "size": "third",
-          "caption": {
-            "en": "",
-            "ar": ""
-          },
-          "section": {
-            "en": "",
-            "ar": ""
-          }
-        },
-        {
-          "type": "image",
-          "src": "assets/images/makhazen-al-enaya/qassim-gift-counter.jpg",
-          "size": "third",
-          "caption": {
-            "en": "",
-            "ar": ""
-          },
-          "section": {
-            "en": "",
-            "ar": ""
-          }
-        },
-        {
-          "type": "image",
-          "src": "assets/images/makhazen-al-enaya/hamra-canopy.jpg",
-          "size": "lead",
-          "caption": {
-            "en": "Patterned identity canopy over the makeup section",
-            "ar": "مظلة نقشة الهوية فوق قسم الميكب"
-          },
-          "section": {
-            "en": "Al Hamra, Riyadh branch",
-            "ar": "فرع حي الحمراء، الرياض"
-          }
-        },
-        {
-          "type": "image",
-          "src": "assets/images/makhazen-al-enaya/hamra-entrance.jpg",
-          "size": "side",
-          "caption": {
-            "en": "Makeup section from the store entrance",
-            "ar": "قسم الميكب من مدخل الفرع"
-          },
-          "section": {
-            "en": "",
-            "ar": ""
-          }
-        },
-        {
-          "type": "image",
-          "src": "assets/images/makhazen-al-enaya/hamra-foundation.jpg",
-          "size": "side",
-          "caption": {
-            "en": "Foundation Nation feature column",
-            "ar": "عمود Foundation Nation"
-          },
-          "section": {
-            "en": "",
-            "ar": ""
-          }
-        },
-        {
-          "type": "image",
-          "src": "assets/images/makhazen-al-enaya/hamra-checkout.jpg",
-          "size": "third",
-          "caption": {
-            "en": "Numbered checkout lanes",
-            "ar": "ممرات الدفع المرقّمة"
-          },
-          "section": {
-            "en": "",
-            "ar": ""
-          }
-        },
-        {
-          "type": "image",
-          "src": "assets/images/makhazen-al-enaya/hamra-aisle.jpg",
-          "size": "third",
-          "caption": {
-            "en": "",
-            "ar": ""
-          },
-          "section": {
-            "en": "",
-            "ar": ""
-          }
-        },
-        {
-          "type": "image",
-          "src": "assets/images/makhazen-al-enaya/hamra-coffee.jpg",
-          "size": "third",
-          "caption": {
-            "en": "In-store coffee corner",
-            "ar": "ركن القهوة داخل الفرع"
-          },
-          "section": {
-            "en": "",
-            "ar": ""
-          }
-        },
         {
           "type": "image",
           "src": "assets/images/makhazen-al-enaya/dammam-plan-view.jpg",
@@ -969,6 +813,162 @@
           "caption": {
             "en": "Coffee corner",
             "ar": "ركن القهوة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/hamra-canopy.jpg",
+          "size": "lead",
+          "caption": {
+            "en": "Patterned identity canopy over the makeup section",
+            "ar": "مظلة نقشة الهوية فوق قسم الميكب"
+          },
+          "section": {
+            "en": "Al Hamra, Riyadh branch",
+            "ar": "فرع حي الحمراء، الرياض"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/hamra-entrance.jpg",
+          "size": "side",
+          "caption": {
+            "en": "Makeup section from the store entrance",
+            "ar": "قسم الميكب من مدخل الفرع"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/hamra-foundation.jpg",
+          "size": "side",
+          "caption": {
+            "en": "Foundation Nation feature column",
+            "ar": "عمود Foundation Nation"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/hamra-checkout.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Numbered checkout lanes",
+            "ar": "ممرات الدفع المرقّمة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/hamra-aisle.jpg",
+          "size": "third",
+          "caption": {
+            "en": "",
+            "ar": ""
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/hamra-coffee.jpg",
+          "size": "third",
+          "caption": {
+            "en": "In-store coffee corner",
+            "ar": "ركن القهوة داخل الفرع"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/qassim-stations-wide.jpg",
+          "size": "lead",
+          "caption": {
+            "en": "",
+            "ar": ""
+          },
+          "section": {
+            "en": "Qassim branch",
+            "ar": "فرع القصيم"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/qassim-eyeshadow-unit.jpg",
+          "size": "side",
+          "caption": {
+            "en": "Eyeshadow feature unit and wall displays",
+            "ar": "وحدة الظلال المميزة ووحدات الحائط"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/qassim-island-units.jpg",
+          "size": "side",
+          "caption": {
+            "en": "Island display units",
+            "ar": "وحدات العرض الوسطية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/qassim-makeup-home.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Makeup Home entrance portal",
+            "ar": "بوابة مدخل Makeup Home"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/qassim-brand-wall.jpg",
+          "size": "third",
+          "caption": {
+            "en": "",
+            "ar": ""
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/qassim-gift-counter.jpg",
+          "size": "third",
+          "caption": {
+            "en": "",
+            "ar": ""
           },
           "section": {
             "en": "",
