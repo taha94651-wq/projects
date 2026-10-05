@@ -153,6 +153,7 @@ content:
                     - { value: abha, label: Abha — أبها }
                     - { value: najran, label: Najran — نجران }
                     - { value: jazan, label: Jazan — جازان }
+          - { name: noStagger, label: "Align paired images (no stagger) — الصور الجنب بعض على نفس الخط", type: boolean }
           - { name: related, label: "Companion page ID (optional) — لينك صفحة مرتبطة", type: string }
           - { name: relatedLabel, label: "Companion link label — عنوان اللينك", component: bi }
           - { name: cover, label: Cover image — صورة الغلاف, type: image }
