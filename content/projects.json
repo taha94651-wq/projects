@@ -351,7 +351,8 @@
             "ar": "طريق خريص"
           },
           "city": "riyadh",
-          "kind": "new"
+          "kind": "new",
+          "area": "1,000"
         },
         {
           "name": {
@@ -438,8 +439,8 @@
             "ar": "منظور علوي ثلاثي الأبعاد للفرع (1,000 م²)"
           },
           "section": {
-            "en": "Khurais Rd branch, Riyadh",
-            "ar": "فرع طريق خريص، الرياض"
+            "en": "Khurais Rd branch, Riyadh — 1,000 m²",
+            "ar": "فرع طريق خريص، الرياض — 1,000 م²"
           }
         },
         {
