@@ -547,7 +547,7 @@
         }
         halves = size === "half" ? halves + 1 : 0;
         thirds = size === "third" ? thirds + 1 : 0;
-        const offset = (size === "half" && halves % 2 === 0 && !p.noStagger) || (size === "third" && thirds % 3 === 2);
+        const offset = (size === "half" && halves % 2 === 0 && !p.noStagger) || (size === "third" && thirds % 3 === 2 && !p.noStagger);
         const capText = T(m.caption);
         const cap = capText ? `<figcaption><span>${pad(++shot)}</span>${capText}</figcaption>` : "";
         let inner;

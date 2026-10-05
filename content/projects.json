@@ -343,24 +343,36 @@
       "branches": [
         {
           "name": {
-            "en": "New branch — Abu Bakr Al Siddiq Rd",
-            "ar": "فرع جديد — طريق أبو بكر الصديق"
-          },
-          "place": {
-            "en": "Abu Bakr Al Siddiq Rd",
-            "ar": "طريق أبو بكر الصديق"
-          },
-          "city": "riyadh",
-          "kind": "new"
-        },
-        {
-          "name": {
             "en": "New branch — Khurais Rd",
             "ar": "فرع جديد — طريق خريص"
           },
           "place": {
             "en": "Khurais Rd",
             "ar": "طريق خريص"
+          },
+          "city": "riyadh",
+          "kind": "new"
+        },
+        {
+          "name": {
+            "en": "New branch — Al Sitteen St",
+            "ar": "فرع جديد — شارع الستين"
+          },
+          "place": {
+            "en": "Al Sitteen St",
+            "ar": "شارع الستين"
+          },
+          "city": "jeddah",
+          "kind": "new"
+        },
+        {
+          "name": {
+            "en": "New branch — Abu Bakr Al Siddiq Rd",
+            "ar": "فرع جديد — طريق أبو بكر الصديق"
+          },
+          "place": {
+            "en": "Abu Bakr Al Siddiq Rd",
+            "ar": "طريق أبو بكر الصديق"
           },
           "city": "riyadh",
           "kind": "new"
@@ -403,18 +415,6 @@
         },
         {
           "name": {
-            "en": "New branch — Al Sitteen St",
-            "ar": "فرع جديد — شارع الستين"
-          },
-          "place": {
-            "en": "Al Sitteen St",
-            "ar": "شارع الستين"
-          },
-          "city": "jeddah",
-          "kind": "new"
-        },
-        {
-          "name": {
             "en": "New branch — Abha",
             "ar": "فرع جديد — أبها"
           },
@@ -426,9 +426,192 @@
           "kind": "new"
         }
       ],
-      "cover": "",
+      "cover": "assets/images/makhazen-new/khurais-facade-night.jpg",
       "coverVideo": "",
-      "media": [],
+      "media": [
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/khurais-ortho.jpg",
+          "size": "lead",
+          "caption": {
+            "en": "3D top view of the 1,000 m² store",
+            "ar": "منظور علوي ثلاثي الأبعاد للفرع (1,000 م²)"
+          },
+          "section": {
+            "en": "Khurais Rd branch, Riyadh",
+            "ar": "فرع طريق خريص، الرياض"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/khurais-facade.jpg",
+          "size": "side",
+          "caption": {
+            "en": "Street façade",
+            "ar": "الواجهة الخارجية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/khurais-facade-night.jpg",
+          "size": "side",
+          "caption": {
+            "en": "Mall-side frontage",
+            "ar": "الواجهة الداخلية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/khurais-aisles.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Category aisles with numbered wayfinding",
+            "ar": "ممرات الأقسام بلوحات إرشاد مرقمة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/khurais-beauty-station.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Beauty station",
+            "ar": "ركن التجميل"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/khurais-coffee.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Coffee area",
+            "ar": "ركن القهوة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/khurais-plan.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Furniture plan with dimensions",
+            "ar": "مسقط الأثاث بالأبعاد"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/khurais-elevation.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Exterior elevation",
+            "ar": "الواجهة الخارجية — رسم تنفيذي"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/jeddah60-ortho.jpg",
+          "size": "lead",
+          "caption": {
+            "en": "3D top view of the store",
+            "ar": "منظور علوي ثلاثي الأبعاد للفرع"
+          },
+          "section": {
+            "en": "60th Street branch, Jeddah",
+            "ar": "فرع شارع الستين، جدة"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/jeddah60-facade.jpg",
+          "size": "side",
+          "caption": {
+            "en": "Storefront",
+            "ar": "الواجهة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/jeddah60-gift-counter.jpg",
+          "size": "side",
+          "caption": {
+            "en": "Customer service and the identity column",
+            "ar": "خدمة العملاء وعمود الهوية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/jeddah60-display-tunnel.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Feature column between the aisles",
+            "ar": "عمود عرض مميز بين الممرات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/jeddah60-beauty-station.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Beauty station",
+            "ar": "ركن التجميل"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/jeddah60-makeup-home.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Makeup Home portal",
+            "ar": "بوابة Makeup Home"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
       "related": "makhazen-al-enaya-renovation",
       "relatedLabel": {
         "en": "See the makeup section renovations",
@@ -438,7 +621,8 @@
       "chapter": {
         "en": "New branches",
         "ar": "الفروع الجديدة"
-      }
+      },
+      "noStagger": true
     },
     {
       "id": "makhazen-al-enaya-renovation",
