@@ -376,7 +376,8 @@
             "ar": "طريق أبو بكر الصديق"
           },
           "city": "riyadh",
-          "kind": "new"
+          "kind": "new",
+          "area": "1,200"
         },
         {
           "name": {
@@ -606,6 +607,110 @@
           "caption": {
             "en": "Makeup Home portal",
             "ar": "بوابة Makeup Home"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/abubakr-facade.jpg",
+          "size": "lead",
+          "caption": {
+            "en": "Storefront at night",
+            "ar": "الواجهة ليلًا"
+          },
+          "section": {
+            "en": "Abu Bakr Al Siddiq Rd branch, Riyadh — 1,200 m²",
+            "ar": "فرع طريق أبو بكر الصديق، الرياض — 1,200 م²"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/abubakr-entrance.jpg",
+          "size": "side",
+          "caption": {
+            "en": "Entrance and brand wall",
+            "ar": "المدخل وجدار العلامة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/abubakr-activation.jpg",
+          "size": "side",
+          "caption": {
+            "en": "Activation area",
+            "ar": "منطقة التفعيل (Activation Area)"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/abubakr-aisles.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Checkouts and numbered aisles",
+            "ar": "الكاشير والممرات المرقمة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/abubakr-makeup.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Makeup section",
+            "ar": "قسم الميكب"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/abubakr-beauty-station.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Customer service",
+            "ar": "خدمة العملاء"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/abubakr-plan.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Furniture plan with the display-unit key",
+            "ar": "مسقط الأثاث مع مفتاح وحدات العرض"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/abubakr-elevation.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Façade elevation with materials",
+            "ar": "الواجهة التنفيذية مع الخامات"
           },
           "section": {
             "en": "",
