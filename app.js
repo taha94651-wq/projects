@@ -312,9 +312,13 @@
     return list
       .map((a, i) => {
         const src = img(a.src, "ai-" + i + a.kind, t(D.aiKinds[a.kind]));
+        const series = (a.gallery || []).filter(Boolean);
+        const media = series.length
+          ? `<div class="ai-series">${series.map((g, k) => `<figure class="ai-series__item" data-zoom="${esc(g)}" data-cap="${T(a.title)} — ${pad(k + 1)}"><img loading="lazy" src="${esc(g)}" alt="${T(a.title)} — ${pad(k + 1)}" /></figure>`).join("")}</div>`
+          : `<div class="ai-card__media" data-zoom="${esc(src)}"><img loading="lazy" src="${esc(src)}" alt="${T(a.title)}" /></div>`;
         return `
-      <article class="ai-card reveal">
-        <div class="ai-card__media" data-zoom="${esc(src)}"><img loading="lazy" src="${esc(src)}" alt="${T(a.title)}" /></div>
+      <article class="ai-card reveal${series.length ? " ai-card--series" : ""}">
+        ${media}
         <span class="eyebrow gold">${T(D.aiKinds[a.kind])}</span>
         <h3>${T(a.title)}</h3>
         <p>${T(a.desc)}</p>

@@ -3,49 +3,25 @@
     {
       "kind": "images",
       "title": {
-        "ar": "صور مولّدة — مثال",
-        "en": "Generated visuals — sample"
+        "en": "When Frank Gehry Meets Zaha Hadid",
+        "ar": "عندما يلتقي فرانك جيري بزها حديد"
       },
       "desc": {
-        "ar": "وصف قصير: الأداة المستخدمة والهدف.",
-        "en": "Short note: tool used and purpose."
+        "en": "An early AI experiment from 2022: what if Frank Gehry and Zaha Hadid sat down together to design one building? A series exploring the meeting point of Gehry’s folded metal and Hadid’s flowing, fluid lines.",
+        "ar": "تجربة مبكرة بالذكاء الاصطناعي في 2022: ماذا لو جلس فرانك جيري وزها حديد معًا لتصميم مبنى واحد؟ سلسلة تستكشف نقطة التقاء الكتل المعدنية المطوية عند جيري مع الخطوط الانسيابية عند حديد."
       },
       "tools": [
-        "Claude"
+        "Midjourney",
+        "2022"
       ],
-      "src": "",
-      "link": ""
-    },
-    {
-      "kind": "sheets",
-      "title": {
-        "ar": "شيت تسعير — مثال",
-        "en": "Pricing sheet — sample"
-      },
-      "desc": {
-        "ar": "وصف قصير لما يوفره الشيت.",
-        "en": "Short note on what the sheet automates."
-      },
-      "tools": [
-        "Claude in Excel"
+      "src": "assets/images/ai/gehry-hadid-01.jpg",
+      "gallery": [
+        "assets/images/ai/gehry-hadid-01.jpg",
+        "assets/images/ai/gehry-hadid-02.jpg",
+        "assets/images/ai/gehry-hadid-03.jpg",
+        "assets/images/ai/gehry-hadid-04.jpg",
+        "assets/images/ai/gehry-hadid-05.jpg"
       ],
-      "src": "",
-      "link": ""
-    },
-    {
-      "kind": "workflows",
-      "title": {
-        "ar": "هيكلة مشروع — مثال",
-        "en": "Project structure — sample"
-      },
-      "desc": {
-        "ar": "وصف قصير لطريقة التنظيم.",
-        "en": "Short note on the structure."
-      },
-      "tools": [
-        "Claude Code"
-      ],
-      "src": "",
       "link": ""
     }
   ]
