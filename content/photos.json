@@ -1,3 +1,16 @@
 {
-  "items": []
+  "items": [
+    {
+      "src": "assets/images/photography/sakakini-palace-2023.jpg",
+      "title": {
+        "en": "Habib Pasha Sakakini Palace",
+        "ar": "قصر حبيب باشا السكاكيني"
+      },
+      "location": {
+        "en": "Sakakini Square, El Daher, Cairo",
+        "ar": "ميدان السكاكيني، حي الظاهر، القاهرة"
+      },
+      "year": "2023"
+    }
+  ]
 }
