@@ -7,11 +7,12 @@
         "ar": "عندما يلتقي فرانك جيري بزها حديد"
       },
       "desc": {
-        "en": "An early AI experiment from 2022: what if Frank Gehry and Zaha Hadid sat down together to design one building? A series exploring the meeting point of Gehry’s folded metal and Hadid’s flowing, fluid lines.",
-        "ar": "تجربة مبكرة بالذكاء الاصطناعي في 2022: ماذا لو جلس فرانك جيري وزها حديد معًا لتصميم مبنى واحد؟ سلسلة تستكشف نقطة التقاء الكتل المعدنية المطوية عند جيري مع الخطوط الانسيابية عند حديد."
+        "en": "An early AI experiment from 2022, using Midjourney and WOMBO Dream: what if Frank Gehry and Zaha Hadid sat down together to design one building? A series exploring the meeting point of Gehry’s folded metal and Hadid’s flowing, fluid lines.",
+        "ar": "تجربة مبكرة بالذكاء الاصطناعي في 2022 باستخدام Midjourney وWOMBO Dream: ماذا لو جلس فرانك جيري وزها حديد معًا لتصميم مبنى واحد؟ سلسلة تستكشف نقطة التقاء الكتل المعدنية المطوية عند جيري مع الخطوط الانسيابية عند حديد."
       },
       "tools": [
         "Midjourney",
+        "WOMBO Dream",
         "2022"
       ],
       "src": "assets/images/ai/gehry-hadid-05.jpg",
