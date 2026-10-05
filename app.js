@@ -511,8 +511,9 @@
 
     const kicker = [p.disciplines.map((d) => u()[d]).join(" + "), t(D.types[p.type]), t(p.year)].filter(Boolean).join(" · ");
     const back = `<a class="pj__back" href="#${from}"><span>${state.lang === "ar" ? "→" : "←"}</span>${esc(u().backTo)}</a>`;
+    const rel = p.related && D.projects.find((x) => x.id === p.related);
     const nextHTML =
-      next && next !== p
+      next && next !== p && next !== rel
         ? `<a class="next" href="#/p/${esc(next.id)}">
             <span class="next__media"><img loading="lazy" data-parallax src="${esc(cover(next))}" alt="" /></span>
             <span class="next__text wrap"><span class="eyebrow">${esc(u().next)}</span><strong><bdi>${T(next.title)}</bdi> ${state.lang === "ar" ? "←" : "→"}</strong></span>
@@ -520,7 +521,6 @@
         : "";
 
     // optional companion page (e.g. design page <-> design & build page)
-    const rel = p.related && D.projects.find((x) => x.id === p.related);
     const relHTML = rel
       ? `<a class="next next--related" href="#/p/${esc(rel.id)}">
             <span class="next__media"><img loading="lazy" data-parallax src="${esc(cover(rel))}" alt="" /></span>
