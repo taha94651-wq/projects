@@ -82,7 +82,7 @@
       aiIntro: "How I use AI in practice: generated visuals, automated sheets and structured project workflows.",
       experience: "Experience", about: "About", clients: "Key clients", skills: "Skills", software: "Software", languages: "Languages", education: "Education",
       client: "Client", location: "Location", year: "Year", duration: "Duration", role: "Role", type: "Type", discipline: "Discipline",
-      scope: "Scope of work", branches: "Branches", branchMap: "Branch locations", branchKinds: { new: "New branches", refit: "Makeup section renovation" }, company: "Firm", designer: "Design office", status: "Status", area: "Area", tools: "Tools", myRole: "My role — phases", overview: "Overview", backTo: "Back to index", next: "Next project", related: "Related",
+      scope: "Scope of work", branches: "Branches", branchMap: "Branch locations", branchKinds: { new: "New branches", refit: "Makeup section renovation" }, branchTag: { new: "New branch", refit: "Makeup renovation" }, company: "Firm", designer: "Design office", status: "Status", area: "Area", tools: "Tools", myRole: "My role — phases", overview: "Overview", backTo: "Back to index", next: "Next project", related: "Related",
       contactEyebrow: "Contact", letsTalk: "Let’s work together", email: "Email", phone: "Phone", whatsapp: "WhatsApp",
       based: "Based in", online: "Online", empty: "Projects coming soon.", open: "Open", placeholder: "Image placeholder",
       rights: "All rights reserved.", execution: "Execution", design: "Design", competition: "Competition", result: "Result",
@@ -97,7 +97,7 @@
       aiIntro: "كيف أستخدم الذكاء الاصطناعي عمليًا: صور مولّدة، وشيتات مؤتمتة، وهيكلة سير عمل المشاريع.",
       experience: "الخبرات", about: "نبذة", clients: "أهم العملاء", skills: "المهارات", software: "البرامج", languages: "اللغات", education: "التعليم",
       client: "العميل", location: "الموقع", year: "السنة", duration: "المدة", role: "الدور", type: "النوع", discipline: "المجال",
-      scope: "نطاق العمل", branches: "الفروع", branchMap: "مواقع الفروع", branchKinds: { new: "فروع جديدة", refit: "ترميم قسم الميكب" }, company: "الشركة", designer: "مكتب التصميم", status: "الحالة", area: "المساحة", tools: "البرامج", myRole: "دوري — المراحل", overview: "نظرة عامة", backTo: "العودة للفهرس", next: "المشروع التالي", related: "ذو صلة",
+      scope: "نطاق العمل", branches: "الفروع", branchMap: "مواقع الفروع", branchKinds: { new: "فروع جديدة", refit: "ترميم قسم الميكب" }, branchTag: { new: "فرع جديد", refit: "ترميم الميكب" }, company: "الشركة", designer: "مكتب التصميم", status: "الحالة", area: "المساحة", tools: "البرامج", myRole: "دوري — المراحل", overview: "نظرة عامة", backTo: "العودة للفهرس", next: "المشروع التالي", related: "ذو صلة",
       contactEyebrow: "تواصل", letsTalk: "لنعمل معًا", email: "البريد", phone: "الهاتف", whatsapp: "واتساب",
       based: "المقر", online: "حسابات", empty: "المشاريع قريبًا.", open: "فتح", placeholder: "صورة مؤقتة",
       rights: "جميع الحقوق محفوظة.", execution: "التنفيذ", design: "التصميم", competition: "مسابقة", result: "النتيجة",
@@ -565,10 +565,17 @@
     const list = (p.branches || []).filter((b) => t(b.name));
     if (!list.length) return "";
     const cityName = (c) => (VOCAB.cities[c] ? t(VOCAB.cities[c]) : "");
-    const items = list.map((b) => {
+    const row = (b) => {
+      if (b.kind) {
+        // typed branch: short place name + city, with a coloured tag
+        const place = t(b.place) || t(b.name), city = cityName(b.city);
+        const where = city && city !== place ? ` <span class="muted">— ${esc(city)}</span>` : "";
+        return `<li class="br br--${esc(b.kind)}"><bdi>${esc(place)}${where}</bdi><span class="br__tag">${esc((u().branchTag || {})[b.kind] || b.kind)}</span></li>`;
+      }
       const where = [t(b.place), cityName(b.city)].filter(Boolean).join(state.lang === "ar" ? "، " : ", ");
       return `<li><bdi>${esc(t(b.name))}${where ? ` <span class="muted">— ${esc(where)}</span>` : ""}</bdi></li>`;
-    }).join("");
+    };
+    const items = list.map(row).join("");
     const groups = {};
     list.forEach((b) => { if (VOCAB.cities[b.city]) (groups[b.city] = groups[b.city] || []).push(b); });
     const keys = Object.keys(groups);
