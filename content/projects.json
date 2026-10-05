@@ -3244,6 +3244,21 @@
         },
         {
           "type": "video",
+          "src": "assets/videos/villa-lighting.mp4",
+          "youtube": "",
+          "poster": "assets/images/private-villa/lighting-poster.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Concealed lighting on travertine and the walnut wall panelling",
+            "ar": "الإضاءة المخفية على رخام الترافرتين وتكسيات الحائط من الجوز"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "video",
           "src": "assets/videos/villa-bathrooms.mp4",
           "youtube": "",
           "poster": "assets/images/private-villa/bathrooms-poster.jpg",
