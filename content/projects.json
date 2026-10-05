@@ -3214,6 +3214,21 @@
         },
         {
           "type": "video",
+          "src": "assets/videos/villa-design-reality.mp4",
+          "youtube": "",
+          "poster": "assets/images/private-villa/design-reality-poster.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Bedroom joinery: design vs. reality",
+            "ar": "نجارة غرفة النوم: التصميم مقابل التنفيذ"
+          },
+          "section": {
+            "en": "Design vs. reality",
+            "ar": "التصميم مقابل التنفيذ"
+          }
+        },
+        {
+          "type": "video",
           "src": "assets/videos/villa-finishing.mp4",
           "youtube": "",
           "poster": "assets/images/private-villa/finishing-poster.jpg",
