@@ -433,6 +433,11 @@
       "relatedLabel": {
         "en": "See the makeup section renovations",
         "ar": "شاهد ترميم قسم الميكب"
+      },
+      "family": "makhazen-al-enaya",
+      "chapter": {
+        "en": "New branches",
+        "ar": "الفروع الجديدة"
       }
     },
     {
@@ -980,6 +985,11 @@
       "relatedLabel": {
         "en": "See the display units catalogue",
         "ar": "شاهد كتالوج وحدات العرض"
+      },
+      "family": "makhazen-al-enaya",
+      "chapter": {
+        "en": "Makeup renovation",
+        "ar": "ترميم الميكب"
       }
     },
     {
@@ -1514,7 +1524,12 @@
         "en": "See the display units I built",
         "ar": "شاهد وحدات العرض التي نفذتها"
       },
-      "noStagger": true
+      "noStagger": true,
+      "family": "makhazen-al-enaya",
+      "chapter": {
+        "en": "Display units",
+        "ar": "وحدات العرض"
+      }
     },
     {
       "id": "makhazen-al-enaya-build",
@@ -1631,6 +1646,11 @@
       "relatedLabel": {
         "en": "See the renovation design",
         "ar": "شاهد تصميم الترميم"
+      },
+      "family": "makhazen-al-enaya",
+      "chapter": {
+        "en": "Execution",
+        "ar": "التنفيذ"
       }
     },
     {
