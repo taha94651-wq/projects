@@ -132,7 +132,7 @@ content:
                 options:
                   values:
                     - { value: new, label: New branch — فرع جديد }
-                    - { value: refit, label: Refit — ترميم }
+                    - { value: refit, label: Renovation — ترميم }
               - name: city
                 label: City — المدينة
                 type: select
