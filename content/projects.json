@@ -864,6 +864,126 @@
             "en": "",
             "ar": ""
           }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/khobar-plan-view.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "wide",
+          "caption": {
+            "en": "Aerial view of the renovated makeup section",
+            "ar": "منظر علوي لقسم الميكب بعد التجديد"
+          },
+          "section": {
+            "en": "Al Khobar branch — makeup section renovation",
+            "ar": "فرع الخبر — ترميم قسم الميكب"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/khobar-gift-counter.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Gift-wrapping counter with the patterned identity",
+            "ar": "كاونتر تغليف الهدايا بنقشة الهوية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/khobar-beauty-stations.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Beauty stations",
+            "ar": "محطات التجميل"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/khobar-seating.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Seating island and brand gondolas",
+            "ar": "جلسة وسطية ووحدات العلامات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/khobar-colour-column.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "“A Touch of Colour” feature column",
+            "ar": "عمود «يمنح اللون الحياة»"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/khobar-yellow-columns.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Yellow patterned columns between the bays",
+            "ar": "أعمدة النقشة الصفراء بين الأقسام"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/khobar-column-detail.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Patterned column detail",
+            "ar": "تفصيلة العمود المنقوش"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/khobar-coffee.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Coffee kiosk",
+            "ar": "كشك القهوة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
         }
       ],
       "related": "makhazen-al-enaya-build",
