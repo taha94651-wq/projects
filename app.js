@@ -336,36 +336,62 @@
 
   function photoSection(no) {
     const list = D.photos || [];
-    // editorial rhythm: wide + tall, tall + wide (an item can pin its own frame)
-    const pattern = ["w7", "t5", "t5", "w7"];
-    const frames = { wide: "w7", tall: "t5", square: "s4" };
-    const count = (n) => (state.lang === "ar" ? `${n} ${n === 2 ? "صورتان" : n <= 10 ? "صور" : "صورة"}` : `${n} photos`);
     const total = list.reduce((n, ph) => n + 1 + (ph.gallery || []).filter((g) => g && g.src).length, 0);
-    const items = (list.length ? list : [{}, {}, {}, {}])
+    const items = (list.length ? list : [{}, {}])
       .map((ph, i) => {
-        const src = img(ph.src, "photo-" + i, u().nav.photography + " " + pad(i + 1));
         const title = T(ph.title);
-        const where = [T(ph.location), esc(ph.year || "")].filter(Boolean).join(", ");
-        const label = [title, where].filter(Boolean).join(" — ");
+        const where = [T(ph.location), esc(ph.year || "")].filter(Boolean).join(" · ");
+        // one presentation per place: the cover first, then the rest of the series
+        const slides = [{ src: img(ph.src, "photo-" + i, u().nav.photography + " " + pad(i + 1)), thumb: ph.thumb, caption: ph.caption }]
+          .concat((ph.gallery || []).filter((g) => g && g.src));
+        const n = slides.length;
         const capOf = (c) => [title, T(c)].filter(Boolean).join(" — ");
-        // a series: the cover plus a strip of the remaining shots, browsed together in the lightbox
-        const set = (ph.gallery || []).filter((g) => g && g.src);
-        const coverCap = [capOf(ph.caption), T(ph.desc)].filter(Boolean).join(". ") || label;
-        const thumbs = set.length
-          ? `<div class="ph__thumbs">${set.map((g) => `<button type="button" class="ph__thumb" data-zoom="${esc(g.src)}" data-cap="${capOf(g.caption)}"><img loading="lazy" src="${esc(g.thumb || g.src)}" alt="${capOf(g.caption)}" /></button>`).join("")}</div>`
+        const stage = slides
+          .map((g, k) => `<figure class="ph-show__slide${k ? "" : " is-on"}" data-zoom="${esc(g.src)}" data-cap="${capOf(g.caption)}" data-cap-short="${T(g.caption)}">
+              <img class="ph-show__bg" ${k < 2 ? "" : "data-"}src="${esc(g.thumb || g.src)}" alt="" aria-hidden="true" />
+              <img class="ph-show__img" loading="lazy" ${k < 2 ? "" : "data-"}src="${esc(g.src)}" alt="${capOf(g.caption) || esc(u().nav.photography)}" />
+            </figure>`)
+          .join("");
+        const nav = n > 1
+          ? `<button type="button" class="ph-show__arrow ph-show__prev" data-ph-go="-1" aria-label="Previous">‹</button>
+             <button type="button" class="ph-show__arrow ph-show__next" data-ph-go="1" aria-label="Next">›</button>
+             <span class="ph-show__count"><b>01</b> / ${pad(n)}</span>`
           : "";
-        return `<figure class="ph ph--${frames[ph.frame] || pattern[i % pattern.length]}${set.length ? " ph--set" : ""} unveil">
-          <div class="frame" data-zoom="${esc(src)}" data-cap="${coverCap}"><div class="zoom"><img loading="lazy" src="${esc(src)}" alt="${label || esc(u().nav.photography)}" /></div>${set.length ? `<span class="ph__count">${esc(count(set.length + 1))}</span>` : ""}</div>
-          ${thumbs}
-          ${label ? `<figcaption><span>${pad(i + 1)}</span>${label}</figcaption>` : ""}
-        </figure>`;
+        const dots = n > 1 ? `<div class="ph-show__dots">${slides.map((_, k) => `<button type="button" data-ph-to="${k}" aria-label="${k + 1}"${k ? "" : ' aria-current="true"'}></button>`).join("")}</div>` : "";
+        return `<article class="ph-show${i % 2 ? " ph-show--alt" : ""} reveal" data-i="0">
+          <div class="ph-show__main">
+            <div class="ph-show__stage">${stage}${nav}</div>
+            ${dots}
+          </div>
+          <div class="ph-show__info">
+            <span class="ph-show__no">${pad(i + 1)}</span>
+            ${title ? `<h3 class="ph-show__title">${title}</h3>` : ""}
+            ${where ? `<p class="ph-show__meta">${where}</p>` : ""}
+            ${T(ph.desc) ? `<p class="ph-show__desc">${T(ph.desc)}</p>` : ""}
+            <p class="ph-show__cap">${T(slides[0].caption)}</p>
+          </div>
+        </article>`;
       })
       .join("");
     return `
     <section class="section wrap" id="photography">
       ${sectionHead(no, "photography", u().nav.photography, total || null, u().photoIntro)}
-      <div class="photo-grid">${items}</div>
+      <div class="photo-shows">${items}</div>
     </section>`;
+  }
+
+  // photo presentations: move to a slide, loading it (and the next one) on demand
+  function phGo(show, to) {
+    const slides = [...show.querySelectorAll(".ph-show__slide")];
+    const n = slides.length;
+    if (n < 2) return;
+    const i = (to + n) % n;
+    show.dataset.i = i;
+    [i, (i + 1) % n].forEach((k) => slides[k].querySelectorAll("img[data-src]").forEach((im) => { im.src = im.dataset.src; im.removeAttribute("data-src"); }));
+    slides.forEach((sl, k) => sl.classList.toggle("is-on", k === i));
+    show.querySelectorAll(".ph-show__dots button").forEach((d, k) => (k === i ? d.setAttribute("aria-current", "true") : d.removeAttribute("aria-current")));
+    show.querySelector(".ph-show__count b").textContent = pad(i + 1);
+    show.querySelector(".ph-show__cap").textContent = slides[i].dataset.capShort || "";
   }
 
   function aiSection(no) {
@@ -655,7 +681,23 @@
   }
 
   // filters (delegated)
+  let phX = null;
+  app.addEventListener("touchstart", (e) => { phX = e.target.closest(".ph-show__stage") ? e.touches[0].clientX : null; }, { passive: true });
+  app.addEventListener("touchend", (e) => {
+    if (phX == null) return;
+    const dx = e.changedTouches[0].clientX - phX;
+    phX = null;
+    if (Math.abs(dx) < 40) return;
+    const show = e.target.closest(".ph-show");
+    if (show) phGo(show, +show.dataset.i + (dx < 0 ? 1 : -1) * (state.lang === "ar" ? -1 : 1));
+  });
   app.addEventListener("click", (e) => {
+    const go = e.target.closest("[data-ph-go], [data-ph-to]");
+    if (go) {
+      const show = go.closest(".ph-show");
+      phGo(show, go.dataset.phTo != null ? +go.dataset.phTo : +show.dataset.i + +go.dataset.phGo * (state.lang === "ar" ? -1 : 1));
+      return;
+    }
     const b = e.target.closest(".filters button");
     if (b) {
       const key = b.parentElement.dataset.filter;
@@ -744,7 +786,7 @@
     lb.classList.toggle("single", lbItems.length < 2);
   }
   function openLightbox(el) {
-    const scope = el.closest(".ph--set, .gallery, .ai-grid, .photo-grid") || app;
+    const scope = el.closest(".ph-show, .gallery, .ai-grid") || app;
     lbItems = [...scope.querySelectorAll("[data-zoom]")];
     lb.hidden = false;
     document.body.style.overflow = "hidden";

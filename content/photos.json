@@ -20,7 +20,6 @@
         "en": "Built in 1897 for Habib Pasha Sakakini by Italian architects, a Rococo landmark of Cairo",
         "ar": "شُيّد عام 1897 لحبيب باشا السكاكيني على يد معماريين إيطاليين، من أبرز معالم طراز الروكوكو في القاهرة"
       },
-      "frame": "",
       "gallery": [
         {
           "src": "assets/images/photography/sakakini-color.jpg",
@@ -52,7 +51,6 @@
         "en": "Architectural vocabulary and carvings from the Mamluk masterpiece (757–764 AH / 1356–1363 AD)",
         "ar": "مفردات معمارية ونقوش من تحفة العمارة المملوكية (757–764 هـ / 1356–1363م)"
       },
-      "frame": "",
       "gallery": [
         {
           "src": "assets/images/photography/sh-plaque.jpg",
@@ -129,6 +127,53 @@
       ]
     },
     {
+      "src": "assets/images/photography/rifai.jpg",
+      "thumb": "assets/images/photography/rifai-sm.jpg",
+      "title": {
+        "en": "Al-Rifaʿi Mosque",
+        "ar": "مسجد الرفاعي"
+      },
+      "location": {
+        "en": "Salah El-Din Square, El Khalifa, Cairo",
+        "ar": "ميدان صلاح الدين (القلعة)، حي الخليفة، القاهرة"
+      },
+      "year": "2020",
+      "caption": {
+        "en": "The prayer hall",
+        "ar": "بيت الصلاة"
+      },
+      "desc": {
+        "en": "Built between 1869 and 1912 facing Sultan Hassan, the burial place of Egypt’s royal family",
+        "ar": "شُيّد بين عامي 1869 و1912 في مواجهة مسجد السلطان حسن، ويضم مدافن الأسرة العلوية"
+      },
+      "gallery": [
+        {
+          "src": "assets/images/photography/rifai-portal.jpg",
+          "thumb": "assets/images/photography/rifai-portal-sm.jpg",
+          "caption": {
+            "en": "The entrance portal",
+            "ar": "بوابة المدخل"
+          }
+        },
+        {
+          "src": "assets/images/photography/rifai-medallion.jpg",
+          "thumb": "assets/images/photography/rifai-medallion-sm.jpg",
+          "caption": {
+            "en": "Gilded medallion on the stone wall",
+            "ar": "جامة مذهّبة على الجدار الحجري"
+          }
+        },
+        {
+          "src": "assets/images/photography/rifai-inlay.jpg",
+          "thumb": "assets/images/photography/rifai-inlay-sm.jpg",
+          "caption": {
+            "en": "Geometric stone inlay",
+            "ar": "تطعيم حجري بزخارف هندسية"
+          }
+        }
+      ]
+    },
+    {
       "src": "assets/images/photography/amr-fountain.jpg",
       "thumb": "assets/images/photography/amr-fountain-sm.jpg",
       "title": {
@@ -148,7 +193,6 @@
         "en": "The first mosque built in Egypt and Africa (21 AH / 641–642 AD)",
         "ar": "أول جامع بُني في مصر وأفريقيا (21 هـ / 641–642م)"
       },
-      "frame": "",
       "gallery": [
         {
           "src": "assets/images/photography/amr-gate.jpg",
@@ -177,6 +221,28 @@
       ]
     },
     {
+      "src": "assets/images/photography/unknown-soldier.jpg",
+      "thumb": "assets/images/photography/unknown-soldier-sm.jpg",
+      "title": {
+        "en": "Unknown Soldier Memorial",
+        "ar": "نصب الجندي المجهول"
+      },
+      "location": {
+        "en": "Al-Manshiya Square, Alexandria",
+        "ar": "ميدان المنشية، الإسكندرية"
+      },
+      "year": "2020",
+      "caption": {
+        "en": "The memorial lit at night",
+        "ar": "النصب مضاءً ليلًا"
+      },
+      "desc": {
+        "en": "Built in 1938 by Alexandria’s Italian community as a memorial to Khedive Ismail, later dedicated to the Unknown Soldier",
+        "ar": "شُيّد عام 1938 بمبادرة من الجالية الإيطالية تخليدًا للخديوي إسماعيل، ثم خُصص للجندي المجهول"
+      },
+      "gallery": []
+    },
+    {
       "src": "assets/images/photography/ship.jpg",
       "thumb": "assets/images/photography/ship-sm.jpg",
       "title": {
@@ -196,7 +262,6 @@
         "en": "",
         "ar": ""
       },
-      "frame": "",
       "gallery": []
     }
   ]
