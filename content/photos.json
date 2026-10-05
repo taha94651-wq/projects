@@ -237,6 +237,28 @@
       ]
     },
     {
+      "src": "assets/images/photography/ibn-tulun.jpg",
+      "thumb": "assets/images/photography/ibn-tulun-sm.jpg",
+      "title": {
+        "en": "Mosque of Ibn Tulun",
+        "ar": "جامع أحمد بن طولون"
+      },
+      "location": {
+        "en": "Ahmad ibn Tulun Square, Sayeda Zeinab, Cairo",
+        "ar": "ميدان أحمد بن طولون، السيدة زينب، القاهرة"
+      },
+      "year": "2018",
+      "caption": {
+        "en": "The domed fountain and the spiral minaret",
+        "ar": "قبة الفسقية والمئذنة الملوية"
+      },
+      "desc": {
+        "en": "Completed in 879 AD (265 AH), the oldest mosque in Cairo to survive in its original form",
+        "ar": "اكتمل بناؤه عام 265 هـ / 879م، وهو أقدم جامع في القاهرة باقٍ على هيئته الأصلية"
+      },
+      "gallery": []
+    },
+    {
       "src": "assets/images/photography/unknown-soldier.jpg",
       "thumb": "assets/images/photography/unknown-soldier-sm.jpg",
       "title": {
