@@ -684,3 +684,17 @@ html[lang="ar"] .br__tag { letter-spacing: 0; font-size: 12px; }
 .br--refit bdi { color: rgba(239, 235, 228, 0.82); }
 .br--refit::before { color: var(--muted) !important; }
 @media (max-width: 760px) { .pj__scope li.br { grid-template-columns: 36px 1fr; } .br__tag { grid-column: 2; justify-self: start; margin-top: 6px; } }
+
+/* project family: chapter pages of one client project */
+.fam { margin: clamp(28px, 4vw, 48px) 0 clamp(20px, 2.4vw, 32px); }
+.fam .eyebrow { display: block; margin-bottom: 12px; }
+.fam ol { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.fam a {
+  display: inline-flex; gap: 8px; align-items: baseline; padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px;
+  color: var(--muted); font-size: 13px; text-decoration: none; transition: color 0.3s, border-color 0.3s;
+}
+.fam a span { color: var(--gold); font-size: 11px; font-variant-numeric: tabular-nums; }
+.fam a:hover { color: #efebe4; border-color: rgba(239, 235, 228, 0.4); }
+.fam a[aria-current] { color: #0b0b0a; background: var(--gold); border-color: var(--gold); }
+.fam a[aria-current] span { color: #0b0b0a; }
+.row__fam { display: inline-block; margin-inline-start: 10px; padding: 2px 8px; border: 1px solid var(--line); border-radius: 999px; color: var(--gold); font-size: 11px; letter-spacing: 0.04em; vertical-align: middle; white-space: nowrap; }

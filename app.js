@@ -170,6 +170,24 @@
   const img = (src, seed, label) => src || placeholder(seed, label || u().placeholder);
   const cover = (p) => img(p.cover || (p.media.find((m) => m.type === "image" && m.src) || {}).src, p.id, t(p.title));
 
+  // a family = one client project split into chapter pages (e.g. new branches / renovation / units / execution)
+  const familyOf = (p) => (p.family ? D.projects.filter((x) => x.family === p.family) : []);
+  const famNav = (p) => {
+    const fam = familyOf(p);
+    if (fam.length < 2) return "";
+    const name = t(fam[0].client) || t(p.client);
+    const lbl = state.lang === "ar" ? `مشروع واحد من ${fam.length} أجزاء` : `One project in ${fam.length} parts`;
+    return `<nav class="fam reveal" aria-label="${esc(name)}"><span class="eyebrow">${esc(name)} — ${esc(lbl)}</span><ol>${fam
+      .map((x, k) => `<li><a href="#/p/${esc(x.id)}"${x === p ? ' aria-current="page"' : ""}><span>${pad(k + 1)}</span>${T(x.chapter) || T(x.title)}</a></li>`)
+      .join("")}</ol></nav>`;
+  };
+  const famTag = (p) => {
+    const fam = familyOf(p);
+    if (fam.length < 2) return "";
+    const k = fam.indexOf(p) + 1;
+    return ` <span class="row__fam">${esc(state.lang === "ar" ? `جزء ${k} من ${fam.length}` : `Part ${k} of ${fam.length}`)}</span>`;
+  };
+
   const projectsIn = (disc) => D.projects.filter((p) => p.disciplines.includes(disc));
 
   /* ---------- Nav & menu ---------- */
@@ -273,7 +291,7 @@
           <a class="row" href="#/p/${esc(p.id)}" data-img="${esc(cover(p))}" data-from="${disc}">
             <span class="row__no">${pad(i + 1)}</span>
             <span class="row__thumb"><img loading="lazy" src="${esc(cover(p))}" alt="" /></span>
-            <span class="row__title"><bdi>${T(p.title)}</bdi></span>
+            <span class="row__title"><bdi>${T(p.title)}</bdi>${famTag(p)}</span>
             <span class="row__cell${hi ? " row__cell--hi" : ""}">${esc(res) || "—"}</span>
             <span class="row__cell row__cell--loc">${T(p.location) || "—"}</span>
             <span class="row__cell">${esc(t(p.year))}</span>
@@ -287,7 +305,7 @@
           <a class="row" href="#/p/${esc(p.id)}" data-img="${esc(cover(p))}" data-from="${disc}">
             <span class="row__no">${pad(i + 1)}</span>
             <span class="row__thumb"><img loading="lazy" src="${esc(cover(p))}" alt="" /></span>
-            <span class="row__title"><bdi>${T(p.title)}</bdi></span>
+            <span class="row__title"><bdi>${T(p.title)}</bdi>${famTag(p)}</span>
             <span class="row__cell">${T(D.types[p.type])}</span>
             <span class="row__cell row__cell--loc">${T(p.location) || "—"}</span>
             <span class="row__cell">${T(p.role)}${c3 ? ` · ${esc(c3)}` : ""}</span>
@@ -587,6 +605,7 @@
         </div>
       </header>
       <div class="wrap">
+        ${famNav(p)}
         <dl class="titleblock reveal">${meta.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd><bdi>${esc(v)}</bdi></dd></div>`).join("")}</dl>
       </div>
       <div class="wrap pj__body">
