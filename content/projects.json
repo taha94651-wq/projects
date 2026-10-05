@@ -984,6 +984,126 @@
             "en": "",
             "ar": ""
           }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/jeddah-plan-view.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "wide",
+          "caption": {
+            "en": "Aerial view of the renovated makeup section",
+            "ar": "منظر علوي لقسم الميكب بعد التجديد"
+          },
+          "section": {
+            "en": "Al Salamah branch, Jeddah — makeup section renovation",
+            "ar": "فرع حي السلامة، جدة — ترميم قسم الميكب"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/jeddah-gift-counter.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Gift-wrapping counter",
+            "ar": "كاونتر تغليف الهدايا"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/jeddah-patterned-ceiling.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Aisle under the patterned identity bulkhead",
+            "ar": "ممر تحت سقف نقشة الهوية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/jeddah-beauty-stations.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Beauty stations",
+            "ar": "محطات التجميل"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/jeddah-seating.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Seating island and feature column",
+            "ar": "جلسة وسطية وعمود العرض"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/jeddah-island.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "third",
+          "caption": {
+            "en": "Island display unit",
+            "ar": "وحدة عرض وسطية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/jeddah-makeup-home.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Makeup Home portal",
+            "ar": "بوابة Makeup Home"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya/jeddah-coffee.jpg",
+          "youtube": "",
+          "poster": "",
+          "size": "half",
+          "caption": {
+            "en": "Coffee corner",
+            "ar": "ركن القهوة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
         }
       ],
       "related": "makhazen-al-enaya-build",
