@@ -276,6 +276,28 @@
       ]
     },
     {
+      "src": "assets/images/photography/mansoura-building.jpg",
+      "thumb": "assets/images/photography/mansoura-building-sm.jpg",
+      "title": {
+        "en": "An old building in Mansoura",
+        "ar": "مبنى قديم في مدينة المنصورة"
+      },
+      "location": {
+        "en": "Mansoura, Dakahlia",
+        "ar": "المنصورة، الدقهلية"
+      },
+      "year": "2017",
+      "caption": {
+        "en": "The façade",
+        "ar": "الواجهة"
+      },
+      "desc": {
+        "en": "A symmetrical façade with projecting bays, timber shutters and a wrought-iron door",
+        "ar": "واجهة متماثلة ببروزات جانبية وشيش خشبي وباب من الحديد المشغول"
+      },
+      "gallery": []
+    },
+    {
       "src": "assets/images/photography/unknown-soldier.jpg",
       "thumb": "assets/images/photography/unknown-soldier-sm.jpg",
       "title": {
