@@ -148,6 +148,14 @@
       },
       "gallery": [
         {
+          "src": "assets/images/photography/rifai-facade.jpg",
+          "thumb": "assets/images/photography/rifai-facade-sm.jpg",
+          "caption": {
+            "en": "The façade, minaret and dome",
+            "ar": "الواجهة والمئذنة والقبة"
+          }
+        },
+        {
           "src": "assets/images/photography/rifai-portal.jpg",
           "thumb": "assets/images/photography/rifai-portal-sm.jpg",
           "caption": {
