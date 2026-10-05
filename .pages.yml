@@ -209,6 +209,7 @@ content:
           - { name: desc, label: Description — الوصف, component: bitext }
           - { name: tools, label: Tools — الأدوات, type: string, list: true }
           - { name: src, label: Image — صورة, type: image }
+          - { name: gallery, label: "Series images (optional, shown as an exhibition strip) — مجموعة صور", type: image, list: true }
           - { name: link, label: "External link (optional) — لينك خارجي", type: string }
 
   # ======================= ARCHITECTURAL PHOTOGRAPHY =======================
