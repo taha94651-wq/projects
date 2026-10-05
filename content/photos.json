@@ -156,6 +156,14 @@
           }
         },
         {
+          "src": "assets/images/photography/rifai-column.jpg",
+          "thumb": "assets/images/photography/rifai-column-sm.jpg",
+          "caption": {
+            "en": "Carved column base",
+            "ar": "قاعدة عمود منحوتة"
+          }
+        },
+        {
           "src": "assets/images/photography/rifai-medallion.jpg",
           "thumb": "assets/images/photography/rifai-medallion-sm.jpg",
           "caption": {
