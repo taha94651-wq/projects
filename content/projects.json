@@ -368,6 +368,18 @@
         },
         {
           "name": {
+            "en": "New branch — Ohod district",
+            "ar": "فرع جديد — حي أحد"
+          },
+          "place": {
+            "en": "Ohod district",
+            "ar": "حي أحد"
+          },
+          "city": "dammam",
+          "kind": "new"
+        },
+        {
+          "name": {
             "en": "New branch — Abu Bakr Al Siddiq Rd",
             "ar": "فرع جديد — طريق أبو بكر الصديق"
           },
@@ -401,18 +413,6 @@
             "ar": "الثمامة"
           },
           "city": "riyadh",
-          "kind": "new"
-        },
-        {
-          "name": {
-            "en": "New branch — Ohod district",
-            "ar": "فرع جديد — حي أحد"
-          },
-          "place": {
-            "en": "Ohod district",
-            "ar": "حي أحد"
-          },
-          "city": "dammam",
           "kind": "new"
         },
         {
@@ -607,6 +607,84 @@
           "caption": {
             "en": "Makeup Home portal",
             "ar": "بوابة Makeup Home"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/ohod-ortho.jpg",
+          "size": "lead",
+          "caption": {
+            "en": "3D top view of the store",
+            "ar": "منظور علوي ثلاثي الأبعاد للفرع"
+          },
+          "section": {
+            "en": "Ohod district branch, Dammam",
+            "ar": "فرع حي أحد، الدمام"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/ohod-facade.jpg",
+          "size": "side",
+          "caption": {
+            "en": "Storefront",
+            "ar": "الواجهة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/ohod-customer-service.jpg",
+          "size": "side",
+          "caption": {
+            "en": "Entrance and customer service",
+            "ar": "المدخل وخدمة العملاء"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/ohod-feature-column.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Gift-wrapping counter and feature column",
+            "ar": "كاونتر تغليف الهدايا وعمود العرض"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/ohod-makeup.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Makeup section column",
+            "ar": "عمود قسم الميكب"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/ohod-beauty-station.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Beauty station",
+            "ar": "ركن التجميل"
           },
           "section": {
             "en": "",
