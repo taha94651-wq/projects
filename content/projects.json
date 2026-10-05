@@ -3153,6 +3153,21 @@
           }
         },
         {
+          "type": "video",
+          "src": "assets/videos/villa-rattan.mp4",
+          "youtube": "",
+          "poster": "assets/images/private-villa/rattan-poster.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Installing the rattan wardrobe wall on site",
+            "ar": "تركيب جدار خزائن الراتان في الموقع"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
           "type": "image",
           "src": "assets/images/private-villa/01-shop-drawing.jpg",
           "youtube": "",
