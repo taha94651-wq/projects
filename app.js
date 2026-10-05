@@ -505,7 +505,11 @@
           const src = img(m.src, p.id + "-" + i, t(p.title) + " — " + pad(i + 1));
           inner = `<div class="frame" data-zoom="${esc(src)}" data-cap="${capText}"><div class="zoom"><img loading="lazy" ${size === "full" ? "data-parallax " : ""}src="${esc(src)}" alt="${capText || T(p.title)}" /></div></div>`;
         }
-        return `${head}<figure class="shot shot--${size}${offset ? " shot--offset" : ""} unveil">${inner}${cap}</figure>`;
+        // lead + side = one large shot (e.g. top view) with the next shots stacked beside it
+        const nx = media[i + 1];
+        const open = size === "lead" ? `<div class="cluster">` : "";
+        const close = (size === "lead" || size === "side") && !(nx && nx.size === "side" && !T(nx.section)) ? `</div>` : "";
+        return `${head}${open}<figure class="shot shot--${size}${offset ? " shot--offset" : ""} unveil">${inner}${cap}</figure>${close}`;
       })
       .join("");
 
