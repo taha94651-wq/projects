@@ -270,110 +270,362 @@
     {
       "id": "makhazen-al-enaya",
       "title": {
-        "ar": "مخازن العناية",
-        "en": "Makhazen Al Enaya"
+        "en": "Makhazen Al Enaya — New Identity Branches",
+        "ar": "مخازن العناية — فروع الهوية الجديدة"
       },
       "disciplines": [
-        "design",
-        "execution"
+        "design"
       ],
       "type": "retail",
+      "result": "",
       "status": "built",
       "client": {
-        "ar": "مخازن العناية",
-        "en": "Makhazen Al Enaya"
+        "en": "Makhazen Al Enaya",
+        "ar": "مخازن العناية"
       },
-      "location": {
-        "ar": "المملكة العربية السعودية",
-        "en": "Saudi Arabia"
-      },
-      "year": "",
-      "duration": {
-        "ar": "",
-        "en": ""
-      },
-      "area": "",
-      "role": {
-        "ar": "التصميم والتنفيذ",
-        "en": "Design & Execution"
-      },
-      "phases": [],
-      "tools": [],
-      "summary": {
-        "ar": "7 فروع جديدة مصممة وفق الهوية الجديدة للعلامة، وتجديد 7 فروع قائمة مع إعادة تصميم قسم المكياج.",
-        "en": "7 new branches designed to the new brand identity, and 7 existing branches renovated with a redesigned makeup section."
-      },
-      "scope": [
-        {
-          "ar": "تصميم الفروع الجديدة وفق الهوية الجديدة",
-          "en": "Branch design to the new brand identity"
-        },
-        {
-          "ar": "إعادة تصميم قسم المكياج",
-          "en": "Makeup section redesign"
-        },
-        {
-          "ar": "تنفيذ وتسليم 14 فرعًا",
-          "en": "Execution and handover of 14 branches"
-        }
-      ],
-      "cover": "",
-      "media": [
-        {
-          "type": "image",
-          "src": "",
-          "youtube": "",
-          "caption": {
-            "ar": "",
-            "en": ""
-          },
-          "size": "",
-          "section": {
-            "en": "",
-            "ar": ""
-          },
-          "poster": ""
-        },
-        {
-          "type": "image",
-          "src": "",
-          "youtube": "",
-          "caption": {
-            "ar": "",
-            "en": ""
-          },
-          "size": "",
-          "section": {
-            "en": "",
-            "ar": ""
-          },
-          "poster": ""
-        },
-        {
-          "type": "image",
-          "src": "",
-          "youtube": "",
-          "caption": {
-            "ar": "",
-            "en": ""
-          },
-          "size": "",
-          "section": {
-            "en": "",
-            "ar": ""
-          },
-          "poster": ""
-        }
-      ],
-      "company": {
-        "en": "",
-        "ar": ""
-      },
-      "result": "",
-      "coverVideo": "",
       "designer": {
         "en": "",
         "ar": ""
+      },
+      "company": {
+        "en": "VIVID Design / PHZYN Construction",
+        "ar": "VIVID Design / PHZYN Construction"
+      },
+      "location": {
+        "en": "13 branches: Riyadh, Jeddah, Dammam, Al Khobar, Abha, Qassim",
+        "ar": "13 فرعًا: الرياض، جدة، الدمام، الخبر، أبها، القصيم"
+      },
+      "year": "2026",
+      "duration": {
+        "en": "",
+        "ar": ""
+      },
+      "area": "",
+      "role": {
+        "en": "Design team: site survey to construction drawings, facades and site follow-up",
+        "ar": "ضمن فريق التصميم: من الرفع المساحي حتى الرسومات التنفيذية والواجهات ومتابعة التنفيذ"
+      },
+      "phases": [
+        "survey",
+        "concept",
+        "render",
+        "facades",
+        "drawings",
+        "supervision"
+      ],
+      "tools": [],
+      "summary": {
+        "en": "The roll-out of the new Makhazen Al Enaya brand identity across 13 branches in Saudi Arabia. In seven new branches I worked within the design team on the complete design of each store: from the site survey through interior and facade design to the issue of construction drawings, then followed execution on site as the design office’s representative. In six existing branches, the makeup section was redesigned to the new identity.",
+        "ar": "تطبيق الهوية الجديدة لمخازن العناية في 13 فرعًا في المملكة العربية السعودية. في سبعة فروع جديدة، عملت ضمن فريق التصميم على التصميم الكامل لكل فرع: من الرفع المساحي، مرورًا بالتصميم الداخلي وتصميم الواجهات، حتى تسليم الرسومات التنفيذية، ثم تابعت التنفيذ في الموقع ممثلًا عن المكتب المصمم. وفي ستة فروع قائمة، أُعيد تصميم قسم الميكب وفق الهوية الجديدة."
+      },
+      "scope": [
+        {
+          "en": "Site surveys",
+          "ar": "الرفع المساحي"
+        },
+        {
+          "en": "Interior design of 7 new branches",
+          "ar": "التصميم الداخلي لـ7 فروع جديدة"
+        },
+        {
+          "en": "Facade design",
+          "ar": "تصميم الواجهات"
+        },
+        {
+          "en": "Construction drawings issued for execution",
+          "ar": "تسليم الرسومات التنفيذية للتنفيذ"
+        },
+        {
+          "en": "Makeup section redesign in 6 existing branches",
+          "ar": "إعادة تصميم قسم الميكب في 6 فروع قائمة"
+        },
+        {
+          "en": "Site follow-up as the design office’s representative",
+          "ar": "متابعة التنفيذ في الموقع ممثلًا عن المكتب المصمم"
+        }
+      ],
+      "branches": [
+        {
+          "name": {
+            "en": "New branch — Abu Bakr Al Siddiq Rd",
+            "ar": "فرع جديد — طريق أبو بكر الصديق"
+          },
+          "place": {
+            "en": "Abu Bakr Al Siddiq Rd",
+            "ar": "طريق أبو بكر الصديق"
+          },
+          "city": "riyadh",
+          "kind": "new"
+        },
+        {
+          "name": {
+            "en": "New branch — Khurais Rd",
+            "ar": "فرع جديد — طريق خريص"
+          },
+          "place": {
+            "en": "Khurais Rd",
+            "ar": "طريق خريص"
+          },
+          "city": "riyadh",
+          "kind": "new"
+        },
+        {
+          "name": {
+            "en": "New branch — Al Takhassusi",
+            "ar": "فرع جديد — التخصصي"
+          },
+          "place": {
+            "en": "Al Takhassusi",
+            "ar": "التخصصي"
+          },
+          "city": "riyadh",
+          "kind": "new"
+        },
+        {
+          "name": {
+            "en": "New branch — Al Thumamah",
+            "ar": "فرع جديد — الثمامة"
+          },
+          "place": {
+            "en": "Al Thumamah",
+            "ar": "الثمامة"
+          },
+          "city": "riyadh",
+          "kind": "new"
+        },
+        {
+          "name": {
+            "en": "New branch — Ohod district",
+            "ar": "فرع جديد — حي أحد"
+          },
+          "place": {
+            "en": "Ohod district",
+            "ar": "حي أحد"
+          },
+          "city": "dammam",
+          "kind": "new"
+        },
+        {
+          "name": {
+            "en": "New branch — Al Sitteen St",
+            "ar": "فرع جديد — شارع الستين"
+          },
+          "place": {
+            "en": "Al Sitteen St",
+            "ar": "شارع الستين"
+          },
+          "city": "jeddah",
+          "kind": "new"
+        },
+        {
+          "name": {
+            "en": "New branch — Abha",
+            "ar": "فرع جديد — أبها"
+          },
+          "place": {
+            "en": "Abha",
+            "ar": "أبها"
+          },
+          "city": "abha",
+          "kind": "new"
+        },
+        {
+          "name": {
+            "en": "Makeup refit — Al Hamra",
+            "ar": "ترميم الميكب — حي الحمراء"
+          },
+          "place": {
+            "en": "Al Hamra",
+            "ar": "حي الحمراء"
+          },
+          "city": "riyadh",
+          "kind": "refit"
+        },
+        {
+          "name": {
+            "en": "Makeup refit — Anas Ibn Malik Rd",
+            "ar": "ترميم الميكب — طريق أنس بن مالك"
+          },
+          "place": {
+            "en": "Anas Ibn Malik Rd",
+            "ar": "طريق أنس بن مالك"
+          },
+          "city": "riyadh",
+          "kind": "refit"
+        },
+        {
+          "name": {
+            "en": "Makeup refit — Al Salamah",
+            "ar": "ترميم الميكب — حي السلامة"
+          },
+          "place": {
+            "en": "Al Salamah",
+            "ar": "حي السلامة"
+          },
+          "city": "jeddah",
+          "kind": "refit"
+        },
+        {
+          "name": {
+            "en": "Makeup refit — Dammam",
+            "ar": "ترميم الميكب — الدمام"
+          },
+          "place": {
+            "en": "Dammam",
+            "ar": "الدمام"
+          },
+          "city": "dammam",
+          "kind": "refit"
+        },
+        {
+          "name": {
+            "en": "Makeup refit — Al Khobar",
+            "ar": "ترميم الميكب — الخبر"
+          },
+          "place": {
+            "en": "Al Khobar",
+            "ar": "الخبر"
+          },
+          "city": "khobar",
+          "kind": "refit"
+        },
+        {
+          "name": {
+            "en": "Makeup refit — Qassim",
+            "ar": "ترميم الميكب — القصيم"
+          },
+          "place": {
+            "en": "Qassim",
+            "ar": "القصيم"
+          },
+          "city": "qassim",
+          "kind": "refit"
+        }
+      ],
+      "cover": "",
+      "coverVideo": "",
+      "media": [],
+      "related": "makhazen-al-enaya-build",
+      "relatedLabel": {
+        "en": "See the display units built",
+        "ar": "شاهد تنفيذ وحدات العرض"
+      }
+    },
+    {
+      "id": "makhazen-al-enaya-build",
+      "title": {
+        "en": "Makhazen Al Enaya — Display Units",
+        "ar": "مخازن العناية — تنفيذ وحدات العرض"
+      },
+      "disciplines": [
+        "execution"
+      ],
+      "type": "retail",
+      "result": "",
+      "status": "built",
+      "client": {
+        "en": "Makhazen Al Enaya",
+        "ar": "مخازن العناية"
+      },
+      "designer": {
+        "en": "",
+        "ar": ""
+      },
+      "company": {
+        "en": "VIVID Design / PHZYN Construction",
+        "ar": "VIVID Design / PHZYN Construction"
+      },
+      "location": {
+        "en": "4 branches: Riyadh, Al Khobar, Dammam, Jeddah",
+        "ar": "4 فروع: الرياض، الخبر، الدمام، جدة"
+      },
+      "year": "2026",
+      "duration": {
+        "en": "",
+        "ar": ""
+      },
+      "area": "",
+      "role": {
+        "en": "Execution of the display units",
+        "ar": "تنفيذ وحدات العرض"
+      },
+      "phases": [
+        "drawings",
+        "supervision",
+        "handover"
+      ],
+      "tools": [],
+      "summary": {
+        "en": "Execution of the new makeup-section display units in four refitted Makhazen Al Enaya branches: Al Hamra in Riyadh, Al Khobar, Dammam and Al Salamah in Jeddah, following the redesign to the new brand identity.",
+        "ar": "تنفيذ وحدات العرض الجديدة لقسم الميكب في أربعة فروع مُرمّمة لمخازن العناية: حي الحمراء بالرياض، والخبر، والدمام، وحي السلامة بجدة، بعد إعادة تصميمها وفق الهوية الجديدة."
+      },
+      "scope": [
+        {
+          "en": "Execution of makeup-section display units",
+          "ar": "تنفيذ وحدات عرض قسم الميكب"
+        },
+        {
+          "en": "Installation in 4 branches",
+          "ar": "التركيب في 4 فروع"
+        }
+      ],
+      "branches": [
+        {
+          "name": {
+            "en": "Makeup refit — Al Hamra",
+            "ar": "ترميم الميكب — حي الحمراء"
+          },
+          "place": {
+            "en": "Al Hamra",
+            "ar": "حي الحمراء"
+          },
+          "city": "riyadh",
+          "kind": "refit"
+        },
+        {
+          "name": {
+            "en": "Makeup refit — Al Salamah",
+            "ar": "ترميم الميكب — حي السلامة"
+          },
+          "place": {
+            "en": "Al Salamah",
+            "ar": "حي السلامة"
+          },
+          "city": "jeddah",
+          "kind": "refit"
+        },
+        {
+          "name": {
+            "en": "Makeup refit — Dammam",
+            "ar": "ترميم الميكب — الدمام"
+          },
+          "place": {
+            "en": "Dammam",
+            "ar": "الدمام"
+          },
+          "city": "dammam",
+          "kind": "refit"
+        },
+        {
+          "name": {
+            "en": "Makeup refit — Al Khobar",
+            "ar": "ترميم الميكب — الخبر"
+          },
+          "place": {
+            "en": "Al Khobar",
+            "ar": "الخبر"
+          },
+          "city": "khobar",
+          "kind": "refit"
+        }
+      ],
+      "cover": "",
+      "coverVideo": "",
+      "media": [],
+      "related": "makhazen-al-enaya",
+      "relatedLabel": {
+        "en": "See the full design",
+        "ar": "شاهد التصميم كاملًا"
       }
     },
     {
