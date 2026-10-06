@@ -5987,8 +5987,8 @@
           "ar": "الإشراف على الموقع حتى التسليم"
         }
       ],
-      "cover": "assets/images/zahrani-office/finished-poster.jpg",
-      "coverVideo": "assets/videos/zahrani-finished.mp4",
+      "cover": "assets/images/zahrani-office/finished-front.jpg",
+      "coverVideo": "",
       "media": [
         {
           "type": "video",
@@ -6031,8 +6031,8 @@
             "ar": "تركيب تكسيات الحوائط والإضاءة"
           },
           "section": {
-            "en": "Installation and the finished office",
-            "ar": "التركيب والمكتب بعد التنفيذ"
+            "en": "Installation",
+            "ar": "التركيب"
           }
         },
         {
@@ -6044,6 +6044,32 @@
           "caption": {
             "en": "The finished office",
             "ar": "المكتب بعد التنفيذ"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/zahrani-office/finished-front.jpg",
+          "size": "half",
+          "caption": {
+            "en": "The finished office: walnut shelving, marble desk, ring pendant",
+            "ar": "المكتب بعد التنفيذ: رفوف خشب الجوز، ومكتب رخام، وإضاءة دائرية معلّقة"
+          },
+          "section": {
+            "en": "The finished office",
+            "ar": "المكتب بعد التنفيذ"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/zahrani-office/finished-angle.jpg",
+          "size": "half",
+          "caption": {
+            "en": "The L-shaped marble desk and backlit shelving",
+            "ar": "المكتب الرخام على شكل L والرفوف المضاءة"
           },
           "section": {
             "en": "",
