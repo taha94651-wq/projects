@@ -2166,26 +2166,116 @@
       ],
       "tools": [],
       "summary": {
-        "en": "Ground-floor office fit-out in Al Nafel, Riyadh for BEOND, the premium leisure airline. The project is under execution, currently at the MEP stage; progress photos will follow as works advance.",
-        "ar": "تشطيب مكتب في الدور الأرضي بحي النفل في الرياض لشركة بيوند للطيران الفاخر. المشروع قيد التنفيذ حاليًا في مرحلة أعمال الكهروميكانيك، وهتتضاف صور التقدم مع تقدم الأعمال."
+        "en": "Ground-floor office fit-out in Al Nafel, Riyadh for BEOND, the premium leisure airline. Works are under way: site hoarding in the brand identity, blockwork partitions, ceiling MEP supports, and the floor slab, reinforcement mesh, a night concrete pour, screed and power-trowel finish.",
+        "ar": "تشطيب مكتب في الدور الأرضي بحي النفل في الرياض لشركة بيوند للطيران الفاخر. الأعمال جارية: سور الموقع بهوية العلامة، وحوائط البلوك، وحوامل وتمديدات الكهروميكانيك في السقف، وأعمال الأرضية من شبك التسليح والصبة الليلية واللياسة والتسوية بالهليكوبتر."
       },
       "scope": [
         {
-          "en": "Office fit-out execution",
-          "ar": "تنفيذ تشطيبات المكتب"
+          "en": "Site set-up and branded hoarding",
+          "ar": "تجهيز الموقع وسور بهوية العلامة"
+        },
+        {
+          "en": "Blockwork partitions",
+          "ar": "حوائط البلوك"
         },
         {
           "en": "MEP works coordination",
           "ar": "تنسيق أعمال الكهروميكانيك"
         },
         {
+          "en": "Floor slab: mesh, pour, screed, power trowel",
+          "ar": "الأرضية: تسليح وصب ولياسة وتسوية"
+        },
+        {
           "en": "Site supervision",
           "ar": "الإشراف على الموقع"
         }
       ],
-      "cover": "assets/images/beond-office/screed-poster.jpg",
-      "coverVideo": "assets/videos/beond-screed.mp4",
+      "cover": "assets/images/beond-office/hoarding.jpg",
+      "coverVideo": "assets/videos/beond-trowel.mp4",
       "media": [
+        {
+          "type": "image",
+          "src": "assets/images/beond-office/hoarding.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Site hoarding with the BEOND identity",
+            "ar": "سور الموقع بهوية بيوند"
+          },
+          "section": {
+            "en": "Site set-up and blockwork",
+            "ar": "تجهيز الموقع وأعمال البلوك"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/beond-office/blockwork-1.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Blockwork partitions",
+            "ar": "بناء حوائط البلوك"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/beond-office/blockwork-2.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Blockwork around the services shaft",
+            "ar": "البلوك حول فتحة الخدمات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/beond-mep.mp4",
+          "youtube": "",
+          "poster": "assets/images/beond-office/mep-poster.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Ceiling MEP: steel supports and services",
+            "ar": "أعمال الكهروميكانيك بالسقف: حوامل حديد وتمديدات"
+          },
+          "section": {
+            "en": "MEP and floor preparation",
+            "ar": "الكهروميكانيك وتجهيز الأرضية"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/beond-office/mesh-photo.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Reinforcement mesh laid before the pour",
+            "ar": "شبك التسليح قبل الصب"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/beond-mesh.mp4",
+          "youtube": "",
+          "poster": "assets/images/beond-office/mesh-poster.jpg",
+          "size": "wide",
+          "caption": {
+            "en": "Walking the reinforcement mesh",
+            "ar": "جولة على شبك التسليح"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
         {
           "type": "video",
           "src": "assets/videos/beond-delivery.mp4",
@@ -2208,8 +2298,23 @@
           "poster": "assets/images/beond-office/screed-poster.jpg",
           "size": "half",
           "caption": {
-            "en": "Screed laid over the reinforcement mesh and levelled",
-            "ar": "صب طبقة اللياسة الأرضية فوق شبك التسليح وتسويتها"
+            "en": "Screed laid over the mesh and levelled",
+            "ar": "صب طبقة اللياسة فوق شبك التسليح وتسويتها"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/beond-trowel.mp4",
+          "youtube": "",
+          "poster": "assets/images/beond-office/trowel-poster.jpg",
+          "size": "wide",
+          "caption": {
+            "en": "Power-trowel finish",
+            "ar": "التسوية بالهليكوبتر (Power trowel)"
           },
           "section": {
             "en": "",
