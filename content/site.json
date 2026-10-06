@@ -239,6 +239,73 @@
       "period": ""
     }
   ],
+  "certifications": [
+    {
+      "title": {
+        "en": "Autodesk Revit Certified Professional",
+        "ar": "Autodesk Revit Certified Professional"
+      },
+      "issuer": {
+        "en": "Autodesk",
+        "ar": "Autodesk"
+      },
+      "date": "Sep 2020",
+      "id": "EM303368096252524739502",
+      "url": ""
+    },
+    {
+      "title": {
+        "en": "Design Summer School 2020",
+        "ar": "Design Summer School 2020"
+      },
+      "issuer": {
+        "en": "Mod+Partners",
+        "ar": "Mod+Partners"
+      },
+      "date": "Jun 2020",
+      "id": "DSS-1521",
+      "url": "https://drive.google.com/file/d/1ODOR28aXXHotpbKEwOOkRwzH-x6utJte/view"
+    },
+    {
+      "title": {
+        "en": "Making Architecture",
+        "ar": "Making Architecture"
+      },
+      "issuer": {
+        "en": "IE School of Architecture and Design",
+        "ar": "IE School of Architecture and Design"
+      },
+      "date": "May 2020",
+      "id": "",
+      "url": ""
+    },
+    {
+      "title": {
+        "en": "Spanish Vocabulary",
+        "ar": "Spanish Vocabulary"
+      },
+      "issuer": {
+        "en": "University of California, Davis",
+        "ar": "جامعة كاليفورنيا، ديفيس"
+      },
+      "date": "Apr 2020",
+      "id": "",
+      "url": ""
+    },
+    {
+      "title": {
+        "en": "Microsoft Office 365",
+        "ar": "Microsoft Office 365"
+      },
+      "issuer": {
+        "en": "Udemy",
+        "ar": "Udemy"
+      },
+      "date": "Apr 2020",
+      "id": "",
+      "url": ""
+    }
+  ],
   "skills": [
     {
       "group": {

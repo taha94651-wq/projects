@@ -394,6 +394,19 @@ content:
         fields:
           - { name: title, label: Title, component: bi }
           - { name: period, label: Period, type: string }
+      - name: certifications
+        label: Certifications — الشهادات
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title.en}"
+        fields:
+          - { name: title, label: Title, component: bi }
+          - { name: issuer, label: Issuer, component: bi }
+          - { name: date, label: Issued, type: string }
+          - { name: id, label: Credential ID, type: string }
+          - { name: url, label: Credential link, type: string }
       - name: skills
         label: Skills — المهارات
         type: object
