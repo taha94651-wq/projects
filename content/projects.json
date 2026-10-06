@@ -2176,25 +2176,25 @@
           "src": "assets/videos/makhazen-factory.mp4",
           "youtube": "",
           "poster": "assets/images/makhazen-al-enaya-build/factory-poster.jpg",
-          "size": "third",
+          "size": "half",
           "caption": {
             "en": "In the factory: cutting, edge-banding and assembly",
             "ar": "في المصنع: التقطيع وتركيب الشريط والتجميع"
           },
           "section": {
-            "en": "From the factory to the store",
-            "ar": "من المصنع إلى الفرع"
+            "en": "In the factory",
+            "ar": "في المصنع"
           }
         },
         {
           "type": "video",
-          "src": "assets/videos/makhazen-install.mp4",
+          "src": "assets/videos/makhazen-qc.mp4",
           "youtube": "",
-          "poster": "assets/images/makhazen-al-enaya-build/install-poster.jpg",
-          "size": "third",
+          "poster": "assets/images/makhazen-al-enaya-build/qc-poster.jpg",
+          "size": "half",
           "caption": {
-            "en": "On site: fixing the units and the lit graphics",
-            "ar": "في الموقع: تثبيت الوحدات واللوحات المضيئة"
+            "en": "Checking a finished unit in the factory before dispatch",
+            "ar": "فحص وحدة جاهزة في المصنع قبل الشحن"
           },
           "section": {
             "en": "",
@@ -2203,10 +2203,25 @@
         },
         {
           "type": "video",
+          "src": "assets/videos/makhazen-install.mp4",
+          "youtube": "",
+          "poster": "assets/images/makhazen-al-enaya-build/install-poster.jpg",
+          "size": "half",
+          "caption": {
+            "en": "On site: fixing the units and the lit graphics",
+            "ar": "في الموقع: تثبيت الوحدات واللوحات المضيئة"
+          },
+          "section": {
+            "en": "On site",
+            "ar": "في الموقع"
+          }
+        },
+        {
+          "type": "video",
           "src": "assets/videos/makhazen-site.mp4",
           "youtube": "",
           "poster": "assets/images/makhazen-al-enaya-build/site-poster.jpg",
-          "size": "third",
+          "size": "half",
           "caption": {
             "en": "Final alignment and finishing",
             "ar": "الضبط النهائي والتشطيب"
