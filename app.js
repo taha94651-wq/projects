@@ -429,7 +429,7 @@
         const main = pdf ? pdf.src : files[0] ? files[0].src : pj ? "#/p/" + pj.id : "";
         const ext = main && !main.startsWith("#");
         return `<article class="ctl reveal">
-          <a class="ctl__media" href="${esc(main)}"${ext ? ' target="_blank" rel="noopener"' : ""}><img loading="lazy" src="${esc(c.poster || (pj ? cover(pj) : ""))}" alt="${T(c.title)}" />${ext ? `<span class="pdf-badge">${/\.pdf$/i.test(main) ? "PDF" : state.lang === "ar" ? "افتح" : "Open"} ↗</span>` : ""}</a>
+          ${c.split && files.length > 1 ? `<div class="ctl__split">${files.map((f) => `<a class="ctl__media" href="${esc(f.src)}" target="_blank" rel="noopener"><img loading="lazy" src="${esc(f.poster || c.poster || "")}" alt="${T(f.label)}" /><span class="pdf-badge">${T(f.label)} ↗</span></a>`).join("")}</div>` : `<a class="ctl__media" href="${esc(main)}"${ext ? ' target="_blank" rel="noopener"' : ""}><img loading="lazy" src="${esc(c.poster || (pj ? cover(pj) : ""))}" alt="${T(c.title)}" />${ext ? `<span class="pdf-badge">${/\.pdf$/i.test(main) ? "PDF" : state.lang === "ar" ? "افتح" : "Open"} ↗</span>` : ""}</a>`}
           <span class="eyebrow gold">${T(c.kind)}</span>
           <h3>${T(c.title)}</h3>
           ${T(c.stat) ? `<p class="ctl__stat">${T(c.stat)}</p>` : ""}
