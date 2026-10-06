@@ -633,7 +633,8 @@
         // typed branch: short place name + city, with a coloured tag
         const place = t(b.place) || t(b.name), city = cityName(b.city);
         const where = city && city !== place ? ` <span class="muted">— ${esc(city)}</span>` : "";
-        const wip = b.status === "progress" ? ` <span class="br__wip">${state.lang === "ar" ? "قيد التصميم" : "In design"}</span>` : "";
+        const exe = (p.disciplines || []).includes("execution");
+        const wip = b.status === "progress" ? ` <span class="br__wip">${state.lang === "ar" ? (exe ? "قيد التنفيذ" : "قيد التصميم") : exe ? "In progress" : "In design"}</span>` : "";
         const area = `<span class="br__area">${b.area ? `${esc(b.area)} ${state.lang === "ar" ? "م²" : "m²"}` : ""}</span>`;
         return `<li class="br br--${esc(b.kind)}"><bdi>${esc(place)}${where}${wip}</bdi>${area}<span class="br__tag">${esc((u().branchTag || {})[b.kind] || b.kind)}</span></li>`;
       }
