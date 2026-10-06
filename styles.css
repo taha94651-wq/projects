@@ -717,3 +717,7 @@ html[lang="ar"] .br__tag { letter-spacing: 0; font-size: 12px; }
 .ctl__pj:hover { color: var(--gold); }
 @media (max-width: 1000px) { .ctl-grid { grid-template-columns: 1fr; } }
 @media (max-width: 640px) { .ctl-grid { grid-template-columns: 1fr; } }
+.ai-card--wide { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); column-gap: clamp(20px, 3vw, 48px); align-content: start; padding: clamp(20px, 3vw, 40px); }
+.ai-card--wide > .ai-card__media { grid-row: 1 / span 5; }
+.ai-card--wide h3 { font-size: clamp(24px, 2.4vw, 36px); }
+@media (max-width: 760px) { .ai-card--wide { grid-template-columns: 1fr; } .ai-card--wide > .ai-card__media { grid-row: auto; } }

@@ -1,6 +1,29 @@
 {
   "items": [
     {
+      "id": "fayoum",
+      "kind": "images",
+      "title": {
+        "en": "Imagining Fayoum",
+        "ar": "تخيّل مباني الفيوم"
+      },
+      "desc": {
+        "en": "AI-generated studies imagining buildings for Fayoum, Egypt: desert mud-brick masses, pharaonic battered walls and carved reliefs, read through the oasis landscape and its warm earth tones.",
+        "ar": "صور مولّدة بالذكاء الاصطناعي لتخيّل مباني في مدينة الفيوم المصرية: كتل من الطوب اللبن في الصحراء، وجدران مائلة بروح فرعونية ونقوش بارزة، بألوان الأرض الدافئة لطبيعة الواحة."
+      },
+      "tools": [
+        "AI image generation"
+      ],
+      "src": "assets/images/ai/fayoum-03.jpg",
+      "gallery": [
+        "assets/images/ai/fayoum-03.jpg",
+        "assets/images/ai/fayoum-01.jpg",
+        "assets/images/ai/fayoum-02.jpg",
+        "assets/images/ai/fayoum-04.jpg",
+        "assets/images/ai/fayoum-05.jpg"
+      ]
+    },
+    {
       "kind": "images",
       "title": {
         "en": "When Frank Gehry Meets Zaha Hadid",
@@ -24,6 +47,42 @@
         "assets/images/ai/gehry-hadid-04.jpg"
       ],
       "link": ""
+    },
+    {
+      "id": "client-tools",
+      "kind": "tools",
+      "title": {
+        "en": "Client approval tools",
+        "ar": "أدوات اعتماد العميل"
+      },
+      "desc": {
+        "en": "Interactive web pages built with AI (Claude Code) for a villa client to approve lighting and pick wardrobe accessories room by room, then send the choices back over WhatsApp as a picture table. Demo copies, client name removed.",
+        "ar": "صفحات ويب تفاعلية اتعملت بالذكاء الاصطناعي (Claude Code) لعميل فيلا عشان يعتمد النجف ويختار إكسسوارات الخزائن فراغ بفراغ، ويبعت اختياراته على واتساب كجدول صور. نسخ عرض بدون اسم العميل."
+      },
+      "tools": [
+        "Claude Code",
+        "HTML",
+        "WhatsApp"
+      ],
+      "src": "assets/images/controls/client-selection.jpg",
+      "link": "demo/lighting-approval/",
+      "links": [
+        {
+          "label": {
+            "en": "Lighting approval",
+            "ar": "اعتماد النجف"
+          },
+          "src": "demo/lighting-approval/"
+        },
+        {
+          "label": {
+            "en": "Wardrobe accessories",
+            "ar": "إكسسوارات الخزائن"
+          },
+          "src": "demo/wardrobe-selection/"
+        }
+      ],
+      "wide": true
     }
   ]
 }

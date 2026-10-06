@@ -2122,6 +2122,109 @@
       }
     },
     {
+      "id": "beond-office",
+      "title": {
+        "en": "BEOND Office",
+        "ar": "مكتب بيوند"
+      },
+      "disciplines": [
+        "execution"
+      ],
+      "type": "offices",
+      "result": "",
+      "status": "progress",
+      "client": {
+        "en": "BEOND (airline)",
+        "ar": "بيوند للطيران"
+      },
+      "designer": {
+        "en": "",
+        "ar": ""
+      },
+      "company": {
+        "en": "",
+        "ar": ""
+      },
+      "location": {
+        "en": "Al Nafel, Riyadh — ground floor",
+        "ar": "حي النفل، الرياض — الدور الأرضي"
+      },
+      "year": "2026",
+      "duration": {
+        "en": "",
+        "ar": ""
+      },
+      "area": "",
+      "role": {
+        "en": "Fit-out execution — MEP works in progress",
+        "ar": "تنفيذ التشطيبات — أعمال الكهروميكانيك جارية"
+      },
+      "phases": [
+        "survey",
+        "drawings",
+        "supervision"
+      ],
+      "tools": [],
+      "summary": {
+        "en": "Ground-floor office fit-out in Al Nafel, Riyadh for BEOND, the premium leisure airline. The project is under execution, currently at the MEP stage; progress photos will follow as works advance.",
+        "ar": "تشطيب مكتب في الدور الأرضي بحي النفل في الرياض لشركة بيوند للطيران الفاخر. المشروع قيد التنفيذ حاليًا في مرحلة أعمال الكهروميكانيك، وهتتضاف صور التقدم مع تقدم الأعمال."
+      },
+      "scope": [
+        {
+          "en": "Office fit-out execution",
+          "ar": "تنفيذ تشطيبات المكتب"
+        },
+        {
+          "en": "MEP works coordination",
+          "ar": "تنسيق أعمال الكهروميكانيك"
+        },
+        {
+          "en": "Site supervision",
+          "ar": "الإشراف على الموقع"
+        }
+      ],
+      "cover": "assets/images/beond-office/screed-poster.jpg",
+      "coverVideo": "assets/videos/beond-screed.mp4",
+      "media": [
+        {
+          "type": "video",
+          "src": "assets/videos/beond-delivery.mp4",
+          "youtube": "",
+          "poster": "assets/images/beond-office/delivery-poster.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Night pour: concrete delivered and wheeled in",
+            "ar": "صبة ليلية: توريد الخرسانة ونقلها للموقع"
+          },
+          "section": {
+            "en": "Floor works — night pour",
+            "ar": "أعمال الأرضيات — صبة ليلية"
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/beond-screed.mp4",
+          "youtube": "",
+          "poster": "assets/images/beond-office/screed-poster.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Screed laid over the reinforcement mesh and levelled",
+            "ar": "صب طبقة اللياسة الأرضية فوق شبك التسليح وتسويتها"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "related": "",
+      "relatedLabel": {
+        "en": "",
+        "ar": ""
+      },
+      "noStagger": true
+    },
+    {
       "id": "makhazen-al-enaya-build",
       "title": {
         "en": "Makhazen Al Enaya — Display Units",
@@ -6787,77 +6890,6 @@
       "result": "",
       "coverVideo": "assets/videos/beluar-event-loop.mp4",
       "designer": {
-        "en": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "beond-office",
-      "title": {
-        "en": "BEOND Office",
-        "ar": "مكتب بيوند"
-      },
-      "disciplines": [
-        "execution"
-      ],
-      "type": "offices",
-      "result": "",
-      "status": "progress",
-      "client": {
-        "en": "BEOND (airline)",
-        "ar": "بيوند للطيران"
-      },
-      "designer": {
-        "en": "",
-        "ar": ""
-      },
-      "company": {
-        "en": "",
-        "ar": ""
-      },
-      "location": {
-        "en": "Al Nafel, Riyadh — ground floor",
-        "ar": "حي النفل، الرياض — الدور الأرضي"
-      },
-      "year": "2026",
-      "duration": {
-        "en": "",
-        "ar": ""
-      },
-      "area": "",
-      "role": {
-        "en": "Fit-out execution — MEP works in progress",
-        "ar": "تنفيذ التشطيبات — أعمال الكهروميكانيك جارية"
-      },
-      "phases": [
-        "survey",
-        "drawings",
-        "supervision"
-      ],
-      "tools": [],
-      "summary": {
-        "en": "Ground-floor office fit-out in Al Nafel, Riyadh for BEOND, the premium leisure airline. The project is under execution, currently at the MEP stage; progress photos will follow as works advance.",
-        "ar": "تشطيب مكتب في الدور الأرضي بحي النفل في الرياض لشركة بيوند للطيران الفاخر. المشروع قيد التنفيذ حاليًا في مرحلة أعمال الكهروميكانيك، وهتتضاف صور التقدم مع تقدم الأعمال."
-      },
-      "scope": [
-        {
-          "en": "Office fit-out execution",
-          "ar": "تنفيذ تشطيبات المكتب"
-        },
-        {
-          "en": "MEP works coordination",
-          "ar": "تنسيق أعمال الكهروميكانيك"
-        },
-        {
-          "en": "Site supervision",
-          "ar": "الإشراف على الموقع"
-        }
-      ],
-      "cover": "",
-      "coverVideo": "",
-      "media": [],
-      "related": "",
-      "relatedLabel": {
         "en": "",
         "ar": ""
       }
