@@ -2133,19 +2133,6 @@
         },
         {
           "name": {
-            "en": "Makeup renovation — Al Salamah",
-            "ar": "ترميم الميكب — حي السلامة"
-          },
-          "place": {
-            "en": "Al Salamah",
-            "ar": "حي السلامة"
-          },
-          "city": "jeddah",
-          "kind": "refit",
-          "status": "progress"
-        },
-        {
-          "name": {
             "en": "Makeup renovation — Dammam",
             "ar": "ترميم الميكب — الدمام"
           },
@@ -2154,6 +2141,18 @@
             "ar": "الدمام"
           },
           "city": "dammam",
+          "kind": "refit"
+        },
+        {
+          "name": {
+            "en": "Makeup renovation — Al Salamah",
+            "ar": "ترميم الميكب — حي السلامة"
+          },
+          "place": {
+            "en": "Al Salamah",
+            "ar": "حي السلامة"
+          },
+          "city": "jeddah",
           "kind": "refit",
           "status": "progress"
         },
@@ -2256,6 +2255,34 @@
           "caption": {
             "en": "A finished display unit, stocked",
             "ar": "وحدة عرض منفذة ومعبأة بالمنتجات"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/makhazen-dammam.mp4",
+          "youtube": "",
+          "poster": "assets/images/makhazen-al-enaya-build/dammam-poster.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Through the Makeup Home portal into the finished section",
+            "ar": "من بوابة Makeup Home لقسم الميكب بعد التنفيذ"
+          },
+          "section": {
+            "en": "Dammam branch — done",
+            "ar": "فرع الدمام — تم التنفيذ"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya-build/dammam-lounge.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Planter lounge and the beauty section",
+            "ar": "الجلسة الدائرية وقسم التجميل"
           },
           "section": {
             "en": "",
