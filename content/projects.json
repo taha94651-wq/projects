@@ -1009,6 +1009,7 @@
         "render",
         "materials",
         "drawings",
+        "boq",
         "supervision"
       ],
       "tools": [],
@@ -1032,6 +1033,10 @@
         {
           "en": "Construction drawings",
           "ar": "الرسومات التنفيذية"
+        },
+        {
+          "en": "Bills of quantities for the renovated branches",
+          "ar": "جداول الكميات للفروع المرممة"
         },
         {
           "en": "Display units executed in 4 of the branches",

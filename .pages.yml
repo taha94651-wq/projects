@@ -105,6 +105,7 @@ content:
                 - { value: facades, label: Facade design — تصميم الواجهات }
                 - { value: materials, label: Material selection — اختيار المواد }
                 - { value: sampleboard, label: Sample board — السامبل بورد }
+                - { value: boq, label: Bill of quantities (BOQ) — جداول الكميات }
                 - { value: pricing, label: Pricing — التسعير }
                 - { value: supervision, label: Site supervision — الإشراف }
                 - { value: handover, label: Handover — التسليم }
