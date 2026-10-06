@@ -41,6 +41,7 @@
       images: { ar: "صور مولّدة", en: "Generated Images" },
       sheets: { ar: "شيتات", en: "Sheets" },
       workflows: { ar: "هيكلة المشاريع", en: "Project Structuring" },
+      tools: { ar: "أدوات رقمية", en: "Digital tools" },
     },
     results: {
       winner: { ar: "فوز", en: "Winner" },
@@ -342,14 +343,14 @@
           ? `<div class="ai-series">${series.map((g, k) => `<figure class="ai-series__item" data-zoom="${esc(g)}" data-cap="${T(a.title)} — ${pad(k + 1)}"><img loading="lazy" src="${esc(g)}" alt="${T(a.title)} — ${pad(k + 1)}" /></figure>`).join("")}</div>`
           : `<div class="ai-card__media" data-zoom="${esc(src)}"><img loading="lazy" src="${esc(src)}" alt="${T(a.title)}" /></div>`;
         return `
-      <article class="ai-card reveal${series.length ? " ai-card--series" : ""}">
+      <article class="ai-card reveal${series.length ? " ai-card--series" : a.wide ? " ai-card--wide" : ""}">
         ${media}
         <span class="eyebrow gold">${T(D.aiKinds[a.kind])}</span>
         <h3>${T(a.title)}</h3>
         <p>${T(a.desc)}</p>
         <div class="ai-card__foot">
           <div class="tags">${(a.tools || []).map((x) => `<span class="tag">${esc(x)}</span>`).join("")}</div>
-          ${a.link ? `<a href="${esc(a.link)}" target="_blank" rel="noopener">${esc(u().open)} ↗</a>` : ""}
+          ${(a.links || []).length ? a.links.map((l) => `<a href="${esc(l.src)}" target="_blank" rel="noopener">${T(l.label)} ↗</a>`).join(" ") : a.link ? `<a href="${esc(a.link)}" target="_blank" rel="noopener">${esc(u().open)} ↗</a>` : ""}
         </div>
       </article>`;
       })
@@ -424,17 +425,17 @@
       .map((c) => {
         const pj = D.projects.find((x) => x.id === c.project);
         const files = (c.files || []).filter((f) => f && f.src);
-        const pdf = files.find((f) => /\.pdf$/i.test(f.src));
+        const pdf = files.find((f) => !/\.xlsx?$/i.test(f.src));
         const main = pdf ? pdf.src : files[0] ? files[0].src : pj ? "#/p/" + pj.id : "";
         const ext = main && !main.startsWith("#");
         return `<article class="ctl reveal">
-          <a class="ctl__media" href="${esc(main)}"${ext ? ' target="_blank" rel="noopener"' : ""}><img loading="lazy" src="${esc(c.poster || (pj ? cover(pj) : ""))}" alt="${T(c.title)}" />${ext ? '<span class="pdf-badge">PDF ↗</span>' : ""}</a>
+          <a class="ctl__media" href="${esc(main)}"${ext ? ' target="_blank" rel="noopener"' : ""}><img loading="lazy" src="${esc(c.poster || (pj ? cover(pj) : ""))}" alt="${T(c.title)}" />${ext ? `<span class="pdf-badge">${/\.pdf$/i.test(main) ? "PDF" : state.lang === "ar" ? "افتح" : "Open"} ↗</span>` : ""}</a>
           <span class="eyebrow gold">${T(c.kind)}</span>
           <h3>${T(c.title)}</h3>
           ${T(c.stat) ? `<p class="ctl__stat">${T(c.stat)}</p>` : ""}
           ${T(c.desc) ? `<p>${T(c.desc)}</p>` : ""}
           <div class="ctl__foot">
-            ${files.length ? `<div class="tags">${files.map((f) => `<a class="tag" href="${esc(f.src)}"${/\.pdf$/i.test(f.src) ? ' target="_blank" rel="noopener"' : " download"}>${T(f.label)} ${/\.pdf$/i.test(f.src) ? "↗" : "↓"}</a>`).join("")}</div>` : ""}
+            ${files.length ? `<div class="tags">${files.map((f) => `<a class="tag" href="${esc(f.src)}"${/\.xlsx?$/i.test(f.src) ? " download" : ' target="_blank" rel="noopener"'}>${T(f.label)} ${/\.xlsx?$/i.test(f.src) ? "↓" : "↗"}</a>`).join("")}</div>` : ""}
             ${pj ? `<a class="ctl__pj" href="#/p/${esc(pj.id)}">${esc(u().openProject)}: <bdi>${T(pj.title)}</bdi> ${state.lang === "ar" ? "←" : "→"}</a>` : ""}
           </div>
         </article>`;

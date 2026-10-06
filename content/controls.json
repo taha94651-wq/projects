@@ -38,6 +38,42 @@
     },
     {
       "kind": {
+        "en": "Client selection tools",
+        "ar": "أدوات اختيار واعتماد العميل"
+      },
+      "title": {
+        "en": "Interactive approval pages — lighting & wardrobe accessories",
+        "ar": "صفحات اعتماد تفاعلية — النجف وإكسسوارات الخزائن"
+      },
+      "stat": {
+        "en": "2 live tools · 13 lighting items · 51 accessories by space",
+        "ar": "أداتين · 13 بند إنارة · 51 إكسسوار حسب الفراغ"
+      },
+      "desc": {
+        "en": "Web pages I built for a villa client to pick and approve items room by room: the design image next to the available market model, approve or reject, then send the choices back as a picture table over WhatsApp. Demo copies, client name removed.",
+        "ar": "صفحات ويب عملتها لعميل فيلا عشان يختار ويعتمد البنود فراغ بفراغ: صورة التصميم جنب الموديل المتوفر في السوق، موافق أو غير موافق، وبعدين يبعت اختياراته كجدول صور على واتساب. نسخ عرض بدون اسم العميل."
+      },
+      "project": "",
+      "poster": "assets/images/controls/client-selection.jpg",
+      "files": [
+        {
+          "label": {
+            "en": "Lighting approval",
+            "ar": "اعتماد النجف"
+          },
+          "src": "demo/lighting-approval/"
+        },
+        {
+          "label": {
+            "en": "Wardrobe accessories",
+            "ar": "إكسسوارات الخزائن"
+          },
+          "src": "demo/wardrobe-selection/"
+        }
+      ]
+    },
+    {
+      "kind": {
         "en": "Bill of quantities",
         "ar": "جداول الكميات"
       },

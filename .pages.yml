@@ -230,12 +230,21 @@ content:
                 - { value: images, label: Generated images — صور مولّدة }
                 - { value: sheets, label: Sheets — شيتات }
                 - { value: workflows, label: Project structuring — هيكلة المشاريع }
+                - { value: tools, label: Digital tools — أدوات رقمية }
           - { name: title, label: Title — العنوان, component: bi }
           - { name: desc, label: Description — الوصف, component: bitext }
           - { name: tools, label: Tools — الأدوات, type: string, list: true }
           - { name: src, label: Image — صورة, type: image }
           - { name: gallery, label: "Series images (optional, shown as an exhibition strip) — مجموعة صور", type: image, list: true }
+          - { name: wide, label: "Full width card — كارت بعرض الصفحة", type: boolean }
           - { name: link, label: "External link (optional) — لينك خارجي", type: string }
+          - name: links
+            label: "More links (optional) — لينكات إضافية"
+            type: object
+            list: true
+            fields:
+              - { name: label, label: Label — الاسم, component: bi }
+              - { name: src, label: URL — اللينك, type: string }
 
   # ======================= ARCHITECTURAL PHOTOGRAPHY =======================
   - name: photography
