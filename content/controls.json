@@ -38,42 +38,61 @@
     },
     {
       "kind": {
-        "en": "Client selection tools",
-        "ar": "أدوات اختيار واعتماد العميل"
+        "en": "Client approval tool",
+        "ar": "أداة اعتماد للعميل"
       },
       "title": {
-        "en": "Interactive approval pages — lighting & wardrobe accessories",
-        "ar": "صفحات اعتماد تفاعلية — النجف وإكسسوارات الخزائن"
+        "en": "Lighting & chandeliers approval",
+        "ar": "اعتماد النجف والإنارات"
       },
       "stat": {
-        "en": "2 live tools · 13 lighting items · 51 accessories by space",
-        "ar": "أداتين · 13 بند إنارة · 51 إكسسوار حسب الفراغ"
+        "en": "13 items · design image vs. market model",
+        "ar": "13 بند · صورة التصميم مقابل الموديل المتوفر"
       },
       "desc": {
-        "en": "Web pages I built for a villa client to pick and approve items room by room: the design image next to the available market model, approve or reject, then send the choices back as a picture table over WhatsApp. Demo copies, client name removed.",
-        "ar": "صفحات ويب عملتها لعميل فيلا عشان يختار ويعتمد البنود فراغ بفراغ: صورة التصميم جنب الموديل المتوفر في السوق، موافق أو غير موافق، وبعدين يبعت اختياراته كجدول صور على واتساب. نسخ عرض بدون اسم العميل."
+        "en": "The client compares each designed fixture with the available market model, approves or rejects item by item, and sends the result back as a picture table over WhatsApp. Demo copy, client name removed.",
+        "ar": "العميل بيقارن كل نجفة في التصميم بالموديل المتوفر في السوق، ويوافق أو يرفض بند ببند، ويبعت النتيجة كجدول صور على واتساب. نسخة عرض بدون اسم العميل."
       },
       "project": "",
-      "poster": "assets/images/controls/client-selection.jpg",
+      "poster": "assets/images/controls/client-lighting.jpg",
       "files": [
         {
           "label": {
-            "en": "Lighting approval",
-            "ar": "اعتماد النجف"
+            "en": "Open the tool",
+            "ar": "افتح الأداة"
           },
-          "src": "demo/lighting-approval/",
-          "poster": "assets/images/controls/client-lighting.jpg"
-        },
+          "src": "demo/lighting-approval/"
+        }
+      ]
+    },
+    {
+      "kind": {
+        "en": "Client approval tool",
+        "ar": "أداة اعتماد للعميل"
+      },
+      "title": {
+        "en": "Wardrobe accessories selection",
+        "ar": "اختيار إكسسوارات خزائن الملابس"
+      },
+      "stat": {
+        "en": "51 accessories · 8 categories · room by room",
+        "ar": "51 إكسسوار · 8 أقسام · حسب الغرفة"
+      },
+      "desc": {
+        "en": "A catalogue where the client picks product, size and colour, assigns it to a room on the plan, and sends the selections as a picture table over WhatsApp. Demo copy, client name removed.",
+        "ar": "كتالوج العميل بيختار منه المنتج والمقاس واللون، ويحدد الغرفة من المخطط، ويبعت اختياراته كجدول صور على واتساب. نسخة عرض بدون اسم العميل."
+      },
+      "project": "",
+      "poster": "assets/images/controls/client-wardrobe.jpg",
+      "files": [
         {
           "label": {
-            "en": "Wardrobe accessories",
-            "ar": "إكسسوارات الخزائن"
+            "en": "Open the tool",
+            "ar": "افتح الأداة"
           },
-          "src": "demo/wardrobe-selection/",
-          "poster": "assets/images/controls/client-wardrobe.jpg"
+          "src": "demo/wardrobe-selection/"
         }
-      ],
-      "split": true
+      ]
     },
     {
       "kind": {
