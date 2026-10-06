@@ -38,6 +38,35 @@
     },
     {
       "kind": {
+        "en": "Material receiving · inspection report",
+        "ar": "استلام وفحص الخامات · مراجعة مستخلص"
+      },
+      "title": {
+        "en": "Private villa, Al Nakheel — marble slab receiving & inspection",
+        "ar": "فيلا سكنية بحي النخيل — استلام ألواح الرخام وفحصها"
+      },
+      "stat": {
+        "en": "14 items checked · 6 billed but not delivered · 20 m² broken slabs returned · 1 missed payment found",
+        "ar": "14 بند متراجع · 6 بنود متحاسب عليها ومتوردتش · 20 م² ألواح مكسورة مرتجعة · دفعة منسية اتكشفت"
+      },
+      "desc": {
+        "en": "The report I use to receive Carrara and Calacatta slabs and log every issue after inspection: quantities billed but not delivered, broken and duplicate slabs returned and deducted, the contractor's certificate checked line by line against approved quantities and the payment record, and the cost of the remaining ground-floor works. Prices removed; formulas and checks still work.",
+        "ar": "التقرير اللي بستلم بيه ألواح الرخام الكرارا والكالكتا وبرصد فيه كل مشاكلها بعد الفحص: كميات متحاسب عليها ومتوردتش، وألواح مكسورة ومكررة اترجعت واتخصمت، ومطابقة مستخلص المقاول بند بند مع الكميات المعتمدة وكشف الدفعات، وتكلفة أعمال الدور الأرضي المتبقية. الأسعار متشالة، والمعادلات والمطابقات شغالة."
+      },
+      "project": "",
+      "poster": "assets/images/controls/nakheel-marble.jpg",
+      "files": [
+        {
+          "label": {
+            "en": "Excel file",
+            "ar": "ملف الإكسل"
+          },
+          "src": "assets/docs/nakheel-villa-marble-inspection.xlsx"
+        }
+      ]
+    },
+    {
+      "kind": {
         "en": "Client approval tool",
         "ar": "أداة اعتماد للعميل"
       },
