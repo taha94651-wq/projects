@@ -271,6 +271,34 @@ content:
               - { name: thumb, label: "Small version (optional) — نسخة صغيرة", type: image }
               - { name: caption, label: "Caption (optional) — الوصف", component: bi }
 
+  - name: controls
+    label: Project Controls — إدارة وضبط المشاريع
+    type: file
+    path: content/controls.json
+    format: json
+    fields:
+      - name: items
+        label: Documents
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title.en}"
+        fields:
+          - { name: kind, label: "Type (e.g. BOQ, RACI, programme) — النوع", component: bi }
+          - { name: title, label: Title — العنوان, component: bi }
+          - { name: stat, label: "Key figure (optional) — رقم مختصر", component: bi }
+          - { name: desc, label: "Description (optional) — الوصف", component: bi }
+          - { name: project, label: "Project ID (optional) — كود المشروع", type: string }
+          - { name: poster, label: Cover image — صورة الغلاف, type: image }
+          - name: files
+            label: Files — الملفات
+            type: object
+            list: true
+            fields:
+              - { name: label, label: Label — الاسم, component: bi }
+              - { name: src, label: File — الملف, type: file }
+
   # ============================ PROFILE ============================
   - name: site
     label: Profile & CV — البيانات والسيرة
