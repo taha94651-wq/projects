@@ -2145,19 +2145,6 @@
         },
         {
           "name": {
-            "en": "Makeup renovation — Al Salamah",
-            "ar": "ترميم الميكب — حي السلامة"
-          },
-          "place": {
-            "en": "Al Salamah",
-            "ar": "حي السلامة"
-          },
-          "city": "jeddah",
-          "kind": "refit",
-          "status": "progress"
-        },
-        {
-          "name": {
             "en": "Makeup renovation — Al Khobar",
             "ar": "ترميم الميكب — الخبر"
           },
@@ -2166,6 +2153,19 @@
             "ar": "الخبر"
           },
           "city": "khobar",
+          "kind": "refit",
+          "status": "progress"
+        },
+        {
+          "name": {
+            "en": "Makeup renovation — Al Salamah",
+            "ar": "ترميم الميكب — حي السلامة"
+          },
+          "place": {
+            "en": "Al Salamah",
+            "ar": "حي السلامة"
+          },
+          "city": "jeddah",
           "kind": "refit",
           "status": "progress"
         }
@@ -2287,6 +2287,21 @@
           "section": {
             "en": "",
             "ar": ""
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/makhazen-khobar.mp4",
+          "youtube": "",
+          "poster": "assets/images/makhazen-al-enaya-build/khobar-poster.jpg",
+          "size": "wide",
+          "caption": {
+            "en": "Installation under way: units in place, lit panels and finishing in progress",
+            "ar": "التركيب جاري: الوحدات في مكانها، واللوحات المضيئة والتشطيب شغالين"
+          },
+          "section": {
+            "en": "Al Khobar branch — in progress",
+            "ar": "فرع الخبر — قيد التنفيذ"
           }
         }
       ],
