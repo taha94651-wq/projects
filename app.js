@@ -479,7 +479,7 @@
       </details>`
       )
       .join("");
-    const skills = D.skills.map((g) => `<div class="col"><h3>${T(g.group)}</h3><ul class="plain">${g.items.map((s) => `<li>${esc(s)}</li>`).join("")}</ul></div>`).join("");
+    const skills = D.skills.map((g) => `<div class="col"><h3>${T(g.group)}</h3><div class="chips chips--soft">${g.items.map((s) => `<span>${esc(s)}</span>`).join("")}</div></div>`).join("");
     const soft = D.software
       .map((g) => `<div class="col"><h3>${T(g.group)}</h3><div class="chips">${g.items.map((s) => `<span${/claude|chatgpt/i.test(s) ? ' class="ai"' : ""}>${esc(s)}</span>`).join("")}</div></div>`)
       .join("");
@@ -489,24 +489,57 @@
     const langs = D.languages.map((l) => `<li class="kv"><span>${T(l.name)}</span><span>${T(l.level)}</span></li>`).join("");
     const edu = D.education.map((e) => `<li class="kv"><span>${T(e.title)}</span><span>${esc(e.period || "")}</span></li>`).join("");
 
+    const P = D.profile;
+    const blk = (id, label, body, cls = "") => `<div class="block reveal" id="pf-${id}"><span class="eyebrow">${label}</span><div class="block__body${cls}">${body}</div></div>`;
+    const parts = [
+      P.photo && ["about", esc(u().about), `<div class="about">
+            <img class="about__photo" src="${esc(P.photo)}" alt="${T(P.name)}" width="164" height="164" />
+            <div><p class="about__name">${T(P.name)}</p><p class="about__meta">${T(P.title)} · ${T(P.location)}</p>
+            <div class="about__cta">${P.cv ? `<a class="btn btn--solid" href="${esc(P.cv)}" download target="_blank" rel="noopener">${esc(u().downloadCv)} ↓</a>` : ""}${P.whatsapp ? `<a class="btn" href="https://wa.me/${esc(P.whatsapp)}" target="_blank" rel="noopener">${esc(u().whatsapp)} ↗</a>` : ""}</div></div>
+          </div>`],
+      clients && ["clients", esc(u().clients), `<ul class="clients">${clients}</ul>`],
+      ["exp", esc(u().experience), exp, " exp-list"],
+      ["skills", esc(u().skills), skills, " cols"],
+      ["soft", esc(u().software), soft, " cols"],
+      ["lang", `${esc(u().languages)} / ${esc(u().education)}`, `<ul class="plain">${langs}</ul><ul class="plain">${edu}</ul>`, " cols"],
+    ].filter(Boolean);
+    const short = { about: u().about, clients: u().clients, exp: u().experience, skills: u().skills, soft: u().software, lang: u().languages };
+
     return `
     <section class="section light" id="profile">
       <div class="wrap">
         ${sectionHead(no, "profile", u().nav.profile, null, null)}
+        <nav class="pf-nav" aria-label="${esc(u().nav.profile)}">${parts.map(([id]) => `<button type="button" data-pf="${id}">${esc(short[id])}</button>`).join("")}</nav>
         <div class="profile-grid">
-          ${D.profile.photo ? `<div class="block reveal"><span class="eyebrow">${esc(u().about)}</span><div class="block__body about">
-            <img class="about__photo" src="${esc(D.profile.photo)}" alt="${T(D.profile.name)}" width="164" height="164" />
-            <div><p class="about__name">${T(D.profile.name)}</p><p class="about__meta">${T(D.profile.title)} · ${T(D.profile.location)}</p></div>
-          </div></div>` : ""}
-          ${clients ? `<div class="block reveal"><span class="eyebrow">${esc(u().clients)}</span><div class="block__body"><ul class="clients">${clients}</ul></div></div>` : ""}
-          <div class="block reveal"><span class="eyebrow">${esc(u().experience)}</span><div class="block__body exp-list">${exp}</div></div>
-          <div class="block reveal"><span class="eyebrow">${esc(u().skills)}</span><div class="block__body cols">${skills}</div></div>
-          <div class="block reveal"><span class="eyebrow">${esc(u().software)}</span><div class="block__body cols">${soft}</div></div>
-          <div class="block reveal"><span class="eyebrow">${esc(u().languages)} / ${esc(u().education)}</span>
-            <div class="block__body cols"><ul class="plain">${langs}</ul><ul class="plain">${edu}</ul></div></div>
+          ${parts.map(([id, label, body, cls]) => blk(id, label, body, cls || "")).join("")}
         </div>
       </div>
     </section>`;
+  }
+
+  function pfNav() {
+    const nav = document.querySelector(".pf-nav");
+    if (!nav) return;
+    const btns = [...nav.querySelectorAll("button")];
+    nav.addEventListener("click", (e) => {
+      const b = e.target.closest("button[data-pf]");
+      if (!b) return;
+      const el = document.getElementById("pf-" + b.dataset.pf);
+      el.classList.add("in");
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    const seen = new IntersectionObserver(
+      (es) => es.forEach((x) => {
+        if (!x.isIntersecting) return;
+        btns.forEach((b) => {
+          const on = "pf-" + b.dataset.pf === x.target.id;
+          b.classList.toggle("on", on);
+          if (on) nav.scrollTo({ left: b.offsetLeft - nav.clientWidth / 2 + b.offsetWidth / 2, behavior: "smooth" });
+        });
+      }),
+      { rootMargin: "-45% 0px -50% 0px" }
+    );
+    btns.forEach((b) => seen.observe(document.getElementById("pf-" + b.dataset.pf)));
   }
 
   function contactSection() {
@@ -549,6 +582,7 @@
       profileSection(7) +
       contactSection();
     waFab();
+    pfNav();
     state.view = "home";
   }
 
