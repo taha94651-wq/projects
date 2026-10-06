@@ -5433,6 +5433,144 @@
       }
     },
     {
+      "id": "fakhriya-palace",
+      "title": {
+        "en": "Al Fakhriya Palace",
+        "ar": "قصر الفاخرية"
+      },
+      "disciplines": [
+        "execution"
+      ],
+      "type": "residential",
+      "result": "",
+      "status": "built",
+      "client": {
+        "en": "Private client",
+        "ar": "عميل خاص"
+      },
+      "designer": {
+        "en": "",
+        "ar": ""
+      },
+      "company": {
+        "en": "Safana Architects",
+        "ar": "سفانة للعمارة"
+      },
+      "location": {
+        "en": "Al Fakhriya district",
+        "ar": "حي الفاخرية"
+      },
+      "year": "2024",
+      "duration": {
+        "en": "",
+        "ar": ""
+      },
+      "area": "630 m²",
+      "role": {
+        "en": "Site supervision of the fit-out works",
+        "ar": "الإشراف على تنفيذ أعمال التشطيب"
+      },
+      "phases": [
+        "materials",
+        "drawings",
+        "supervision",
+        "handover"
+      ],
+      "tools": [],
+      "summary": {
+        "en": "Fit-out execution of a 630 m² private palace. The centrepiece is natural onyx: slabs selected and cut on site, then built into a backlit kitchen island and a full-height feature wall, set against walnut timber cladding and marble floors. Works ran from shop-drawing checks on site through installation, lighting and finishing, out to the pool terrace and the lit façade.",
+        "ar": "تنفيذ تشطيبات قصر خاص بمساحة 630 م². العنصر الأساسي فيه الأونكس الطبيعي: ألواح اتختارت واتقصت في الموقع، واتعمل منها جزيرة مطبخ مضاءة من الداخل وجدار مميز بارتفاع الدور، مع تكسيات خشب الجوز وأرضيات الرخام. الأعمال مشيت من مراجعة الرسومات التنفيذية في الموقع، للتركيب والإضاءة والتشطيب، لحد تراس حمام السباحة وإضاءة الواجهة."
+      },
+      "scope": [
+        {
+          "en": "Onyx selection, cutting and installation",
+          "ar": "اختيار الأونكس وتقطيعه وتركيبه"
+        },
+        {
+          "en": "Backlit onyx kitchen island",
+          "ar": "جزيرة مطبخ من الأونكس المضاء"
+        },
+        {
+          "en": "Onyx feature wall and timber wall cladding",
+          "ar": "جدار الأونكس وتكسيات الخشب"
+        },
+        {
+          "en": "Site supervision to handover",
+          "ar": "الإشراف على الموقع حتى التسليم"
+        }
+      ],
+      "cover": "assets/images/fakhriya-palace/onyx-island-poster.jpg",
+      "coverVideo": "assets/videos/fakhriya-onyx-island.mp4",
+      "media": [
+        {
+          "type": "video",
+          "src": "assets/videos/fakhriya-onyx-island.mp4",
+          "youtube": "",
+          "poster": "assets/images/fakhriya-palace/onyx-island-poster.jpg",
+          "size": "half",
+          "caption": {
+            "en": "The backlit onyx island: from slab to light",
+            "ar": "جزيرة الأونكس المضاءة: من اللوح للإضاءة"
+          },
+          "section": {
+            "en": "Onyx",
+            "ar": "الأونكس"
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/fakhriya-onyx-wall.mp4",
+          "youtube": "",
+          "poster": "assets/images/fakhriya-palace/onyx-wall-poster.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Onyx feature wall and timber cladding",
+            "ar": "جدار الأونكس وتكسيات الخشب"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/fakhriya-kitchen.mp4",
+          "youtube": "",
+          "poster": "assets/images/fakhriya-palace/kitchen-poster.jpg",
+          "size": "half",
+          "caption": {
+            "en": "The kitchen with the island in place",
+            "ar": "المطبخ بعد تركيب الجزيرة"
+          },
+          "section": {
+            "en": "Kitchen and site",
+            "ar": "المطبخ والموقع"
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/fakhriya-site.mp4",
+          "youtube": "",
+          "poster": "assets/images/fakhriya-palace/site-poster.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Shop drawings on site, pool terrace and lit façade",
+            "ar": "الرسومات التنفيذية في الموقع، وتراس حمام السباحة، والواجهة مضاءة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "noStagger": true,
+      "related": "",
+      "relatedLabel": {
+        "en": "",
+        "ar": ""
+      }
+    },
+    {
       "id": "chadel-chalet",
       "title": {
         "en": "Chadel Chalet",
