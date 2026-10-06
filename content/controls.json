@@ -1,0 +1,36 @@
+{
+  "items": [
+    {
+      "kind": { "en": "Bill of quantities", "ar": "جداول الكميات" },
+      "title": { "en": "Makhazen Al Enaya — renovation BOQs", "ar": "مخازن العناية — جداول كميات الترميم" },
+      "stat": { "en": "265 items · 4 branches · 5–6 work packages each", "ar": "265 بند · 4 فروع · 5–6 حزم أعمال لكل فرع" },
+      "desc": { "en": "Quantities and technical specifications for the makeup-section renovation, item by item with design snapshots (prices removed).", "ar": "كميات ومواصفات فنية لترميم قسم الميكب، بند ببند مع لقطات من التصميم (بدون أسعار)." },
+      "project": "makhazen-al-enaya-renovation",
+      "poster": "assets/images/makhazen-al-enaya-renovation-boq/khobar.jpg",
+      "files": [
+        { "label": { "en": "Al Hamra", "ar": "الحمراء" }, "src": "assets/docs/boq-hamra.pdf" },
+        { "label": { "en": "Al Khobar", "ar": "الخبر" }, "src": "assets/docs/boq-khobar.pdf" },
+        { "label": { "en": "Dammam", "ar": "الدمام" }, "src": "assets/docs/boq-dammam.pdf" },
+        { "label": { "en": "Jeddah", "ar": "جدة" }, "src": "assets/docs/boq-jeddah.pdf" }
+      ]
+    },
+    {
+      "kind": { "en": "Sample board · material approval", "ar": "السامبل بورد · اعتماد المواد" },
+      "title": { "en": "ASSAF — samples board", "ar": "عساف — السامبل بورد" },
+      "stat": { "en": "Finishes approved for 11 branches", "ar": "تشطيبات معتمدة لـ11 فرع" },
+      "desc": { "en": "Physical sample boards and the client approval document for finishes, metals and fabrics.", "ar": "لوحات عينات فعلية ومستند اعتماد العميل للتشطيبات والمعادن والأقمشة." },
+      "project": "assaf-perfumes",
+      "poster": "assets/images/assaf-perfumes/sample-board-pdf-cover.jpg",
+      "files": [ { "label": { "en": "Samples board", "ar": "السامبل بورد" }, "src": "assets/docs/assaf-samples-board.pdf" } ]
+    },
+    {
+      "kind": { "en": "Technical catalogue", "ar": "كتالوج فني" },
+      "title": { "en": "Makhazen Al Enaya — display units", "ar": "مخازن العناية — وحدات العرض" },
+      "stat": { "en": "17 units · 3D + plan, elevations, sections", "ar": "17 وحدة · 3D مع مسقط وواجهات وقطاعات" },
+      "desc": { "en": "A fabrication-ready catalogue of every display unit rolled out across the branches.", "ar": "كتالوج جاهز للتصنيع لكل وحدات العرض المنفذة في الفروع." },
+      "project": "makhazen-al-enaya-units",
+      "poster": "assets/images/makhazen-units/overview-cover.jpg",
+      "files": []
+    }
+  ]
+}

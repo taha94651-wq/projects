@@ -75,9 +75,10 @@
   /* ---------- UI strings ---------- */
   const UI = {
     en: {
-      nav: { execution: "Execution", design: "Design", competition: "Competitions", photography: "Photography", ai: "AI Work", profile: "Profile", contact: "Contact" },
+      nav: { execution: "Execution", controls: "Project Controls", design: "Design", competition: "Competitions", photography: "Photography", ai: "AI Work", profile: "Profile", contact: "Contact" },
       all: "All", index: "Index", profile: "Profile", viewWork: "View work", downloadCv: "Download CV",
       execIntro: "Projects delivered on site — my role, the scope I owned and the time it took.",
+      controlsIntro: "The documents behind the work: bills of quantities, sample boards and technical catalogues, gathered from the projects.", openProject: "Open project",
       designIntro: "Design work — project type, year and my exact role in each.",
       compIntro: "Architecture competitions I entered, from student years onward.",
       photoIntro: "Architectural photography — how I read spaces, light and material through the lens.",
@@ -90,9 +91,10 @@
       rights: "All rights reserved.", execution: "Execution", design: "Design", competition: "Competition", result: "Result",
     },
     ar: {
-      nav: { execution: "التنفيذ", design: "التصميم", competition: "المسابقات", photography: "التصوير", ai: "الذكاء الاصطناعي", profile: "السيرة", contact: "تواصل" },
+      nav: { execution: "التنفيذ", controls: "إدارة وضبط المشاريع", design: "التصميم", competition: "المسابقات", photography: "التصوير", ai: "الذكاء الاصطناعي", profile: "السيرة", contact: "تواصل" },
       all: "الكل", index: "الفهرس", profile: "نبذة", viewWork: "شاهد الأعمال", downloadCv: "تحميل السيرة الذاتية",
       execIntro: "مشاريع تم تنفيذها في الموقع — دوري، ونطاق العمل الذي توليته، والمدة.",
+      controlsIntro: "المستندات وراء الشغل: جداول الكميات، والسامبل بورد، والكتالوجات الفنية، مجمّعة من المشاريع.", openProject: "صفحة المشروع",
       designIntro: "أعمال التصميم — نوع المشروع وسنته ودوري بالتحديد في كل مشروع.",
       compIntro: "مسابقات معمارية شاركت فيها منذ سنوات الدراسة.",
       photoIntro: "التصوير المعماري — كيف أقرأ الفراغ والضوء والخامة من خلال العدسة.",
@@ -193,7 +195,7 @@
   const projectsIn = (disc) => D.projects.filter((p) => p.disciplines.includes(disc));
 
   /* ---------- Nav & menu ---------- */
-  const sections = ["execution", "design", "competition", "photography", "ai", "profile", "contact"];
+  const sections = ["execution", "controls", "design", "competition", "photography", "ai", "profile", "contact"];
 
   function renderChrome() {
     html.lang = state.lang;
@@ -245,7 +247,7 @@
           <p class="hero__summary">${T(P.summary)}</p>
           <div class="hero__cta">
             <a class="btn btn--solid" href="#execution">${esc(u().viewWork)} <span>${arrow}</span></a>
-            ${P.cv ? `<a class="btn" href="${esc(P.cv)}" download>${esc(u().downloadCv)}</a>` : ""}
+            ${P.cv ? `<a class="btn" href="${esc(P.cv)}" download target="_blank" rel="noopener">${esc(u().downloadCv)}</a>` : ""}
           </div>
         </div>
       </div>
@@ -414,6 +416,36 @@
     show.querySelector(".ph-show__cap").textContent = slides[i].dataset.capShort || "";
   }
 
+  // project controls: an index of documents (BOQs, sample boards, catalogues) that live inside project pages
+  function controlsSection(no) {
+    const list = D.controls || [];
+    if (!list.length) return "";
+    const cards = list
+      .map((c) => {
+        const pj = D.projects.find((x) => x.id === c.project);
+        const files = (c.files || []).filter((f) => f && f.src);
+        const main = files[0] ? files[0].src : pj ? "#/p/" + pj.id : "";
+        const ext = main && !main.startsWith("#");
+        return `<article class="ctl reveal">
+          <a class="ctl__media" href="${esc(main)}"${ext ? ' target="_blank" rel="noopener"' : ""}><img loading="lazy" src="${esc(c.poster || (pj ? cover(pj) : ""))}" alt="${T(c.title)}" />${ext ? '<span class="pdf-badge">PDF ↗</span>' : ""}</a>
+          <span class="eyebrow gold">${T(c.kind)}</span>
+          <h3>${T(c.title)}</h3>
+          ${T(c.stat) ? `<p class="ctl__stat">${T(c.stat)}</p>` : ""}
+          ${T(c.desc) ? `<p>${T(c.desc)}</p>` : ""}
+          <div class="ctl__foot">
+            ${files.length > 1 ? `<div class="tags">${files.map((f) => `<a class="tag" href="${esc(f.src)}" target="_blank" rel="noopener">${T(f.label)} ↗</a>`).join("")}</div>` : ""}
+            ${pj ? `<a class="ctl__pj" href="#/p/${esc(pj.id)}">${esc(u().openProject)}: <bdi>${T(pj.title)}</bdi> ${state.lang === "ar" ? "←" : "→"}</a>` : ""}
+          </div>
+        </article>`;
+      })
+      .join("");
+    return `
+    <section class="section wrap" id="controls">
+      ${sectionHead(no, "controls", u().nav.controls, list.length, u().controlsIntro)}
+      <div class="ctl-grid">${cards}</div>
+    </section>`;
+  }
+
   function aiSection(no) {
     const opts = [{ id: "all", label: u().all, count: D.ai.length }].concat(
       Object.keys(D.aiKinds)
@@ -484,7 +516,7 @@
         <div><span class="eyebrow">${esc(u().based)}</span><span>${T(P.location)}</span></div>
         <div><span class="eyebrow">${esc(u().online)}</span>${P.socials.map((s) => `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.label)} ↗</a>`).join("")}</div>
       </div>
-      ${P.cv ? `<p style="margin-top:32px"><a class="btn btn--solid" href="${esc(P.cv)}" download>${esc(u().downloadCv)} ↓</a></p>` : ""}
+      ${P.cv ? `<p style="margin-top:32px"><a class="btn btn--solid" href="${esc(P.cv)}" download target="_blank" rel="noopener">${esc(u().downloadCv)} ↓</a></p>` : ""}
       <footer class="footer" style="background:none"><span>© ${new Date().getFullYear()} ${T(P.name)}. ${esc(u().rights)}</span><a href="#top">↑</a></footer>
     </section>`;
   }
@@ -494,11 +526,12 @@
     app.innerHTML =
       heroHTML() +
       workSection(1, "execution", u().execIntro) +
-      workSection(2, "design", u().designIntro) +
-      workSection(3, "competition", u().compIntro) +
-      photoSection(4) +
-      aiSection(5) +
-      profileSection(6) +
+      controlsSection(2) +
+      workSection(3, "design", u().designIntro) +
+      workSection(4, "competition", u().compIntro) +
+      photoSection(5) +
+      aiSection(6) +
+      profileSection(7) +
       contactSection();
     state.view = "home";
   }
@@ -848,9 +881,9 @@
     if (!r.ok) throw new Error(f + " " + r.status);
     return r.json();
   });
-  Promise.all([load("content/site.json"), load("content/projects.json"), load("content/ai.json"), load("content/photos.json").catch(() => ({}))])
-    .then(([site, pj, ai, ph]) => {
-      D = Object.assign({}, site, VOCAB, { projects: pj.projects || [], ai: ai.items || [], photos: ph.items || [] });
+  Promise.all([load("content/site.json"), load("content/projects.json"), load("content/ai.json"), load("content/photos.json").catch(() => ({})), load("content/controls.json").catch(() => ({}))])
+    .then(([site, pj, ai, ph, ct]) => {
+      D = Object.assign({}, site, VOCAB, { projects: pj.projects || [], ai: ai.items || [], photos: ph.items || [], controls: ct.items || [] });
       state.lang = pickLang();
       boot();
     })
