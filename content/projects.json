@@ -2057,6 +2057,179 @@
       }
     },
     {
+      "id": "makhazen-al-enaya-build",
+      "title": {
+        "en": "Makhazen Al Enaya — Display Units",
+        "ar": "مخازن العناية — تنفيذ وحدات العرض"
+      },
+      "disciplines": [
+        "execution"
+      ],
+      "type": "retail",
+      "result": "",
+      "status": "progress",
+      "client": {
+        "en": "Makhazen Al Enaya",
+        "ar": "مخازن العناية"
+      },
+      "designer": {
+        "en": "",
+        "ar": ""
+      },
+      "company": {
+        "en": "VIVID Design / PHZYN Construction",
+        "ar": "VIVID Design / PHZYN Construction"
+      },
+      "location": {
+        "en": "4 branches: Riyadh, Al Khobar, Dammam, Jeddah",
+        "ar": "4 فروع: الرياض، الخبر، الدمام، جدة"
+      },
+      "year": "2026",
+      "duration": {
+        "en": "",
+        "ar": ""
+      },
+      "area": "",
+      "role": {
+        "en": "Execution of the display units",
+        "ar": "تنفيذ وحدات العرض"
+      },
+      "phases": [
+        "drawings",
+        "supervision",
+        "handover"
+      ],
+      "tools": [],
+      "summary": {
+        "en": "Execution of the new makeup-section display units for four renovated Makhazen Al Enaya branches: Al Hamra in Riyadh, Al Khobar, Dammam and Al Salamah in Jeddah. The units are produced in the factory, then installed and finished on site to the new brand identity; works are ongoing.",
+        "ar": "تنفيذ وحدات العرض الجديدة لقسم الميكب في أربعة فروع مُرمّمة لمخازن العناية: حي الحمراء بالرياض، والخبر، والدمام، وحي السلامة بجدة. الوحدات بتتصنع في المصنع، وبعدين بتتركب وتتشطب في الموقع وفق الهوية الجديدة، والأعمال جارية."
+      },
+      "scope": [
+        {
+          "en": "Factory production follow-up",
+          "ar": "متابعة التصنيع في المصنع"
+        },
+        {
+          "en": "Execution of makeup-section display units",
+          "ar": "تنفيذ وحدات عرض قسم الميكب"
+        },
+        {
+          "en": "Installation in 4 branches",
+          "ar": "التركيب في 4 فروع"
+        }
+      ],
+      "branches": [
+        {
+          "name": {
+            "en": "Makeup renovation — Al Hamra",
+            "ar": "ترميم الميكب — حي الحمراء"
+          },
+          "place": {
+            "en": "Al Hamra",
+            "ar": "حي الحمراء"
+          },
+          "city": "riyadh",
+          "kind": "refit"
+        },
+        {
+          "name": {
+            "en": "Makeup renovation — Al Salamah",
+            "ar": "ترميم الميكب — حي السلامة"
+          },
+          "place": {
+            "en": "Al Salamah",
+            "ar": "حي السلامة"
+          },
+          "city": "jeddah",
+          "kind": "refit"
+        },
+        {
+          "name": {
+            "en": "Makeup renovation — Dammam",
+            "ar": "ترميم الميكب — الدمام"
+          },
+          "place": {
+            "en": "Dammam",
+            "ar": "الدمام"
+          },
+          "city": "dammam",
+          "kind": "refit"
+        },
+        {
+          "name": {
+            "en": "Makeup renovation — Al Khobar",
+            "ar": "ترميم الميكب — الخبر"
+          },
+          "place": {
+            "en": "Al Khobar",
+            "ar": "الخبر"
+          },
+          "city": "khobar",
+          "kind": "refit"
+        }
+      ],
+      "cover": "assets/images/makhazen-al-enaya-build/factory-poster.jpg",
+      "coverVideo": "assets/videos/makhazen-factory.mp4",
+      "media": [
+        {
+          "type": "video",
+          "src": "assets/videos/makhazen-factory.mp4",
+          "youtube": "",
+          "poster": "assets/images/makhazen-al-enaya-build/factory-poster.jpg",
+          "size": "third",
+          "caption": {
+            "en": "In the factory: cutting, edge-banding and assembly",
+            "ar": "في المصنع: التقطيع وتركيب الشريط والتجميع"
+          },
+          "section": {
+            "en": "From the factory to the store",
+            "ar": "من المصنع إلى الفرع"
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/makhazen-install.mp4",
+          "youtube": "",
+          "poster": "assets/images/makhazen-al-enaya-build/install-poster.jpg",
+          "size": "third",
+          "caption": {
+            "en": "On site: fixing the units and the lit graphics",
+            "ar": "في الموقع: تثبيت الوحدات واللوحات المضيئة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/makhazen-site.mp4",
+          "youtube": "",
+          "poster": "assets/images/makhazen-al-enaya-build/site-poster.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Final alignment and finishing",
+            "ar": "الضبط النهائي والتشطيب"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "related": "makhazen-al-enaya-renovation",
+      "relatedLabel": {
+        "en": "See the renovation design",
+        "ar": "شاهد تصميم الترميم"
+      },
+      "family": "makhazen-al-enaya",
+      "chapter": {
+        "en": "Execution",
+        "ar": "التنفيذ"
+      },
+      "noStagger": true
+    },
+    {
       "id": "assaf-perfumes",
       "title": {
         "en": "Assaf Display Units",
@@ -6397,128 +6570,6 @@
       "relatedLabel": {
         "en": "",
         "ar": ""
-      }
-    },
-    {
-      "id": "makhazen-al-enaya-build",
-      "title": {
-        "en": "Makhazen Al Enaya — Display Units",
-        "ar": "مخازن العناية — تنفيذ وحدات العرض"
-      },
-      "disciplines": [
-        "execution"
-      ],
-      "type": "retail",
-      "result": "",
-      "status": "built",
-      "client": {
-        "en": "Makhazen Al Enaya",
-        "ar": "مخازن العناية"
-      },
-      "designer": {
-        "en": "",
-        "ar": ""
-      },
-      "company": {
-        "en": "VIVID Design / PHZYN Construction",
-        "ar": "VIVID Design / PHZYN Construction"
-      },
-      "location": {
-        "en": "4 branches: Riyadh, Al Khobar, Dammam, Jeddah",
-        "ar": "4 فروع: الرياض، الخبر، الدمام، جدة"
-      },
-      "year": "2026",
-      "duration": {
-        "en": "",
-        "ar": ""
-      },
-      "area": "",
-      "role": {
-        "en": "Execution of the display units",
-        "ar": "تنفيذ وحدات العرض"
-      },
-      "phases": [
-        "drawings",
-        "supervision",
-        "handover"
-      ],
-      "tools": [],
-      "summary": {
-        "en": "Execution of the new makeup-section display units in four renovated Makhazen Al Enaya branches: Al Hamra in Riyadh, Al Khobar, Dammam and Al Salamah in Jeddah, following the redesign to the new brand identity.",
-        "ar": "تنفيذ وحدات العرض الجديدة لقسم الميكب في أربعة فروع مُرمّمة لمخازن العناية: حي الحمراء بالرياض، والخبر، والدمام، وحي السلامة بجدة، بعد إعادة تصميمها وفق الهوية الجديدة."
-      },
-      "scope": [
-        {
-          "en": "Execution of makeup-section display units",
-          "ar": "تنفيذ وحدات عرض قسم الميكب"
-        },
-        {
-          "en": "Installation in 4 branches",
-          "ar": "التركيب في 4 فروع"
-        }
-      ],
-      "branches": [
-        {
-          "name": {
-            "en": "Makeup renovation — Al Hamra",
-            "ar": "ترميم الميكب — حي الحمراء"
-          },
-          "place": {
-            "en": "Al Hamra",
-            "ar": "حي الحمراء"
-          },
-          "city": "riyadh",
-          "kind": "refit"
-        },
-        {
-          "name": {
-            "en": "Makeup renovation — Al Salamah",
-            "ar": "ترميم الميكب — حي السلامة"
-          },
-          "place": {
-            "en": "Al Salamah",
-            "ar": "حي السلامة"
-          },
-          "city": "jeddah",
-          "kind": "refit"
-        },
-        {
-          "name": {
-            "en": "Makeup renovation — Dammam",
-            "ar": "ترميم الميكب — الدمام"
-          },
-          "place": {
-            "en": "Dammam",
-            "ar": "الدمام"
-          },
-          "city": "dammam",
-          "kind": "refit"
-        },
-        {
-          "name": {
-            "en": "Makeup renovation — Al Khobar",
-            "ar": "ترميم الميكب — الخبر"
-          },
-          "place": {
-            "en": "Al Khobar",
-            "ar": "الخبر"
-          },
-          "city": "khobar",
-          "kind": "refit"
-        }
-      ],
-      "cover": "",
-      "coverVideo": "",
-      "media": [],
-      "related": "makhazen-al-enaya-renovation",
-      "relatedLabel": {
-        "en": "See the renovation design",
-        "ar": "شاهد تصميم الترميم"
-      },
-      "family": "makhazen-al-enaya",
-      "chapter": {
-        "en": "Execution",
-        "ar": "التنفيذ"
       }
     },
     {
