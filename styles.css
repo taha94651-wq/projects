@@ -799,3 +799,5 @@ html[lang="ar"] .fl__head { letter-spacing: 0; font-size: 13px; }
 .cert__ic { flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--gold); color: var(--gold); font-size: 13px; margin-top: 1px; }
 .certs .tag { margin-inline-start: auto; flex: none; }
 @media (max-width: 760px) { .certs { grid-template-columns: 1fr; } }
+.certs small .nw { white-space: nowrap; }
+.certs small .nw:first-child { white-space: normal; }
