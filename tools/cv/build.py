@@ -17,15 +17,16 @@ def qr_svg(url):
 
 # key projects: (name, scope, place, year)
 projects = [
- ('BEOND Office', 'Office fit-out execution for the premium airline — in progress', 'Al Nafel, Riyadh', '2026'),
- ('Makhazen Al Enaya', '13 branches: 7 new branches, 6 makeup-section renovations, a 17-unit display catalogue; units executed in 4 branches', 'Riyadh · Jeddah · Dammam · Al Khobar · Abha · Qassim', '2026'),
+ ('BEOND Office', 'Office fit-out execution for the premium airline: blockwork, MEP, floor slab — in progress', 'Al Nafel, Riyadh', '2026'),
+ ('Makhazen Al Enaya', '13 branches: 7 new branches, 6 makeup-section renovations, a 17-unit display catalogue, 265-item BOQs; units executed in 4 branches', 'Riyadh · Jeddah · Dammam · Al Khobar · Abha · Qassim', '2026'),
  ('ASSAF', 'Display units in 11 branches: shop drawings, sample boards, full supervision; Galeria Mall booth; campaign set', 'KSA', '2026'),
+ ('Private villa — project controls', 'Project structure, 50-activity programme, 16 procurement schedules; AI-built client approval tools', 'Al Nakheel, Riyadh', '2026'),
  ('Al Fakhriya Palace', '630 m² private palace — fit-out execution, backlit onyx island and feature wall', 'Safana Architects', '2024'),
+ ('Al Zahrani Office', '120 m² executive office — walnut joinery, backlit shelving, bespoke marble desk', 'Al Malqa, Riyadh', '2025'),
  ('Al Nakheel Villa', '490 m², VIP client — business development, pricing, execution and furniture', 'Riyadh', '2025'),
  ('Sayl 31 Apartment', '160 m² — design to handover: concept, drawings, pricing, execution', 'Al Nada, Riyadh', '2024'),
  ('Fitness Time Ladies · Old School Gym', 'Gym fit-out: pricing, execution and handover', 'Riyadh', '2025'),
  ('Laverne', 'In-mall booth: specification, pricing, fabrication and installation in 10 days', 'Cenomi Al Nakheel Mall', '2026'),
- ('Rasees · Beluar', 'Brand events: material selection and execution supervision', 'Tuwaiq, Riyadh', '2026'),
 ]
 
 row = lambda label, body, cls='': f'<section class="row {cls}"><div class="lab">{label}</div><div class="body">{body}</div></section>'
@@ -49,22 +50,22 @@ page = f'''<!doctype html><html><head><meta charset="utf-8"><title>Mostafa Taha 
 html,body {{ margin:0; background:var(--bg); color:var(--fg); font-family:H,"Liberation Sans",sans-serif; font-weight:400; font-size:8.4pt; line-height:1.4; -webkit-print-color-adjust:exact; print-color-adjust:exact; }}
 .page {{ padding:13mm 15mm 11mm; -webkit-box-decoration-break:clone; box-decoration-break:clone; }}
 .top {{ display:flex; justify-content:space-between; font-size:7pt; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); padding-bottom:6mm; border-bottom:.6pt solid var(--line); }}
-.hero {{ display:grid; grid-template-columns:38mm 1fr 24mm; gap:8mm; align-items:center; padding:6mm 0; border-bottom:.6pt solid var(--line); }}
-.hero img.ph {{ width:38mm; height:38mm; border-radius:50%; object-fit:cover; background:#fff; }}
+.hero {{ display:grid; grid-template-columns:34mm 1fr 22mm; gap:8mm; align-items:center; padding:5mm 0; border-bottom:.6pt solid var(--line); }}
+.hero img.ph {{ width:34mm; height:34mm; border-radius:50%; object-fit:cover; background:#fff; }}
 h1 {{ font-weight:400; font-size:34pt; line-height:.95; letter-spacing:-.03em; margin:0 0 3mm; }}
 .sub {{ font-size:10.5pt; color:var(--muted); margin:0 0 3mm; }} .sub i {{ font-style:normal; color:var(--gold); }}
 .contact {{ font-size:8pt; color:var(--muted); }} .contact b {{ color:var(--fg); font-weight:500; }} a {{ color:inherit; text-decoration:none; }}
 .qr {{ text-align:center; font-size:6.5pt; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }} .qr img {{ width:24mm; height:24mm; display:block; margin:0 auto 2mm; }}
-.row {{ display:grid; grid-template-columns:34mm 1fr; gap:6mm; padding:4.6mm 0; border-bottom:.6pt solid var(--line); }}
+.row {{ display:grid; grid-template-columns:34mm 1fr; gap:6mm; padding:3.8mm 0; border-bottom:.6pt solid var(--line); }}
 .lab {{ font-size:7pt; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); padding-top:1mm; }}
 .summary {{ font-size:10pt; line-height:1.4; font-weight:300; letter-spacing:-.005em; margin:0; }}
-.clients {{ display:grid; grid-template-columns:repeat(3,1fr); }} .cl {{ border-top:.6pt solid var(--line); padding:2mm 3mm 2mm 0; break-inside:avoid; }}
+.clients {{ display:grid; grid-template-columns:repeat(3,1fr); }} .cl {{ border-top:.6pt solid var(--line); padding:1.5mm 3mm 1.5mm 0; break-inside:avoid; }}
 .cl b {{ display:block; font-weight:400; font-size:11pt; letter-spacing:-.01em; }} .cl span {{ color:var(--muted); font-size:7.5pt; }}
 .job {{ display:grid; grid-template-columns:24mm 1fr; gap:5mm; padding:0 0 3mm; margin-bottom:3mm; border-bottom:.6pt solid var(--line); }} .job li, .job h3 {{ break-inside:avoid; }} .job h3 {{ break-after:avoid; }} .job:last-child {{ border:0; margin:0; padding:0; }}
 .per {{ color:var(--muted); font-size:7.8pt; padding-top:1mm; }}
 h3 {{ font-weight:400; font-size:12pt; letter-spacing:-.01em; margin:0; }} .co {{ color:var(--muted); margin:0 0 2mm; }}
 ul {{ margin:0; padding:0; list-style:none; }} .job li {{ position:relative; padding-left:4mm; margin-bottom:.6mm; color:rgba(11,11,10,.8); }} .job li:before {{ content:"—"; position:absolute; left:0; color:var(--gold); }}
-.pj {{ display:grid; grid-template-columns:7mm 1fr 38mm 10mm; gap:4mm; padding:1.8mm 0; border-top:.6pt solid var(--line); break-inside:avoid; }}
+.pj {{ display:grid; grid-template-columns:7mm 1fr 38mm 10mm; gap:4mm; padding:1.4mm 0; border-top:.6pt solid var(--line); break-inside:avoid; }}
 .pj .n {{ color:var(--gold); font-size:7.5pt; padding-top:.8mm; }} .pj b {{ font-weight:400; font-size:10.5pt; }} .pj p {{ margin:.6mm 0 0; color:var(--muted); }}
 .pj .pl, .pj .yr {{ color:var(--muted); font-size:7.8pt; padding-top:.8mm; }} .pj .yr {{ text-align:right; }}
 .ed {{ display:flex; justify-content:space-between; gap:6mm; padding:1.6mm 0; border-top:.6pt solid var(--line); }} .ed b {{ font-weight:400; font-size:10pt; }} .ed span, .ed a {{ color:var(--muted); }}
@@ -73,6 +74,7 @@ h4 {{ font-size:7pt; letter-spacing:.16em; text-transform:uppercase; font-weight
 .list li {{ padding:1.5mm 0; border-top:.6pt solid var(--line); }}
 .chips {{ display:flex; flex-wrap:wrap; gap:1.6mm; }} .chips span {{ border:.6pt solid var(--line); border-radius:99px; padding:.6mm 2.4mm; font-size:7.4pt; }}
 .keep {{ break-inside:avoid; }}
+.kf {{ display:grid; grid-template-columns:repeat(4,1fr); gap:4mm; }} .kf b {{ display:block; font-weight:300; font-size:22pt; line-height:1; color:var(--gold); }} .kf span {{ color:var(--muted); font-size:7.6pt; }}
 .foot {{ display:flex; justify-content:space-between; padding-top:5mm; font-size:7pt; color:var(--muted); letter-spacing:.06em; }}
 </style></head><body><div class="page">
 <div class="top"><span>{e(en(P["title"]))}</span><span>{e(en(P["location"]))}</span></div>
@@ -81,6 +83,7 @@ h4 {{ font-size:7pt; letter-spacing:.16em; text-transform:uppercase; font-weight
 <div class="contact"><b>{e(P["phone"])}</b> · <a href="mailto:{e(P["email"])}">{e(P["email"])}</a><br>Portfolio: <a href="{PORTFOLIO}"><b>{PORTFOLIO.replace("https://","").rstrip("/")}</b></a></div></div>
 <div class="qr"><img src="{qr_svg(PORTFOLIO)}" alt="">Portfolio</div></div>
 {row("About", f'<p class="summary">{e(en(P["summary"]))}</p>')}
+{row("Key figures", '<div class="kf">' + ''.join(f'<div><b>{e(x["value"])}</b><span>{e(en(x["label"]))}</span></div>' for x in P.get("stats", [])) + '</div>', "keep")}
 {row("Key clients", f'<div class="clients">{clients}</div>', "keep")}
 {row("Experience", exp)}
 {row("Key projects", proj)}

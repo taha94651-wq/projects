@@ -46,8 +46,8 @@
         "ar": "اعتماد النجف والإنارات"
       },
       "stat": {
-        "en": "13 items · design image vs. market model",
-        "ar": "13 بند · صورة التصميم مقابل الموديل المتوفر"
+        "en": "13 items · design image vs. market model · built with AI (Claude Code)",
+        "ar": "13 بند · صورة التصميم مقابل الموديل المتوفر · اتعملت بالذكاء الاصطناعي (Claude Code)"
       },
       "desc": {
         "en": "The client compares each designed fixture with the available market model, approves or rejects item by item, and sends the result back as a picture table over WhatsApp. Demo copy, client name removed.",
@@ -75,8 +75,8 @@
         "ar": "اختيار إكسسوارات خزائن الملابس"
       },
       "stat": {
-        "en": "51 accessories · 8 categories · room by room",
-        "ar": "51 إكسسوار · 8 أقسام · حسب الغرفة"
+        "en": "51 accessories · 8 categories · room by room · built with AI (Claude Code)",
+        "ar": "51 إكسسوار · 8 أقسام · حسب الغرفة · اتعملت بالذكاء الاصطناعي (Claude Code)"
       },
       "desc": {
         "en": "A catalogue where the client picks product, size and colour, assigns it to a room on the plan, and sends the selections as a picture table over WhatsApp. Demo copy, client name removed.",

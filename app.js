@@ -253,6 +253,7 @@
             ${P.cv ? `<a class="btn" href="${esc(P.cv)}" download target="_blank" rel="noopener">${esc(u().downloadCv)}</a>` : ""}
           </div>
         </div>
+        ${(P.stats || []).length ? `<div class="hero__stats reveal">${P.stats.map((x) => `<div><b>${esc(x.value)}</b><span>${T(x.label)}</span></div>`).join("")}</div>` : ""}
       </div>
       ${portrait}
       ${P.heroImage ? `<figure class="bleed" style="margin:0; grid-column: 1 / -1"><img data-parallax src="${esc(P.heroImage)}" alt="" /></figure>` : ""}
@@ -525,6 +526,16 @@
     </section>`;
   }
 
+  function waFab() {
+    if (document.getElementById("waFab") || !D.profile.whatsapp) return;
+    const a = document.createElement("a");
+    a.id = "waFab"; a.className = "wa-fab"; a.target = "_blank"; a.rel = "noopener";
+    a.href = "https://wa.me/" + D.profile.whatsapp;
+    a.setAttribute("aria-label", "WhatsApp");
+    a.innerHTML = '<svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.5.7 4.9 2 6.9L3 29l6.7-2.2c1.9 1.1 4.1 1.6 6.3 1.6 7 0 12.7-5.7 12.7-12.7S23 3 16 3zm0 23.2c-2 0-3.9-.5-5.5-1.5l-.4-.2-4 1.3 1.3-3.9-.3-.4c-1.1-1.7-1.7-3.7-1.7-5.8C5.4 9.8 10.2 5 16 5s10.6 4.8 10.6 10.6S21.8 26.2 16 26.2zm5.8-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.6-.9-.8-1.6-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.8 5 .8.4 1.4.6 1.9.7.8.3 1.6.2 2.2.1.7-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>';
+    document.body.appendChild(a);
+  }
+
   function renderHome() {
     document.title = `${t(D.profile.name)} — ${t(D.profile.title).split("|")[0].trim()}`;
     app.innerHTML =
@@ -537,6 +548,7 @@
       aiSection(6) +
       profileSection(7) +
       contactSection();
+    waFab();
     state.view = "home";
   }
 
@@ -658,6 +670,7 @@
       ${nextHTML}
       ${contactSection()}
     </article>`;
+    waFab();
     state.view = "project:" + id;
   }
 
