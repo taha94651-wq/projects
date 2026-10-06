@@ -384,9 +384,11 @@ const byId = Object.fromEntries(P.map(p=>[p.id,p]));
 
 // ——— state ———
 const KEY="tw-selections-v2";
+const TITLE="اختيار اكسسوارات خزائن ملابس فيلا المرشد";
 let cart=[], client={name:"",phone:"",project:"",notes:""};
-try{const s=JSON.parse(localStorage.getItem(KEY)||"null"); if(s){cart=(s.cart||[]).filter(x=>byId[x.id]); client=Object.assign(client,s.client||{});}}catch(e){}
-const save=()=>{try{localStorage.setItem(KEY,JSON.stringify({cart,client}))}catch(e){}};
+// الصفحة تفتح فاضية في كل مرة: مفيش حفظ للاختيارات، وأي نسخة قديمة محفوظة بتتمسح
+try{localStorage.removeItem(KEY);localStorage.removeItem("tw-selections-v1");}catch(e){}
+const save=()=>{};
 const spaceBy=id=>SPACES.find(r=>r.id===id);
 const locLabel=x=>spaceBy(x.space)?.name||"بدون فراغ محدد";
 const qtyIn=id=>cart.filter(x=>x.space===id).reduce((a,x)=>a+x.qty,0);
@@ -509,6 +511,72 @@ function groups(){
   return [...m.entries()].sort((a,b)=>{const ia=order.indexOf(a[0]),ib=order.indexOf(b[0]);return (ia<0?1e9:ia)-(ib<0?1e9:ib);});
 }
 function codeOf(x){const p=byId[x.id]; return (x.opt>=0&&p.o[x.opt].code)||p.code;}
+/* ---- جدول الاختيارات كصورة (الغرف + صور المنتجات) ---- */
+const loadImg=src=>new Promise(r=>{const i=new Image();i.onload=()=>r(i);i.onerror=()=>r(null);i.src=src;});
+function wrapLines(ctx,text,maxW){const out=[];let cur="";for(const w of String(text).split(/\s+/)){const t=cur?cur+" "+w:w;if(cur&&ctx.measureText(t).width>maxW){out.push(cur);cur=w;}else cur=t;}if(cur)out.push(cur);return out;}
+function rr(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();}
+function fitImg(ctx,img,x,y,w,h,bg){ctx.fillStyle=bg||"#f3f7fa";rr(ctx,x,y,w,h,14);ctx.fill();if(!img)return;ctx.save();rr(ctx,x,y,w,h,14);ctx.clip();const k=Math.min(w/img.width,h/img.height);const iw=img.width*k,ih=img.height*k;ctx.drawImage(img,x+(w-iw)/2,y+(h-ih)/2,iw,ih);ctx.restore();}
+async function buildPNG(){
+  try{await Promise.all([document.fonts.load('600 28px "IBM Plex Sans Arabic"'),document.fonts.load('400 24px "IBM Plex Sans Arabic"'),document.fonts.load('700 40px Alexandria')]);}catch(e){}
+  const BODY='"IBM Plex Sans Arabic",system-ui,Tahoma,sans-serif', DISP='Alexandria,"IBM Plex Sans Arabic",system-ui,sans-serif';
+  const W=1080,P=40,R=W-P,T=170,QW=134, xT=R-T, infoR=xT-22, infoW=infoR-P-QW-10;
+  const gs=groups();
+  const [logo,...rest]=await Promise.all([loadImg("img/phzyn-logo.png"),...cart.map(x=>loadImg("img/"+x.id+".jpg")),...gs.map(([k])=>spaceBy(k)&&spaceBy(k).img?loadImg(spaceBy(k).img):Promise.resolve(null))]);
+  const pI=rest.slice(0,cart.length), sI=rest.slice(cart.length);
+  const m=document.createElement("canvas").getContext("2d"); m.direction="rtl";
+  const rows=cart.map((x,i)=>{const p=byId[x.id];
+    m.font=`600 27px ${BODY}`; const nm=wrapLines(m,p.n,infoW);
+    const c=codeOf(x); const meta=`${BRAND[p.b]}${c?" · كود "+c:""}`;
+    m.font=`400 23px ${BODY}`; const vr=variant(x).flatMap(v=>wrapLines(m,v,infoW)); const nt=x.note?wrapLines(m,"ملاحظة: "+x.note,infoW).slice(0,3):[];
+    const h=Math.max(T+34,18+nm.length*34+30+vr.length*30+nt.length*30+16); return{x,p,nm,meta,vr,nt,h};});
+  const gl=client.notes?(m.font=`400 24px ${BODY}`,wrapLines(m,"ملاحظات عامة: "+client.notes,W-2*P)):[];
+  m.font=`700 40px ${DISP}`; const tl=wrapLines(m,TITLE,W-2*P);
+  const HEAD=150+tl.length*56+70, GH=124, FOOT=90+gl.length*34;
+  const H=HEAD+gs.reduce((a,[k,idx])=>a+GH+idx.reduce((b,i)=>b+rows[i].h,0),0)+FOOT;
+  const c=document.createElement("canvas"); c.width=W; c.height=H; const g=c.getContext("2d"); g.direction="rtl"; g.textAlign="right"; g.textBaseline="alphabetic";
+  g.fillStyle="#f5f9fc"; g.fillRect(0,0,W,H);
+  g.fillStyle="#fff"; rr(g,P,28,W-2*P,92,46); g.fill(); g.strokeStyle="#e2e9ee"; g.lineWidth=2; g.stroke();
+  if(logo){const lh=44,lw=logo.width*lh/logo.height; g.drawImage(logo,R-34-lw,28+(92-lh)/2,lw,lh);}
+  g.fillStyle="#6a737b"; g.font=`500 24px ${BODY}`; g.textAlign="left"; g.fillText(new Date().toLocaleDateString("ar-EG"),P+34,28+54); g.textAlign="right";
+  g.fillStyle="#17191a"; g.font=`700 40px ${DISP}`; tl.forEach((l,i)=>g.fillText(l,R,186+i*56));
+  let cy=186+(tl.length-1)*56+34; let cx=R;
+  [[`${fmt(cart.length)} بند`,"#0f798e"],[`${fmt(totalQty())} قطعة`,"#4b4e51"],[`${fmt(gs.length)} غرفة`,"#4b4e51"]].forEach(([txt,col])=>{g.font=`600 26px ${BODY}`; const w=g.measureText(txt).width+44; g.fillStyle=col; rr(g,cx-w,cy,w,46,23); g.fill(); g.fillStyle="#fff"; g.fillText(txt,cx-22,cy+32); cx-=w+12;});
+  let y=HEAD;
+  gs.forEach(([k,idx],gi)=>{
+    const sp=spaceBy(k), q=idx.reduce((a,i)=>a+cart[i].qty,0);
+    g.fillStyle="#e8f1f5"; g.fillRect(P-12,y,W-2*P+24,GH);
+    let tx=R;
+    if(sI[gi]){const ph=92,pw=Math.min(150,sI[gi].width*ph/sI[gi].height); fitImg(g,sI[gi],R-pw,y+(GH-ph)/2,pw,ph,"#fff"); tx=R-pw-18;}
+    g.fillStyle="#0f798e"; g.font=`700 34px ${DISP}`; g.fillText(sp?sp.name:"بدون فراغ محدد",tx,y+GH/2+12);
+    g.fillStyle="#4b4e51"; g.font=`600 26px ${BODY}`; g.textAlign="left"; g.fillText(`${fmt(q)} قطعة`,P,y+GH/2+10); g.textAlign="right";
+    y+=GH;
+    idx.forEach(i=>{const r=rows[i];
+      g.fillStyle="#ffffff"; g.fillRect(P-12,y,W-2*P+24,r.h); g.fillStyle="#e2e9ee"; g.fillRect(P-12,y,W-2*P+24,2);
+      fitImg(g,pI[i],xT,y+(r.h-T)/2,T,T);
+      let ly=y+18+26; g.fillStyle="#17191a"; g.font=`600 27px ${BODY}`; r.nm.forEach(l=>{g.fillText(l,infoR,ly);ly+=34;});
+      g.fillStyle="#6a737b"; g.font=`400 23px ${BODY}`; g.fillText(r.meta,infoR,ly); ly+=30;
+      g.fillStyle="#3d4246"; r.vr.forEach(l=>{g.fillText(l,infoR,ly);ly+=30;}); g.fillStyle="#c2410c"; r.nt.forEach(l=>{g.fillText(l,infoR,ly);ly+=30;});
+      const qy=y+r.h/2; g.fillStyle="#0f798e"; rr(g,P,qy-30,116,60,30); g.fill(); g.fillStyle="#fff"; g.font=`700 27px ${BODY}`; g.textAlign="center"; g.fillText(fmt(r.x.qty)+" قطعة",P+58,qy+10); g.textAlign="right";
+      y+=r.h;});
+  });
+  g.fillStyle="#e2e9ee"; g.fillRect(P-12,y,W-2*P+24,2);
+  let fy=y+44; g.fillStyle="#3d4246"; g.font=`400 24px ${BODY}`; gl.forEach(l=>{g.fillText(l,R,fy);fy+=34;});
+  g.fillStyle="#6a737b"; g.font=`500 22px ${BODY}`; g.textAlign="center"; g.fillText("فزين · PHZYN",W/2,H-28);
+  return new Promise(res=>c.toBlob(res,"image/png"));
+}
+function saveBlob(blob){const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="murshid-selections.png";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),4000);}
+let canShareFile=false;
+try{canShareFile=!!(navigator.canShare&&navigator.canShare({files:[new File(["x"],"a.png",{type:"image/png"})]}));}catch(e){}
+async function shareTable(){
+  const b=$("#shareImg"), note=$("#copyNote"), old=b.textContent;
+  b.disabled=true; b.textContent="جاري تجهيز الصورة…";
+  try{
+    const blob=await buildPNG(); const file=new File([blob],"murshid-selections.png",{type:"image/png"});
+    if(canShareFile){ try{await navigator.share({files:[file],title:TITLE});note.textContent="اتبعت. تقدر تكمّل أو تعدّل وتبعت تاني.";}catch(e){ if(e&&e.name!=="AbortError"){saveBlob(blob);note.textContent="الصورة اتحفظت على جهازك، ابعتها على واتساب.";} } }
+    else{ saveBlob(blob); note.textContent="الصورة اتحفظت على جهازك، ابعتها على واتساب."; }
+  }catch(e){ note.textContent="حصلت مشكلة في تجهيز الصورة. استخدم «إرسال على واتساب»."; }
+  if(b.isConnected){b.disabled=false; b.textContent=old;}
+}
 function message(){
   const L=["اختيار اكسسوارات خزائن ملابس فيلا المرشد",""];
   let k=0;
@@ -557,9 +625,10 @@ function drawBasket(){
       <div class="sum"><span>عدد البنود: <b>${fmt(cart.length)}</b></span><span>إجمالي القطع: <b>${fmt(totalQty())}</b></span></div>
       <div class="send">
         <a class="wa" id="waLink" href="${wa}" target="_blank" rel="noopener">إرسال على واتساب</a>
-        <button class="cp" type="button" id="copyBtn">نسخ القائمة</button>
+        <button class="cp" type="button" id="shareImg">${canShareFile?"مشاركة كصورة":"تنزيل كصورة"}</button>
       </div>
-      <p class="note" id="copyNote">واتساب يفتح والرسالة جاهزة، اختار الشخص اللي هتبعتله. أو انسخ القائمة والصقها في أي محادثة.</p>
+      <p class="note" id="copyNote">«إرسال على واتساب» يفتح واتساب والقائمة مكتوبة جاهزة. «مشاركة كصورة» تجهّز جدول بصور المنتجات والغرف.</p>
+      <button class="link" type="button" id="copyBtn" style="align-self:flex-start">أو انسخ القائمة كنص</button>
     </footer>`:""}
   </aside>`;
 }
@@ -595,10 +664,11 @@ document.addEventListener("click",e=>{
     if(t.id==="askClear"){ confirmClear=true; drawBasket(); return; }
     if(t.id==="noClear"){ confirmClear=false; drawBasket(); return; }
     if(t.id==="doClear"){ cart=[]; confirmClear=false; save(); drawBasket(); refreshAll(); return; }
+    if(t.id==="shareImg"){ shareTable(); return; }
     if(t.id==="copyBtn"){
       const txt=message(), note=$("#copyNote");
       const fallback=()=>{let ta=$("#msgFb"); if(!ta){ta=document.createElement("textarea");ta.id="msgFb";ta.readOnly=true;ta.rows=6;note.after(ta);} ta.value=txt; ta.focus(); ta.select(); note.textContent="تم تحديد النص. انسخه يدوياً وأرسله لنا."};
-      const ok=()=>{t.textContent="✓ تم النسخ"; t.classList.add("done"); note.textContent="القائمة اتنسخت، الصقها في أي محادثة."; setTimeout(()=>{if(t.isConnected){t.textContent="نسخ القائمة"; t.classList.remove("done");}},2500);};
+      const ok=()=>{t.textContent="✓ تم النسخ"; note.textContent="القائمة اتنسخت، الصقها في أي محادثة."; setTimeout(()=>{if(t.isConnected){t.textContent="أو انسخ القائمة كنص";}},2500);};
       try{ navigator.clipboard.writeText(txt).then(ok,fallback);}catch(err){fallback();}
       return;
     }
