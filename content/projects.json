@@ -392,6 +392,18 @@
         },
         {
           "name": {
+            "en": "New branch — Al Takhassusi",
+            "ar": "فرع جديد — التخصصي"
+          },
+          "place": {
+            "en": "Al Takhassusi",
+            "ar": "التخصصي"
+          },
+          "city": "riyadh",
+          "kind": "new"
+        },
+        {
+          "name": {
             "en": "New branch — Abu Bakr Al Siddiq Rd",
             "ar": "فرع جديد — طريق أبو بكر الصديق"
           },
@@ -402,18 +414,6 @@
           "city": "riyadh",
           "kind": "new",
           "area": "1,200"
-        },
-        {
-          "name": {
-            "en": "New branch — Al Takhassusi",
-            "ar": "فرع جديد — التخصصي"
-          },
-          "place": {
-            "en": "Al Takhassusi",
-            "ar": "التخصصي"
-          },
-          "city": "riyadh",
-          "kind": "new"
         },
         {
           "name": {
@@ -764,6 +764,84 @@
           "caption": {
             "en": "Planter lounge in the beauty section",
             "ar": "الجلسة الدائرية في قسم التجميل"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/takh-ortho.jpg",
+          "size": "lead",
+          "caption": {
+            "en": "3D top view of the store",
+            "ar": "منظور علوي ثلاثي الأبعاد للفرع"
+          },
+          "section": {
+            "en": "Al Takhassusi branch, Riyadh",
+            "ar": "فرع التخصصي، الرياض"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/takh-facade.jpg",
+          "size": "side",
+          "caption": {
+            "en": "Storefront",
+            "ar": "الواجهة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/takh-entrance.jpg",
+          "size": "side",
+          "caption": {
+            "en": "Entrance and customer service",
+            "ar": "المدخل وخدمة العملاء"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/takh-canopy-aisle.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Feature canopy over the main aisle",
+            "ar": "مظلة الهوية فوق الممر الرئيسي"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/takh-beauty-station.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Beauty station",
+            "ar": "ركن التجميل"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/takh-kids-area.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Kids area",
+            "ar": "منطقة الأطفال"
           },
           "section": {
             "en": "",
