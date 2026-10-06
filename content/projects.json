@@ -2141,7 +2141,8 @@
             "ar": "حي السلامة"
           },
           "city": "jeddah",
-          "kind": "refit"
+          "kind": "refit",
+          "status": "progress"
         },
         {
           "name": {
@@ -2153,7 +2154,8 @@
             "ar": "الدمام"
           },
           "city": "dammam",
-          "kind": "refit"
+          "kind": "refit",
+          "status": "progress"
         },
         {
           "name": {
@@ -2165,7 +2167,8 @@
             "ar": "الخبر"
           },
           "city": "khobar",
-          "kind": "refit"
+          "kind": "refit",
+          "status": "progress"
         }
       ],
       "cover": "assets/images/makhazen-al-enaya-build/factory-poster.jpg",
@@ -2225,6 +2228,34 @@
           "caption": {
             "en": "Final alignment and finishing",
             "ar": "الضبط النهائي والتشطيب"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/makhazen-hamra.mp4",
+          "youtube": "",
+          "poster": "assets/images/makhazen-al-enaya-build/hamra-poster.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Walk-through of the finished makeup section",
+            "ar": "جولة في قسم الميكب بعد التنفيذ"
+          },
+          "section": {
+            "en": "Al Hamra branch, Riyadh — done",
+            "ar": "فرع الحمراء، الرياض — تم التنفيذ"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-al-enaya-build/hamra-unit.jpg",
+          "size": "half",
+          "caption": {
+            "en": "A finished display unit, stocked",
+            "ar": "وحدة عرض منفذة ومعبأة بالمنتجات"
           },
           "section": {
             "en": "",
