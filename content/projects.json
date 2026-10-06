@@ -1509,6 +1509,66 @@
             "en": "",
             "ar": ""
           }
+        },
+        {
+          "type": "pdf",
+          "src": "assets/docs/boq-hamra.pdf",
+          "youtube": "",
+          "poster": "assets/images/makhazen-al-enaya-renovation-boq/hamra.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Al Hamra, Riyadh — 85 items in 6 packages (PDF, prices removed)",
+            "ar": "الحمراء، الرياض — 85 بند في 6 حزم (PDF، بدون أسعار)"
+          },
+          "section": {
+            "en": "Bills of quantities — 265 items across 4 branches",
+            "ar": "جداول الكميات — 265 بند في 4 فروع"
+          }
+        },
+        {
+          "type": "pdf",
+          "src": "assets/docs/boq-dammam.pdf",
+          "youtube": "",
+          "poster": "assets/images/makhazen-al-enaya-renovation-boq/dammam.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Dammam — 58 items in 5 packages (PDF, prices removed)",
+            "ar": "الدمام — 58 بند في 5 حزم (PDF، بدون أسعار)"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "pdf",
+          "src": "assets/docs/boq-khobar.pdf",
+          "youtube": "",
+          "poster": "assets/images/makhazen-al-enaya-renovation-boq/khobar.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Al Khobar — 65 items in 5 packages (PDF, prices removed)",
+            "ar": "الخبر — 65 بند في 5 حزم (PDF، بدون أسعار)"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "pdf",
+          "src": "assets/docs/boq-jeddah.pdf",
+          "youtube": "",
+          "poster": "assets/images/makhazen-al-enaya-renovation-boq/jeddah.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Al Salamah, Jeddah — 57 items in 5 packages (PDF, prices removed)",
+            "ar": "السلامة، جدة — 57 بند في 5 حزم (PDF، بدون أسعار)"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
         }
       ],
       "related": "makhazen-al-enaya-units",
