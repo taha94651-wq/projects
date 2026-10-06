@@ -702,7 +702,7 @@ html[lang="ar"] .br__tag { letter-spacing: 0; font-size: 12px; }
 .br__wip { display: inline-block; margin-inline-start: 10px; padding: 1px 8px; border: 1px dashed var(--line); border-radius: 999px; color: var(--muted); font-size: 11px; letter-spacing: 0.04em; vertical-align: middle; }
 
 /* ============ Project controls ============ */
-.ctl-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border-block: 1px solid var(--line); }
+.ctl-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border-block: 1px solid var(--line); }
 .ctl { background: var(--bg); padding: 20px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
 .ctl__media { position: relative; display: block; aspect-ratio: 4 / 3; overflow: hidden; background: var(--ink); }
 .ctl__media img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: transform 1.2s var(--ease); }
@@ -715,5 +715,5 @@ html[lang="ar"] .br__tag { letter-spacing: 0; font-size: 12px; }
 .ctl__foot a.tag { text-decoration: none; }
 .ctl__pj { color: inherit; text-decoration: none; font-size: 14px; border-top: 1px solid var(--line); padding-top: 12px; }
 .ctl__pj:hover { color: var(--gold); }
-@media (max-width: 1000px) { .ctl-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 1000px) { .ctl-grid { grid-template-columns: 1fr; } }
 @media (max-width: 640px) { .ctl-grid { grid-template-columns: 1fr; } }
