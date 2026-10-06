@@ -170,10 +170,10 @@ textarea#gnote{width:100%;border:1px solid var(--line);background:var(--raised);
     <div class="warn" id="warn" hidden></div>
     <label><span class="hint">ملاحظات عامة (اختياري)</span><textarea id="gnote" rows="2" placeholder="أي ملاحظة على الإنارة بشكل عام"></textarea></label>
     <div class="send">
-      <button class="wa" type="button" id="shareBtn">مشاركة الجدول (صورة)</button>
+      <button class="wa" type="button" id="shareBtn">إرسال على واتساب</button>
       <button class="cp" type="button" id="dlBtn" hidden>حفظ الصورة</button>
     </div>
-    <p class="hint" id="shareNote">هيتجهز الجدول كصورة فيها صورة التصميم والموديل والرد لكل بند، وتشاركها على واتساب.</p>
+    <p class="hint" id="shareNote">هيتجهز الجدول كصورة فيها صورة التصميم والموديل والرد لكل بند. اختار واتساب من القايمة اللي هتظهر وابعتها.</p>
     <a class="txt" id="waLink" href="#" target="_blank" rel="noopener">أو أرسل الرد كنص على واتساب</a>
   </section>
 </main>
@@ -225,9 +225,10 @@ const ITEMS=[
   f:["أعمدة معدنية (نحاس / ألومنيوم) بدهان ذهبي/برونزي","غطاء زجاج شفاف/مطفي","قاعدة تثبيت جدارية معدنية","إضاءة LED دافئة (Warm White)"]},
 ];
 const KEY="murshid-lighting-v1";
+// الصفحة تفتح فاضية في كل مرة: مفيش حفظ للردود، وأي نسخة قديمة محفوظة بتتمسح
 let st={v:{},note:{},g:""};
-try{const s=JSON.parse(localStorage.getItem(KEY)||"null"); if(s) st=Object.assign(st,s);}catch(e){}
-const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}};
+try{localStorage.removeItem(KEY);}catch(e){}
+const save=()=>{};
 const $=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const fmt=n=>n.toLocaleString("ar-EG");
@@ -339,7 +340,7 @@ async function shareTable(forceSave){
   try{
     const blob=await buildPNG(); const file=new File([blob],"murshid-lighting.png",{type:"image/png"});
     if(!forceSave&&canShareFile){
-      try{await navigator.share({files:[file],title:TITLE});note.textContent="اختار واتساب وابعت الجدول.";}
+      try{await navigator.share({files:[file],title:TITLE});note.textContent="اتبعت. تقدر تكمّل أو تعدّل وتبعت تاني.";}
       catch(e){ if(e&&e.name!=="AbortError"){saveBlob(blob);note.textContent="الصورة اتحفظت على جهازك، ابعتها على واتساب.";} }
     }else{ saveBlob(blob); note.textContent="الصورة اتحفظت على جهازك، ابعتها على واتساب."; toast("تم حفظ الصورة"); }
   }catch(e){ note.textContent="حصلت مشكلة في تجهيز الصورة. استخدم «أرسل الرد كنص»."; }
