@@ -522,7 +522,7 @@
       .join("");
     const certs = (D.certifications || [])
       .map((c) => {
-        const meta = [T(c.issuer), esc(c.date || ""), c.id ? `ID ${esc(c.id)}` : ""].filter(Boolean).map((x) => `<bdi>${x}</bdi>`).join(" · ");
+        const meta = [T(c.issuer), esc(c.date || ""), c.id ? `ID ${esc(c.id)}` : ""].filter(Boolean).map((x) => `<bdi class="nw">${x}</bdi>`).join(" · ");
         return `<li><span class="cert__ic" aria-hidden="true">✓</span><span><b><bdi>${T(c.title)}</bdi></b><small>${meta}</small></span>${c.url ? `<a class="tag" href="${esc(c.url)}" target="_blank" rel="noopener">${state.lang === "ar" ? "عرض الشهادة" : "Show credential"} ↗</a>` : ""}</li>`;
       })
       .join("");
