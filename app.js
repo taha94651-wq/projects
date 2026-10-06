@@ -420,6 +420,40 @@
     show.querySelector(".ph-show__cap").textContent = slides[i].dataset.capShort || "";
   }
 
+  // file rows for a controls card: a type badge, a hint and a clear action (Excel downloads, PDF / pages open)
+  function fileList(files) {
+    if (!files.length) return "";
+    const ar = state.lang === "ar";
+    const kind = (src) => (/\.xlsx?$/i.test(src) ? "xls" : /\.pdf$/i.test(src) ? "pdf" : "web");
+    const act = { xls: ar ? "تحميل" : "Download", pdf: ar ? "عرض" : "View", web: ar ? "افتح" : "Open" };
+    const hint = {
+      xls: ar ? "إكسل بيتحمّل بكل معادلاته وقوائمه" : "Downloads with live formulas and dropdowns",
+      pdf: ar ? "PDF يتعرض في المتصفح" : "PDF, opens in the browser",
+      web: ar ? "أداة تفاعلية تفتح في المتصفح" : "Interactive tool, opens in the browser",
+    };
+    const badge = { xls: "XLSX", pdf: "PDF", web: "WEB" };
+    const attrs = (f) => (kind(f.src) === "xls" ? ` href="${esc(f.src)}" download` : ` href="${esc(f.src)}" target="_blank" rel="noopener"`);
+    const btn = (f) => `<a class="fl__btn fl__btn--${kind(f.src)}"${attrs(f)}><b>${badge[kind(f.src)]}</b>${act[kind(f.src)]} ${kind(f.src) === "xls" ? "↓" : "↗"}</a>`;
+    // "Branch · Excel" + "Branch · PDF" → one row per branch with both buttons
+    const groups = [];
+    files.forEach((f) => {
+      const parts = T(f.label).split(" · ");
+      const key = parts.length > 1 ? parts[0] : null;
+      const g = key && groups.find((x) => x.key === key);
+      g ? g.files.push(f) : groups.push({ key, files: [f] });
+    });
+    const grouped = groups.some((g) => g.key);
+    const rows = grouped
+      ? groups.map((g) => `<div class="fl__row"><span class="fl__name">${esc(g.key || T(g.files[0].label))}</span><span class="fl__acts">${g.files.map(btn).join("")}</span></div>`).join("")
+      : files.map((f) => {
+          const k = kind(f.src);
+          return `<a class="fl__row fl__row--link"${attrs(f)}><span class="fl__ic fl__ic--${k}">${badge[k]}</span><span class="fl__name">${T(f.label)}<small>${hint[k]}</small></span><span class="fl__go">${act[k]} ${k === "xls" ? "↓" : "↗"}</span></a>`;
+        }).join("");
+    const kinds = [...new Set(files.map((f) => kind(f.src)))];
+    const note = grouped ? `<p class="fl__note">${kinds.map((k) => `<b>${badge[k]}</b> ${hint[k]}`).join(" · ")}</p>` : "";
+    return `<div class="fl"><span class="fl__head">${ar ? "الملفات" : "Files"} <i>${files.length}</i></span>${rows}${note}</div>`;
+  }
+
   // project controls: an index of documents (BOQs, sample boards, catalogues) that live inside project pages
   function controlsSection(no) {
     const list = D.controls || [];
@@ -432,13 +466,13 @@
         const main = pdf ? pdf.src : files[0] ? files[0].src : pj ? "#/p/" + pj.id : "";
         const ext = main && !main.startsWith("#");
         return `<article class="ctl reveal">
-          ${c.split && files.length > 1 ? `<div class="ctl__split">${files.map((f) => `<a class="ctl__media" href="${esc(f.src)}" target="_blank" rel="noopener"><img loading="lazy" src="${esc(f.poster || c.poster || "")}" alt="${T(f.label)}" /><span class="pdf-badge">${T(f.label)} ↗</span></a>`).join("")}</div>` : `<a class="ctl__media" href="${esc(main)}"${ext ? ' target="_blank" rel="noopener"' : ""}><img loading="lazy" src="${esc(c.poster || (pj ? cover(pj) : ""))}" alt="${T(c.title)}" />${ext ? `<span class="pdf-badge">${/\.pdf$/i.test(main) ? "PDF" : state.lang === "ar" ? "افتح" : "Open"} ↗</span>` : ""}</a>`}
+          ${c.split && files.length > 1 ? `<div class="ctl__split">${files.map((f) => `<a class="ctl__media" href="${esc(f.src)}" target="_blank" rel="noopener"><img loading="lazy" src="${esc(f.poster || c.poster || "")}" alt="${T(f.label)}" /><span class="pdf-badge">${T(f.label)} ↗</span></a>`).join("")}</div>` : `<a class="ctl__media" href="${esc(main)}"${/\.xlsx?$/i.test(main) ? " download" : ext ? ' target="_blank" rel="noopener"' : ""}><img loading="lazy" src="${esc(c.poster || (pj ? cover(pj) : ""))}" alt="${T(c.title)}" />${ext ? `<span class="pdf-badge">${/\.pdf$/i.test(main) ? "PDF ↗" : /\.xlsx?$/i.test(main) ? "Excel ↓" : (state.lang === "ar" ? "افتح" : "Open") + " ↗"}</span>` : ""}</a>`}
           <span class="eyebrow gold">${T(c.kind)}</span>
           <h3>${T(c.title)}</h3>
           ${T(c.stat) ? `<p class="ctl__stat">${T(c.stat)}</p>` : ""}
           ${T(c.desc) ? `<p>${T(c.desc)}</p>` : ""}
           <div class="ctl__foot">
-            ${files.length ? `<div class="tags">${files.map((f) => `<a class="tag" href="${esc(f.src)}"${/\.xlsx?$/i.test(f.src) ? " download" : ' target="_blank" rel="noopener"'}>${T(f.label)} ${/\.xlsx?$/i.test(f.src) ? "↓" : "↗"}</a>`).join("")}</div>` : ""}
+            ${fileList(files)}
             ${pj ? `<a class="ctl__pj" href="#/p/${esc(pj.id)}">${esc(u().openProject)}: <bdi>${T(pj.title)}</bdi> ${state.lang === "ar" ? "←" : "→"}</a>` : ""}
           </div>
         </article>`;

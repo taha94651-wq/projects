@@ -761,3 +761,32 @@ html[lang="ar"] .br__tag { letter-spacing: 0; font-size: 12px; }
   .about { align-items: flex-start; }
   .about__cta .btn { padding: 10px 16px; font-size: 13px; }
 }
+
+/* controls: file rows */
+.fl { display: grid; border-top: 1px solid var(--line); }
+.fl__head { display: flex; align-items: center; gap: 8px; padding: 12px 0 6px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+html[lang="ar"] .fl__head { letter-spacing: 0; font-size: 13px; }
+.fl__head i { font-style: normal; color: var(--gold); }
+.fl__row { display: flex; align-items: center; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--line); color: inherit; text-decoration: none; }
+.fl__row--link { transition: background 0.25s; }
+.fl__ic { flex: none; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 10px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.06em; border: 1px solid var(--line); }
+.fl__ic--xls { color: #7fc79a; border-color: rgba(127, 199, 154, 0.45); background: rgba(127, 199, 154, 0.08); }
+.fl__ic--pdf { color: #e39b8b; border-color: rgba(227, 155, 139, 0.45); background: rgba(227, 155, 139, 0.08); }
+.fl__ic--web { color: var(--gold); border-color: rgba(184, 150, 90, 0.5); background: rgba(184, 150, 90, 0.08); }
+.fl__name { flex: 1; min-width: 0; font-size: 15px; }
+.fl__name small { display: block; margin-top: 3px; font-size: 12.5px; color: var(--muted); }
+.fl__go, .fl__btn { flex: none; display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 99px; font-size: 13px; border: 1px solid var(--gold); color: var(--gold); text-decoration: none; transition: background 0.25s, color 0.25s; white-space: nowrap; }
+.fl__row--link:hover .fl__go, .fl__btn:hover { background: var(--gold); color: var(--black); }
+.fl__acts { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.fl__btn { padding: 6px 12px; border-color: var(--line); color: inherit; }
+.fl__btn b { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; }
+.fl__btn--xls b { color: #7fc79a; }
+.fl__btn--pdf b { color: #e39b8b; }
+.fl__btn:hover b { color: inherit; }
+.fl__note { margin: 10px 0 0 !important; font-size: 12.5px; }
+.fl__note b { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; color: var(--fg); }
+@media (max-width: 520px) {
+  .fl__ic { width: 40px; height: 40px; }
+  .fl__go { padding: 7px 12px; }
+  .fl__row:not(.fl__row--link) { flex-wrap: wrap; gap: 8px; }
+}
