@@ -2153,8 +2153,7 @@
             "ar": "الخبر"
           },
           "city": "khobar",
-          "kind": "refit",
-          "status": "progress"
+          "kind": "refit"
         },
         {
           "name": {
@@ -2296,12 +2295,12 @@
           "poster": "assets/images/makhazen-al-enaya-build/khobar-poster.jpg",
           "size": "wide",
           "caption": {
-            "en": "Installation under way: units in place, lit panels and finishing in progress",
-            "ar": "التركيب جاري: الوحدات في مكانها، واللوحات المضيئة والتشطيب شغالين"
+            "en": "Walk-through of the finished makeup section",
+            "ar": "جولة في قسم الميكب بعد التنفيذ"
           },
           "section": {
-            "en": "Al Khobar branch — in progress",
-            "ar": "فرع الخبر — قيد التنفيذ"
+            "en": "Al Khobar branch — done",
+            "ar": "فرع الخبر — تم التنفيذ"
           }
         }
       ],
