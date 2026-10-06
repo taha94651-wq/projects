@@ -5975,6 +5975,10 @@
           "ar": "تكسيات خشب الجوز والرفوف المضاءة"
         },
         {
+          "en": "Walnut joinery: desks and wall cabinets",
+          "ar": "نجارة خشب الجوز: مكاتب وخزائن حائط"
+        },
+        {
           "en": "Bespoke desk made in the workshop",
           "ar": "مكتب مخصوص اتصنع في الورشة"
         },
@@ -6037,13 +6041,13 @@
         },
         {
           "type": "video",
-          "src": "assets/videos/zahrani-finished.mp4",
+          "src": "assets/videos/zahrani-joinery.mp4",
           "youtube": "",
-          "poster": "assets/images/zahrani-office/finished-poster.jpg",
+          "poster": "assets/images/zahrani-office/joinery-poster.jpg",
           "size": "half",
           "caption": {
-            "en": "The finished office",
-            "ar": "المكتب بعد التنفيذ"
+            "en": "Carrying in the joinery: walnut desk and wall cabinets in place",
+            "ar": "دخول وحدات النجارة: مكتب وخزائن حائط من خشب الجوز في مكانها"
           },
           "section": {
             "en": "",
@@ -6087,6 +6091,21 @@
           "section": {
             "en": "Design vs. built",
             "ar": "التصميم مقابل التنفيذ"
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/zahrani-finished.mp4",
+          "youtube": "",
+          "poster": "assets/images/zahrani-office/finished-poster.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Walk-through of the finished office",
+            "ar": "جولة في المكتب بعد التنفيذ"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
           }
         }
       ],
