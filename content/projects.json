@@ -380,6 +380,18 @@
         },
         {
           "name": {
+            "en": "New branch — Abha",
+            "ar": "فرع جديد — أبها"
+          },
+          "place": {
+            "en": "Abha",
+            "ar": "أبها"
+          },
+          "city": "abha",
+          "kind": "new"
+        },
+        {
+          "name": {
             "en": "New branch — Abu Bakr Al Siddiq Rd",
             "ar": "فرع جديد — طريق أبو بكر الصديق"
           },
@@ -415,18 +427,6 @@
           "city": "riyadh",
           "kind": "new",
           "status": "progress"
-        },
-        {
-          "name": {
-            "en": "New branch — Abha",
-            "ar": "فرع جديد — أبها"
-          },
-          "place": {
-            "en": "Abha",
-            "ar": "أبها"
-          },
-          "city": "abha",
-          "kind": "new"
         }
       ],
       "cover": "assets/images/makhazen-new/khurais-facade-night.jpg",
@@ -686,6 +686,84 @@
           "caption": {
             "en": "Beauty station",
             "ar": "ركن التجميل"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/abha-ortho.jpg",
+          "size": "lead",
+          "caption": {
+            "en": "3D top view of the store",
+            "ar": "منظور علوي ثلاثي الأبعاد للفرع"
+          },
+          "section": {
+            "en": "Abha branch",
+            "ar": "فرع أبها"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/abha-entrance.jpg",
+          "size": "side",
+          "caption": {
+            "en": "Entrance gates and category aisles",
+            "ar": "بوابات الدخول وممرات الأقسام"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/abha-gift-counter.jpg",
+          "size": "side",
+          "caption": {
+            "en": "Gift-wrapping counter",
+            "ar": "كاونتر تغليف الهدايا"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/abha-checkouts.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Numbered checkouts",
+            "ar": "الكاشير المرقم"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/abha-makeup.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Makeup section",
+            "ar": "قسم الميكب"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/makhazen-new/abha-lounge.jpg",
+          "size": "third",
+          "caption": {
+            "en": "Planter lounge in the beauty section",
+            "ar": "الجلسة الدائرية في قسم التجميل"
           },
           "section": {
             "en": "",
