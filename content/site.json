@@ -334,6 +334,16 @@
     },
     {
       "name": {
+        "en": "BEOND",
+        "ar": "بيوند"
+      },
+      "sector": {
+        "en": "Premium airline",
+        "ar": "طيران فاخر"
+      }
+    },
+    {
+      "name": {
         "en": "ASSAF",
         "ar": "عساف"
       },
