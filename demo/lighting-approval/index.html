@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta name="robots" content="noindex">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>اعتماد النجف والإنارات فيلا سكنية — الرياض</title>
+<meta name="description" content="قارن صورة التصميم بالموديل المتوفر في السوق لكل نجفة وإنارة، واختار موافق أو غير موافق، وابعت ردك على واتساب.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#f5f9fc">
+<meta property="og:type" content="website">
+<meta property="og:title" content="اعتماد النجف والإنارات فيلا سكنية — الرياض">
+<meta property="og:description" content="قارن صورة التصميم بالموديل المتوفر في السوق لكل نجفة وإنارة، واختار موافق أو غير موافق.">
+<meta property="og:image" content="https://taha94651-wq.github.io/projects/demo/lighting-approval/img/m4.jpg">
+<meta property="og:url" content="https://taha94651-wq.github.io/projects/demo/lighting-approval/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/phzyn-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: PHZYN look — one comparison card per fitting (design vs. market), approval toggles, sticky progress bar, summary to send */
+:root{
+  --bg:#f5f9fc; --surface:#ffffff; --raised:#f3f7fa; --ink:#17191a; --muted:#6a737b;
+  --line:#e2e9ee; --teal:#0f798e; --teal-soft:#e8f1f5; --slate:#4b4e51;
+  --yes:#1d9a63; --yes-soft:#e6f6ee; --no:#c2410c; --no-soft:#fdeee6;
+  --shadow:0 2px 14px rgba(20,45,60,.08); --scrim:rgba(23,25,26,.6);
+  --f-display:"Alexandria","IBM Plex Sans Arabic",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans Arabic",system-ui,"Segoe UI",Tahoma,sans-serif;
+  --f-code:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.6;padding-bottom:calc(90px + env(safe-area-inset-bottom,0px))}
+img{max-width:100%}
+[hidden]{display:none!important}
+button,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.wrap{max-width:980px;margin-inline:auto;padding-inline:20px}
+@media (max-width:480px){.wrap{padding-inline:16px}}
+
+.top{position:sticky;top:0;z-index:20;padding-block:calc(10px + env(safe-area-inset-top,0px)) 4px;background:linear-gradient(var(--bg) 60%,rgba(245,249,252,0))}
+.hbar{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#fff;border:1px solid var(--line);border-radius:999px;box-shadow:0 4px 22px rgba(20,45,60,.07);padding-block:9px;padding-inline:22px 9px}
+.brand{display:block;line-height:0}.brand img{height:28px;width:auto}
+.prog{display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.meter{width:90px;height:6px;border-radius:9px;background:var(--teal-soft);overflow:hidden}
+.meter i{display:block;height:100%;background:var(--teal);border-radius:9px;transition:width .3s}
+@media (max-width:420px){.meter{width:54px}}
+
+.intro{display:flex;flex-direction:column;gap:14px;padding-block:22px 18px}
+.eyebrow{align-self:flex-start;background:var(--teal-soft);border:1px solid #cfe3ea;color:var(--teal);border-radius:999px;padding:3px 14px;font-size:.82rem;font-weight:600}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(1.5rem,3.4vw,2.3rem);line-height:1.3;margin:0;text-wrap:balance}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.steps li{background:#fff;border-radius:12px;box-shadow:var(--shadow);padding:12px 14px;font-size:.88rem;display:flex;gap:10px;align-items:flex-start;color:#3d4246}
+.steps i{font-style:normal;font-family:var(--f-display);font-weight:700;color:var(--teal);font-size:1.1rem;line-height:1.2}
+@media (max-width:560px){.steps{gap:6px}.steps li{flex-direction:column;gap:2px;padding:8px;font-size:.78rem;line-height:1.4}}
+
+.list{display:flex;flex-direction:column;gap:18px}
+.item{background:#fff;border-radius:16px;box-shadow:var(--shadow);overflow:hidden;border:2px solid transparent;transition:border-color .2s}
+.item.yes{border-color:var(--yes)}
+.item.no{border-color:var(--no)}
+.ih{display:flex;align-items:flex-start;gap:12px;padding:16px 18px 10px}
+.num{flex:0 0 auto;width:34px;height:34px;border-radius:10px;background:var(--teal-soft);color:var(--teal);display:grid;place-items:center;font-family:var(--f-display);font-weight:700;font-variant-numeric:tabular-nums}
+.ih h2{font-family:var(--f-display);font-weight:600;font-size:1.08rem;line-height:1.4;margin:0;text-wrap:balance}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.pill{background:var(--teal-soft);color:#2f5f6b;border-radius:8px;padding:2px 10px;font-size:.8rem}
+.pill.place{background:var(--teal);color:#fff;font-weight:600}
+.status{margin-inline-start:auto;flex:0 0 auto;font-size:.78rem;font-weight:600;border-radius:999px;padding:3px 10px;white-space:nowrap}
+.status.wait{background:var(--raised);color:var(--muted)}
+.status.yes{background:var(--yes-soft);color:var(--yes)}
+.status.no{background:var(--no-soft);color:var(--no)}
+
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 18px}
+.side{display:flex;flex-direction:column;gap:6px;min-width:0}
+.side .cap{font-size:.8rem;font-weight:600;color:var(--muted);display:flex;align-items:center;gap:6px}
+.side .cap b{width:8px;height:8px;border-radius:50%;background:var(--teal);display:inline-block}
+.side.mk .cap b{background:#b7791f}
+.pics{display:flex;gap:6px}
+.pic{flex:1;border:0;padding:0;background:var(--raised);border-radius:12px;overflow:hidden;aspect-ratio:4/3;max-width:100%;position:relative}
+@media (max-width:560px){.pic{aspect-ratio:1/1}}
+.pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.pic::after{content:"⤢";position:absolute;inset-block-start:6px;inset-inline-start:6px;width:24px;height:24px;border-radius:6px;background:rgba(23,25,26,.55);color:#fff;font-size:.8rem;display:grid;place-items:center}
+
+details.spec{margin:12px 18px 0;border-top:1px solid var(--line);padding-top:10px}
+details.spec summary{cursor:pointer;color:var(--teal);font-size:.88rem;font-weight:600}
+details.spec p{margin:8px 0 0;font-size:.88rem;color:#3d4246}
+details.spec ul{margin:6px 0 0;padding-inline-start:18px;font-size:.85rem;color:#3d4246}
+
+.act{padding:14px 18px 18px;display:flex;flex-direction:column;gap:10px}
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.vote{border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:11px;font-weight:600;font-family:var(--f-display);display:flex;align-items:center;justify-content:center;gap:8px}
+.vote.y[aria-pressed="true"]{background:var(--yes);border-color:var(--yes);color:#fff}
+.vote.n[aria-pressed="true"]{background:var(--no);border-color:var(--no);color:#fff}
+.vote.y:hover{border-color:var(--yes)}.vote.n:hover{border-color:var(--no)}
+.note-in{width:100%;border:1px solid var(--line);background:var(--raised);border-radius:10px;padding:9px 12px;resize:vertical;min-height:44px}
+.note-in.ask{border-color:var(--no);background:#fff}
+.addnote{align-self:flex-start;background:none;border:0;color:var(--muted);font-size:.85rem;text-decoration:underline;padding:2px}
+
+.summary{margin-top:28px;background:#fff;border-radius:16px;box-shadow:var(--shadow);padding:20px;display:flex;flex-direction:column;gap:14px;scroll-margin-top:90px}
+.summary h2{font-family:var(--f-display);margin:0;font-size:1.25rem}
+.counts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.counts div{background:var(--raised);border-radius:10px;padding:10px;text-align:center;font-size:.82rem;color:var(--muted)}
+.counts b{display:block;font-family:var(--f-display);font-size:1.4rem;color:var(--ink);font-variant-numeric:tabular-nums}
+.counts .cy b{color:var(--yes)}.counts .cn b{color:var(--no)}
+.tbl{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.th,.tr{display:grid;grid-template-columns:22px 62px 62px 1fr;gap:8px;align-items:center;padding:8px 10px}
+@media (min-width:600px){.th,.tr{grid-template-columns:30px 96px 96px 1fr;gap:12px}}
+.th{background:var(--teal-soft);color:var(--teal);font-size:.76rem;font-weight:600;text-align:center}
+.tr{border-top:1px solid var(--line)}
+.tr.yes{background:#f4fbf7}.tr.no{background:#fff7f3}
+.tr .no{font-family:var(--f-display);font-weight:700;color:var(--teal);text-align:center;font-variant-numeric:tabular-nums}
+.tr .im{aspect-ratio:1/1;border-radius:8px;background:var(--raised);overflow:hidden;position:relative}
+.tr .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.tr .inf{display:flex;flex-direction:column;gap:3px;min-width:0;align-items:flex-start}
+.tr .inf .jump{font-size:.8rem;font-weight:600;line-height:1.35}
+.tr .inf small{color:var(--muted);font-size:.74rem;line-height:1.35;overflow-wrap:anywhere}
+.tr .status{font-size:.74rem}
+@media (max-width:420px){.th,.tr{gap:6px;padding:8px 8px}}
+.txt{align-self:flex-start;color:var(--muted);font-size:.85rem;text-decoration:underline}
+.srow{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line);font-size:.9rem}
+.srow:last-child{border-bottom:0}
+.srow .t{flex:1;min-width:0}
+.srow small{color:var(--muted);display:block}
+.srow .status{margin:0}
+.jump{background:none;border:0;padding:0;text-align:start;color:inherit}
+.warn{background:var(--raised);border-radius:10px;padding:10px 12px;font-size:.88rem;color:var(--muted)}
+textarea#gnote{width:100%;border:1px solid var(--line);background:var(--raised);border-radius:10px;padding:9px 12px;resize:vertical}
+.send{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.wa,.cp{border:0;border-radius:10px;padding:13px 10px;font-weight:600;text-align:center;text-decoration:none;display:block;font-family:var(--f-display)}
+.wa{background:#1f7a4d;color:#fff}.cp{background:var(--teal);color:#fff}.cp.done{background:var(--yes)}
+.hint{font-size:.8rem;color:var(--muted);margin:0}
+#msgFb{width:100%;font-size:.8rem}
+
+.bar{position:fixed;inset-inline:16px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:30;max-width:948px;margin-inline:auto;background:var(--slate);color:#fff;padding:12px 14px 12px 20px;display:flex;justify-content:space-between;align-items:center;gap:10px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.22);font-weight:600}
+.bar button{background:#fff;color:var(--slate);border:0;border-radius:999px;padding:8px 16px;font-weight:700;font-family:var(--f-display);white-space:nowrap}
+
+.zoom{position:fixed;inset:0;z-index:60;background:var(--scrim);display:grid;place-items:center;padding:16px}
+.zoom figure{margin:0;background:#fff;border-radius:12px;overflow:hidden;max-width:min(900px,100%)}
+.zoom img{display:block;width:100%;max-height:78dvh;object-fit:contain}
+.zoom figcaption{padding:10px 14px;font-family:var(--f-display);font-weight:600}
+.zoom .x{position:fixed;inset-block-start:14px;inset-inline-end:14px;width:40px;height:40px;border-radius:50%;border:0;background:#fff;font-size:1.3rem;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+.toast{position:fixed;bottom:calc(84px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 16px;border-radius:8px;z-index:70;font-size:.9rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body><div style="position:sticky;top:0;z-index:999;background:#0b0b0a;color:#efebe4;font:500 13px/1.4 system-ui,sans-serif;text-align:center;padding:8px 12px" dir="rtl">نسخة عرض من البورتفوليو — أداة اعتماد للعميل صممها م. مصطفى طه · <a href="../../#controls" style="color:#b8965a">رجوع للبورتفوليو</a></div>
+<header class="top"><div class="wrap"><div class="hbar">
+  <a class="brand" href="https://www.phzyn.sa/" target="_blank" rel="noopener"><img src="img/phzyn-logo.png" alt="PHZYN فزين"></a>
+  <div class="prog" aria-live="polite"><span id="progTxt">٠ من ١٣</span><span class="meter" aria-hidden="true"><i id="progBar" style="width:0"></i></span></div>
+</div></div></header>
+
+<main class="wrap">
+  <section class="intro">
+    <span class="eyebrow">جدول النجف والإنارات</span>
+    <h1>اعتماد النجف والإنارات فيلا سكنية — الرياض</h1>
+    <ol class="steps">
+      <li><i>1</i><span>قارن صورة التصميم بالموديل المتوفر في السوق</span></li>
+      <li><i>2</i><span>اختار موافق أو غير موافق لكل بند</span></li>
+      <li><i>3</i><span>ابعت ردك على واتساب من آخر الصفحة</span></li>
+    </ol>
+  </section>
+
+  <section class="list" id="list" aria-label="بنود النجف والإنارات"></section>
+
+  <section class="summary" id="summary" aria-labelledby="sumH">
+    <h2 id="sumH">ملخص ردك</h2>
+    <div class="counts"><div class="cy"><b id="cY">٠</b>موافق</div><div class="cn"><b id="cN">٠</b>غير موافق</div><div><b id="cW">١٣</b>بدون رد</div></div>
+    <div class="tbl" id="srows" role="table" aria-label="جدول الردود"></div>
+    <div class="warn" id="warn" hidden></div>
+    <label><span class="hint">ملاحظات عامة (اختياري)</span><textarea id="gnote" rows="2" placeholder="أي ملاحظة على الإنارة بشكل عام"></textarea></label>
+    <div class="send">
+      <a class="wa" id="waLink" href="#" target="_blank" rel="noopener">إرسال على واتساب</a>
+      <button class="cp" type="button" id="shareBtn">مشاركة كصورة</button>
+    </div>
+    <p class="hint" id="shareNote">«إرسال على واتساب» يفتح واتساب والرد جاهز في الرسالة. «مشاركة كصورة» تجهّز الجدول بصور التصميم والموديل.</p>
+  </section>
+</main>
+
+<div class="bar" id="bar"><span id="barTxt">رديت على ٠ من ١٣</span><button type="button" id="toSum">مراجعة وإرسال</button></div>
+
+<script>
+const TITLE="اعتماد النجف والإنارات – فيلا سكنية بالرياض";
+// من شيت «الخامات والصور» (الكمية والفراغ) + المواصفات والخامات من شيت «النجف والانارات»
+const ITEMS=[
+ {n:1,t:"نجفة كلاسيك كريستال 3 أدوار",q:2,p:"مجلس الرجال",d:["d1.jpg"],m:"m1.jpg",
+  s:"نجفة كلاسيك كريستال متعددة الأدوار (3 أدوار) بهيكل معدني ذهبي اللون، بأذرع منحنية ولمبات على شكل شمعة، ومزينة بقطرات وسلاسل كريستال شفافة متدلية.",
+  f:["هيكل معدني (نحاس / حديد) بدهان ذهبي","كريستال شفاف","لمبات شمعة LED E14"]},
+ {n:2,t:"نجفة كلاسيك كريستال دورين",q:2,p:"مجلس النساء",d:["d2.jpg"],m:"m2.jpg",
+  s:"نجفة كلاسيك كريستال دورين بهيكل معدني ذهبي شمبانيا، بأذرع منحنية ولمبات على شكل شمعة موزعة على دائرتين، ومزينة بقطرات وسلاسل كريستال شفافة متدلية مع قمة علوية مزخرفة.",
+  f:["هيكل معدني (نحاس / حديد) بدهان ذهبي شمبانيا","كريستال شفاف","لمبات شمعة LED E14"]},
+ {n:3,t:"نجفة شلال كريستال كهرماني",q:1,p:"مدخل",d:["d3.jpg"],m:"m3.jpg",
+  s:"نجفة مودرن متدلية طولية (شلال) مكونة من قطع زجاج/كريستال غير منتظمة الشكل بلون ذهبي كهرماني، معلقة على أسلاك رفيعة بأطوال متدرجة لتكوين شكل انسيابي، مع إضاءة LED مدمجة.",
+  f:["قطع زجاج / كريستال مصبوب بلون ذهبي كهرماني","أسلاك تعليق ستانلس ستيل","قاعدة سقف معدنية ذهبية","إضاءة LED مدمجة"]},
+ {n:4,t:"نجفة أغصان ذهبية بقطرات كريستال",q:2,p:"غرفة الطعام",d:["d4.jpg"],m:"m4.jpg",
+  s:"نجفة مودرن على شكل أغصان شجر بهيكل معدني ذهبي رفيع متفرع، مزينة بقطرات كريستال شفافة على شكل دموع متدلية بأطوال مختلفة، مع إضاءة LED مدمجة.",
+  f:["هيكل معدني (نحاس / حديد) بدهان ذهبي","قطرات كريستال شفاف","إضاءة LED مدمجة"]},
+ {n:5,t:"نجفة حلقات زجاج متموجة",q:1,p:"صالة معيشة الدور الأرضي",d:["d5.jpg"],m:"m5.jpg",
+  s:"نجفة مودرن كبيرة الحجم على شكل حلقات متموجة متعددة الطبقات، مكونة من ألواح زجاج شفاف منحني مضلع (مخدد) معلقة على أسلاك وإطار معدني ذهبي رفيع، مع إضاءة LED مدمجة.",
+  f:["ألواح زجاج شفاف منحني مضلع (أو أكريليك)","إطار وأسلاك تعليق معدنية بدهان ذهبي","إضاءة LED مدمجة"]},
+ {n:6,t:"بندل كرة زجاج مدخّن فوق النايت استاند",q:2,p:"الماستر",d:["d6.jpg"],m:"m6.jpg",
+  s:"إنارة معلقة (بندل) فوق النايت استاند، عبارة عن كرة زجاج مدخن بلون برونزي/كهرماني معلقة على سلك أو عامود رفيع ذهبي مع قاعدة سقف ذهبية صغيرة، ولمبة داخلية بإضاءة دافئة.",
+  f:["كرة زجاج مدخن برونزي","سلك/عامود وقاعدة سقف معدنية بدهان ذهبي","لمبة LED إضاءة دافئة (Warm White)"]},
+ {n:7,t:"بندل أباجورة قماش بليسيه فوق الكومدينو",q:1,p:"غرفة 1",d:["d7.jpg"],m:"m7.jpg",
+  s:"إنارة معلقة (بندل) فوق الكومدينو، بغطاء (أباجورة) أسطواني من القماش المكسر (بليسيه) بلون أوف وايت، معلقة على عامود معدني رفيع ذهبي مع حلية كروية صغيرة وقاعدة سقف ذهبية، بإضاءة دافئة.",
+  f:["غطاء قماش مكسر (بليسيه) أوف وايت","عامود وقاعدة سقف معدنية بدهان ذهبي","لمبة LED إضاءة دافئة (Warm White)"]},
+ {n:8,t:"بندل قرص أسود مينيمال فوق الكومدينو",q:1,p:"غرفة 2",d:["d8.jpg"],m:"m8.jpg",
+  s:"إنارة معلقة (بندل) فوق الكومدينو بتصميم مينيمال، عبارة عن غطاء معدني مسطح على شكل قرص/قبة منخفضة بلون أسود مطفي، معلقة على سلك رفيع أسود مع قاعدة سقف دائرية صغيرة، بإضاءة دافئة موجهة لأسفل.",
+  f:["غطاء معدني (ألومنيوم) بدهان أسود مطفي","سلك تعليق وقاعدة سقف سوداء","لمبة LED إضاءة دافئة (Warm White)"]},
+ {n:9,t:"إنارة طولية (لينير) فوق المكتب",q:1,p:"غرفة 2",d:["d9.jpg"],m:"m9.jpg",
+  s:"إنارة معلقة طولية (لينير) فوق المكتب، عبارة عن أنبوب أفقي من زجاج/أكريليك أبيض مطفي (أوبال) مقسم بحلقات معدنية داكنة ونهايات معدنية سوداء، معلقة على سلكين رفيعين، بإضاءة LED دافئة منتشرة.",
+  f:["أنبوب زجاج / أكريليك أوبال مطفي","حلقات ونهايات معدنية بدهان أسود/برونزي داكن","سلكين تعليق مع قاعدة سقف","إضاءة LED شريطية دافئة (Warm White)"]},
+ {n:10,t:"بندل كرة أوبال بيضاء فوق الكومدينو",q:1,p:"غرفة 4",d:["d10.jpg","d10-2.jpg"],m:"m10.jpg",
+  s:"إنارة معلقة (بندل) فوق الكومدينو بتصميم مينيمال، عبارة عن كرة صغيرة من الزجاج الأبيض المطفي (أوبال) معلقة على عامود/سلك طويل رفيع بلون أسود مطفي، بإضاءة دافئة منتشرة.",
+  f:["كرة زجاج أوبال أبيض مطفي","عامود/سلك وقاعدة سقف معدنية بدهان أسود مطفي","لمبة LED إضاءة دافئة (Warm White)"]},
+ {n:11,t:"نجفة أغصان كريستال بيضاوية فوق طاولة الطعام",q:1,p:"طعام القبو",d:["d11.jpg"],m:"m11.jpg",
+  s:"نجفة مودرن بيضاوية/مستطيلة الشكل فوق طاولة الطعام، بهيكل معدني ذهبي على شكل أغصان متشابكة، مزينة بكثافة بقطع كريستال شفافة على شكل أوراق وقطرات متدلية بأطوال مختلفة، معلقة بعامودين من قاعدة سقف طولية ذهبية، مع إضاءة LED مدمجة.",
+  f:["هيكل معدني (نحاس / حديد) بدهان ذهبي","قطع كريستال شفاف (أوراق وقطرات)","قاعدة سقف طولية وعواميد تعليق ذهبية","إضاءة LED مدمجة دافئة"]},
+ {n:12,t:"إنارة قوس LED فوق ركن القهوة",q:1,p:"طعام القبو – ركن القهوة",d:["d12.jpg"],m:"m12.jpg",
+  s:"إنارة معلقة فوق ركن القهوة بتصميم مودرن، عبارة عن شريط إضاءة LED مرن داخل غلاف سيليكون أبيض بشكل قوس (حرف U) متدلي، متصل بطرفيه بكابل أسود رفيع مرن معلق من نقطتين بالسقف مع قاعدتي سقف صغيرتين، بإضاءة دافئة منتشرة.",
+  f:["شريط LED مرن بغلاف سيليكون أبيض","كابل تعليق أسود مرن","قاعدتي سقف معدنية سوداء","إضاءة دافئة (Warm White)"]},
+ {n:13,t:"أبليك جداري أعمدة ذهبية",q:10,p:"كل الفيلا",d:["d13.jpg"],m:"m13.jpg",
+  s:"إضاءة جدارية (أبليك) بتصميم مودرن، مكونة من مجموعة أعمدة معدنية رفيعة رأسية بأطوال متدرجة بلون ذهبي/برونزي، يتوسطها مصدر إضاءة LED بغطاء زجاجي يعطي إضاءة دافئة على الجدار.",
+  f:["أعمدة معدنية (نحاس / ألومنيوم) بدهان ذهبي/برونزي","غطاء زجاج شفاف/مطفي","قاعدة تثبيت جدارية معدنية","إضاءة LED دافئة (Warm White)"]},
+];
+const KEY="murshid-lighting-v1";
+// الصفحة تفتح فاضية في كل مرة: مفيش حفظ للردود، وأي نسخة قديمة محفوظة بتتمسح
+let st={v:{},note:{},g:""};
+try{localStorage.removeItem(KEY);}catch(e){}
+const save=()=>{};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt=n=>n.toLocaleString("ar-EG");
+const LBL={yes:"موافق",no:"غير موافق"};
+const statusHTML=v=>v?`<span class="status ${v}">${v==="yes"?"✓ موافق":"✕ غير موافق"}</span>`:`<span class="status wait">بدون رد</span>`;
+
+function itemHTML(it){
+  const v=st.v[it.n]||"", note=st.note[it.n]||"", showNote=!!note||v==="no";
+  return `<article class="item ${v}" id="it-${it.n}">
+    <div class="ih"><span class="num">${fmt(it.n)}</span>
+      <div style="min-width:0"><h2>${esc(it.t)}</h2>
+        <div class="meta"><span class="pill place">${esc(it.p)}</span><span class="pill">الكمية: ${fmt(it.q)}</span></div></div>
+      <span id="st-${it.n}">${statusHTML(v)}</span></div>
+    <div class="cmp">
+      <div class="side"><span class="cap"><b></b>في التصميم</span><div class="pics">${it.d.map((f,i)=>`<button class="pic" type="button" data-zoom="img/${f}" data-cap="${esc(it.t)} – في التصميم" aria-label="تكبير صورة التصميم"><img loading="lazy" src="img/${f}" alt="${esc(it.t)} في التصميم${it.d.length>1?" "+(i+1):""}"></button>`).join("")}</div></div>
+      <div class="side mk"><span class="cap"><b></b>المتوفر في السوق</span><div class="pics"><button class="pic" type="button" data-zoom="img/${it.m}" data-cap="${esc(it.t)} – المتوفر في السوق" aria-label="تكبير صورة الموديل المتوفر"><img loading="lazy" src="img/${it.m}" alt="${esc(it.t)} – الموديل المتوفر في السوق"></button></div></div>
+    </div>
+    <details class="spec"><summary>المواصفات والخامات</summary><p>${esc(it.s)}</p><ul>${it.f.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></details>
+    <div class="act">
+      <div class="btns" role="group" aria-label="اعتماد البند ${it.n}">
+        <button type="button" class="vote y" data-v="yes" data-n="${it.n}" aria-pressed="${v==="yes"}">✓ موافق</button>
+        <button type="button" class="vote n" data-v="no" data-n="${it.n}" aria-pressed="${v==="no"}">✕ غير موافق</button>
+      </div>
+      <textarea class="note-in${v==="no"?" ask":""}" id="nt-${it.n}" data-n="${it.n}" rows="1" placeholder="${v==="no"?"إيه اللي مش مناسب؟ (لون، حجم، شكل…)":"ملاحظة (اختياري)"}"${showNote?"":" hidden"}>${esc(note)}</textarea>
+      ${showNote?"":`<button type="button" class="addnote" data-addnote="${it.n}">إضافة ملاحظة</button>`}
+    </div></article>`;
+}
+function renderList(){ $("#list").innerHTML=ITEMS.map(itemHTML).join(""); }
+function counts(){ const y=ITEMS.filter(i=>st.v[i.n]==="yes").length, n=ITEMS.filter(i=>st.v[i.n]==="no").length; return {y,n,w:ITEMS.length-y-n}; }
+function message(){
+  const L=[TITLE,""];
+  ITEMS.forEach(it=>{
+    const v=st.v[it.n];
+    L.push(`${it.n}) ${it.t} – ${it.p} (${it.q})`);
+    L.push(`   ${v?(v==="yes"?"✅ موافق":"❌ غير موافق"):"⏳ بدون رد"}`);
+    if(st.note[it.n]) L.push(`   ملاحظة: ${st.note[it.n]}`);
+  });
+  const c=counts(); L.push("",`موافق: ${c.y} · غير موافق: ${c.n} · بدون رد: ${c.w}`);
+  if(st.g) L.push("",`ملاحظات عامة: ${st.g}`);
+  return L.join("\n");
+}
+function renderSummary(){
+  const c=counts(), done=c.y+c.n;
+  $("#cY").textContent=fmt(c.y); $("#cN").textContent=fmt(c.n); $("#cW").textContent=fmt(c.w);
+  $("#progTxt").textContent=`${fmt(done)} من ${fmt(ITEMS.length)}`; $("#progBar").style.width=(done/ITEMS.length*100)+"%";
+  $("#barTxt").textContent=done===ITEMS.length?"خلصت كل البنود ✓":`رديت على ${fmt(done)} من ${fmt(ITEMS.length)}`;
+  $("#srows").innerHTML=`<div class="th" role="row"><span>#</span><span>التصميم</span><span>السوق</span><span>الرد</span></div>`+ITEMS.map(it=>{const v=st.v[it.n]||"";return `<div class="tr ${v}" role="row"><span class="no">${fmt(it.n)}</span><span class="im"><img src="img/${it.d[0]}" alt=""></span><span class="im"><img src="img/${it.m}" alt=""></span><span class="inf"><button class="jump" type="button" data-jump="${it.n}">${esc(it.t)}</button><small>${esc(it.p)}</small>${statusHTML(v)}${st.note[it.n]?`<small>${esc(st.note[it.n])}</small>`:""}</span></div>`;}).join("");
+  const w=$("#warn"); w.hidden=!c.w; w.textContent=c.w?`فاضل ${fmt(c.w)} بند بدون رد. تقدر تبعت دلوقتي، وهيظهروا في الرسالة «بدون رد».`:"";
+  $("#waLink").href=`https://wa.me/?text=${encodeURIComponent(message())}`;
+}
+/* ---- جدول الرد كصورة ---- */
+const loadImg=src=>new Promise(r=>{const i=new Image();i.onload=()=>r(i);i.onerror=()=>r(null);i.src=src;});
+function wrapLines(ctx,text,maxW){const out=[];let cur="";for(const w of String(text).split(/\s+/)){const t=cur?cur+" "+w:w;if(cur&&ctx.measureText(t).width>maxW){out.push(cur);cur=w;}else cur=t;}if(cur)out.push(cur);return out;}
+function rr(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();}
+function fitImg(ctx,img,x,y,w,h){ctx.fillStyle="#f3f7fa";rr(ctx,x,y,w,h,14);ctx.fill();if(!img)return;ctx.save();rr(ctx,x,y,w,h,14);ctx.clip();const k=Math.min(w/img.width,h/img.height);const iw=img.width*k,ih=img.height*k;ctx.drawImage(img,x+(w-iw)/2,y+(h-ih)/2,iw,ih);ctx.restore();}
+async function buildPNG(){
+  try{await Promise.all([document.fonts.load('600 28px "IBM Plex Sans Arabic"'),document.fonts.load('400 24px "IBM Plex Sans Arabic"'),document.fonts.load('700 44px Alexandria')]);}catch(e){}
+  const BODY='"IBM Plex Sans Arabic",system-ui,Tahoma,sans-serif', DISP='Alexandria,"IBM Plex Sans Arabic",system-ui,sans-serif';
+  const W=1080,P=40,R=W-P,T=190,NUMW=56,G=16;
+  const xD=R-NUMW-G-T, xM=xD-12-T, infoR=xM-22, infoW=infoR-P;
+  const imgs=await Promise.all([loadImg("img/phzyn-logo.png"),...ITEMS.map(i=>loadImg("img/"+i.d[0])),...ITEMS.map(i=>loadImg("img/"+i.m))]);
+  const logo=imgs[0], dI=imgs.slice(1,1+ITEMS.length), mI=imgs.slice(1+ITEMS.length);
+  const m=document.createElement("canvas").getContext("2d"); m.direction="rtl";
+  const rows=ITEMS.map(it=>{m.font=`600 27px ${BODY}`;const nm=wrapLines(m,it.n+". "+it.t,infoW);m.font=`400 23px ${BODY}`;const nt=st.note[it.n]?wrapLines(m,"ملاحظة: "+st.note[it.n],infoW).slice(0,3):[];const h=Math.max(T+34,16+nm.length*34+34+50+nt.length*30+16);return{it,nm,nt,h};});
+  const gl=st.g?(m.font=`400 24px ${BODY}`,wrapLines(m,"ملاحظات عامة: "+st.g,W-2*P)):[];
+  const HEAD=300, FOOT=90+gl.length*34;
+  const H=HEAD+rows.reduce((a,r)=>a+r.h,0)+FOOT;
+  const c=document.createElement("canvas"); c.width=W; c.height=H; const x=c.getContext("2d"); x.direction="rtl"; x.textAlign="right"; x.textBaseline="alphabetic";
+  x.fillStyle="#f5f9fc"; x.fillRect(0,0,W,H);
+  // header
+  x.fillStyle="#fff"; rr(x,P,28,W-2*P,92,46); x.fill(); x.strokeStyle="#e2e9ee"; x.lineWidth=2; x.stroke();
+  if(logo){const lh=44,lw=logo.width*lh/logo.height; x.drawImage(logo,R-34-lw,28+(92-lh)/2,lw,lh);}
+  x.fillStyle="#6a737b"; x.font=`500 24px ${BODY}`; x.textAlign="left"; x.fillText(new Date().toLocaleDateString("ar-EG"),P+34,28+54); x.textAlign="right";
+  x.fillStyle="#17191a"; x.font=`700 44px ${DISP}`; x.fillText(TITLE,R,198);
+  const c3=counts();
+  const chips=[["موافق",c3.y,"#1d9a63"],["غير موافق",c3.n,"#c2410c"],["بدون رد",c3.w,"#6a737b"]];
+  let cx=R; chips.forEach(([l,v,col])=>{const txt=`${l}: ${fmt(v)}`; x.font=`600 26px ${BODY}`; const w=x.measureText(txt).width+44; x.fillStyle=col; rr(x,cx-w,226,w,46,23); x.fill(); x.fillStyle="#fff"; x.fillText(txt,cx-22,258); cx-=w+12;});
+  // column heads
+  x.fillStyle="#0f798e"; x.font=`600 22px ${BODY}`; x.textAlign="center";
+  x.fillText("#",R-NUMW/2,HEAD-6); x.fillText("في التصميم",xD+T/2,HEAD-6); x.fillText("المتوفر في السوق",xM+T/2,HEAD-6); x.fillText("الرد",P+infoW/2,HEAD-6); x.textAlign="right";
+  // rows
+  let y=HEAD; 
+  rows.forEach((r,i)=>{
+    const v=st.v[r.it.n]||"";
+    x.fillStyle=v==="yes"?"#f1faf5":v==="no"?"#fff5ef":"#ffffff"; x.fillRect(P-12,y,W-2*P+24,r.h);
+    x.fillStyle="#e2e9ee"; x.fillRect(P-12,y,W-2*P+24,2);
+    const ty=y+(r.h-T)/2;
+    x.fillStyle="#0f798e"; x.font=`700 34px ${DISP}`; x.textAlign="center"; x.fillText(fmt(r.it.n),R-NUMW/2,y+r.h/2+12); x.textAlign="right";
+    fitImg(x,dI[i],xD,ty,T,T); fitImg(x,mI[i],xM,ty,T,T);
+    let ly=y+16+26;
+    x.fillStyle="#17191a"; x.font=`600 27px ${BODY}`; r.nm.forEach(l=>{x.fillText(l,infoR,ly);ly+=34;});
+    x.fillStyle="#6a737b"; x.font=`400 23px ${BODY}`; x.fillText(`${r.it.p} · الكمية ${fmt(r.it.q)}`,infoR,ly); ly+=18;
+    const lab=v==="yes"?"✓ موافق":v==="no"?"✕ غير موافق":"بدون رد", bg=v==="yes"?"#1d9a63":v==="no"?"#c2410c":"#e8eef2", fg=v?"#fff":"#6a737b";
+    x.font=`700 26px ${BODY}`; const pw=x.measureText(lab).width+40; x.fillStyle=bg; rr(x,infoR-pw,ly,pw,44,22); x.fill(); x.fillStyle=fg; x.fillText(lab,infoR-20,ly+31); ly+=44+22;
+    x.fillStyle="#3d4246"; x.font=`400 23px ${BODY}`; r.nt.forEach(l=>{x.fillText(l,infoR,ly);ly+=30;});
+    y+=r.h;
+  });
+  x.fillStyle="#e2e9ee"; x.fillRect(P-12,y,W-2*P+24,2);
+  let fy=y+44; x.fillStyle="#3d4246"; x.font=`400 24px ${BODY}`; gl.forEach(l=>{x.fillText(l,R,fy);fy+=34;});
+  x.fillStyle="#6a737b"; x.font=`500 22px ${BODY}`; x.textAlign="center"; x.fillText("فزين · PHZYN",W/2,H-28);
+  return new Promise(res=>c.toBlob(res,"image/png"));
+}
+function saveBlob(blob){const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="murshid-lighting.png";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),4000);}
+let canShareFile=false;
+try{canShareFile=!!(navigator.canShare&&navigator.canShare({files:[new File(["x"],"a.png",{type:"image/png"})]}));}catch(e){}
+async function shareTable(forceSave){
+  const b1=$("#shareBtn"), note=$("#shareNote"), old=b1.textContent;
+  b1.disabled=true; b1.textContent="جاري تجهيز الصورة…";
+  try{
+    const blob=await buildPNG(); const file=new File([blob],"murshid-lighting.png",{type:"image/png"});
+    if(!forceSave&&canShareFile){
+      try{await navigator.share({files:[file],title:TITLE});note.textContent="اتبعت. تقدر تكمّل أو تعدّل وتبعت تاني.";}
+      catch(e){ if(e&&e.name!=="AbortError"){saveBlob(blob);note.textContent="الصورة اتحفظت على جهازك، ابعتها على واتساب.";} }
+    }else{ saveBlob(blob); note.textContent="الصورة اتحفظت على جهازك، ابعتها على واتساب."; toast("تم حفظ الصورة"); }
+  }catch(e){ note.textContent="حصلت مشكلة في تجهيز الصورة. استخدم «إرسال على واتساب»."; }
+  b1.disabled=false; b1.textContent=old;
+}
+function updItem(n){
+  const it=ITEMS.find(i=>i.n===n), el=$("#it-"+n), ta=$("#nt-"+n);
+  const keepFocus=document.activeElement===ta;
+  el.outerHTML=itemHTML(it);
+  if(keepFocus) $("#nt-"+n).focus();
+}
+let tt; function toast(t){let e=$(".toast"); if(!e){e=document.createElement("div");e.className="toast";e.setAttribute("role","status");document.body.appendChild(e);} e.textContent=t; clearTimeout(tt); tt=setTimeout(()=>e.remove(),2000);}
+
+document.addEventListener("click",e=>{
+  const t=e.target.closest("button"); if(!t) return;
+  if(t.dataset.v){
+    const n=+t.dataset.n; st.v[n]=st.v[n]===t.dataset.v?"":t.dataset.v; save(); updItem(n); renderSummary();
+    if(st.v[n]==="no") setTimeout(()=>$("#nt-"+n)?.focus({preventScroll:true}),30);
+    else if(st.v[n]==="yes"){ const next=ITEMS.find(i=>i.n>n&&!st.v[i.n]); if(next) setTimeout(()=>$("#it-"+next.n).scrollIntoView({behavior:"smooth",block:"start"}),250); }
+    return;
+  }
+  if(t.dataset.addnote){ const n=+t.dataset.addnote; const ta=$("#nt-"+n); ta.hidden=false; t.remove(); ta.focus(); return; }
+  if(t.dataset.zoom){
+    const z=document.createElement("div"); z.className="zoom"; z.setAttribute("role","dialog"); z.setAttribute("aria-label",t.dataset.cap);
+    z.innerHTML=`<figure><img src="${esc(t.dataset.zoom)}" alt="${esc(t.dataset.cap)}"><figcaption>${esc(t.dataset.cap)}</figcaption></figure><button class="x" type="button" aria-label="إغلاق">×</button>`;
+    z.addEventListener("click",ev=>{ev.stopPropagation(); z.remove();}); document.body.appendChild(z); return;
+  }
+  if(t.dataset.jump){ $("#it-"+t.dataset.jump).scrollIntoView({behavior:"smooth",block:"start"}); return; }
+  if(t.id==="toSum"){ $("#summary").scrollIntoView({behavior:"smooth"}); return; }
+  if(t.id==="shareBtn"){ shareTable(false); return; }
+
+});
+document.addEventListener("input",e=>{
+  const t=e.target;
+  if(t.classList.contains("note-in")){ st.note[+t.dataset.n]=t.value.trim(); save(); renderSummary(); }
+  if(t.id==="gnote"){ st.g=t.value.trim(); save(); renderSummary(); }
+});
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") document.querySelector(".zoom")?.remove(); });
+
+$("#gnote").value=st.g; renderList(); renderSummary();
+if(!canShareFile){ $("#shareBtn").textContent="تنزيل كصورة"; }
+</script>
+</body>
+</html>
