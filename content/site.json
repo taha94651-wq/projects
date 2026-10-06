@@ -37,7 +37,37 @@
         "url": "https://www.instagram.com/mostafataha34_"
       }
     ],
-    "photoLarge": "assets/images/profile/portrait-large.jpg"
+    "photoLarge": "assets/images/profile/portrait-large.jpg",
+    "stats": [
+      {
+        "value": "5+",
+        "label": {
+          "en": "Years of experience",
+          "ar": "سنين خبرة"
+        }
+      },
+      {
+        "value": "28",
+        "label": {
+          "en": "Projects",
+          "ar": "مشروع"
+        }
+      },
+      {
+        "value": "24",
+        "label": {
+          "en": "Retail branches",
+          "ar": "فرع تجاري"
+        }
+      },
+      {
+        "value": "10",
+        "label": {
+          "en": "Key clients",
+          "ar": "عملاء كبار"
+        }
+      }
+    ]
   },
   "experience": [
     {
