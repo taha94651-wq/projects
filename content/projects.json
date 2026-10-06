@@ -5916,6 +5916,162 @@
       }
     },
     {
+      "id": "zahrani-office",
+      "title": {
+        "en": "Al Zahrani Office",
+        "ar": "مكتب الزهراني"
+      },
+      "disciplines": [
+        "execution"
+      ],
+      "type": "offices",
+      "result": "",
+      "status": "built",
+      "client": {
+        "en": "Al Zahrani office",
+        "ar": "مكتب الزهراني"
+      },
+      "designer": {
+        "en": "",
+        "ar": ""
+      },
+      "company": {
+        "en": "Safana Architects",
+        "ar": "سفانة للعمارة"
+      },
+      "location": {
+        "en": "Nawah complex, Anas Ibn Malik Rd, Al Malqa, Riyadh",
+        "ar": "مجمع نواة، طريق أنس بن مالك، حي الملقا، الرياض"
+      },
+      "year": "2025",
+      "duration": {
+        "en": "~3 months (May – Aug 2025)",
+        "ar": "حوالي 3 شهور (مايو – أغسطس 2025)"
+      },
+      "area": "",
+      "role": {
+        "en": "Fit-out execution and site supervision",
+        "ar": "تنفيذ التشطيبات والإشراف على الموقع"
+      },
+      "phases": [
+        "survey",
+        "drawings",
+        "materials",
+        "supervision",
+        "handover"
+      ],
+      "tools": [],
+      "summary": {
+        "en": "An executive office fit-out in the Nawah complex, Al Malqa. From an empty shell to walnut-veneer wall cladding, backlit shelving, a linear lighting ceiling and a bespoke stone-top desk built in the workshop. When the design render and the finished office were posted side by side, 92% of viewers picked the execution.",
+        "ar": "تشطيب مكتب تنفيذي في مجمع نواة بحي الملقا. من مساحة فاضية لحد تكسيات خشب الجوز، والرفوف المضاءة، وسقف بإضاءة خطية، ومكتب بسطح حجر اتصنع في الورشة. ولما اتنشرت صورة التصميم جنب المكتب بعد التنفيذ، 92% من المتابعين اختاروا التنفيذ."
+      },
+      "scope": [
+        {
+          "en": "Site survey of the empty shell",
+          "ar": "الرفع المساحي للمساحة على الهيكل"
+        },
+        {
+          "en": "Walnut wall cladding and backlit shelving",
+          "ar": "تكسيات خشب الجوز والرفوف المضاءة"
+        },
+        {
+          "en": "Bespoke desk made in the workshop",
+          "ar": "مكتب مخصوص اتصنع في الورشة"
+        },
+        {
+          "en": "Lighting and ceiling works",
+          "ar": "أعمال الإضاءة والأسقف"
+        },
+        {
+          "en": "Site supervision to handover",
+          "ar": "الإشراف على الموقع حتى التسليم"
+        }
+      ],
+      "cover": "assets/images/zahrani-office/finished-poster.jpg",
+      "coverVideo": "assets/videos/zahrani-finished.mp4",
+      "media": [
+        {
+          "type": "video",
+          "src": "assets/videos/zahrani-before.mp4",
+          "youtube": "",
+          "poster": "assets/images/zahrani-office/before-poster.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Before: the empty shell",
+            "ar": "قبل: المساحة فاضية"
+          },
+          "section": {
+            "en": "Before and the workshop",
+            "ar": "قبل التنفيذ والورشة"
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/zahrani-workshop.mp4",
+          "youtube": "",
+          "poster": "assets/images/zahrani-office/workshop-poster.jpg",
+          "size": "half",
+          "caption": {
+            "en": "The desk in the workshop, checked against the 3D model",
+            "ar": "المكتب في الورشة ومطابقته مع الموديل 3D"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/zahrani-install.mp4",
+          "youtube": "",
+          "poster": "assets/images/zahrani-office/install-poster.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Installing the wall cladding and lighting",
+            "ar": "تركيب تكسيات الحوائط والإضاءة"
+          },
+          "section": {
+            "en": "Installation and the finished office",
+            "ar": "التركيب والمكتب بعد التنفيذ"
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/zahrani-finished.mp4",
+          "youtube": "",
+          "poster": "assets/images/zahrani-office/finished-poster.jpg",
+          "size": "half",
+          "caption": {
+            "en": "The finished office",
+            "ar": "المكتب بعد التنفيذ"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/zahrani-office/design-vs-built.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Design render vs. the built office — 92% picked the execution",
+            "ar": "صورة التصميم مقابل التنفيذ — 92% اختاروا التنفيذ"
+          },
+          "section": {
+            "en": "Design vs. built",
+            "ar": "التصميم مقابل التنفيذ"
+          }
+        }
+      ],
+      "noStagger": true,
+      "related": "",
+      "relatedLabel": {
+        "en": "",
+        "ar": ""
+      }
+    },
+    {
       "id": "chadel-chalet",
       "title": {
         "en": "Chadel Chalet",
