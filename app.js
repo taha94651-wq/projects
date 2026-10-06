@@ -424,7 +424,8 @@
       .map((c) => {
         const pj = D.projects.find((x) => x.id === c.project);
         const files = (c.files || []).filter((f) => f && f.src);
-        const main = files[0] ? files[0].src : pj ? "#/p/" + pj.id : "";
+        const pdf = files.find((f) => /\.pdf$/i.test(f.src));
+        const main = pdf ? pdf.src : files[0] ? files[0].src : pj ? "#/p/" + pj.id : "";
         const ext = main && !main.startsWith("#");
         return `<article class="ctl reveal">
           <a class="ctl__media" href="${esc(main)}"${ext ? ' target="_blank" rel="noopener"' : ""}><img loading="lazy" src="${esc(c.poster || (pj ? cover(pj) : ""))}" alt="${T(c.title)}" />${ext ? '<span class="pdf-badge">PDF ↗</span>' : ""}</a>
@@ -433,7 +434,7 @@
           ${T(c.stat) ? `<p class="ctl__stat">${T(c.stat)}</p>` : ""}
           ${T(c.desc) ? `<p>${T(c.desc)}</p>` : ""}
           <div class="ctl__foot">
-            ${files.length > 1 ? `<div class="tags">${files.map((f) => `<a class="tag" href="${esc(f.src)}" target="_blank" rel="noopener">${T(f.label)} ↗</a>`).join("")}</div>` : ""}
+            ${files.length ? `<div class="tags">${files.map((f) => `<a class="tag" href="${esc(f.src)}"${/\.pdf$/i.test(f.src) ? ' target="_blank" rel="noopener"' : " download"}>${T(f.label)} ${/\.pdf$/i.test(f.src) ? "↗" : "↓"}</a>`).join("")}</div>` : ""}
             ${pj ? `<a class="ctl__pj" href="#/p/${esc(pj.id)}">${esc(u().openProject)}: <bdi>${T(pj.title)}</bdi> ${state.lang === "ar" ? "←" : "→"}</a>` : ""}
           </div>
         </article>`;
