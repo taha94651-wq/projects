@@ -170,11 +170,10 @@ textarea#gnote{width:100%;border:1px solid var(--line);background:var(--raised);
     <div class="warn" id="warn" hidden></div>
     <label><span class="hint">ملاحظات عامة (اختياري)</span><textarea id="gnote" rows="2" placeholder="أي ملاحظة على الإنارة بشكل عام"></textarea></label>
     <div class="send">
-      <button class="wa" type="button" id="shareBtn">إرسال على واتساب</button>
-      <button class="cp" type="button" id="dlBtn" hidden>حفظ الصورة</button>
+      <a class="wa" id="waLink" href="#" target="_blank" rel="noopener">إرسال على واتساب</a>
+      <button class="cp" type="button" id="shareBtn">مشاركة كصورة</button>
     </div>
-    <p class="hint" id="shareNote">هيتجهز الجدول كصورة فيها صورة التصميم والموديل والرد لكل بند. اختار واتساب من القايمة اللي هتظهر وابعتها.</p>
-    <a class="txt" id="waLink" href="#" target="_blank" rel="noopener">أو أرسل الرد كنص على واتساب</a>
+    <p class="hint" id="shareNote">«إرسال على واتساب» يفتح واتساب والرد جاهز في الرسالة. «مشاركة كصورة» تجهّز الجدول بصور التصميم والموديل.</p>
   </section>
 </main>
 
@@ -335,16 +334,16 @@ function saveBlob(blob){const a=document.createElement("a");a.href=URL.createObj
 let canShareFile=false;
 try{canShareFile=!!(navigator.canShare&&navigator.canShare({files:[new File(["x"],"a.png",{type:"image/png"})]}));}catch(e){}
 async function shareTable(forceSave){
-  const b1=$("#shareBtn"), b2=$("#dlBtn"), note=$("#shareNote"), old=b1.textContent;
-  b1.disabled=b2.disabled=true; b1.textContent="جاري تجهيز الجدول…";
+  const b1=$("#shareBtn"), note=$("#shareNote"), old=b1.textContent;
+  b1.disabled=true; b1.textContent="جاري تجهيز الصورة…";
   try{
     const blob=await buildPNG(); const file=new File([blob],"murshid-lighting.png",{type:"image/png"});
     if(!forceSave&&canShareFile){
       try{await navigator.share({files:[file],title:TITLE});note.textContent="اتبعت. تقدر تكمّل أو تعدّل وتبعت تاني.";}
       catch(e){ if(e&&e.name!=="AbortError"){saveBlob(blob);note.textContent="الصورة اتحفظت على جهازك، ابعتها على واتساب.";} }
     }else{ saveBlob(blob); note.textContent="الصورة اتحفظت على جهازك، ابعتها على واتساب."; toast("تم حفظ الصورة"); }
-  }catch(e){ note.textContent="حصلت مشكلة في تجهيز الصورة. استخدم «أرسل الرد كنص»."; }
-  b1.disabled=b2.disabled=false; b1.textContent=old;
+  }catch(e){ note.textContent="حصلت مشكلة في تجهيز الصورة. استخدم «إرسال على واتساب»."; }
+  b1.disabled=false; b1.textContent=old;
 }
 function updItem(n){
   const it=ITEMS.find(i=>i.n===n), el=$("#it-"+n), ta=$("#nt-"+n);
@@ -371,7 +370,7 @@ document.addEventListener("click",e=>{
   if(t.dataset.jump){ $("#it-"+t.dataset.jump).scrollIntoView({behavior:"smooth",block:"start"}); return; }
   if(t.id==="toSum"){ $("#summary").scrollIntoView({behavior:"smooth"}); return; }
   if(t.id==="shareBtn"){ shareTable(false); return; }
-  if(t.id==="dlBtn"){ shareTable(true); return; }
+
 });
 document.addEventListener("input",e=>{
   const t=e.target;
@@ -381,7 +380,7 @@ document.addEventListener("input",e=>{
 document.addEventListener("keydown",e=>{ if(e.key==="Escape") document.querySelector(".zoom")?.remove(); });
 
 $("#gnote").value=st.g; renderList(); renderSummary();
-if(canShareFile){ $("#dlBtn").hidden=false; } else { $("#shareBtn").textContent="تنزيل الجدول (صورة)"; $("#shareNote").textContent="هيتنزل الجدول كصورة فيها صورة التصميم والموديل والرد لكل بند، وتبعتها على واتساب."; }
+if(!canShareFile){ $("#shareBtn").textContent="تنزيل كصورة"; }
 </script>
 </body>
 </html>
