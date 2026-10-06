@@ -38,20 +38,20 @@
     },
     {
       "kind": {
-        "en": "Material receiving · inspection report",
-        "ar": "استلام وفحص الخامات · مراجعة مستخلص"
+        "en": "Payment certificate · cost summary",
+        "ar": "مستخلص · ملخص تكلفة"
       },
       "title": {
-        "en": "Private villa, Al Nakheel — marble slab receiving & inspection",
-        "ar": "فيلا سكنية بحي النخيل — استلام ألواح الرخام وفحصها"
+        "en": "Private villa, Al Nakheel — marble works certificate & summary",
+        "ar": "فيلا سكنية بحي النخيل — مستخلص وملخص أعمال الرخام"
       },
       "stat": {
-        "en": "14 items checked · 6 billed but not delivered · 20 m² broken slabs returned · 1 missed payment found",
-        "ar": "14 بند متراجع · 6 بنود متحاسب عليها ومتوردتش · 20 م² ألواح مكسورة مرتجعة · دفعة منسية اتكشفت"
+        "en": "14 items reviewed · 4 sections · 3 payments reconciled · 1 missed payment found",
+        "ar": "14 بند متراجع · 4 أقسام · 3 دفعات متطابقة · دفعة منسية اتكشفت"
       },
       "desc": {
-        "en": "The report I use to receive Carrara and Calacatta slabs and log every issue after inspection: quantities billed but not delivered, broken and duplicate slabs returned and deducted, the contractor's certificate checked line by line against approved quantities and the payment record, and the cost of the remaining ground-floor works. Prices removed; formulas and checks still work.",
-        "ar": "التقرير اللي بستلم بيه ألواح الرخام الكرارا والكالكتا وبرصد فيه كل مشاكلها بعد الفحص: كميات متحاسب عليها ومتوردتش، وألواح مكسورة ومكررة اترجعت واتخصمت، ومطابقة مستخلص المقاول بند بند مع الكميات المعتمدة وكشف الدفعات، وتكلفة أعمال الدور الأرضي المتبقية. الأسعار متشالة، والمعادلات والمطابقات شغالة."
+        "en": "Review of the marble contractor's payment certificate: claimed vs approved quantities line by line, payments reconciled against the account statement, deductions for returned slabs, the remaining ground-floor works, a client cost summary and savings against the original quotation. Prices removed; formulas and checks still work.",
+        "ar": "مراجعة مستخلص مقاول الرخام: الكميات المطالب بيها مقابل المعتمدة بند بند، ومطابقة الدفعات مع كشف الحسابات، وخصم الرخام المرتجع، وتكلفة أعمال الدور الأرضي المتبقية، وملخص تكلفة للعميل، والتوفير مقارنة بعرض السعر الأصلي. الأسعار متشالة، والمعادلات والمطابقات شغالة."
       },
       "project": "",
       "poster": "assets/images/controls/nakheel-marble.jpg",
@@ -61,7 +61,7 @@
             "en": "Excel file",
             "ar": "ملف الإكسل"
           },
-          "src": "assets/docs/nakheel-villa-marble-inspection.xlsx"
+          "src": "assets/docs/nakheel-villa-marble-certificate.xlsx"
         }
       ]
     },
