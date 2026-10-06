@@ -84,7 +84,7 @@ h4 {{ font-size:7pt; letter-spacing:.16em; text-transform:uppercase; font-weight
 <div class="qr"><img src="{qr_svg(PORTFOLIO)}" alt="">Portfolio</div></div>
 {row("About", f'<p class="summary">{e(en(P["summary"]))}</p>')}
 {row("Key figures", '<div class="kf">' + ''.join(f'<div><b>{e(x["value"])}</b><span>{e(en(x["label"]))}</span></div>' for x in P.get("stats", [])) + '</div>', "keep")}
-{row("Key clients", f'<div class="clients">{clients}</div>', "keep")}
+{row("Major clients", f'<div class="clients">{clients}</div>', "keep")}
 {row("Experience", exp)}
 {row("Key projects", proj)}
 {row("Education", edu, "keep")}
