@@ -103,6 +103,21 @@ details.spec ul{margin:6px 0 0;padding-inline-start:18px;font-size:.85rem;color:
 .counts div{background:var(--raised);border-radius:10px;padding:10px;text-align:center;font-size:.82rem;color:var(--muted)}
 .counts b{display:block;font-family:var(--f-display);font-size:1.4rem;color:var(--ink);font-variant-numeric:tabular-nums}
 .counts .cy b{color:var(--yes)}.counts .cn b{color:var(--no)}
+.tbl{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.th,.tr{display:grid;grid-template-columns:22px 62px 62px 1fr;gap:8px;align-items:center;padding:8px 10px}
+@media (min-width:600px){.th,.tr{grid-template-columns:30px 96px 96px 1fr;gap:12px}}
+.th{background:var(--teal-soft);color:var(--teal);font-size:.76rem;font-weight:600;text-align:center}
+.tr{border-top:1px solid var(--line)}
+.tr.yes{background:#f4fbf7}.tr.no{background:#fff7f3}
+.tr .no{font-family:var(--f-display);font-weight:700;color:var(--teal);text-align:center;font-variant-numeric:tabular-nums}
+.tr .im{aspect-ratio:1/1;border-radius:8px;background:var(--raised);overflow:hidden;position:relative}
+.tr .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.tr .inf{display:flex;flex-direction:column;gap:3px;min-width:0;align-items:flex-start}
+.tr .inf .jump{font-size:.8rem;font-weight:600;line-height:1.35}
+.tr .inf small{color:var(--muted);font-size:.74rem;line-height:1.35;overflow-wrap:anywhere}
+.tr .status{font-size:.74rem}
+@media (max-width:420px){.th,.tr{gap:6px;padding:8px 8px}}
+.txt{align-self:flex-start;color:var(--muted);font-size:.85rem;text-decoration:underline}
 .srow{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line);font-size:.9rem}
 .srow:last-child{border-bottom:0}
 .srow .t{flex:1;min-width:0}
@@ -151,14 +166,15 @@ textarea#gnote{width:100%;border:1px solid var(--line);background:var(--raised);
   <section class="summary" id="summary" aria-labelledby="sumH">
     <h2 id="sumH">ملخص ردك</h2>
     <div class="counts"><div class="cy"><b id="cY">٠</b>موافق</div><div class="cn"><b id="cN">٠</b>غير موافق</div><div><b id="cW">١٣</b>بدون رد</div></div>
-    <div id="srows"></div>
+    <div class="tbl" id="srows" role="table" aria-label="جدول الردود"></div>
     <div class="warn" id="warn" hidden></div>
     <label><span class="hint">ملاحظات عامة (اختياري)</span><textarea id="gnote" rows="2" placeholder="أي ملاحظة على الإنارة بشكل عام"></textarea></label>
     <div class="send">
-      <a class="wa" id="waLink" href="#" target="_blank" rel="noopener">إرسال على واتساب</a>
-      <button class="cp" type="button" id="copyBtn">نسخ الرد</button>
+      <button class="wa" type="button" id="shareBtn">مشاركة الجدول (صورة)</button>
+      <button class="cp" type="button" id="dlBtn" hidden>حفظ الصورة</button>
     </div>
-    <p class="hint" id="copyNote">واتساب يفتح والرسالة جاهزة، اختار الشخص اللي هتبعتله. أو انسخ الرد والصقه في أي محادثة.</p>
+    <p class="hint" id="shareNote">هيتجهز الجدول كصورة فيها صورة التصميم والموديل والرد لكل بند، وتشاركها على واتساب.</p>
+    <a class="txt" id="waLink" href="#" target="_blank" rel="noopener">أو أرسل الرد كنص على واتساب</a>
   </section>
 </main>
 
@@ -258,9 +274,76 @@ function renderSummary(){
   $("#cY").textContent=fmt(c.y); $("#cN").textContent=fmt(c.n); $("#cW").textContent=fmt(c.w);
   $("#progTxt").textContent=`${fmt(done)} من ${fmt(ITEMS.length)}`; $("#progBar").style.width=(done/ITEMS.length*100)+"%";
   $("#barTxt").textContent=done===ITEMS.length?"خلصت كل البنود ✓":`رديت على ${fmt(done)} من ${fmt(ITEMS.length)}`;
-  $("#srows").innerHTML=ITEMS.map(it=>`<div class="srow"><button class="jump t" type="button" data-jump="${it.n}">${fmt(it.n)}. ${esc(it.t)}<small>${esc(it.p)}${st.note[it.n]?" · "+esc(st.note[it.n]):""}</small></button>${statusHTML(st.v[it.n]||"")}</div>`).join("");
+  $("#srows").innerHTML=`<div class="th" role="row"><span>#</span><span>التصميم</span><span>السوق</span><span>الرد</span></div>`+ITEMS.map(it=>{const v=st.v[it.n]||"";return `<div class="tr ${v}" role="row"><span class="no">${fmt(it.n)}</span><span class="im"><img src="img/${it.d[0]}" alt=""></span><span class="im"><img src="img/${it.m}" alt=""></span><span class="inf"><button class="jump" type="button" data-jump="${it.n}">${esc(it.t)}</button><small>${esc(it.p)}</small>${statusHTML(v)}${st.note[it.n]?`<small>${esc(st.note[it.n])}</small>`:""}</span></div>`;}).join("");
   const w=$("#warn"); w.hidden=!c.w; w.textContent=c.w?`فاضل ${fmt(c.w)} بند بدون رد. تقدر تبعت دلوقتي، وهيظهروا في الرسالة «بدون رد».`:"";
   $("#waLink").href=`https://wa.me/?text=${encodeURIComponent(message())}`;
+}
+/* ---- جدول الرد كصورة ---- */
+const loadImg=src=>new Promise(r=>{const i=new Image();i.onload=()=>r(i);i.onerror=()=>r(null);i.src=src;});
+function wrapLines(ctx,text,maxW){const out=[];let cur="";for(const w of String(text).split(/\s+/)){const t=cur?cur+" "+w:w;if(cur&&ctx.measureText(t).width>maxW){out.push(cur);cur=w;}else cur=t;}if(cur)out.push(cur);return out;}
+function rr(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();}
+function fitImg(ctx,img,x,y,w,h){ctx.fillStyle="#f3f7fa";rr(ctx,x,y,w,h,14);ctx.fill();if(!img)return;ctx.save();rr(ctx,x,y,w,h,14);ctx.clip();const k=Math.min(w/img.width,h/img.height);const iw=img.width*k,ih=img.height*k;ctx.drawImage(img,x+(w-iw)/2,y+(h-ih)/2,iw,ih);ctx.restore();}
+async function buildPNG(){
+  try{await Promise.all([document.fonts.load('600 28px "IBM Plex Sans Arabic"'),document.fonts.load('400 24px "IBM Plex Sans Arabic"'),document.fonts.load('700 44px Alexandria')]);}catch(e){}
+  const BODY='"IBM Plex Sans Arabic",system-ui,Tahoma,sans-serif', DISP='Alexandria,"IBM Plex Sans Arabic",system-ui,sans-serif';
+  const W=1080,P=40,R=W-P,T=190,NUMW=56,G=16;
+  const xD=R-NUMW-G-T, xM=xD-12-T, infoR=xM-22, infoW=infoR-P;
+  const imgs=await Promise.all([loadImg("img/phzyn-logo.png"),...ITEMS.map(i=>loadImg("img/"+i.d[0])),...ITEMS.map(i=>loadImg("img/"+i.m))]);
+  const logo=imgs[0], dI=imgs.slice(1,1+ITEMS.length), mI=imgs.slice(1+ITEMS.length);
+  const m=document.createElement("canvas").getContext("2d"); m.direction="rtl";
+  const rows=ITEMS.map(it=>{m.font=`600 27px ${BODY}`;const nm=wrapLines(m,it.n+". "+it.t,infoW);m.font=`400 23px ${BODY}`;const nt=st.note[it.n]?wrapLines(m,"ملاحظة: "+st.note[it.n],infoW).slice(0,3):[];const h=Math.max(T+34,16+nm.length*34+34+50+nt.length*30+16);return{it,nm,nt,h};});
+  const gl=st.g?(m.font=`400 24px ${BODY}`,wrapLines(m,"ملاحظات عامة: "+st.g,W-2*P)):[];
+  const HEAD=300, FOOT=90+gl.length*34;
+  const H=HEAD+rows.reduce((a,r)=>a+r.h,0)+FOOT;
+  const c=document.createElement("canvas"); c.width=W; c.height=H; const x=c.getContext("2d"); x.direction="rtl"; x.textAlign="right"; x.textBaseline="alphabetic";
+  x.fillStyle="#f5f9fc"; x.fillRect(0,0,W,H);
+  // header
+  x.fillStyle="#fff"; rr(x,P,28,W-2*P,92,46); x.fill(); x.strokeStyle="#e2e9ee"; x.lineWidth=2; x.stroke();
+  if(logo){const lh=44,lw=logo.width*lh/logo.height; x.drawImage(logo,R-34-lw,28+(92-lh)/2,lw,lh);}
+  x.fillStyle="#6a737b"; x.font=`500 24px ${BODY}`; x.textAlign="left"; x.fillText(new Date().toLocaleDateString("ar-EG"),P+34,28+54); x.textAlign="right";
+  x.fillStyle="#17191a"; x.font=`700 44px ${DISP}`; x.fillText(TITLE,R,198);
+  const c3=counts();
+  const chips=[["موافق",c3.y,"#1d9a63"],["غير موافق",c3.n,"#c2410c"],["بدون رد",c3.w,"#6a737b"]];
+  let cx=R; chips.forEach(([l,v,col])=>{const txt=`${l}: ${fmt(v)}`; x.font=`600 26px ${BODY}`; const w=x.measureText(txt).width+44; x.fillStyle=col; rr(x,cx-w,226,w,46,23); x.fill(); x.fillStyle="#fff"; x.fillText(txt,cx-22,258); cx-=w+12;});
+  // column heads
+  x.fillStyle="#0f798e"; x.font=`600 22px ${BODY}`; x.textAlign="center";
+  x.fillText("#",R-NUMW/2,HEAD-6); x.fillText("في التصميم",xD+T/2,HEAD-6); x.fillText("المتوفر في السوق",xM+T/2,HEAD-6); x.fillText("الرد",P+infoW/2,HEAD-6); x.textAlign="right";
+  // rows
+  let y=HEAD; 
+  rows.forEach((r,i)=>{
+    const v=st.v[r.it.n]||"";
+    x.fillStyle=v==="yes"?"#f1faf5":v==="no"?"#fff5ef":"#ffffff"; x.fillRect(P-12,y,W-2*P+24,r.h);
+    x.fillStyle="#e2e9ee"; x.fillRect(P-12,y,W-2*P+24,2);
+    const ty=y+(r.h-T)/2;
+    x.fillStyle="#0f798e"; x.font=`700 34px ${DISP}`; x.textAlign="center"; x.fillText(fmt(r.it.n),R-NUMW/2,y+r.h/2+12); x.textAlign="right";
+    fitImg(x,dI[i],xD,ty,T,T); fitImg(x,mI[i],xM,ty,T,T);
+    let ly=y+16+26;
+    x.fillStyle="#17191a"; x.font=`600 27px ${BODY}`; r.nm.forEach(l=>{x.fillText(l,infoR,ly);ly+=34;});
+    x.fillStyle="#6a737b"; x.font=`400 23px ${BODY}`; x.fillText(`${r.it.p} · الكمية ${fmt(r.it.q)}`,infoR,ly); ly+=18;
+    const lab=v==="yes"?"✓ موافق":v==="no"?"✕ غير موافق":"بدون رد", bg=v==="yes"?"#1d9a63":v==="no"?"#c2410c":"#e8eef2", fg=v?"#fff":"#6a737b";
+    x.font=`700 26px ${BODY}`; const pw=x.measureText(lab).width+40; x.fillStyle=bg; rr(x,infoR-pw,ly,pw,44,22); x.fill(); x.fillStyle=fg; x.fillText(lab,infoR-20,ly+31); ly+=44+22;
+    x.fillStyle="#3d4246"; x.font=`400 23px ${BODY}`; r.nt.forEach(l=>{x.fillText(l,infoR,ly);ly+=30;});
+    y+=r.h;
+  });
+  x.fillStyle="#e2e9ee"; x.fillRect(P-12,y,W-2*P+24,2);
+  let fy=y+44; x.fillStyle="#3d4246"; x.font=`400 24px ${BODY}`; gl.forEach(l=>{x.fillText(l,R,fy);fy+=34;});
+  x.fillStyle="#6a737b"; x.font=`500 22px ${BODY}`; x.textAlign="center"; x.fillText("فزين · PHZYN",W/2,H-28);
+  return new Promise(res=>c.toBlob(res,"image/png"));
+}
+function saveBlob(blob){const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="murshid-lighting.png";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),4000);}
+let canShareFile=false;
+try{canShareFile=!!(navigator.canShare&&navigator.canShare({files:[new File(["x"],"a.png",{type:"image/png"})]}));}catch(e){}
+async function shareTable(forceSave){
+  const b1=$("#shareBtn"), b2=$("#dlBtn"), note=$("#shareNote"), old=b1.textContent;
+  b1.disabled=b2.disabled=true; b1.textContent="جاري تجهيز الجدول…";
+  try{
+    const blob=await buildPNG(); const file=new File([blob],"murshid-lighting.png",{type:"image/png"});
+    if(!forceSave&&canShareFile){
+      try{await navigator.share({files:[file],title:TITLE});note.textContent="اختار واتساب وابعت الجدول.";}
+      catch(e){ if(e&&e.name!=="AbortError"){saveBlob(blob);note.textContent="الصورة اتحفظت على جهازك، ابعتها على واتساب.";} }
+    }else{ saveBlob(blob); note.textContent="الصورة اتحفظت على جهازك، ابعتها على واتساب."; toast("تم حفظ الصورة"); }
+  }catch(e){ note.textContent="حصلت مشكلة في تجهيز الصورة. استخدم «أرسل الرد كنص»."; }
+  b1.disabled=b2.disabled=false; b1.textContent=old;
 }
 function updItem(n){
   const it=ITEMS.find(i=>i.n===n), el=$("#it-"+n), ta=$("#nt-"+n);
@@ -286,12 +369,8 @@ document.addEventListener("click",e=>{
   }
   if(t.dataset.jump){ $("#it-"+t.dataset.jump).scrollIntoView({behavior:"smooth",block:"start"}); return; }
   if(t.id==="toSum"){ $("#summary").scrollIntoView({behavior:"smooth"}); return; }
-  if(t.id==="copyBtn"){
-    const txt=message(), note=$("#copyNote");
-    const ok=()=>{t.textContent="✓ تم النسخ"; t.classList.add("done"); note.textContent="الرد اتنسخ، الصقه في أي محادثة."; setTimeout(()=>{t.textContent="نسخ الرد"; t.classList.remove("done");},2500);};
-    const fb=()=>{let ta=$("#msgFb"); if(!ta){ta=document.createElement("textarea"); ta.id="msgFb"; ta.readOnly=true; ta.rows=6; note.after(ta);} ta.value=txt; ta.focus(); ta.select(); note.textContent="تم تحديد النص. انسخه يدوياً وابعته."};
-    try{navigator.clipboard.writeText(txt).then(ok,fb);}catch(err){fb();}
-  }
+  if(t.id==="shareBtn"){ shareTable(false); return; }
+  if(t.id==="dlBtn"){ shareTable(true); return; }
 });
 document.addEventListener("input",e=>{
   const t=e.target;
@@ -301,6 +380,7 @@ document.addEventListener("input",e=>{
 document.addEventListener("keydown",e=>{ if(e.key==="Escape") document.querySelector(".zoom")?.remove(); });
 
 $("#gnote").value=st.g; renderList(); renderSummary();
+if(canShareFile){ $("#dlBtn").hidden=false; } else { $("#shareBtn").textContent="تنزيل الجدول (صورة)"; $("#shareNote").textContent="هيتنزل الجدول كصورة فيها صورة التصميم والموديل والرد لكل بند، وتبعتها على واتساب."; }
 </script>
 </body>
 </html>
