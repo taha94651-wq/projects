@@ -724,3 +724,4 @@ html[lang="ar"] .br__tag { letter-spacing: 0; font-size: 12px; }
 .ctl__split { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; aspect-ratio: 4 / 3; }
 .ctl__split .ctl__media { aspect-ratio: auto; height: 100%; }
 .ctl__split .pdf-badge { font-size: 12px; }
+.row__wip { border-color: var(--gold); background: rgba(184, 150, 90, 0.14); }

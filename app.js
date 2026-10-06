@@ -186,6 +186,8 @@
       .map((x, k) => `<li><a href="#/p/${esc(x.id)}"${x === p ? ' aria-current="page"' : ""}><span>${pad(k + 1)}</span>${T(x.chapter) || T(x.title)}</a></li>`)
       .join("")}</ol></nav>`;
   };
+  // visible "in progress" tag for live projects
+  const wipTag = (p) => (p.status === "progress" ? ` <span class="row__fam row__wip">${esc(t(D.status.progress))}</span>` : "");
   const famTag = (p) => {
     const fam = familyOf(p);
     if (fam.length < 2) return "";
@@ -296,7 +298,7 @@
           <a class="row" href="#/p/${esc(p.id)}" data-img="${esc(cover(p))}" data-from="${disc}">
             <span class="row__no">${pad(i + 1)}</span>
             <span class="row__thumb"><img loading="lazy" src="${esc(cover(p))}" alt="" /></span>
-            <span class="row__title"><bdi>${T(p.title)}</bdi>${famTag(p)}</span>
+            <span class="row__title"><bdi>${T(p.title)}</bdi>${wipTag(p)}${famTag(p)}</span>
             <span class="row__cell${hi ? " row__cell--hi" : ""}">${esc(res) || "—"}</span>
             <span class="row__cell row__cell--loc">${T(p.location) || "—"}</span>
             <span class="row__cell">${esc(t(p.year))}</span>
@@ -310,7 +312,7 @@
           <a class="row" href="#/p/${esc(p.id)}" data-img="${esc(cover(p))}" data-from="${disc}">
             <span class="row__no">${pad(i + 1)}</span>
             <span class="row__thumb"><img loading="lazy" src="${esc(cover(p))}" alt="" /></span>
-            <span class="row__title"><bdi>${T(p.title)}</bdi>${famTag(p)}</span>
+            <span class="row__title"><bdi>${T(p.title)}</bdi>${wipTag(p)}${famTag(p)}</span>
             <span class="row__cell">${T(D.types[p.type])}</span>
             <span class="row__cell row__cell--loc">${T(p.location) || "—"}</span>
             <span class="row__cell">${T(p.role)}${c3 ? ` · ${esc(c3)}` : ""}</span>
@@ -607,7 +609,7 @@
       })
       .join("");
 
-    const kicker = [p.disciplines.map((d) => u()[d]).join(" + "), t(D.types[p.type]), t(p.year)].filter(Boolean).join(" · ");
+    const kicker = [p.disciplines.map((d) => u()[d]).join(" + "), t(D.types[p.type]), t(p.year), p.status === "progress" ? t(D.status.progress) : ""].filter(Boolean).join(" · ");
     const back = `<a class="pj__back" href="#${from}"><span>${state.lang === "ar" ? "→" : "←"}</span>${esc(u().backTo)}</a>`;
     const rel = p.related && D.projects.find((x) => x.id === p.related);
     const nextHTML =
