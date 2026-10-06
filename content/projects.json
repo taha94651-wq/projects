@@ -2057,199 +2057,6 @@
       }
     },
     {
-      "id": "beond-office",
-      "title": {
-        "en": "BEOND Office",
-        "ar": "مكتب بيوند"
-      },
-      "disciplines": [
-        "execution"
-      ],
-      "type": "offices",
-      "result": "",
-      "status": "progress",
-      "client": {
-        "en": "BEOND (airline)",
-        "ar": "بيوند للطيران"
-      },
-      "designer": {
-        "en": "",
-        "ar": ""
-      },
-      "company": {
-        "en": "",
-        "ar": ""
-      },
-      "location": {
-        "en": "Al Nafel, Riyadh — ground floor",
-        "ar": "حي النفل، الرياض — الدور الأرضي"
-      },
-      "year": "2026",
-      "duration": {
-        "en": "",
-        "ar": ""
-      },
-      "area": "",
-      "role": {
-        "en": "Fit-out execution — MEP works in progress",
-        "ar": "تنفيذ التشطيبات — أعمال الكهروميكانيك جارية"
-      },
-      "phases": [
-        "survey",
-        "drawings",
-        "supervision"
-      ],
-      "tools": [],
-      "summary": {
-        "en": "Ground-floor office fit-out in Al Nafel, Riyadh for BEOND, the premium leisure airline. The project is under execution, currently at the MEP stage; progress photos will follow as works advance.",
-        "ar": "تشطيب مكتب في الدور الأرضي بحي النفل في الرياض لشركة بيوند للطيران الفاخر. المشروع قيد التنفيذ حاليًا في مرحلة أعمال الكهروميكانيك، وهتتضاف صور التقدم مع تقدم الأعمال."
-      },
-      "scope": [
-        {
-          "en": "Office fit-out execution",
-          "ar": "تنفيذ تشطيبات المكتب"
-        },
-        {
-          "en": "MEP works coordination",
-          "ar": "تنسيق أعمال الكهروميكانيك"
-        },
-        {
-          "en": "Site supervision",
-          "ar": "الإشراف على الموقع"
-        }
-      ],
-      "cover": "",
-      "coverVideo": "",
-      "media": [],
-      "related": "",
-      "relatedLabel": {
-        "en": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "makhazen-al-enaya-build",
-      "title": {
-        "en": "Makhazen Al Enaya — Display Units",
-        "ar": "مخازن العناية — تنفيذ وحدات العرض"
-      },
-      "disciplines": [
-        "execution"
-      ],
-      "type": "retail",
-      "result": "",
-      "status": "built",
-      "client": {
-        "en": "Makhazen Al Enaya",
-        "ar": "مخازن العناية"
-      },
-      "designer": {
-        "en": "",
-        "ar": ""
-      },
-      "company": {
-        "en": "VIVID Design / PHZYN Construction",
-        "ar": "VIVID Design / PHZYN Construction"
-      },
-      "location": {
-        "en": "4 branches: Riyadh, Al Khobar, Dammam, Jeddah",
-        "ar": "4 فروع: الرياض، الخبر، الدمام، جدة"
-      },
-      "year": "2026",
-      "duration": {
-        "en": "",
-        "ar": ""
-      },
-      "area": "",
-      "role": {
-        "en": "Execution of the display units",
-        "ar": "تنفيذ وحدات العرض"
-      },
-      "phases": [
-        "drawings",
-        "supervision",
-        "handover"
-      ],
-      "tools": [],
-      "summary": {
-        "en": "Execution of the new makeup-section display units in four renovated Makhazen Al Enaya branches: Al Hamra in Riyadh, Al Khobar, Dammam and Al Salamah in Jeddah, following the redesign to the new brand identity.",
-        "ar": "تنفيذ وحدات العرض الجديدة لقسم الميكب في أربعة فروع مُرمّمة لمخازن العناية: حي الحمراء بالرياض، والخبر، والدمام، وحي السلامة بجدة، بعد إعادة تصميمها وفق الهوية الجديدة."
-      },
-      "scope": [
-        {
-          "en": "Execution of makeup-section display units",
-          "ar": "تنفيذ وحدات عرض قسم الميكب"
-        },
-        {
-          "en": "Installation in 4 branches",
-          "ar": "التركيب في 4 فروع"
-        }
-      ],
-      "branches": [
-        {
-          "name": {
-            "en": "Makeup renovation — Al Hamra",
-            "ar": "ترميم الميكب — حي الحمراء"
-          },
-          "place": {
-            "en": "Al Hamra",
-            "ar": "حي الحمراء"
-          },
-          "city": "riyadh",
-          "kind": "refit"
-        },
-        {
-          "name": {
-            "en": "Makeup renovation — Al Salamah",
-            "ar": "ترميم الميكب — حي السلامة"
-          },
-          "place": {
-            "en": "Al Salamah",
-            "ar": "حي السلامة"
-          },
-          "city": "jeddah",
-          "kind": "refit"
-        },
-        {
-          "name": {
-            "en": "Makeup renovation — Dammam",
-            "ar": "ترميم الميكب — الدمام"
-          },
-          "place": {
-            "en": "Dammam",
-            "ar": "الدمام"
-          },
-          "city": "dammam",
-          "kind": "refit"
-        },
-        {
-          "name": {
-            "en": "Makeup renovation — Al Khobar",
-            "ar": "ترميم الميكب — الخبر"
-          },
-          "place": {
-            "en": "Al Khobar",
-            "ar": "الخبر"
-          },
-          "city": "khobar",
-          "kind": "refit"
-        }
-      ],
-      "cover": "",
-      "coverVideo": "",
-      "media": [],
-      "related": "makhazen-al-enaya-renovation",
-      "relatedLabel": {
-        "en": "See the renovation design",
-        "ar": "شاهد تصميم الترميم"
-      },
-      "family": "makhazen-al-enaya",
-      "chapter": {
-        "en": "Execution",
-        "ar": "التنفيذ"
-      }
-    },
-    {
       "id": "assaf-perfumes",
       "title": {
         "en": "Assaf Display Units",
@@ -6522,6 +6329,199 @@
       }
     },
     {
+      "id": "beond-office",
+      "title": {
+        "en": "BEOND Office",
+        "ar": "مكتب بيوند"
+      },
+      "disciplines": [
+        "execution"
+      ],
+      "type": "offices",
+      "result": "",
+      "status": "progress",
+      "client": {
+        "en": "BEOND (airline)",
+        "ar": "بيوند للطيران"
+      },
+      "designer": {
+        "en": "",
+        "ar": ""
+      },
+      "company": {
+        "en": "",
+        "ar": ""
+      },
+      "location": {
+        "en": "Al Nafel, Riyadh — ground floor",
+        "ar": "حي النفل، الرياض — الدور الأرضي"
+      },
+      "year": "2026",
+      "duration": {
+        "en": "",
+        "ar": ""
+      },
+      "area": "",
+      "role": {
+        "en": "Fit-out execution — MEP works in progress",
+        "ar": "تنفيذ التشطيبات — أعمال الكهروميكانيك جارية"
+      },
+      "phases": [
+        "survey",
+        "drawings",
+        "supervision"
+      ],
+      "tools": [],
+      "summary": {
+        "en": "Ground-floor office fit-out in Al Nafel, Riyadh for BEOND, the premium leisure airline. The project is under execution, currently at the MEP stage; progress photos will follow as works advance.",
+        "ar": "تشطيب مكتب في الدور الأرضي بحي النفل في الرياض لشركة بيوند للطيران الفاخر. المشروع قيد التنفيذ حاليًا في مرحلة أعمال الكهروميكانيك، وهتتضاف صور التقدم مع تقدم الأعمال."
+      },
+      "scope": [
+        {
+          "en": "Office fit-out execution",
+          "ar": "تنفيذ تشطيبات المكتب"
+        },
+        {
+          "en": "MEP works coordination",
+          "ar": "تنسيق أعمال الكهروميكانيك"
+        },
+        {
+          "en": "Site supervision",
+          "ar": "الإشراف على الموقع"
+        }
+      ],
+      "cover": "",
+      "coverVideo": "",
+      "media": [],
+      "related": "",
+      "relatedLabel": {
+        "en": "",
+        "ar": ""
+      }
+    },
+    {
+      "id": "makhazen-al-enaya-build",
+      "title": {
+        "en": "Makhazen Al Enaya — Display Units",
+        "ar": "مخازن العناية — تنفيذ وحدات العرض"
+      },
+      "disciplines": [
+        "execution"
+      ],
+      "type": "retail",
+      "result": "",
+      "status": "built",
+      "client": {
+        "en": "Makhazen Al Enaya",
+        "ar": "مخازن العناية"
+      },
+      "designer": {
+        "en": "",
+        "ar": ""
+      },
+      "company": {
+        "en": "VIVID Design / PHZYN Construction",
+        "ar": "VIVID Design / PHZYN Construction"
+      },
+      "location": {
+        "en": "4 branches: Riyadh, Al Khobar, Dammam, Jeddah",
+        "ar": "4 فروع: الرياض، الخبر، الدمام، جدة"
+      },
+      "year": "2026",
+      "duration": {
+        "en": "",
+        "ar": ""
+      },
+      "area": "",
+      "role": {
+        "en": "Execution of the display units",
+        "ar": "تنفيذ وحدات العرض"
+      },
+      "phases": [
+        "drawings",
+        "supervision",
+        "handover"
+      ],
+      "tools": [],
+      "summary": {
+        "en": "Execution of the new makeup-section display units in four renovated Makhazen Al Enaya branches: Al Hamra in Riyadh, Al Khobar, Dammam and Al Salamah in Jeddah, following the redesign to the new brand identity.",
+        "ar": "تنفيذ وحدات العرض الجديدة لقسم الميكب في أربعة فروع مُرمّمة لمخازن العناية: حي الحمراء بالرياض، والخبر، والدمام، وحي السلامة بجدة، بعد إعادة تصميمها وفق الهوية الجديدة."
+      },
+      "scope": [
+        {
+          "en": "Execution of makeup-section display units",
+          "ar": "تنفيذ وحدات عرض قسم الميكب"
+        },
+        {
+          "en": "Installation in 4 branches",
+          "ar": "التركيب في 4 فروع"
+        }
+      ],
+      "branches": [
+        {
+          "name": {
+            "en": "Makeup renovation — Al Hamra",
+            "ar": "ترميم الميكب — حي الحمراء"
+          },
+          "place": {
+            "en": "Al Hamra",
+            "ar": "حي الحمراء"
+          },
+          "city": "riyadh",
+          "kind": "refit"
+        },
+        {
+          "name": {
+            "en": "Makeup renovation — Al Salamah",
+            "ar": "ترميم الميكب — حي السلامة"
+          },
+          "place": {
+            "en": "Al Salamah",
+            "ar": "حي السلامة"
+          },
+          "city": "jeddah",
+          "kind": "refit"
+        },
+        {
+          "name": {
+            "en": "Makeup renovation — Dammam",
+            "ar": "ترميم الميكب — الدمام"
+          },
+          "place": {
+            "en": "Dammam",
+            "ar": "الدمام"
+          },
+          "city": "dammam",
+          "kind": "refit"
+        },
+        {
+          "name": {
+            "en": "Makeup renovation — Al Khobar",
+            "ar": "ترميم الميكب — الخبر"
+          },
+          "place": {
+            "en": "Al Khobar",
+            "ar": "الخبر"
+          },
+          "city": "khobar",
+          "kind": "refit"
+        }
+      ],
+      "cover": "",
+      "coverVideo": "",
+      "media": [],
+      "related": "makhazen-al-enaya-renovation",
+      "relatedLabel": {
+        "en": "See the renovation design",
+        "ar": "شاهد تصميم الترميم"
+      },
+      "family": "makhazen-al-enaya",
+      "chapter": {
+        "en": "Execution",
+        "ar": "التنفيذ"
+      }
+    },
+    {
       "id": "food-truck-concept",
       "title": {
         "en": "Street Food Kiosk — Quick Concept",
@@ -6623,151 +6623,6 @@
       ],
       "related": "",
       "relatedLabel": {
-        "en": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "design-project-01",
-      "title": {
-        "ar": "مشروع تصميم 01",
-        "en": "Design Project 01"
-      },
-      "disciplines": [
-        "design"
-      ],
-      "type": "offices",
-      "status": "",
-      "client": {
-        "ar": "",
-        "en": ""
-      },
-      "location": {
-        "ar": "",
-        "en": ""
-      },
-      "year": "",
-      "duration": {
-        "ar": "",
-        "en": ""
-      },
-      "area": "",
-      "role": {
-        "ar": "دورك في المشروع",
-        "en": "Your role"
-      },
-      "phases": [],
-      "tools": [],
-      "summary": {
-        "ar": "وصف المشروع.",
-        "en": "Project description."
-      },
-      "scope": [],
-      "cover": "",
-      "media": [
-        {
-          "type": "image",
-          "src": "",
-          "youtube": "",
-          "caption": {
-            "ar": "",
-            "en": ""
-          },
-          "size": "",
-          "section": {
-            "en": "",
-            "ar": ""
-          },
-          "poster": ""
-        },
-        {
-          "type": "image",
-          "src": "",
-          "youtube": "",
-          "caption": {
-            "ar": "",
-            "en": ""
-          },
-          "size": "",
-          "section": {
-            "en": "",
-            "ar": ""
-          },
-          "poster": ""
-        }
-      ],
-      "company": {
-        "en": "",
-        "ar": ""
-      },
-      "result": "",
-      "coverVideo": "",
-      "designer": {
-        "en": "",
-        "ar": ""
-      }
-    },
-    {
-      "id": "design-project-02",
-      "title": {
-        "ar": "مشروع تصميم 02",
-        "en": "Design Project 02"
-      },
-      "disciplines": [
-        "design"
-      ],
-      "type": "residential",
-      "status": "",
-      "client": {
-        "ar": "",
-        "en": ""
-      },
-      "location": {
-        "ar": "",
-        "en": ""
-      },
-      "year": "",
-      "duration": {
-        "ar": "",
-        "en": ""
-      },
-      "area": "",
-      "role": {
-        "ar": "دورك في المشروع",
-        "en": "Your role"
-      },
-      "phases": [],
-      "tools": [],
-      "summary": {
-        "ar": "وصف المشروع.",
-        "en": "Project description."
-      },
-      "scope": [],
-      "cover": "",
-      "media": [
-        {
-          "type": "image",
-          "src": "",
-          "youtube": "",
-          "caption": {
-            "ar": "",
-            "en": ""
-          },
-          "size": "",
-          "section": {
-            "en": "",
-            "ar": ""
-          },
-          "poster": ""
-        }
-      ],
-      "company": {
-        "en": "",
-        "ar": ""
-      },
-      "result": "",
-      "coverVideo": "",
-      "designer": {
         "en": "",
         "ar": ""
       }
