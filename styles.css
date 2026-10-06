@@ -790,3 +790,12 @@ html[lang="ar"] .fl__head { letter-spacing: 0; font-size: 13px; }
   .fl__go { padding: 7px 12px; }
   .fl__row:not(.fl__row--link) { flex-wrap: wrap; gap: 8px; }
 }
+
+/* profile: certifications */
+.certs { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; }
+.certs li { display: flex; align-items: flex-start; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.certs b { display: block; font-weight: 400; font-size: 17px; }
+.certs small { display: block; margin-top: 4px; color: var(--muted); font-size: 13px; overflow-wrap: anywhere; }
+.cert__ic { flex: none; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--gold); color: var(--gold); font-size: 13px; margin-top: 1px; }
+.certs .tag { margin-inline-start: auto; flex: none; }
+@media (max-width: 760px) { .certs { grid-template-columns: 1fr; } }

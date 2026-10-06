@@ -84,7 +84,7 @@
       compIntro: "Architecture competitions I entered, from student years onward.",
       photoIntro: "Architectural photography — how I read spaces, light and material through the lens.",
       aiIntro: "How I use AI in practice: generated visuals, automated sheets and structured project workflows.",
-      experience: "Experience", about: "About", clients: "Major clients", skills: "Skills", software: "Software", languages: "Languages", education: "Education",
+      experience: "Experience", about: "About", clients: "Major clients", certs: "Certifications", skills: "Skills", software: "Software", languages: "Languages", education: "Education",
       client: "Client", location: "Location", year: "Year", duration: "Duration", role: "Role", type: "Type", discipline: "Discipline",
       scope: "Scope of work", branches: "Branches", branchMap: "Branch locations", branchKinds: { new: "New branches", refit: "Makeup section renovation" }, branchTag: { new: "New branch", refit: "Makeup renovation" }, company: "Firm", designer: "Design office", status: "Status", area: "Area", tools: "Tools", myRole: "My role — phases", overview: "Overview", backTo: "Back to index", next: "Next project", related: "Related",
       contactEyebrow: "Contact", letsTalk: "Let’s work together", email: "Email", phone: "Phone", whatsapp: "WhatsApp",
@@ -100,7 +100,7 @@
       compIntro: "مسابقات معمارية شاركت فيها منذ سنوات الدراسة.",
       photoIntro: "التصوير المعماري — كيف أقرأ الفراغ والضوء والخامة من خلال العدسة.",
       aiIntro: "كيف أستخدم الذكاء الاصطناعي عمليًا: صور مولّدة، وشيتات مؤتمتة، وهيكلة سير عمل المشاريع.",
-      experience: "الخبرات", about: "نبذة", clients: "كبار العملاء", skills: "المهارات", software: "البرامج", languages: "اللغات", education: "التعليم",
+      experience: "الخبرات", about: "نبذة", clients: "كبار العملاء", certs: "الشهادات", skills: "المهارات", software: "البرامج", languages: "اللغات", education: "التعليم",
       client: "العميل", location: "الموقع", year: "السنة", duration: "المدة", role: "الدور", type: "النوع", discipline: "المجال",
       scope: "نطاق العمل", branches: "الفروع", branchMap: "مواقع الفروع", branchKinds: { new: "فروع جديدة", refit: "ترميم قسم الميكب" }, branchTag: { new: "فرع جديد", refit: "ترميم الميكب" }, company: "الشركة", designer: "مكتب التصميم", status: "الحالة", area: "المساحة", tools: "البرامج", myRole: "دوري — المراحل", overview: "نظرة عامة", backTo: "العودة للفهرس", next: "المشروع التالي", related: "ذو صلة",
       contactEyebrow: "تواصل", letsTalk: "لنعمل معًا", email: "البريد", phone: "الهاتف", whatsapp: "واتساب",
@@ -520,6 +520,12 @@
     const clients = (D.clients || [])
       .map((c) => `<li><span class="client__name"><bdi>${T(c.name)}</bdi></span>${T(c.sector) ? `<span class="client__sector">${T(c.sector)}</span>` : ""}</li>`)
       .join("");
+    const certs = (D.certifications || [])
+      .map((c) => {
+        const meta = [T(c.issuer), esc(c.date || ""), c.id ? `ID ${esc(c.id)}` : ""].filter(Boolean).map((x) => `<bdi>${x}</bdi>`).join(" · ");
+        return `<li><span class="cert__ic" aria-hidden="true">✓</span><span><b><bdi>${T(c.title)}</bdi></b><small>${meta}</small></span>${c.url ? `<a class="tag" href="${esc(c.url)}" target="_blank" rel="noopener">${state.lang === "ar" ? "عرض الشهادة" : "Show credential"} ↗</a>` : ""}</li>`;
+      })
+      .join("");
     const langs = D.languages.map((l) => `<li class="kv"><span>${T(l.name)}</span><span>${T(l.level)}</span></li>`).join("");
     const edu = D.education.map((e) => `<li class="kv"><span>${T(e.title)}</span><span>${esc(e.period || "")}</span></li>`).join("");
 
@@ -535,9 +541,10 @@
       ["exp", esc(u().experience), exp, " exp-list"],
       ["skills", esc(u().skills), skills, " cols"],
       ["soft", esc(u().software), soft, " cols"],
+      certs && ["certs", esc(u().certs), `<ul class="certs">${certs}</ul>`],
       ["lang", `${esc(u().languages)} / ${esc(u().education)}`, `<ul class="plain">${langs}</ul><ul class="plain">${edu}</ul>`, " cols"],
     ].filter(Boolean);
-    const short = { about: u().about, clients: u().clients, exp: u().experience, skills: u().skills, soft: u().software, lang: u().languages };
+    const short = { about: u().about, clients: u().clients, exp: u().experience, skills: u().skills, soft: u().software, certs: u().certs, lang: u().languages };
 
     return `
     <section class="section light" id="profile">
