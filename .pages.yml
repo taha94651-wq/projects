@@ -300,6 +300,7 @@ content:
           - { name: desc, label: "Description (optional) — الوصف", component: bi }
           - { name: project, label: "Project ID (optional) — كود المشروع", type: string }
           - { name: poster, label: Cover image — صورة الغلاف, type: image }
+          - { name: split, label: "One image per link — صورة لكل لينك", type: boolean }
           - name: files
             label: Files — الملفات
             type: object
@@ -307,6 +308,7 @@ content:
             fields:
               - { name: label, label: Label — الاسم, component: bi }
               - { name: src, label: File — الملف, type: file }
+              - { name: poster, label: "Image for split cards (optional) — صورة", type: image }
 
   # ============================ PROFILE ============================
   - name: site

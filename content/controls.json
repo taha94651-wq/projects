@@ -61,16 +61,19 @@
             "en": "Lighting approval",
             "ar": "اعتماد النجف"
           },
-          "src": "demo/lighting-approval/"
+          "src": "demo/lighting-approval/",
+          "poster": "assets/images/controls/client-lighting.jpg"
         },
         {
           "label": {
             "en": "Wardrobe accessories",
             "ar": "إكسسوارات الخزائن"
           },
-          "src": "demo/wardrobe-selection/"
+          "src": "demo/wardrobe-selection/",
+          "poster": "assets/images/controls/client-wardrobe.jpg"
         }
-      ]
+      ],
+      "split": true
     },
     {
       "kind": {
