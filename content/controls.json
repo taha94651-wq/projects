@@ -38,6 +38,35 @@
     },
     {
       "kind": {
+        "en": "Material receiving · inspection report",
+        "ar": "محضر استلام · فحص الخامات"
+      },
+      "title": {
+        "en": "Private villa, Al Nakheel — Italian marble block receiving & slab sorting",
+        "ar": "فيلا سكنية بحي النخيل — محضر استلام بلوك رخام إيطالي وفرز الألواح"
+      },
+      "stat": {
+        "en": "83 slabs · 47 sound · 35 cracked on one side · 1 on both sides · 5 size groups",
+        "ar": "83 لوح · 47 سليم · 35 شرخ في جهة · 1 شرخ في جهتين · 5 مجموعات مقاسات"
+      },
+      "desc": {
+        "en": "Handover record for an Italian Calacatta block: slabs sorted at the warehouse, each crack logged with its position and length, sizes before and after trimming, a sketch per size group, then handed to the contractor for cutting and installation with sign-off by supplier, contractor and supervisor.",
+        "ar": "محضر استلام بلوك كالكاتا إيطالي: فرز الألواح في المستودع، ورصد كل شرخ بمكانه وطوله، والمقاسات قبل وبعد قص الشرخ، مع سكتش لكل مجموعة مقاسات، وبعدها التسليم للمقاول للقص والتركيب بتوقيع المورد والمقاول والمشرف."
+      },
+      "project": "",
+      "poster": "assets/images/controls/nakheel-marble-receiving.jpg",
+      "files": [
+        {
+          "label": {
+            "en": "Excel file",
+            "ar": "ملف الإكسل"
+          },
+          "src": "assets/docs/nakheel-villa-marble-receiving.xlsx"
+        }
+      ]
+    },
+    {
+      "kind": {
         "en": "Payment certificate · cost summary",
         "ar": "مستخلص · ملخص تكلفة"
       },
