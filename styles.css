@@ -801,3 +801,11 @@ html[lang="ar"] .fl__head { letter-spacing: 0; font-size: 13px; }
 @media (max-width: 760px) { .certs { grid-template-columns: 1fr; } }
 .certs small .nw { white-space: nowrap; }
 .certs small .nw:first-child { white-space: normal; }
+a.ai-card__media { position: relative; display: block; cursor: pointer; }
+a.ai-card__media img { object-position: top; }
+@media (min-width: 1001px) {
+  .ai-grid { grid-template-columns: repeat(6, 1fr); }
+  .ai-card { grid-column: span 2; }
+  .ai-card--tool { grid-column: span 3; }
+  .ai-card--series, .ai-card--wide { grid-column: 1 / -1; }
+}

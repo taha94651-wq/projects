@@ -344,9 +344,11 @@
         const series = (a.gallery || []).filter(Boolean);
         const media = series.length
           ? `<div class="ai-series">${series.map((g, k) => `<figure class="ai-series__item" data-zoom="${esc(g)}" data-cap="${T(a.title)} — ${pad(k + 1)}"><img loading="lazy" src="${esc(g)}" alt="${T(a.title)} — ${pad(k + 1)}" /></figure>`).join("")}</div>`
+          : a.kind === "tools" && a.link
+          ? `<a class="ai-card__media" href="${esc(a.link)}" target="_blank" rel="noopener"><img loading="lazy" src="${esc(src)}" alt="${T(a.title)}" /><span class="pdf-badge">${state.lang === "ar" ? "افتح" : "Open"} ↗</span></a>`
           : `<div class="ai-card__media" data-zoom="${esc(src)}"><img loading="lazy" src="${esc(src)}" alt="${T(a.title)}" /></div>`;
         return `
-      <article class="ai-card reveal${series.length ? " ai-card--series" : a.wide ? " ai-card--wide" : ""}">
+      <article class="ai-card reveal${series.length ? " ai-card--series" : a.wide ? " ai-card--wide" : a.kind === "tools" ? " ai-card--tool" : ""}">
         ${media}
         <span class="eyebrow gold">${T(D.aiKinds[a.kind])}</span>
         <h3>${T(a.title)}</h3>
