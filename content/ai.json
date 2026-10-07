@@ -1,6 +1,62 @@
 {
   "items": [
     {
+      "id": "lighting-approval",
+      "kind": "tools",
+      "title": {
+        "en": "Lighting & chandeliers approval",
+        "ar": "اعتماد النجف والإنارات"
+      },
+      "desc": {
+        "en": "The client compares each designed fixture with the available market model, approves or rejects item by item, and sends the result back as a picture table over WhatsApp. Demo copy, client name removed.",
+        "ar": "العميل بيقارن كل نجفة في التصميم بالموديل المتوفر في السوق، ويوافق أو يرفض بند ببند، ويبعت النتيجة كجدول صور على واتساب. نسخة عرض بدون اسم العميل."
+      },
+      "tools": [
+        "Claude Code",
+        "HTML",
+        "WhatsApp"
+      ],
+      "src": "assets/images/controls/client-lighting.jpg",
+      "link": "demo/lighting-approval/",
+      "links": [
+        {
+          "label": {
+            "en": "Open the tool",
+            "ar": "افتح الأداة"
+          },
+          "src": "demo/lighting-approval/"
+        }
+      ]
+    },
+    {
+      "id": "wardrobe-selection",
+      "kind": "tools",
+      "title": {
+        "en": "Wardrobe accessories selection",
+        "ar": "اختيار إكسسوارات خزائن الملابس"
+      },
+      "desc": {
+        "en": "A catalogue where the client picks product, size and colour, assigns it to a room on the plan, and sends the selections as a picture table over WhatsApp. Demo copy, client name removed.",
+        "ar": "كتالوج العميل بيختار منه المنتج والمقاس واللون، ويحدد الغرفة من المخطط، ويبعت اختياراته كجدول صور على واتساب. نسخة عرض بدون اسم العميل."
+      },
+      "tools": [
+        "Claude Code",
+        "HTML",
+        "WhatsApp"
+      ],
+      "src": "assets/images/controls/client-wardrobe.jpg",
+      "link": "demo/wardrobe-selection/",
+      "links": [
+        {
+          "label": {
+            "en": "Open the tool",
+            "ar": "افتح الأداة"
+          },
+          "src": "demo/wardrobe-selection/"
+        }
+      ]
+    },
+    {
       "id": "fayoum",
       "kind": "images",
       "title": {
