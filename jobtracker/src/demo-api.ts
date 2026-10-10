@@ -4,42 +4,102 @@ import { buildTargetCompanies } from '@shared/targets'
 import { ENTITY_KEYS, SCHEMA } from '@shared/schema'
 import type { Dataset, EntityKey, Settings, User } from '@shared/types'
 import { cascade } from './store'
+import { t } from './i18n'
+import { setPersistMode } from './persist-mode'
+import { toast } from './ui-store'
 
 /**
  * Preview-only stand-in for the Express API: handles the same `/api/*` routes in the browser
- * so the real UI can run as a static page. State persists in localStorage when available.
+ * so the real UI can run as a static page.
+ *
+ * Persistence: when the page has the artifact `db` capability, the whole state is kept in one document
+ * (`pipeline/state`) so it survives reloads, devices and republishes. localStorage is a local cache and the
+ * fallback when the database is unavailable. NEVER change STORAGE_KEY again: a new key silently drops saved data.
+ * Data written by earlier preview builds (keys `pipeline-preview-v1` … `v9`) is recovered once.
  */
-const KEY = 'pipeline-preview-v7'
+const STORAGE_KEY = 'pipeline-preview-state'
+const LEGACY_PREFIX = 'pipeline-preview-v'
+const DOC_PATH = 'pipeline/state'
 const USER: User = { id: 'demo', name: 'Mostafa Taha', email: 'demo@example.com' }
 const DEFAULTS: Settings = { lang: 'en', locale: 'en-GB', defaultCurrency: 'SAR', staleDays: 7 }
 const EMPTY: Dataset = { companies: [], attempts: [], contacts: [], applications: [], interviews: [], followUps: [], activities: [], attachments: [] }
 
 interface State { data: Dataset; settings: Settings; user: User }
+interface Doc { get(): Promise<{ exists: boolean; data(): Record<string, unknown> | undefined }>; set(d: Record<string, unknown>): Promise<void> }
+interface CloudDb { doc(path: string): Doc }
 let state: State
 let signedIn = true
+let cloud: Doc | null = null
 
-function load(): State {
-  try {
-    const raw = localStorage.getItem(KEY)
-    if (raw) {
-      const st = JSON.parse(raw) as State
-      // migrate data saved by earlier versions: simplified categories + interests
-      st.data.attempts = (st.data.attempts ?? []).map(a => ({ ...a, role: a.role ?? '', personName: a.personName ?? '' }))
-      st.data.companies = st.data.companies.map(c => ({ ...c, type: (LEGACY_TYPE_MAP[c.type as string] ?? c.type) as typeof c.type, interests: c.interests ?? '' }))
-      return { ...st, settings: { ...DEFAULTS, ...st.settings } }
-    }
-  } catch { /* storage unavailable */ }
-  // Starts with the user's own offices only (no outside companies); demo data is opt-in from Settings.
-  return { data: { ...EMPTY, companies: buildTargetCompanies() }, settings: DEFAULTS, user: USER }
+/** Brings data saved by earlier versions up to the current shape. Idempotent. */
+function normalize(st: State): State {
+  const data = { ...EMPTY, ...st.data }
+  data.attempts = (data.attempts ?? []).map(a => ({ ...a, role: a.role ?? '', personName: a.personName ?? '' }))
+  data.companies = data.companies.map(c => ({ ...c, type: (LEGACY_TYPE_MAP[c.type as string] ?? c.type) as typeof c.type, interests: c.interests ?? '' }))
+  return { data, settings: { ...DEFAULTS, ...st.settings }, user: st.user ?? USER }
 }
-function save() { try { localStorage.setItem(KEY, JSON.stringify(state)) } catch { /* ignore */ } }
+function readLocal(): State | null {
+  try {
+    const keys = [STORAGE_KEY, ...Array.from({ length: 9 }, (_, i) => `${LEGACY_PREFIX}${9 - i}`)]
+    for (const k of keys) { const raw = localStorage.getItem(k); if (raw) return normalize(JSON.parse(raw) as State) }
+  } catch { /* storage unavailable or corrupt */ }
+  return null
+}
+// Starts with the user's own offices only (no outside companies); demo data is opt-in from Settings.
+const fresh = (): State => ({ data: { ...EMPTY, companies: buildTargetCompanies() }, settings: DEFAULTS, user: USER })
+
+async function getCloud(): Promise<CloudDb | null> {
+  try {
+    const claude = (window as unknown as { claude?: { use(n: string): Promise<unknown> } }).claude
+    if (!claude?.use) return null
+    return ((await claude.use('db')) as CloudDb | null) ?? null
+  } catch { return null }
+}
+
+let timer: ReturnType<typeof setTimeout> | undefined
+let writing = false
+let again = false
+let warned = false
+async function flush() {
+  if (!cloud) return
+  if (writing) { again = true; return }
+  writing = true
+  try {
+    const payload = JSON.stringify(state)
+    if (payload.length > 240_000) throw new Error('too large')
+    await cloud.set({ payload, savedAt: new Date().toISOString(), schema: 2 })
+  } catch {
+    if (!warned) { warned = true; toast(t('Could not save to the page database — saved in this browser only'), 'error') }
+  } finally { writing = false; if (again) { again = false; schedule() } }
+}
+function schedule() { if (cloud) { clearTimeout(timer); timer = setTimeout(() => void flush(), 400) } }
+function save() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)) } catch { /* ignore */ }
+  schedule()
+}
 
 const json = (body: unknown, status = 200) => new Response(JSON.stringify(body), { status, headers: { 'Content-Type': 'application/json' } })
 const fail = (error: string, status = 400) => json({ error }, status)
 const entity = (name: string): EntityKey | undefined => ENTITY_KEYS.find(k => k === name)
 
-export function installDemoApi() {
-  state = load()
+export async function installDemoApi() {
+  const db = await getCloud()
+  const doc = db?.doc(DOC_PATH) ?? null
+  let loaded: State | null = null
+  if (doc) {
+    try {
+      const snap = await doc.get()
+      const payload = snap.exists ? (snap.data()?.payload as string | undefined) : undefined
+      if (payload) loaded = normalize(JSON.parse(payload) as State)
+      cloud = doc
+      setPersistMode('cloud')
+    } catch { cloud = null } // database unreachable: keep working from this browser
+  }
+  const local = readLocal()
+  state = loaded ?? local ?? fresh()
+  // First time on the database: carry over what this browser already holds (including data from older builds).
+  if (cloud && !loaded) { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)) } catch { /* ignore */ } schedule() }
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') { clearTimeout(timer); void flush() } })
   const real = window.fetch.bind(window)
   window.fetch = async (input: RequestInfo | URL, init?: RequestInit) => {
     const url = typeof input === 'string' ? input : input instanceof URL ? input.pathname : input.url

@@ -780,5 +780,7 @@ export const ar: Record<string, string> = {
  "{company} replied — send what they asked for": "ردّت {company} — أرسل ما طلبته",
  "{days} without any answer.": "{days} دون أي إجابة.",
  "{n} attempts without a reply.": "{n} محاولات دون رد.",
- "Classify 1 company": "صنّف شركة واحدة"
+ "Classify 1 company": "صنّف شركة واحدة",
+ "Live preview · changes are saved with this page · reset anytime in Settings": "معاينة حيّة · تُحفظ تغييراتك مع هذه الصفحة · يمكنك إعادة الضبط في أي وقت من الإعدادات",
+ "Could not save to the page database — saved in this browser only": "تعذّر الحفظ في قاعدة بيانات الصفحة — تم الحفظ في هذا المتصفح فقط"
 }
