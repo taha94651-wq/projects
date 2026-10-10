@@ -109,6 +109,13 @@ content:
                 - { value: pricing, label: Pricing — التسعير }
                 - { value: supervision, label: Site supervision — الإشراف }
                 - { value: handover, label: Handover — التسليم }
+          - name: customPhases
+            label: "Custom phases (replaces the list above, all shown as done) — مراحل مخصّصة"
+            component: bi
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{en}"
           - { name: tools, label: Tools / software — البرامج, type: string, list: true }
           - { name: summary, label: Overview — وصف المشروع, component: bitext }
           - name: scope
