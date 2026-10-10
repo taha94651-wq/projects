@@ -6674,6 +6674,290 @@
       }
     },
     {
+      "id": "valero-furniture",
+      "title": {
+        "en": "Valero Furniture — bespoke furniture",
+        "ar": "فاليرو للأثاث — أثاث حسب الطلب"
+      },
+      "disciplines": [
+        "execution"
+      ],
+      "type": "furniture",
+      "result": "",
+      "status": "built",
+      "client": {
+        "en": "Private residential clients",
+        "ar": "عملاء سكنيين"
+      },
+      "designer": {
+        "en": "",
+        "ar": ""
+      },
+      "company": {
+        "en": "Valero Furniture",
+        "ar": "فاليرو للأثاث"
+      },
+      "location": {
+        "en": "Egypt",
+        "ar": "مصر"
+      },
+      "year": "2023",
+      "duration": {
+        "en": "",
+        "ar": ""
+      },
+      "area": "",
+      "role": {
+        "en": "Production & fit-out engineer: shop drawings, factory production, installation and handover",
+        "ar": "مهندس إنتاج وتشطيبات: رسومات التصنيع، ومتابعة الإنتاج في المصنع، والتركيب والتسليم للعميل"
+      },
+      "phases": [
+        "drawings",
+        "materials",
+        "supervision",
+        "handover"
+      ],
+      "tools": [],
+      "summary": {
+        "en": "Bespoke furniture for a premium brand, followed from shop drawings to the client's home: upholstered sofas and daybeds, bedroom sets, dining tables and display cabinets, made in the factory, then installed and handed over room by room.",
+        "ar": "أثاث حسب الطلب لعلامة أثاث فاخرة، متابَع من رسومات التصنيع لحد بيت العميل: كنب وديفانات منجّدة، وغرف نوم، وسفرة، ونيش عرض. اتصنعت في المصنع، وبعدها اتركبت واتسلمت للعميل فراغ بفراغ."
+      },
+      "scope": [
+        {
+          "en": "Joinery and upholstery shop drawings",
+          "ar": "رسومات تصنيع النجارة والتنجيد"
+        },
+        {
+          "en": "Fabric, veneer and metal finish selection",
+          "ar": "اختيار الأقمشة والقشرة الخشبية وتشطيبات المعادن"
+        },
+        {
+          "en": "Production follow-up: cutting, assembly, upholstery and paint",
+          "ar": "متابعة الإنتاج: القص والتجميع والتنجيد والدهان"
+        },
+        {
+          "en": "Quality check before dispatch",
+          "ar": "فحص الجودة قبل الشحن"
+        },
+        {
+          "en": "Installation and handover at the client's home",
+          "ar": "التركيب والتسليم في بيت العميل"
+        }
+      ],
+      "cover": "assets/images/valero/bolster-daybed.jpg",
+      "coverVideo": "",
+      "media": [
+        {
+          "type": "image",
+          "src": "assets/images/valero/bolster-daybed.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Bolster daybed: velvet rolls on a walnut frame",
+            "ar": "ديفان بمساند أسطوانية: قطيفة على هيكل خشب جوز"
+          },
+          "section": {
+            "en": "Signature pieces",
+            "ar": "قطع مميزة"
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/valero/nightstand.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Nightstand: ebony veneer drum with quilted leather wings",
+            "ar": "كومودينو: أسطوانة قشرة أبنوس بجوانب جلد مبطّن"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/valero/round-daybed.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Round bouclé daybed",
+            "ar": "ديفان دائري بقماش بوكليه"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "image",
+          "src": "assets/images/valero/channel-chaise.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Channel-tufted chaise on a steel base",
+            "ar": "شيزلونج بخياطة طولية على قاعدة ستانلس"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/valero-dining.mp4",
+          "youtube": "",
+          "poster": "assets/images/valero/dining-poster.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Dining room: display cabinet, buffet and stone-top table",
+            "ar": "غرفة سفرة: نيش عرض وبوفيه وترابيزة بسطح حجر"
+          },
+          "section": {
+            "en": "Installed and handed over",
+            "ar": "التركيب والتسليم للعميل"
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/valero-round-dining.mp4",
+          "youtube": "",
+          "poster": "assets/images/valero/round-dining-poster.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Round dining table with upholstered chairs",
+            "ar": "سفرة دائرية بكراسي منجّدة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/valero-living-room.mp4",
+          "youtube": "",
+          "poster": "assets/images/valero/living-room-poster.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Living room: tufted velvet sofas and glass coffee table",
+            "ar": "صالة معيشة: كنب قطيفة كابيتونيه وترابيزة زجاج"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/valero-tufted-sectional.mp4",
+          "youtube": "",
+          "poster": "assets/images/valero/tufted-sectional-poster.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Tufted sectional with marble coffee table",
+            "ar": "كنبة ركنة كابيتونيه وترابيزة رخام"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/valero-orange-sofa.mp4",
+          "youtube": "",
+          "poster": "assets/images/valero/orange-sofa-poster.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Channel-tufted velvet sofa",
+            "ar": "كنبة قطيفة بخياطة طولية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/valero-navy-sofa.mp4",
+          "youtube": "",
+          "poster": "assets/images/valero/navy-sofa-poster.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Navy channel sofa",
+            "ar": "كنبة كحلي بخياطة طولية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/valero-bolster-daybed.mp4",
+          "youtube": "",
+          "poster": "assets/images/valero/bolster-daybed-poster.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Bolster daybed in the client's entrance",
+            "ar": "الديفان الأسطواني في مدخل العميل"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/valero-bedroom-set.mp4",
+          "youtube": "",
+          "poster": "assets/images/valero/bedroom-set-poster.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Bedroom set with matching nightstand",
+            "ar": "غرفة نوم مع الكومودينو"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/valero-velvet-bed.mp4",
+          "youtube": "",
+          "poster": "assets/images/valero/velvet-bed-poster.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Velvet bed with a lit dressing mirror",
+            "ar": "سرير قطيفة ومراية تسريحة بإضاءة"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        },
+        {
+          "type": "video",
+          "src": "assets/videos/valero-boucle-bed.mp4",
+          "youtube": "",
+          "poster": "assets/images/valero/boucle-bed-poster.jpg",
+          "size": "half",
+          "caption": {
+            "en": "Bouclé bed and bedside units",
+            "ar": "سرير بوكليه ووحدات جانبية"
+          },
+          "section": {
+            "en": "",
+            "ar": ""
+          }
+        }
+      ],
+      "noStagger": true,
+      "related": "",
+      "relatedLabel": {
+        "en": "",
+        "ar": ""
+      }
+    },
+    {
       "id": "rasees-event",
       "title": {
         "en": "Rasees Event",
