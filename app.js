@@ -79,7 +79,7 @@
       nav: { execution: "Execution", controls: "Project Controls", design: "Design", competition: "Competitions", photography: "Photography", ai: "AI Work", profile: "Profile", contact: "Contact" },
       all: "All", index: "Index", profile: "Profile", viewWork: "View work", downloadCv: "Download CV",
       execIntro: "Projects delivered on site — my role, the scope I owned and the time it took.",
-      controlsIntro: "The documents behind the work: bills of quantities, sample boards and technical catalogues, gathered from the projects.", openProject: "Open project",
+      controlsIntro: "The documents behind the work: bills of quantities, sample boards and technical catalogues, gathered from the projects.", controlsNote: "All documents are shown with client details and prices removed, to present the working method only.", openProject: "Open project",
       designIntro: "Design work — project type, year and my exact role in each.",
       compIntro: "Architecture competitions I entered, from student years onward.",
       photoIntro: "Architectural photography — how I read spaces, light and material through the lens.",
@@ -95,7 +95,7 @@
       nav: { execution: "التنفيذ", controls: "إدارة وضبط المشاريع", design: "التصميم", competition: "المسابقات", photography: "التصوير", ai: "الذكاء الاصطناعي", profile: "السيرة", contact: "تواصل" },
       all: "الكل", index: "الفهرس", profile: "نبذة", viewWork: "شاهد الأعمال", downloadCv: "تحميل السيرة الذاتية",
       execIntro: "مشاريع تم تنفيذها في الموقع — دوري، ونطاق العمل الذي توليته، والمدة.",
-      controlsIntro: "المستندات وراء الشغل: جداول الكميات، والسامبل بورد، والكتالوجات الفنية، مجمّعة من المشاريع.", openProject: "صفحة المشروع",
+      controlsIntro: "المستندات وراء الشغل: جداول الكميات، والسامبل بورد، والكتالوجات الفنية، مجمّعة من المشاريع.", controlsNote: "جميع المستندات معروضة بعد حذف بيانات العملاء والأسعار، بغرض عرض طريقة العمل فقط.", openProject: "صفحة المشروع",
       designIntro: "أعمال التصميم — نوع المشروع وسنته ودوري بالتحديد في كل مشروع.",
       compIntro: "مسابقات معمارية شاركت فيها منذ سنوات الدراسة.",
       photoIntro: "التصوير المعماري — كيف أقرأ الفراغ والضوء والخامة من خلال العدسة.",
@@ -483,6 +483,7 @@
     return `
     <section class="section wrap" id="controls">
       ${sectionHead(no, "controls", u().nav.controls, list.length, u().controlsIntro)}
+      <p class="ctl-note"><span aria-hidden="true">🔒</span>${esc(u().controlsNote)}</p>
       <div class="ctl-grid">${cards}</div>
     </section>`;
   }
