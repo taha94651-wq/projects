@@ -34,7 +34,7 @@ ok('Arabic names render', await page.getByText('شركة سمو').first().isVisi
 await page.getByLabel('Search companies', { exact: true }).fill('simba')
 ok('search narrows to 1', (await rowCount()) === 1)
 await page.getByLabel('Search companies', { exact: true }).fill('')
-for (const [cat, n] of [['Developer', 1], ['Design', 3], ['Unclassified', 9]]) {
+for (const [cat, n] of [['Developer', 2], ['Design', 5], ['Unclassified', 6]]) {
   await page.getByLabel('Filter by category').selectOption(cat)
   ok(`target list: ${cat} = ${n}`, (await rowCount()) === n, String(await rowCount()))
 }
