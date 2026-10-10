@@ -592,6 +592,7 @@ export const ar: Record<string, string> = {
  "Moved from {from} to {to}": "انتقل من {from} إلى {to}",
  "Design": "تصميم",
  "Execution": "تنفيذ",
+ "Design & Execution": "تصميم وتنفيذ",
  "Unclassified": "غير مصنّفة",
  "Category": "التصنيف",
  "Interests": "الاهتمامات",

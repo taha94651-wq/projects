@@ -59,7 +59,7 @@ export default function Dashboard() {
       )}
       <section aria-labelledby="cat-h" className="mb-8">
         <div className="mb-3 flex items-center justify-between"><h2 id="cat-h" className="text-[15px] font-semibold">By category</h2><Link to="/compare" className="btn btn-sm">Compare <ArrowRight className="size-3.5 rtl:-scale-x-100" /></Link></div>
-        <div className="grid gap-3 sm:grid-cols-3">
+        <div className="grid gap-3 sm:grid-cols-2">
           {categoryStats(data).filter(r => r.type !== 'Unclassified').map(({ type, stats }) => (
             <Link key={type} to={`/companies?category=${encodeURIComponent(type)}`} className="card p-4 transition hover:border-ink-300 hover:shadow-pop">
               <p className="font-display text-2xl">{t(type)}</p>

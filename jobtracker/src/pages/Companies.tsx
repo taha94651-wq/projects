@@ -71,7 +71,7 @@ export default function Companies() {
     { key: 'industry', header: 'Industry', sort: r => r.c.industry, hideBelow: 'xl', render: ({ c }) => <span className="text-ink-600">{c.industry || '—'}</span> },
     { key: 'location', header: 'Location', sort: r => r.c.location, render: ({ c }) => <span className="text-ink-600">{c.location || '—'}</span> },
     { key: 'website', header: 'Website', hideBelow: 'xl', render: ({ c }) => c.website ? <a href={c.website} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="inline-flex items-center gap-1 text-brand-700 hover:underline">{hostname(c.website)}<ExternalLink className="size-3" /></a> : '—' },
-    { key: 'type', header: 'Category', sort: r => r.c.type, render: ({ c }) => <Badge tone={c.type === 'Unclassified' ? 'amber' : c.type === 'Developer' ? 'blue' : c.type === 'Design' ? 'green' : 'solid'}>{t(c.type)}</Badge> },
+    { key: 'type', header: 'Category', sort: r => r.c.type, render: ({ c }) => <Badge tone={c.type === 'Unclassified' ? 'amber' : c.type === 'Developer' ? 'blue' : 'green'}>{t(c.type)}</Badge> },
     { key: 'interests', header: 'Interests', hideBelow: '2xl', render: ({ c }) => <div className="flex max-w-56 flex-wrap gap-1">{parseInterests(c.interests).map(i => <Badge key={i}>{t(i)}</Badge>)}{!c.interests && <span className="text-ink-300">—</span>}</div> },
     { key: 'priority', header: 'Priority', sort: r => PRIO[r.c.priority], render: ({ c }) => <PriorityBadge priority={c.priority} /> },
     { key: 'contact', header: 'Contact', sort: r => r.contact?.name, hideBelow: 'lg', render: ({ contact }) => contact ? <div><p className="text-ink-800">{contact.name}</p><p className="text-xs text-ink-400">{t(contact.type)}</p></div> : '—' },

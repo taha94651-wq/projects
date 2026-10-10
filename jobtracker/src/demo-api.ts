@@ -9,7 +9,7 @@ import { cascade } from './store'
  * Preview-only stand-in for the Express API: handles the same `/api/*` routes in the browser
  * so the real UI can run as a static page. State persists in localStorage when available.
  */
-const KEY = 'pipeline-preview-v5'
+const KEY = 'pipeline-preview-v6'
 const USER: User = { id: 'demo', name: 'Mostafa Taha', email: 'demo@example.com' }
 const DEFAULTS: Settings = { lang: 'en', locale: 'en-GB', defaultCurrency: 'SAR', staleDays: 7 }
 const EMPTY: Dataset = { companies: [], attempts: [], contacts: [], applications: [], interviews: [], followUps: [], activities: [], attachments: [] }

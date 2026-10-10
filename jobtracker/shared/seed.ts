@@ -7,9 +7,9 @@ const iso = (d: Date) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.ge
 
 /** Builds a fictional, internally consistent dataset with dates relative to `today`. */
 const DEMO_INTERESTS: Record<string, string> = {
-  co_alnoor: 'Hospitality,Mixed-use,Government / Giga-projects', co_rds: 'Residential,Villas,Hospitality', co_gulfretail: 'Retail,Interior fit-out', co_urbanform: 'Government / Giga-projects,Commercial',
-  co_axis: 'Commercial,Retail,Interior fit-out', co_modernspaces: 'Hospitality,Commercial', co_capital: 'Hospitality,Residential,Mixed-use', co_nile: 'Villas,Hospitality',
-  co_meridian: 'Retail,Commercial', co_falcon: 'Residential,Mixed-use', co_horizon: 'Hospitality,Commercial', co_dune: 'Residential,Villas', co_talentbridge: '',
+  co_alnoor: 'Commercial,Mixed-use,Government / Giga-projects', co_rds: 'Residential,Hospitality', co_gulfretail: 'Retail,Commercial', co_urbanform: 'Government / Giga-projects,Commercial',
+  co_axis: 'Commercial,Retail', co_modernspaces: 'Hospitality,Commercial', co_capital: 'Hospitality,Residential,Mixed-use', co_nile: 'Residential,Hospitality',
+  co_meridian: 'Retail,Commercial', co_falcon: 'Residential,Mixed-use', co_horizon: 'Hospitality,Commercial', co_dune: 'Residential', co_talentbridge: '',
 }
 
 export function buildSeed(today = new Date()): Dataset {

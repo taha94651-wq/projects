@@ -69,13 +69,13 @@ import { parseInterests } from './interests'
 
 describe('category comparison on the sample dataset', () => {
   const rows = Object.fromEntries(categoryStats(data).map(r => [r.type, r.stats]))
-  it('groups companies into Developer / Design / Execution / Unclassified', () => {
-    expect([rows.Design.companies, rows.Execution.companies, rows.Developer.companies, rows.Unclassified.companies]).toEqual([7, 4, 1, 1])
+  it('groups companies into Developer / Design & Execution / Unclassified', () => {
+    expect([rows['Design & Execution'].companies, rows.Developer.companies, rows.Unclassified.companies]).toEqual([11, 1, 1])
   })
   it('splits submitted applications and offers by category', () => {
-    expect([rows.Design.applications, rows.Execution.applications, rows.Developer.applications]).toEqual([8, 5, 0])
-    expect([rows.Design.offers, rows.Execution.offers]).toEqual([1, 2])
-    expect(rows.Design.applications + rows.Execution.applications + rows.Developer.applications).toBe(a.totals.applications)
+    expect([rows['Design & Execution'].applications, rows.Developer.applications]).toEqual([13, 0])
+    expect(rows['Design & Execution'].offers).toBe(3)
+    expect(rows['Design & Execution'].applications + rows.Developer.applications).toBe(a.totals.applications)
   })
   it('compares single companies', () => {
     const gulf = companyStats(data, 'co_gulfretail')
