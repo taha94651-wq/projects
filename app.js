@@ -655,11 +655,14 @@
       [u().tools, (p.tools || []).join(" · ")],
     ].filter((m) => m[1]);
 
+    // custom phases (e.g. furniture manufacturing) replace the standard list and are all part of the role
+    const own = (p.customPhases || []).filter((x) => t(x));
     const done = new Set(p.phases || []);
-    const phases = done.size
+    const steps = own.length ? own.map((x) => ["", x, true]) : VOCAB.phases.map(([k, label]) => [k, label, done.has(k)]);
+    const phases = own.length || done.size
       ? `<span class="eyebrow">${esc(u().myRole)}</span>
-        <ol class="phases reveal">${VOCAB.phases
-          .map(([k, label], i) => `<li class="${done.has(k) ? "on" : ""}"><span>${pad(i + 1)}</span>${esc(t(label))}</li>`)
+        <ol class="phases reveal">${steps
+          .map(([, label, on], i) => `<li class="${on ? "on" : ""}"><span>${pad(i + 1)}</span>${esc(t(label))}</li>`)
           .join("")}</ol>`
       : "";
 

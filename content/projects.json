@@ -6402,7 +6402,61 @@
       "relatedLabel": {
         "en": "",
         "ar": ""
-      }
+      },
+      "customPhases": [
+        {
+          "en": "Receiving the design",
+          "ar": "استلام تصميم القطعة"
+        },
+        {
+          "en": "Site measurements",
+          "ar": "رفع المقاسات في الموقع"
+        },
+        {
+          "en": "Shop drawings",
+          "ar": "رسومات التصنيع"
+        },
+        {
+          "en": "Materials & fabrics",
+          "ar": "اختيار الخامات والأقمشة"
+        },
+        {
+          "en": "Cutting list & ordering",
+          "ar": "جدول القص وطلب الخامات"
+        },
+        {
+          "en": "Cutting & CNC",
+          "ar": "القص والتشكيل CNC"
+        },
+        {
+          "en": "Frame & carcass assembly",
+          "ar": "تجميع الهيكل"
+        },
+        {
+          "en": "Upholstery",
+          "ar": "التنجيد"
+        },
+        {
+          "en": "Paint & finishing",
+          "ar": "الدهان والتشطيب"
+        },
+        {
+          "en": "Quality check",
+          "ar": "فحص الجودة"
+        },
+        {
+          "en": "Packing & delivery",
+          "ar": "التغليف والتوصيل"
+        },
+        {
+          "en": "Installation",
+          "ar": "التركيب في الموقع"
+        },
+        {
+          "en": "Client handover",
+          "ar": "التسليم للعميل"
+        }
+      ]
     },
     {
       "id": "chadel-chalet",
