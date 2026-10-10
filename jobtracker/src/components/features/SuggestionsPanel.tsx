@@ -63,7 +63,7 @@ function Draft({ s }: { s: Suggestion }) {
   )
 }
 
-export function SuggestionCard({ s, onSnooze }: { s: Suggestion; onSnooze: (id: string) => void }) {
+export function SuggestionCard({ s, onSnooze }: { s: Suggestion; onSnooze?: (id: string) => void }) {
   const [showDraft, setShowDraft] = useState(false)
   const sev = SEV[s.severity]
   return (
@@ -81,7 +81,7 @@ export function SuggestionCard({ s, onSnooze }: { s: Suggestion; onSnooze: (id: 
             {s.cta && <button className="btn btn-primary btn-sm" onClick={() => openForm({ kind: s.cta!.form, id: s.cta!.id, defaults: s.cta!.defaults })}>{s.cta.label}</button>}
             {s.link && <Link to={s.link.to} className="btn btn-sm">{s.link.label}</Link>}
             {s.draft && <button className="btn btn-sm" aria-expanded={showDraft} onClick={() => setShowDraft(v => !v)}><MessageSquareText className="size-3.5" />{t('Draft message')}</button>}
-            <button className="btn btn-ghost btn-sm ms-auto text-ink-500" onClick={() => onSnooze(s.id)} title={t('Hide for {days}', { days: tDays(SNOOZE_DAYS) })}><BellOff className="size-3.5" />{t('Hide')}</button>
+            {onSnooze && <button className="btn btn-ghost btn-sm ms-auto text-ink-500" onClick={() => onSnooze(s.id)} title={t('Hide for {days}', { days: tDays(SNOOZE_DAYS) })}><BellOff className="size-3.5" />{t('Hide')}</button>}
           </div>
           {showDraft && s.draft && <Draft s={s} />}
         </div>

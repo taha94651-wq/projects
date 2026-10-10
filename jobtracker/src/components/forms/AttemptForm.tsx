@@ -3,7 +3,8 @@ import { AtSign, Mail, MessageCircle } from 'lucide-react'
 import { ATTEMPT_METHODS, ATTEMPT_RESPONSES, CONTACT_TYPES, EMAIL_KINDS, type AttemptMethod, type AttemptResponse, type EmailKind } from '@shared/constants'
 import type { Attempt } from '@shared/types'
 import { useStore } from '@/store'
-import { toast, useUI, type FormRequest } from '@/ui-store'
+import { openForm, useUI, type FormRequest } from '@/ui-store'
+import { saveAttempt } from '@/actions'
 import { todayISO } from '@/lib/dates'
 import { FormGrid, SelectField, Span2, TextArea, TextField } from '../ui/fields'
 import type { ContactType } from '@shared/constants'
@@ -11,16 +12,16 @@ import { cx } from '../ui/Badge'
 import { required, useForm } from '../ui/useForm'
 import { FormModal } from './FormModal'
 
-type V = Omit<Attempt, 'id' | 'createdAt'> & { saveContact: boolean }
+type V = Omit<Attempt, 'id' | 'createdAt'> & { saveContact?: boolean }
 export const METHOD_ICON = { Email: Mail, WhatsApp: MessageCircle, Other: AtSign } as const
 const PHONE = /^\+?[\d\s().-]{6,}$/
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 export function AttemptForm({ req }: { req: FormRequest }) {
-  const { data, add, patch } = useStore.getState()
+  const { data } = useStore.getState()
   const existing = data.attempts.find(a => a.id === req.id)
   const close = useUI(s => s.closeForm)
-  const init: V = { companyId: data.companies.filter(c => !c.archived)[0]?.id ?? '', method: 'Email', emailKind: 'HR email', contact: '', role: '', personName: '', saveContact: false, date: todayISO(), response: 'Waiting', reply: '', progress: '', ...(existing ?? {}), ...(req.defaults as Partial<V>) }
+  const init: V = { companyId: data.companies.filter(c => !c.archived)[0]?.id ?? '', method: 'Email', emailKind: 'HR email', contact: '', role: '', personName: '', date: todayISO(), response: 'Waiting', reply: '', progress: '', ...(existing ?? {}), ...(req.defaults as Partial<V>) }
   const f = useForm<V>(init, v => ({
     companyId: required(v.companyId, 'Choose a company'),
     contact: v.method === 'Email' ? (required(v.contact, 'Enter the email address') ?? (EMAIL.test(v.contact.trim()) ? undefined : 'Enter a valid email address'))
@@ -31,14 +32,12 @@ export function AttemptForm({ req }: { req: FormRequest }) {
   }))
   const v = f.values
   const save = f.submit(async v => {
-    const { saveContact, ...rest } = v
-    const row = { ...rest, contact: v.contact.trim(), personName: v.personName.trim(), role: v.method === 'Email' ? '' as const : v.role, emailKind: v.method === 'Email' ? v.emailKind || 'HR email' : '' as const }
-    // Optionally keep the person in Contacts (needs a name; skip if one with the same phone already exists for this company).
-    if (saveContact && row.personName && v.method !== 'Email' && !data.contacts.some(c => c.companyId === row.companyId && c.phone === row.contact)) {
-      await add('contacts', { companyId: row.companyId, name: row.personName, position: '', email: '', phone: row.contact, linkedin: '', type: (row.role || 'Employee') as ContactType, notes: '' })
-    }
-    if (existing) { await patch('attempts', existing.id, row); toast('Attempt updated') } else { await add('attempts', row); toast('Attempt added') }
+    const { saveContact: _unused, ...rest } = v
+    void _unused
+    const row = { ...rest, contact: v.contact.trim(), personName: v.personName.trim(), role: v.method === 'Email' ? '' as const : v.role, emailKind: v.method === 'Email' ? v.emailKind || 'HR email' as const : '' as const }
+    const { attempt, updates } = await saveAttempt(row, existing?.id)
     close()
+    openForm({ kind: 'attemptSaved', id: attempt.id, defaults: { updates, edited: !!existing } })
   })
   const label = v.method === 'Email' ? 'Email address' : v.method === 'WhatsApp' ? 'WhatsApp number' : 'What you tried'
   return (
@@ -68,8 +67,8 @@ export function AttemptForm({ req }: { req: FormRequest }) {
         {v.method !== 'Email' && (
           <>
             <SelectField label="Their role" required={v.method === 'WhatsApp'} placeholder="Select role" options={CONTACT_TYPES} {...f.bind('role')} onChange={e => f.set('role', e.target.value as ContactType)} hint="Who did you speak to?" />
-            <TextField label="Their name" {...f.bind('personName')} hint="Optional" />
-            <Span2><label className="flex items-center gap-2 text-[13px] text-ink-600"><input type="checkbox" className="size-4 accent-brand-600" checked={v.saveContact} onChange={e => f.set('saveContact', e.target.checked)} disabled={!v.personName.trim()} />{t('Also save to Contacts')}{!v.personName.trim() && <span className="text-xs text-ink-400">({t('needs a name')})</span>}</label></Span2>
+            <TextField label="Their name" {...f.bind('personName')} hint="Optional — saved to Contacts automatically" />
+
           </>
         )}
         <TextField label="Date" type="date" required {...f.bind('date')} />

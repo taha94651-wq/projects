@@ -261,6 +261,65 @@ export function buildSuggestions(d: Dataset, staleDays = 7, me = '', today = tod
   return out.sort((x, y) => ORDER[x.severity] - ORDER[y.severity] || x.id.localeCompare(y.id))
 }
 
+/**
+ * Coaching shown right after an attempt is saved (the immediate "what now" — unlike buildSuggestions, which
+ * reacts to elapsed time). Deterministic: depends only on the attempt and the company's other attempts.
+ */
+export function afterAttempt(d: Dataset, attempt: Attempt, me = '', today = todayISO()): Suggestion[] {
+  const co = d.companies.find(c => c.id === attempt.companyId)
+  const name = co?.name ?? t('Unknown company')
+  const hasApp = d.applications.some(a => a.companyId === attempt.companyId)
+  const mine = d.attempts.filter(a => a.companyId === attempt.companyId)
+  const out: Suggestion[] = []
+  const base = { companyId: attempt.companyId }
+  void today
+
+  if (attempt.response === 'Replied') {
+    out.push({ ...base, id: 'after-replied', severity: 'high',
+      title: t('{company} replied — send what they asked for', { company: name }),
+      why: t('A reply is the best sign you can get from a cold approach.'),
+      action: t('Answer within a day: send your CV and portfolio, and log the application so follow-ups are tracked.'),
+      cta: hasApp ? undefined : { label: t('Add application'), form: 'application', defaults: { companyId: attempt.companyId } },
+      draft: { kind: 'reply', vars: { company: name, name: attempt.personName, me } } })
+    return out
+  }
+  if (attempt.response === 'Wrong / bounced') {
+    out.push({ ...base, id: 'after-bounced', severity: 'medium',
+      title: t('Find another contact for {company}', { company: name }),
+      why: t('This address or number did not reach anyone.'),
+      action: t('Check their website or LinkedIn for a current HR / careers address or number and try again.'),
+      cta: { label: t('Add attempt'), form: 'attempt', defaults: { companyId: attempt.companyId } } })
+    return out
+  }
+
+  // Waiting / no reply: set expectations, then prepare the next touch on a different channel.
+  const channelTip = attempt.method === 'Email'
+    ? t('Keep emails short, with the CV and portfolio attached and a clear subject line (role + your name).')
+    : attempt.method === 'WhatsApp'
+      ? t('Keep WhatsApp messages short and professional, send them in working hours, and do not send repeated messages.')
+      : t('Note exactly what you sent and to whom, so your next touch can refer to it.')
+  out.push({ ...base, id: 'after-wait', severity: 'low',
+    title: t('Give {company} a few days before nudging', { company: name }),
+    why: t('Replies to cold approaches often take 5–7 days. A follow-up is already scheduled for you.'),
+    action: channelTip })
+
+  const tried = new Set(mine.map(a => a.method))
+  const kinds = new Set(mine.flatMap(a => (a.emailKind ? [a.emailKind] : [])))
+  const next = !tried.has('Email') ? t('HR email')
+    : kinds.size < 2 ? t(kinds.has('HR email') ? 'Recruitment email' : 'HR email')
+      : !tried.has('WhatsApp') ? t('WhatsApp') : t('LinkedIn or another route')
+  out.push({ ...base, id: 'after-next', severity: 'medium',
+    title: t('Prepare your next touch with {company}', { company: name }),
+    why: t('If there is no reply, a different channel doubles your chances without repeating yourself.'),
+    action: t('Next in line: {channel}. Use this message in a week if nothing comes back.', { channel: next }),
+    draft: { kind: 'second', vars: { company: name, name: attempt.personName, me } } })
+  if (!attempt.personName && attempt.method !== 'Email') out.push({ ...base, id: 'after-name', severity: 'low',
+    title: t('Add the name of the person you contacted'),
+    why: t('Named contacts make every follow-up warmer and keep your Contacts list useful.'),
+    action: t('Edit the attempt and enter their name — they will be saved to Contacts automatically.') })
+  return out
+}
+
 /** Collapses a long run of "start outreach" items into one summary so the list stays readable. */
 export function summarise(list: Suggestion[], keep = 3): Suggestion[] {
   const starts = list.filter(s => s.group === 'start')
