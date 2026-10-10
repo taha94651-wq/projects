@@ -27,14 +27,14 @@ await page.getByRole('button', { name: 'Create account' }).click() // default mo
 await page.waitForSelector('text=Application pipeline')
 ok('account created, signed in', true)
 
-section('Target list (33 offices from the user)')
+section('Target list (13 offices from the user)')
 await go('/companies')
-ok('33 target companies loaded', (await rowCount()) === 33, String(await rowCount()))
-ok('Arabic names render', await page.getByText('شركة الدرعية').first().isVisible())
-await page.getByLabel('Search companies', { exact: true }).fill('omrania')
+ok('13 target companies loaded', (await rowCount()) === 13, String(await rowCount()))
+ok('Arabic names render', await page.getByText('شركة سمو').first().isVisible())
+await page.getByLabel('Search companies', { exact: true }).fill('simba')
 ok('search narrows to 1', (await rowCount()) === 1)
 await page.getByLabel('Search companies', { exact: true }).fill('')
-for (const [cat, n] of [['Developer', 6], ['Design', 13], ['Unclassified', 14]]) {
+for (const [cat, n] of [['Developer', 1], ['Design', 3], ['Unclassified', 9]]) {
   await page.getByLabel('Filter by category').selectOption(cat)
   ok(`target list: ${cat} = ${n}`, (await rowCount()) === n, String(await rowCount()))
 }
@@ -52,8 +52,8 @@ await page.getByRole('button', { name: 'Clear selection' }).click()
 await page.getByLabel('Select row').nth(0).check(); await page.getByLabel('Select row').nth(1).check(); await page.getByLabel('Select row').nth(2).check()
 await page.getByRole('button', { name: 'Compare', exact: true }).click()
 await page.waitForURL(/compare\?ids=/)
-await page.locator('thead th').nth(3).waitFor()
-ok('compare opens with 3 selected companies side by side', (await page.locator('thead th').count()) === 4)
+await page.getByText('Furthest stage').waitFor()
+ok('compare opens with 3 selected companies side by side', (await page.locator('thead th').count()) === 4, page.url() + ' th=' + (await page.locator('thead th').count()))
 await page.getByRole('link', { name: 'Companies' }).first().click()
 
 section('Switch to demo data via Settings')

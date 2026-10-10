@@ -16,14 +16,14 @@ npm run dev                     # web on :5173, API on :3001
 ```
 
 First visit → create your account (single user, scrypt-hashed password, signed HttpOnly session cookie).
-Choose what to start with: **your 33 target offices**, fictional **demo data**, or **empty**.
+Choose what to start with: **your 13 target offices**, fictional **demo data**, or **empty**.
 
 Environment variables: `PORT` (3001), `HOST` (127.0.0.1 — set `0.0.0.0` to expose on your network; put it behind HTTPS),
 `JOBTRACKER_DATA` (data folder, default `./data`: database + uploads + session secret).
 
 ## Features
 
-**Your companies only.** The app never adds outside companies — the list is yours (the 33 offices you sent, plus anything you add or import).
+**Your companies only.** The app never adds outside companies — the list is yours (the 13 offices you chose, plus anything you add or import).
 Each company has a **category** (Developer · Design · Execution · Unclassified) and **project interests** (residential, hospitality, retail, …).
 Select rows in *Companies* to classify many at once or open **Compare**; the Compare page shows categories side by side
 (applications, interviews, offers, response rate, days to first reply) and 2–4 companies side by side.
