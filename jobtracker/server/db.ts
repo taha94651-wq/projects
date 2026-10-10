@@ -36,6 +36,8 @@ migrate()
 function upgrade() {
   const cols = (db.prepare('PRAGMA table_info(companies)').all() as { name: string }[]).map(c => c.name)
   if (!cols.includes('interests')) db.exec("ALTER TABLE companies ADD COLUMN interests TEXT NOT NULL DEFAULT ''")
+  const attCols = (db.prepare('PRAGMA table_info(attempts)').all() as { name: string }[]).map(c => c.name)
+  for (const c of ['role', 'personName']) if (!attCols.includes(c)) db.exec(`ALTER TABLE attempts ADD COLUMN "${c}" TEXT NOT NULL DEFAULT ''`)
   for (const [from, to] of Object.entries(LEGACY_TYPE_MAP)) if (from !== to) db.prepare('UPDATE companies SET type = ? WHERE type = ?').run(to, from)
 }
 upgrade()

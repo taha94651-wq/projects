@@ -27,6 +27,9 @@ export interface Attempt {
   emailKind: C.EmailKind | ''
   /** The email address, the WhatsApp number, or a short description for "Other". */
   contact: string
+  /** Who you spoke to: their role (HR, recruiter, …) and optionally their name. */
+  role: C.ContactType | ''
+  personName: string
   date: string
   response: C.AttemptResponse
   /** What they replied. */

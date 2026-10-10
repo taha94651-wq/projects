@@ -1,16 +1,17 @@
 import { t } from '@/i18n'
 import { AtSign, Mail, MessageCircle } from 'lucide-react'
-import { ATTEMPT_METHODS, ATTEMPT_RESPONSES, EMAIL_KINDS, type AttemptMethod, type AttemptResponse, type EmailKind } from '@shared/constants'
+import { ATTEMPT_METHODS, ATTEMPT_RESPONSES, CONTACT_TYPES, EMAIL_KINDS, type AttemptMethod, type AttemptResponse, type EmailKind } from '@shared/constants'
 import type { Attempt } from '@shared/types'
 import { useStore } from '@/store'
 import { toast, useUI, type FormRequest } from '@/ui-store'
 import { todayISO } from '@/lib/dates'
 import { FormGrid, SelectField, Span2, TextArea, TextField } from '../ui/fields'
+import type { ContactType } from '@shared/constants'
 import { cx } from '../ui/Badge'
 import { required, useForm } from '../ui/useForm'
 import { FormModal } from './FormModal'
 
-type V = Omit<Attempt, 'id' | 'createdAt'>
+type V = Omit<Attempt, 'id' | 'createdAt'> & { saveContact: boolean }
 export const METHOD_ICON = { Email: Mail, WhatsApp: MessageCircle, Other: AtSign } as const
 const PHONE = /^\+?[\d\s().-]{6,}$/
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -19,17 +20,23 @@ export function AttemptForm({ req }: { req: FormRequest }) {
   const { data, add, patch } = useStore.getState()
   const existing = data.attempts.find(a => a.id === req.id)
   const close = useUI(s => s.closeForm)
-  const init: V = { companyId: data.companies.filter(c => !c.archived)[0]?.id ?? '', method: 'Email', emailKind: 'HR email', contact: '', date: todayISO(), response: 'Waiting', reply: '', progress: '', ...(existing ?? {}), ...(req.defaults as Partial<V>) }
+  const init: V = { companyId: data.companies.filter(c => !c.archived)[0]?.id ?? '', method: 'Email', emailKind: 'HR email', contact: '', role: '', personName: '', saveContact: false, date: todayISO(), response: 'Waiting', reply: '', progress: '', ...(existing ?? {}), ...(req.defaults as Partial<V>) }
   const f = useForm<V>(init, v => ({
     companyId: required(v.companyId, 'Choose a company'),
     contact: v.method === 'Email' ? (required(v.contact, 'Enter the email address') ?? (EMAIL.test(v.contact.trim()) ? undefined : 'Enter a valid email address'))
       : v.method === 'WhatsApp' ? (required(v.contact, 'Enter the WhatsApp number') ?? (PHONE.test(v.contact.trim()) ? undefined : 'Enter a valid number'))
       : required(v.contact, 'Describe what you tried'),
+    role: v.method === 'WhatsApp' ? required(v.role, 'Choose their role') : undefined,
     date: required(v.date, 'Choose a date'),
   }))
   const v = f.values
   const save = f.submit(async v => {
-    const row: V = { ...v, contact: v.contact.trim(), emailKind: v.method === 'Email' ? v.emailKind || 'HR email' : '' }
+    const { saveContact, ...rest } = v
+    const row = { ...rest, contact: v.contact.trim(), personName: v.personName.trim(), role: v.method === 'Email' ? '' as const : v.role, emailKind: v.method === 'Email' ? v.emailKind || 'HR email' : '' as const }
+    // Optionally keep the person in Contacts (needs a name; skip if one with the same phone already exists for this company).
+    if (saveContact && row.personName && v.method !== 'Email' && !data.contacts.some(c => c.companyId === row.companyId && c.phone === row.contact)) {
+      await add('contacts', { companyId: row.companyId, name: row.personName, position: '', email: '', phone: row.contact, linkedin: '', type: (row.role || 'Employee') as ContactType, notes: '' })
+    }
     if (existing) { await patch('attempts', existing.id, row); toast('Attempt updated') } else { await add('attempts', row); toast('Attempt added') }
     close()
   })
@@ -58,6 +65,13 @@ export function AttemptForm({ req }: { req: FormRequest }) {
         <TextField label={label} required autoFocus className={v.method === 'Email' ? '' : 'sm:col-span-2'} {...f.bind('contact')}
           type={v.method === 'Email' ? 'email' : v.method === 'WhatsApp' ? 'tel' : 'text'} dir={v.method === 'Other' ? undefined : 'ltr'}
           placeholder={v.method === 'Email' ? 'name@company.com' : v.method === 'WhatsApp' ? '+966 5X XXX XXXX' : 'e.g. LinkedIn message to HR'} />
+        {v.method !== 'Email' && (
+          <>
+            <SelectField label="Their role" required={v.method === 'WhatsApp'} placeholder="Select role" options={CONTACT_TYPES} {...f.bind('role')} onChange={e => f.set('role', e.target.value as ContactType)} hint="Who did you speak to?" />
+            <TextField label="Their name" {...f.bind('personName')} hint="Optional" />
+            <Span2><label className="flex items-center gap-2 text-[13px] text-ink-600"><input type="checkbox" className="size-4 accent-brand-600" checked={v.saveContact} onChange={e => f.set('saveContact', e.target.checked)} disabled={!v.personName.trim()} />{t('Also save to Contacts')}{!v.personName.trim() && <span className="text-xs text-ink-400">({t('needs a name')})</span>}</label></Span2>
+          </>
+        )}
         <TextField label="Date" type="date" required {...f.bind('date')} />
         <SelectField label="Response" options={ATTEMPT_RESPONSES} {...f.bind('response')} onChange={e => f.set('response', e.target.value as AttemptResponse)} />
         <Span2><TextArea label="Their reply" rows={2} {...f.bind('reply')} placeholder="What they answered, if anything" /></Span2>

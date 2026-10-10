@@ -45,7 +45,7 @@ export function AttemptsSection({ companyId }: { companyId: string }) {
                       <Badge tone={RESPONSE_TONE[a.response]}>{t(a.response)}</Badge>
                       <span className="text-xs text-ink-400">{fmtDate(a.date, locale, { day: 'numeric', month: 'short', year: 'numeric' })}</span>
                     </div>
-                    <p className="mt-1 text-sm"><ContactValue a={a} /></p>
+                    <p className="mt-1 text-sm"><ContactValue a={a} />{(a.personName || a.role) && <span className="text-ink-500"> · {[a.personName, a.role ? t(a.role) : ''].filter(Boolean).join(' · ')}</span>}</p>
                   </div>
                   <Menu label={t('Attempt actions')} trigger={<MoreHorizontal className="size-4" />} items={[
                     { label: t('Edit'), icon: <Pencil className="size-4" />, onSelect: () => openForm({ kind: 'attempt', id: a.id }) },

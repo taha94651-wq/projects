@@ -175,11 +175,11 @@ export function buildSeed(today = new Date()): Dataset {
     activities.push(act({ companyId: f.companyId, applicationId: f.applicationId, contactId: f.contactId, type: 'Follow-up', date: f.dueDate, description: `Follow-up completed (${f.type})`, notes: f.notes }))
   }
 
-  const att = (id: string, companyId: string, method: 'Email' | 'WhatsApp' | 'Other', contact: string, off: number, response: 'Waiting' | 'Replied' | 'No reply' | 'Wrong / bounced', emailKind: 'HR email' | 'Recruitment email' | '' = '', reply = '', progress = '') => ({ id, companyId, method, emailKind, contact, date: day(off), response, reply, progress, createdAt: stamp(off) })
+  const att = (id: string, companyId: string, method: 'Email' | 'WhatsApp' | 'Other', contact: string, off: number, response: 'Waiting' | 'Replied' | 'No reply' | 'Wrong / bounced', emailKind: 'HR email' | 'Recruitment email' | '' = '', reply = '', progress = '', role: Contact['type'] | '' = '', personName = '') => ({ id, companyId, method, emailKind, contact, role, personName, date: day(off), response, reply, progress, createdAt: stamp(off) })
   const attempts = [
     att('at_1', 'co_modernspaces', 'Email', 'careers@modernspaces.example.com', -14, 'No reply', 'Recruitment email', '', 'No answer after a week — trying the HR address next.'),
     att('at_2', 'co_modernspaces', 'Email', 'hr@modernspaces.example.com', -8, 'Replied', 'HR email', 'Thanks, please send your CV and portfolio.', 'Sent CV + portfolio. Waiting for an interview slot.'),
-    att('at_3', 'co_falcon', 'WhatsApp', '+000 0000 0000', -3, 'Waiting', '', '', 'Sent a short intro and the CV.'),
+    att('at_3', 'co_falcon', 'WhatsApp', '+000 0000 0000', -3, 'Waiting', '', '', 'Sent a short intro and the CV.', 'HR', 'Sample HR contact'),
   ]
   return { companies, attempts, contacts, applications, interviews, followUps, activities, attachments: [] }
 }
