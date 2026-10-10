@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect } from 'react'
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, MemoryRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { IS_DEMO } from './env'
 import { useStore } from './store'
 import { AppShell } from './components/layout/AppShell'
 import { AuthPage } from './pages/Login'
@@ -17,6 +18,7 @@ const Calendar = lazy(() => import('./pages/Calendar'))
 const Analytics = lazy(() => import('./pages/Analytics'))
 const Settings = lazy(() => import('./pages/Settings'))
 
+const Router = IS_DEMO ? MemoryRouter : BrowserRouter
 const Spinner = () => <div className="grid min-h-[40vh] place-items-center" role="status" aria-label="Loading"><div className="size-6 animate-spin rounded-full border-2 border-ink-200 border-t-brand-600" /></div>
 
 export default function App() {
@@ -26,7 +28,7 @@ export default function App() {
   if (phase === 'loading') return <Spinner />
   if (phase === 'setup' || phase === 'login') return <AuthPage mode={phase} />
   return (
-    <BrowserRouter>
+    <Router>
       <Suspense fallback={<Spinner />}>
         <Routes>
           <Route element={<AppShell />}>
@@ -46,6 +48,6 @@ export default function App() {
           </Route>
         </Routes>
       </Suspense>
-    </BrowserRouter>
+    </Router>
   )
 }

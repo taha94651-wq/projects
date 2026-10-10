@@ -1,3 +1,5 @@
+import { IS_DEMO } from '../env'
+import { toast } from '../ui-store'
 export type CsvValue = string | number | boolean | null | undefined
 export function toCsv<T>(rows: T[], columns: { header: string; value: (r: T) => CsvValue }[]): string {
   const esc = (v: CsvValue) => {
@@ -8,6 +10,10 @@ export function toCsv<T>(rows: T[], columns: { header: string; value: (r: T) => 
   return [columns.map(c => esc(c.header)).join(','), ...rows.map(r => columns.map(c => esc(c.value(r))).join(','))].join('\r\n')
 }
 export function downloadFile(filename: string, content: string, mime = 'text/csv;charset=utf-8') {
+  if (IS_DEMO) { // file downloads are blocked inside the preview frame: copy instead
+    void navigator.clipboard?.writeText(content).then(() => toast(`${filename} copied to clipboard (downloads are off in the preview)`), () => toast('Export is available in the full app', 'info'))
+    return
+  }
   const blob = new Blob(['﻿', content], { type: mime }) // BOM so Excel opens UTF-8 (Arabic) correctly
   const url = URL.createObjectURL(blob)
   const a = document.createElement('a')

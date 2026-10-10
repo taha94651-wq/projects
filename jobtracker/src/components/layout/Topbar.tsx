@@ -15,7 +15,7 @@ export function Topbar() {
   const setNav = useUI(s => s.setNav)
   const nav = useNavigate()
   return (
-    <header className="sticky top-0 z-20 border-b border-ink-200/70 bg-paper/85 backdrop-blur-md">
+    <header className="sticky top-[env(safe-area-inset-top,0px)] z-20 border-b border-ink-200/70 bg-paper/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-[1500px] items-center gap-2 px-4 sm:gap-3 sm:px-6 lg:px-8">
         <button className="btn btn-ghost btn-icon -ms-2 lg:hidden" onClick={() => setNav(true)} aria-label="Open menu"><MenuIcon className="size-5" /></button>
         <div className="hidden text-ink-900 max-sm:hidden md:hidden"><Logo /></div>

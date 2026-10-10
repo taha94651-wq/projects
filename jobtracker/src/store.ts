@@ -10,7 +10,7 @@ const EMPTY: Dataset = { companies: [], contacts: [], applications: [], intervie
 const DEFAULTS: Settings = { locale: 'en-GB', defaultCurrency: 'SAR', staleDays: 7 }
 
 /** Mirrors the database's ON DELETE rules so the UI stays consistent without a refetch. */
-function cascade(d: Dataset, key: EntityKey, id: string): Dataset {
+export function cascade(d: Dataset, key: EntityKey, id: string): Dataset {
   const next = { ...d }
   const drop = <K extends EntityKey>(k: K, pred: (x: Item<K>) => boolean) => { (next[k] as Item<K>[]) = (next[k] as Item<K>[]).filter(x => !pred(x)) }
   if (key === 'companies') {
