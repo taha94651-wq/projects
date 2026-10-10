@@ -386,7 +386,7 @@
              <span class="ph-show__count"><b>01</b> / ${pad(n)}</span>`
           : "";
         const dots = n > 1 ? `<div class="ph-show__dots">${slides.map((_, k) => `<button type="button" data-ph-to="${k}" aria-label="${k + 1}"${k ? "" : ' aria-current="true"'}></button>`).join("")}</div>` : "";
-        return `<article class="ph-show${i % 2 ? " ph-show--alt" : ""} reveal" data-i="0">
+        return `<article class="ph-show reveal" data-i="0" data-place="${i}"${i ? " hidden" : ""}>
           <div class="ph-show__main">
             <div class="ph-show__stage">${stage}${nav}</div>
             ${dots}
@@ -404,6 +404,7 @@
     return `
     <section class="section wrap" id="photography">
       ${sectionHead(no, "photography", u().nav.photography, total || null, u().photoIntro)}
+      ${list.length > 1 ? `<div class="ph-pick" role="tablist">${list.map((ph, i) => `<button type="button" role="tab" data-ph-pick="${i}"${i ? "" : ' aria-selected="true"'}><img loading="lazy" src="${esc(ph.thumb || ph.src)}" alt="" /><span><b>${T(ph.title)}</b><small>${esc(ph.year || "")}</small></span></button>`).join("")}</div>` : ""}
       <div class="photo-shows">${items}</div>
     </section>`;
   }
@@ -844,6 +845,13 @@
     if (show) phGo(show, +show.dataset.i + (dx < 0 ? 1 : -1) * (state.lang === "ar" ? -1 : 1));
   });
   app.addEventListener("click", (e) => {
+    const pick = e.target.closest("[data-ph-pick]");
+    if (pick) {
+      const sec = pick.closest("#photography"), k = pick.dataset.phPick;
+      sec.querySelectorAll("[data-ph-pick]").forEach((b) => (b === pick ? b.setAttribute("aria-selected", "true") : b.removeAttribute("aria-selected")));
+      sec.querySelectorAll(".ph-show").forEach((sh) => { const on = sh.dataset.place === k; sh.hidden = !on; if (on) sh.classList.add("in"); });
+      return;
+    }
     const go = e.target.closest("[data-ph-go], [data-ph-to]");
     if (go) {
       const show = go.closest(".ph-show");

@@ -813,3 +813,16 @@ a.ai-card__media img { object-position: top; }
 /* controls: confidentiality note */
 .ctl-note { display: flex; align-items: center; gap: 10px; margin: 0 0 18px; padding: 12px 16px; border: 1px solid var(--line); border-radius: 10px; color: var(--muted); font-size: 13.5px; }
 .ctl-note span { flex: none; font-size: 14px; filter: grayscale(1); opacity: 0.8; }
+
+/* photography: one presentation + place picker */
+.ph-pick { display: flex; gap: 10px; min-width: 0; max-width: 100%; overflow-x: auto; scrollbar-width: thin; padding: 4px 0 18px; }
+.ph-pick button { flex: none; display: flex; align-items: center; gap: 10px; padding: 6px 14px 6px 6px; border: 1px solid var(--line); border-radius: 12px; background: none; color: inherit; font: inherit; cursor: pointer; text-align: start; transition: border-color 0.25s, background 0.25s; }
+html[dir="rtl"] .ph-pick button { padding: 6px 6px 6px 14px; }
+.ph-pick img { width: 54px; height: 54px; border-radius: 8px; object-fit: cover; opacity: 0.7; transition: opacity 0.25s; }
+.ph-pick b { display: block; font-weight: 400; font-size: 13.5px; max-width: 170px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ph-pick small { color: var(--muted); font-size: 12px; }
+.ph-pick button:hover img, .ph-pick button[aria-selected] img { opacity: 1; }
+.ph-pick button[aria-selected] { border-color: var(--gold); background: rgba(184, 150, 90, 0.08); }
+.ph-show[hidden] { display: none; }
+#photography .ph-show__stage { height: clamp(340px, 62vh, 620px); }
+@media (max-width: 760px) { #photography .ph-show__stage { height: auto; aspect-ratio: 4 / 3.6; } .ph-pick img { width: 46px; height: 46px; } }
