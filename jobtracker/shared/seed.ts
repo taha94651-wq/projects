@@ -1,17 +1,24 @@
 import type { Activity, Application, Company, Contact, Dataset, FollowUp, Interview } from './types'
+import { LEGACY_TYPE_MAP } from './constants'
 import type { Currency, FollowUpType, InterviewResult, InterviewStatus, InterviewType, Priority, Source, Stage, WorkType, EmploymentType } from './constants'
 
 const pad = (n: number) => String(n).padStart(2, '0')
 const iso = (d: Date) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`
 
 /** Builds a fictional, internally consistent dataset with dates relative to `today`. */
+const DEMO_INTERESTS: Record<string, string> = {
+  co_alnoor: 'Hospitality,Mixed-use,Government / Giga-projects', co_rds: 'Residential,Villas,Hospitality', co_gulfretail: 'Retail,Interior fit-out', co_urbanform: 'Government / Giga-projects,Commercial',
+  co_axis: 'Commercial,Retail,Interior fit-out', co_modernspaces: 'Hospitality,Commercial', co_capital: 'Hospitality,Residential,Mixed-use', co_nile: 'Villas,Hospitality',
+  co_meridian: 'Retail,Commercial', co_falcon: 'Residential,Mixed-use', co_horizon: 'Hospitality,Commercial', co_dune: 'Residential,Villas', co_talentbridge: '',
+}
+
 export function buildSeed(today = new Date()): Dataset {
   const base = new Date(today.getFullYear(), today.getMonth(), today.getDate())
   const day = (offset: number) => { const d = new Date(base); d.setDate(d.getDate() + offset); return iso(d) }
   const stamp = (offset: number) => `${day(offset)}T09:00:00.000Z`
 
-  const mk = (id: string, name: string, type: Company['type'], industry: string, location: string, priority: Priority, status: Company['status'], size: string, description: string, extra: Partial<Company> = {}): Company => ({
-    id, name, type, industry, location, priority, status, size, description,
+  const mk = (id: string, name: string, legacyType: string, industry: string, location: string, priority: Priority, status: Company['status'], size: string, description: string, extra: Partial<Company> = {}): Company => ({
+    id, name, type: LEGACY_TYPE_MAP[legacyType] ?? 'Unclassified', industry, location, priority, status, size, description, interests: DEMO_INTERESTS[id] ?? '',
     website: `https://www.${id.replace('co_', '')}.example.com`, linkedin: `https://www.linkedin.com/company/${id.replace('co_', '')}`,
     notes: '', archived: false, createdAt: stamp(-60), ...extra,
   })

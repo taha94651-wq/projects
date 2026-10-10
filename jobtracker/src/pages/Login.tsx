@@ -1,3 +1,4 @@
+import { t } from '@/i18n'
 import { useState } from 'react'
 import { Database, FileText, FlaskConical } from 'lucide-react'
 import { api, type DataMode } from '@/api'
@@ -5,6 +6,7 @@ import { useStore } from '@/store'
 import { TextField } from '@/components/ui/fields'
 import { emailOk, required, useForm } from '@/components/ui/useForm'
 import { cx } from '@/components/ui/Badge'
+import { LanguageToggle } from '@/components/layout/Topbar'
 import { TARGET_COUNT } from '@shared/targets'
 
 export function AuthPage({ mode }: { mode: 'setup' | 'login' }) {
@@ -27,7 +29,7 @@ export function AuthPage({ mode }: { mode: 'setup' | 'login' }) {
     } catch (e) { setError((e as Error).message); throw e }
   })
   const opts: { v: DataMode; icon: typeof Database; title: string; text: string }[] = [
-    { v: 'targets', icon: FileText, title: `My ${TARGET_COUNT} target offices`, text: 'Your list, ready to start applying' },
+    { v: 'targets', icon: FileText, title: t('My {n} target offices', { n: TARGET_COUNT }), text: 'Your list, ready to start applying' },
     { v: 'sample', icon: FlaskConical, title: 'Demo data', text: 'Fictional data to explore every screen' },
     { v: 'empty', icon: Database, title: 'Empty', text: 'Start from scratch' },
   ]
@@ -43,7 +45,8 @@ export function AuthPage({ mode }: { mode: 'setup' | 'login' }) {
           {Array.from({ length: 12 }, (_, i) => <path key={i} d={`M0 ${8 * i + 4}H100M${8 * i + 4} 0V100`} />)}<path d="M20 80V45l30-20 30 20v35H64V58H36v22z" strokeWidth="1.2" />
         </svg>
       </aside>
-      <main className="flex items-center justify-center p-6">
+      <main className="relative flex items-center justify-center p-6">
+        <LanguageToggle className="absolute end-4 top-4" lang={useStore.getState().settings.lang} onChange={l => void useStore.getState().setLanguage(l)} />
         <form onSubmit={go} noValidate className="w-full max-w-sm">
           <h1 className="font-display text-4xl tracking-tight">{setup ? 'Create your account' : 'Welcome back'}</h1>
           <p className="mt-1.5 text-sm text-ink-500">{setup ? 'A private workspace stored on this server. Only you can sign in.' : 'Sign in to continue your search.'}</p>

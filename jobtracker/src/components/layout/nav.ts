@@ -1,13 +1,15 @@
-import { BarChart3, Bell, Briefcase, Building2, CalendarDays, Contact, LayoutDashboard, MessagesSquare, Settings, type LucideIcon } from 'lucide-react'
+import { t } from '@/i18n'
+import { BarChart3, Scale, Bell, Briefcase, Building2, CalendarDays, Contact, LayoutDashboard, MessagesSquare, Settings, type LucideIcon } from 'lucide-react'
 
 export const NAV: { to: string; label: string; icon: LucideIcon; end?: boolean }[] = [
-  { to: '/', label: 'Dashboard', icon: LayoutDashboard, end: true },
-  { to: '/companies', label: 'Companies', icon: Building2 },
-  { to: '/applications', label: 'Applications', icon: Briefcase },
-  { to: '/interviews', label: 'Interviews', icon: MessagesSquare },
-  { to: '/follow-ups', label: 'Follow-ups', icon: Bell },
-  { to: '/contacts', label: 'Contacts', icon: Contact },
-  { to: '/calendar', label: 'Calendar', icon: CalendarDays },
-  { to: '/analytics', label: 'Analytics', icon: BarChart3 },
-  { to: '/settings', label: 'Settings', icon: Settings },
+  { to: '/', label: t('Dashboard'), icon: LayoutDashboard, end: true },
+  { to: '/companies', label: t('Companies'), icon: Building2 },
+  { to: '/applications', label: t('Applications'), icon: Briefcase },
+  { to: '/interviews', label: t('Interviews'), icon: MessagesSquare },
+  { to: '/follow-ups', label: t('Follow-ups'), icon: Bell },
+  { to: '/contacts', label: t('Contacts'), icon: Contact },
+  { to: '/calendar', label: t('Calendar'), icon: CalendarDays },
+  { to: '/analytics', label: t('Analytics'), icon: BarChart3 },
+  { to: '/compare', label: t('Compare'), icon: Scale },
+  { to: '/settings', label: t('Settings'), icon: Settings },
 ]

@@ -1,3 +1,4 @@
+import { t, tDays } from '@/i18n'
 import type { Application, Company, Dataset, FollowUp, Interview } from '@shared/types'
 import { CLOSED_STAGES, FUNNEL, type Stage } from '@shared/constants'
 import { addDays, diffDays, todayISO } from './dates'
@@ -52,29 +53,29 @@ export function buildNotifications(d: Dataset, staleDays: number, today = todayI
   const label = (appId: string | null, coId: string | null) => {
     const a = appId ? apps.get(appId) : undefined
     const c = cos.get(a?.companyId ?? coId ?? '')
-    return { name: c?.name ?? 'Unknown company', pos: a?.position ?? '' }
+    return { name: c?.name ?? t('Unknown company'), pos: a?.position ?? '' }
   }
   const out: Notif[] = []
   for (const f of pendingFollowUps(d)) {
     const l = label(f.applicationId, f.companyId)
     const n = diffDays(f.dueDate, today)
-    if (n < 0) out.push({ id: `fu-o-${f.id}`, kind: 'followup-overdue', severity: 'danger', title: `Follow-up overdue · ${l.name}`, detail: `${l.pos || f.type} · ${-n} day${n === -1 ? '' : 's'} overdue`, link: '/follow-ups' })
-    else if (n === 0) out.push({ id: `fu-t-${f.id}`, kind: 'followup-today', severity: 'warn', title: `Follow-up due today · ${l.name}`, detail: `${l.pos || f.type} via ${f.type}`, link: '/follow-ups' })
+    if (n < 0) out.push({ id: `fu-o-${f.id}`, kind: 'followup-overdue', severity: 'danger', title: t('Follow-up overdue · {name}', { name: l.name }), detail: t('{what} · {days} overdue', { what: l.pos || t(f.type), days: tDays(-n) }), link: '/follow-ups' })
+    else if (n === 0) out.push({ id: `fu-t-${f.id}`, kind: 'followup-today', severity: 'warn', title: t('Follow-up due today · {name}', { name: l.name }), detail: t('{what} via {type}', { what: l.pos || t(f.type), type: t(f.type) }), link: '/follow-ups' })
   }
   for (const i of d.interviews) {
     if (!isUpcomingInterview(i, today)) continue
     const n = diffDays(i.date, today)
     if (n > 1) continue
     const l = label(i.applicationId, null)
-    out.push({ id: `iv-${i.id}-${i.date}`, kind: n === 0 ? 'interview-today' : 'interview-tomorrow', severity: n === 0 ? 'warn' : 'info', title: `Interview ${n === 0 ? 'today' : 'tomorrow'} · ${l.name}`, detail: `${i.type} interview${i.time ? ` at ${i.time}` : ''}`, link: '/interviews' })
+    out.push({ id: `iv-${i.id}-${i.date}`, kind: n === 0 ? 'interview-today' : 'interview-tomorrow', severity: n === 0 ? 'warn' : 'info', title: t(n === 0 ? 'Interview today · {name}' : 'Interview tomorrow · {name}', { name: l.name }), detail: i.time ? t('{type} interview at {time}', { type: t(i.type), time: i.time }) : t('{type} interview', { type: t(i.type) }), link: '/interviews' })
   }
   for (const a of applicationsWaiting(d, staleDays, today)) {
     const l = label(a.id, null)
-    out.push({ id: `wait-${a.id}`, kind: 'waiting', severity: 'info', title: `Waiting for response · ${l.name}`, detail: `${a.position} · applied ${diffDays(today, a.applicationDate)} days ago`, link: `/applications/${a.id}` })
+    out.push({ id: `wait-${a.id}`, kind: 'waiting', severity: 'info', title: t('Waiting for response · {name}', { name: l.name }), detail: t('{pos} · applied {days} ago', { pos: a.position, days: tDays(diffDays(today, a.applicationDate)) }), link: `/applications/${a.id}` })
   }
   for (const a of d.applications.filter(x => x.status === 'Offer')) {
     const l = label(a.id, null)
-    out.push({ id: `offer-${a.id}`, kind: 'offer', severity: 'success', title: `Offer received · ${l.name}`, detail: a.position, link: `/applications/${a.id}` })
+    out.push({ id: `offer-${a.id}`, kind: 'offer', severity: 'success', title: t('Offer received · {name}', { name: l.name }), detail: a.position, link: `/applications/${a.id}` })
   }
   const order = { danger: 0, warn: 1, success: 2, info: 3 }
   return out.sort((x, y) => order[x.severity] - order[y.severity])
@@ -95,15 +96,15 @@ export function actionItems(d: Dataset, staleDays: number, today = todayISO()): 
   const out: ActionItem[] = []
   const waiting = new Set(applicationsWaiting(d, staleDays, today).map(a => a.id))
   for (const a of d.applications) {
-    if (a.status === 'Offer') out.push({ app: a, reason: 'Offer awaiting your decision', tone: 'green', rank: 0 })
+    if (a.status === 'Offer') out.push({ app: a, reason: t('Offer awaiting your decision'), tone: 'green', rank: 0 })
     else if (a.status === 'Wishlist' && a.deadline) {
       const n = diffDays(a.deadline, today)
-      if (n >= 0 && n <= 7) out.push({ app: a, reason: n === 0 ? 'Apply today — deadline is today' : `Apply within ${n} day${n === 1 ? '' : 's'}`, tone: 'warn', rank: 1 })
-      else if (n < 0) out.push({ app: a, reason: `Deadline passed ${-n} days ago`, tone: 'danger', rank: 1 })
+      if (n >= 0 && n <= 7) out.push({ app: a, reason: n === 0 ? t('Apply today — deadline is today') : t('Apply within {days}', { days: tDays(n) }), tone: 'warn', rank: 1 })
+      else if (n < 0) out.push({ app: a, reason: t('Deadline passed {days} ago', { days: tDays(-n) }), tone: 'danger', rank: 1 })
     } else if (waiting.has(a.id)) {
-      out.push({ app: a, reason: `No response for ${diffDays(today, lastContactDate(d, { appId: a.id }) ?? a.applicationDate)} days`, tone: 'info', rank: 2 })
+      out.push({ app: a, reason: t('No response for {days}', { days: tDays(diffDays(today, lastContactDate(d, { appId: a.id }) ?? a.applicationDate)) }), tone: 'info', rank: 2 })
     } else if (['Applied', 'HR Contact', 'Screening'].includes(a.status) && !pendingFollowUps(d).some(f => f.applicationId === a.id)) {
-      out.push({ app: a, reason: 'No follow-up scheduled', tone: 'info', rank: 3 })
+      out.push({ app: a, reason: t('No follow-up scheduled'), tone: 'info', rank: 3 })
     }
   }
   return out.sort((x, y) => x.rank - y.rank)

@@ -1,3 +1,4 @@
+import { t } from '@/i18n'
 import { useRef, useState } from 'react'
 import { Paperclip, X } from 'lucide-react'
 import { ACTIVITY_TYPES, type ActivityType } from '@shared/constants'
@@ -34,7 +35,7 @@ export function ActivityForm({ req }: { req: FormRequest }) {
   const tooBig = files.find(x => x.size > MAX)
 
   const save = f.submit(async v => {
-    if (tooBig) { toast(`"${tooBig.name}" is larger than 15MB`, 'error'); return }
+    if (tooBig) { toast(t('"{name}" is larger than 15MB', { name: tooBig.name }), 'error'); return }
     const row: Omit<Activity, 'id' | 'createdAt'> = {
       applicationId: v.applicationId || null, companyId: companyId || null, contactId: v.contactId || null, type: v.type, date: v.date,
       description: v.description.trim(), notes: v.notes, fromStage: existing?.fromStage ?? '', toStage: existing?.toStage ?? '',
@@ -45,7 +46,7 @@ export function ActivityForm({ req }: { req: FormRequest }) {
       try {
         const up = await Promise.all(files.map(file => api.upload(file, { activityId: saved.id, applicationId: row.applicationId ?? undefined, companyId: row.companyId ?? undefined })))
         useStore.getState().replaceAttachments([...useStore.getState().data.attachments, ...up])
-      } catch (e) { toast(`Saved, but upload failed: ${(e as Error).message}`, 'error') }
+      } catch (e) { toast(t('Saved, but upload failed: {msg}', { msg: t((e as Error).message) }), 'error') }
     }
     toast(existing ? 'Entry updated' : 'Activity logged')
     close()
@@ -59,10 +60,10 @@ export function ActivityForm({ req }: { req: FormRequest }) {
           options={data.applications.map(a => ({ value: a.id, label: `${cos.get(a.companyId) ?? '—'} — ${a.position}` }))} /></Span2>
         {!v.applicationId && <Span2><SelectField label="Company" required placeholder="Select company" {...f.bind('companyId')}
           onChange={e => { f.set('companyId', e.target.value); f.set('contactId', '') }} options={data.companies.map(c => ({ value: c.id, label: c.name }))} /></Span2>}
-        <SelectField label="Event type" options={ACTIVITY_TYPES.filter(t => t !== 'Stage change' || existing?.type === 'Stage change')} {...f.bind('type')} onChange={e => f.set('type', e.target.value as ActivityType)} />
+        <SelectField label="Event type" options={ACTIVITY_TYPES.filter(at => at !== 'Stage change' || existing?.type === 'Stage change')} {...f.bind('type')} onChange={e => f.set('type', e.target.value as ActivityType)} />
         <TextField label="Date" type="date" required {...f.bind('date')} />
         <Span2><TextField label="Description" required autoFocus {...f.bind('description')} placeholder="e.g. HR viewed my CV" /></Span2>
-        <Span2><SelectField label="Contact" placeholder="No specific contact" {...f.bind('contactId')} options={contacts.map(c => ({ value: c.id, label: `${c.name} (${c.type})` }))} /></Span2>
+        <Span2><SelectField label="Contact" placeholder="No specific contact" {...f.bind('contactId')} options={contacts.map(c => ({ value: c.id, label: `${c.name} (${t(c.type)})` }))} /></Span2>
         <Span2><TextArea label="Notes" rows={3} {...f.bind('notes')} /></Span2>
         <Span2>
           <span className="label">Attachments</span>

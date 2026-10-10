@@ -7,7 +7,7 @@ const styles = [...html.matchAll(/<style[^>]*>[\s\S]*?<\/style>/g)].map(m => m[0
 const scripts = [...html.matchAll(/<script[^>]*>[\s\S]*?<\/script>/g)].map(m => m[0])
 const fragment = `<title>Pipeline Job Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=Instrument+Serif&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=Instrument+Serif&family=Noto+Sans+Arabic:wght@400..700&family=Noto+Naskh+Arabic:wght@400..700&display=swap">
 ${styles.join('\n')}
 <div id="root"></div>
 ${scripts.join('\n')}

@@ -13,6 +13,7 @@ export interface Company {
   description: string
   size: string
   linkedin: string
+  interests: string
   notes: string
   archived: boolean
   createdAt: string
@@ -105,6 +106,7 @@ export interface Attachment {
   createdAt: string
 }
 export interface Settings {
+  lang: 'en' | 'ar'
   locale: string
   defaultCurrency: C.Currency
   staleDays: number

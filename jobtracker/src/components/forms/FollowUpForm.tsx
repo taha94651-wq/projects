@@ -1,3 +1,4 @@
+import { t } from '@/i18n'
 import { FOLLOWUP_STATUSES, FOLLOWUP_TYPES, type FollowUpStatus, type FollowUpType } from '@shared/constants'
 import type { FollowUp } from '@shared/types'
 import { useStore } from '@/store'
@@ -35,7 +36,7 @@ export function FollowUpForm({ req }: { req: FormRequest }) {
           options={data.applications.map(a => ({ value: a.id, label: `${cos.get(a.companyId) ?? '—'} — ${a.position}` }))} /></Span2>
         {!v.applicationId && <Span2><SelectField label="Company" required placeholder="Select company" {...f.bind('companyId')} error={f.errors.companyId}
           onChange={e => { f.set('companyId', e.target.value); f.set('contactId', '') }} options={data.companies.map(c => ({ value: c.id, label: c.name }))} /></Span2>}
-        <SelectField label="Contact" placeholder="No specific contact" {...f.bind('contactId')} options={contacts.map(c => ({ value: c.id, label: `${c.name} (${c.type})` }))} />
+        <SelectField label="Contact" placeholder="No specific contact" {...f.bind('contactId')} options={contacts.map(c => ({ value: c.id, label: `${c.name} (${t(c.type)})` }))} />
         <TextField label="Due date" type="date" required autoFocus {...f.bind('dueDate')} />
         <SelectField label="Follow-up type" options={FOLLOWUP_TYPES} {...f.bind('type')} onChange={e => f.set('type', e.target.value as FollowUpType)} />
         <SelectField label="Status" options={FOLLOWUP_STATUSES} {...f.bind('status')} onChange={e => f.set('status', e.target.value as FollowUpStatus)} />

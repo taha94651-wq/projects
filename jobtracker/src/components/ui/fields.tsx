@@ -1,3 +1,4 @@
+import { t } from '@/i18n'
 import { useId, type ComponentProps, type ReactNode } from 'react'
 
 interface FieldProps { label: string; error?: string; hint?: string; required?: boolean; className?: string; children: (p: { id: string; 'aria-invalid': boolean; 'aria-describedby'?: string }) => ReactNode }
@@ -6,9 +7,9 @@ export function Field({ label, error, hint, required, className, children }: Fie
   const msgId = `${id}-msg`
   return (
     <div className={className}>
-      <label htmlFor={id} className="label">{label}{required && <span className="text-danger-500" aria-hidden> *</span>}</label>
+      <label htmlFor={id} className="label">{t(label)}{required && <span className="text-danger-500" aria-hidden> *</span>}</label>
       {children({ id, 'aria-invalid': !!error, 'aria-describedby': error || hint ? msgId : undefined })}
-      {(error || hint) && <p id={msgId} role={error ? 'alert' : undefined} className={`mt-1 text-xs ${error ? 'text-danger-700' : 'text-ink-400'}`}>{error ?? hint}</p>}
+      {(error || hint) && <p id={msgId} role={error ? 'alert' : undefined} className={`mt-1 text-xs ${error ? 'text-danger-700' : 'text-ink-400'}`}>{t((error ?? hint) as string)}</p>}
     </div>
   )
 }
@@ -24,11 +25,28 @@ export function SelectField({ label, error, hint, className, required, options, 
     <Field {...{ label, error, hint, className, required }}>
       {a => (
         <select {...a} {...p} className="input">
-          {placeholder !== undefined && <option value="">{placeholder}</option>}
-          {options.map(o => typeof o === 'string' ? <option key={o} value={o}>{o}</option> : <option key={o.value} value={o.value}>{o.label}</option>)}
+          {placeholder !== undefined && <option value="">{t(placeholder)}</option>}
+          {options.map(o => typeof o === 'string' ? <option key={o} value={o}>{t(o)}</option> : <option key={o.value} value={o.value}>{t(o.label)}</option>)}
         </select>
       )}
     </Field>
+  )
+}
+/** Toggle chips for a multi-select value stored as a comma-separated string. */
+export function ChipPicker({ label, options, value, onChange }: { label: string; options: readonly string[]; value: string[]; onChange: (v: string[]) => void }) {
+  return (
+    <fieldset>
+      <legend className="label">{label}</legend>
+      <div className="flex flex-wrap gap-1.5">
+        {options.map(o => {
+          const on = value.includes(o)
+          return (
+            <button key={o} type="button" aria-pressed={on} onClick={() => onChange(on ? value.filter(v => v !== o) : [...value, o])}
+              className={`rounded-full border px-2.5 py-1 text-xs font-medium transition ${on ? 'border-brand-600 bg-brand-600 text-white' : 'border-ink-200 bg-surface text-ink-600 hover:border-ink-300'}`}>{t(o)}</button>
+          )
+        })}
+      </div>
+    </fieldset>
   )
 }
 export const FormGrid = ({ children }: { children: ReactNode }) => <div className="grid gap-x-4 gap-y-3.5 sm:grid-cols-2">{children}</div>

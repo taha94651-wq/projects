@@ -23,6 +23,12 @@ Environment variables: `PORT` (3001), `HOST` (127.0.0.1 — set `0.0.0.0` to exp
 
 ## Features
 
+**Your companies only.** The app never adds outside companies — the list is yours (the 33 offices you sent, plus anything you add or import).
+Each company has a **category** (Developer · Design · Execution · Unclassified) and **project interests** (residential, hospitality, retail, …).
+Select rows in *Companies* to classify many at once or open **Compare**; the Compare page shows categories side by side
+(applications, interviews, offers, response rate, days to first reply) and 2–4 companies side by side.
+UI language: **English / العربية** (RTL), switchable from the top bar; dates and numbers follow the chosen format.
+
 Dashboard (KPIs, upcoming actions, drag-and-drop pipeline, activity) · Companies CRM (+ profile, archive, CSV import/export) ·
 Applications (table + board, filters, sorting, detail with timeline & attachments) · Interviews (list + calendar) ·
 Follow-ups (overdue/today/upcoming, complete / reschedule / skip) · Contacts (+ interaction history) ·

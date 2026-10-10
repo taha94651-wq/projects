@@ -1,3 +1,4 @@
+import { t } from '@/i18n'
 import { useMemo, useState, type ReactNode } from 'react'
 import { ArrowDown, ArrowUp, ChevronsUpDown } from 'lucide-react'
 import { cx } from './Badge'
@@ -14,9 +15,11 @@ export interface Column<T> {
 }
 type Dir = 'asc' | 'desc'
 
-export function DataTable<T>({ rows, columns, rowKey, onRowClick, defaultSort, renderCard, empty, label }: {
+export function DataTable<T>({ rows, columns, rowKey, onRowClick, defaultSort, renderCard, empty, label, selection }: {
   rows: T[]; columns: Column<T>[]; rowKey: (r: T) => string; onRowClick?: (r: T) => void
   defaultSort?: { key: string; dir: Dir }; renderCard?: (r: T) => ReactNode; empty: ReactNode; label: string
+  /** Adds a checkbox column. */
+  selection?: { ids: Set<string>; onChange: (ids: Set<string>) => void }
 }) {
   const [sort, setSort] = useState(defaultSort)
   const sorted = useMemo(() => {
@@ -39,6 +42,12 @@ export function DataTable<T>({ rows, columns, rowKey, onRowClick, defaultSort, r
         <table className="w-full min-w-[640px] text-sm" aria-label={label}>
           <thead>
             <tr className="border-b border-ink-100 text-[11.5px] uppercase tracking-wider text-ink-400">
+              {selection && (
+                <th scope="col" className="w-10 px-4 py-3">
+                  <input type="checkbox" aria-label={t('Select all')} className="size-4 accent-brand-600" checked={sorted.length > 0 && sorted.every(r => selection.ids.has(rowKey(r)))}
+                    onChange={e => selection.onChange(e.target.checked ? new Set([...selection.ids, ...sorted.map(rowKey)]) : new Set([...selection.ids].filter(id => !sorted.some(r => rowKey(r) === id))))} />
+                </th>
+              )}
               {columns.map(c => (
                 <th key={c.key} scope="col" className={cx('whitespace-nowrap px-4 py-3 text-start font-semibold', c.hideBelow && hide[c.hideBelow], c.className)}
                   aria-sort={sort?.key === c.key ? (sort.dir === 'asc' ? 'ascending' : 'descending') : undefined}>
@@ -56,6 +65,12 @@ export function DataTable<T>({ rows, columns, rowKey, onRowClick, defaultSort, r
             {sorted.map(r => (
               <tr key={rowKey(r)} onClick={onRowClick ? () => onRowClick(r) : undefined}
                 className={cx('border-b border-ink-100 last:border-0 transition-colors', onRowClick && 'cursor-pointer hover:bg-brand-50/40')}>
+                {selection && (
+                  <td className="w-10 px-4 py-3" onClick={e => e.stopPropagation()}>
+                    <input type="checkbox" aria-label={t('Select row')} className="size-4 accent-brand-600" checked={selection.ids.has(rowKey(r))}
+                      onChange={e => { const n = new Set(selection.ids); e.target.checked ? n.add(rowKey(r)) : n.delete(rowKey(r)); selection.onChange(n) }} />
+                  </td>
+                )}
                 {columns.map(c => <td key={c.key} className={cx('px-4 py-3 align-middle', c.hideBelow && hide[c.hideBelow], c.className)}>{c.render(r)}</td>)}
               </tr>
             ))}

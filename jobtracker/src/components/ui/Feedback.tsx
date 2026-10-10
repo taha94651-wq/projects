@@ -1,3 +1,4 @@
+import { t } from '@/i18n'
 import { useEffect, useRef } from 'react'
 import { AlertCircle, CheckCircle2, Info, X } from 'lucide-react'
 import { useUI } from '@/ui-store'
@@ -9,10 +10,10 @@ export function Toaster() {
   const icon = { success: <CheckCircle2 className="size-4 text-brand-300" />, error: <AlertCircle className="size-4 text-danger-100" />, info: <Info className="size-4 text-info-100" /> }
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-20 z-[100] flex flex-col items-center gap-2 px-4 lg:bottom-6" aria-live="polite" role="status">
-      {toasts.map(t => (
-        <div key={t.id} className={cx('anim-pop pointer-events-auto flex max-w-md items-center gap-2.5 rounded-xl px-3.5 py-2.5 text-sm text-white shadow-pop', t.tone === 'error' ? 'bg-danger-700' : 'bg-ink-900')}>
-          {icon[t.tone]}<span>{t.message}</span>
-          <button className="-me-1 ms-1 rounded p-1 text-white/60 hover:text-white" onClick={() => dismissToast(t.id)} aria-label="Dismiss"><X className="size-3.5" /></button>
+      {toasts.map(toastItem => (
+        <div key={toastItem.id} className={cx('anim-pop pointer-events-auto flex max-w-md items-center gap-2.5 rounded-xl px-3.5 py-2.5 text-sm text-white shadow-pop', toastItem.tone === 'error' ? 'bg-danger-700' : 'bg-ink-900')}>
+          {icon[toastItem.tone]}<span>{t(toastItem.message)}</span>
+          <button className="-me-1 ms-1 rounded p-1 text-white/60 hover:text-white" onClick={() => dismissToast(toastItem.id)} aria-label={t("Dismiss")}><X className="size-3.5" /></button>
         </div>
       ))}
     </div>

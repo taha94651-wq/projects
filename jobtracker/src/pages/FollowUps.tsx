@@ -1,3 +1,4 @@
+import { t } from '@/i18n'
 import { useState } from 'react'
 import { Bell, Plus } from 'lucide-react'
 import { FOLLOWUP_TYPES } from '@shared/constants'
@@ -23,9 +24,9 @@ export default function FollowUps() {
 
   return (
     <>
-      <PageHeader title="Follow-ups" subtitle={overdue.length ? <span className="font-semibold text-danger-700">{overdue.length} overdue · {due.length - overdue.length} due today</span> : `${due.length} due today · ${upcoming.length} upcoming`}
+      <PageHeader title="Follow-ups" subtitle={overdue.length ? <span className="font-semibold text-danger-700">{t('{o} overdue · {d} due today', { o: overdue.length, d: due.length - overdue.length })}</span> : t('{d} due today · {u} upcoming', { d: due.length, u: upcoming.length })}
         actions={<button className="btn btn-primary" onClick={() => openForm({ kind: 'followup' })}><Plus className="size-4" />Schedule follow-up</button>} />
-      {overdue.length > 0 && tab !== 'due' && <button onClick={() => setTab('due')} className="mb-4 w-full rounded-xl border border-danger-500/40 bg-danger-50 px-4 py-3 text-start text-sm font-medium text-danger-700">⚠ You have {overdue.length} overdue follow-up{overdue.length === 1 ? '' : 's'} — review now</button>}
+      {overdue.length > 0 && tab !== 'due' && <button onClick={() => setTab('due')} className="mb-4 w-full rounded-xl border border-danger-500/40 bg-danger-50 px-4 py-3 text-start text-sm font-medium text-danger-700">⚠ {t(overdue.length === 1 ? 'You have {n} overdue follow-up — review now' : 'You have {n} overdue follow-ups — review now', { n: overdue.length })}</button>}
       <Tabs label="Follow-up status" value={tab} onChange={setTab} tabs={[{ value: 'due', label: 'Due & overdue', count: due.length, tone: 'danger' }, { value: 'upcoming', label: 'Upcoming', count: upcoming.length }, { value: 'done', label: 'Completed & skipped', count: done.length }, { value: 'all', label: 'All', count: all.length }]} />
       <div className="mt-4"><FilterBar active={!!type} onClear={() => setType('')}><FilterSelect label="Follow-up type" all="All types" value={type} onChange={setType} options={FOLLOWUP_TYPES} /></FilterBar></div>
       {shown.length ? <div className="grid gap-3 md:grid-cols-2 2xl:grid-cols-3">{shown.map(f => <FollowUpCard key={f.id} f={f} />)}</div>

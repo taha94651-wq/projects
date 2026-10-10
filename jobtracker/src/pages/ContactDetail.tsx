@@ -1,3 +1,4 @@
+import { t } from '@/i18n'
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, Bell, History, Mail, Pencil, Phone, Plus, Trash2 } from 'lucide-react'
 import { useData } from '@/store'
@@ -21,13 +22,13 @@ export default function ContactDetail() {
   const last = lastContactDate(data, { contactId: c.id })
   return (
     <>
-      <Link to="/contacts" className="mb-4 inline-flex items-center gap-1.5 text-[13px] font-medium text-ink-500 hover:text-ink-900"><ArrowLeft className="size-3.5" />Contacts</Link>
+      <Link to="/contacts" className="mb-4 inline-flex items-center gap-1.5 text-[13px] font-medium text-ink-500 hover:text-ink-900"><ArrowLeft className="size-3.5 rtl:-scale-x-100" />Contacts</Link>
       <header className="card mb-6 flex flex-wrap items-start gap-4 p-5 sm:p-6">
         <Avatar name={c.name} size="xl" />
         <div className="min-w-0 flex-1">
           <h1 className="page-title !text-[2rem]">{c.name}</h1>
           <p className="mt-1 text-sm text-ink-600">{c.position && `${c.position} · `}<Link to={`/companies/${c.companyId}`} className="font-medium hover:text-brand-800 hover:underline">{co?.name}</Link></p>
-          <div className="mt-3 flex flex-wrap items-center gap-2"><Badge tone="green">{c.type}</Badge><span className="text-xs text-ink-500">Last contact: {last ? agoDays(last) : 'never'}</span></div>
+          <div className="mt-3 flex flex-wrap items-center gap-2"><Badge tone="green">{t(c.type)}</Badge><span className="text-xs text-ink-500">{t('Last contact')}: {last ? agoDays(last) : t('Never')}</span></div>
         </div>
         <div className="flex flex-wrap gap-2">
           <button className="btn" onClick={() => openForm({ kind: 'contact', id: c.id })}><Pencil className="size-4" />Edit</button>

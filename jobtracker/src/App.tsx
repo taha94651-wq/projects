@@ -16,6 +16,7 @@ const Contacts = lazy(() => import('./pages/Contacts'))
 const ContactDetail = lazy(() => import('./pages/ContactDetail'))
 const Calendar = lazy(() => import('./pages/Calendar'))
 const Analytics = lazy(() => import('./pages/Analytics'))
+const Compare = lazy(() => import('./pages/Compare'))
 const Settings = lazy(() => import('./pages/Settings'))
 
 const Router = IS_DEMO ? MemoryRouter : BrowserRouter
@@ -24,11 +25,10 @@ const Spinner = () => <div className="grid min-h-[40vh] place-items-center" role
 export default function App() {
   const { phase, init, settings } = useStore()
   useEffect(() => { void init() }, [init])
-  useEffect(() => { document.documentElement.lang = settings.locale.slice(0, 2) }, [settings.locale])
   if (phase === 'loading') return <Spinner />
-  if (phase === 'setup' || phase === 'login') return <AuthPage mode={phase} />
+  if (phase === 'setup' || phase === 'login') return <AuthPage key={settings.lang} mode={phase} />
   return (
-    <Router>
+    <Router key={settings.lang}>
       <Suspense fallback={<Spinner />}>
         <Routes>
           <Route element={<AppShell />}>
@@ -43,6 +43,7 @@ export default function App() {
             <Route path="contacts/:id" element={<ContactDetail />} />
             <Route path="calendar" element={<Calendar />} />
             <Route path="analytics" element={<Analytics />} />
+            <Route path="compare" element={<Compare />} />
             <Route path="settings" element={<Settings />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>

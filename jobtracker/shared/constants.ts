@@ -8,7 +8,9 @@ export const FUNNEL: Stage[] = ['Applied', 'HR Contact', 'Screening', 'Technical
 export const CLOSED_STAGES: Stage[] = ['Accepted', 'Rejected', 'Withdrawn']
 export const ACTIVE_STAGES: Stage[] = ['Applied', 'HR Contact', 'Screening', 'Technical Interview', 'Final Interview', 'Offer']
 
-export const COMPANY_TYPES = ['Architecture', 'Interior Design', 'Retail Fit-out', 'Contractor', 'Consultant', 'Developer', 'Project Management', 'FF&E', 'Joinery', 'Other'] as const
+export const COMPANY_TYPES = ['Developer', 'Design', 'Execution', 'Unclassified'] as const
+/** Project types a company works on / that you are interested in. Free to extend; stored as a comma-separated list. */
+export const INTERESTS = ['Residential', 'Villas', 'Commercial', 'Mixed-use', 'Hospitality', 'Retail', 'Interior fit-out', 'Government / Giga-projects', 'Healthcare', 'Education'] as const
 export const COMPANY_STATUSES = ['Target', 'Contacted', 'Active', 'Interviewing', 'Offer', 'Closed'] as const
 export const PRIORITIES = ['High', 'Medium', 'Low'] as const
 export const WORK_TYPES = ['On-site', 'Hybrid', 'Remote'] as const
@@ -46,3 +48,10 @@ export type InterviewResult = (typeof INTERVIEW_RESULTS)[number]
 export type FollowUpType = (typeof FOLLOWUP_TYPES)[number]
 export type FollowUpStatus = (typeof FOLLOWUP_STATUSES)[number]
 export type ActivityType = (typeof ACTIVITY_TYPES)[number]
+
+export type Interest = (typeof INTERESTS)[number]
+/** Old category names (pre-simplification) → new ones. Used to migrate stored data. */
+export const LEGACY_TYPE_MAP: Record<string, (typeof COMPANY_TYPES)[number]> = {
+  Architecture: 'Design', 'Interior Design': 'Design', Consultant: 'Design', 'Project Management': 'Design',
+  'Retail Fit-out': 'Execution', Contractor: 'Execution', Joinery: 'Execution', 'FF&E': 'Execution', Developer: 'Developer', Other: 'Unclassified',
+}

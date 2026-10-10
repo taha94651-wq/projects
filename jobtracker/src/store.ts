@@ -3,11 +3,16 @@ import type { Dataset, EntityKey, Settings, User } from '@shared/types'
 import { api, type DataMode } from './api'
 import { uid } from './lib/format'
 import { toast } from './ui-store'
+import { getLang, setLang, type Lang } from './i18n'
 
 export type Item<K extends EntityKey> = Dataset[K][number]
 export type Draft<K extends EntityKey> = Omit<Item<K>, 'id' | 'createdAt'> & { id?: string }
+const PICKED = 'pipeline-lang-picked'
+const pickedOnAuth = () => { try { return sessionStorage.getItem(PICKED) === '1' } catch { return false } }
+/** Arabic UI → Arabic date/number format; switching back restores a Latin one unless the user picked something else. */
+const localeFor = (lang: Lang, current: string) => (lang === 'ar' ? (current.startsWith('ar') ? current : 'ar-EG') : current.startsWith('ar') ? 'en-GB' : current)
 const EMPTY: Dataset = { companies: [], contacts: [], applications: [], interviews: [], followUps: [], activities: [], attachments: [] }
-const DEFAULTS: Settings = { locale: 'en-GB', defaultCurrency: 'SAR', staleDays: 7 }
+const DEFAULTS: Settings = { lang: getLang(), locale: getLang() === 'ar' ? 'ar-EG' : 'en-GB', defaultCurrency: 'SAR', staleDays: 7 }
 
 /** Mirrors the database's ON DELETE rules so the UI stays consistent without a refetch. */
 export function cascade(d: Dataset, key: EntityKey, id: string): Dataset {
@@ -43,6 +48,7 @@ interface State {
   signOut: () => Promise<void>
   setUser: (u: User) => void
   saveSettings: (s: Partial<Settings>) => Promise<void>
+  setLanguage: (lang: Lang) => Promise<void>
   resetData: (mode: DataMode) => Promise<void>
   add: <K extends EntityKey>(key: K, draft: Draft<K>) => Promise<Item<K>>
   addMany: <K extends EntityKey>(key: K, drafts: Draft<K>[]) => Promise<Item<K>[]>
@@ -63,7 +69,20 @@ export const useStore = create<State>((set, get) => ({
   },
   afterAuth: async () => {
     const b = await api.bootstrap()
-    set({ user: b.user, settings: b.settings, data: b.data, phase: 'ready' })
+    // A language picked on the sign-in screen wins; otherwise the saved preference does.
+    const lang: Lang = pickedOnAuth() ? getLang() : b.settings.lang ?? getLang()
+    setLang(lang)
+    const settings = lang === b.settings.lang ? b.settings : { ...b.settings, lang, locale: localeFor(lang, b.settings.locale) }
+    set({ user: b.user, settings, data: b.data, phase: 'ready' })
+    if (settings !== b.settings) void api.saveSettings({ lang: settings.lang, locale: settings.locale }).catch(() => {})
+  },
+  setLanguage: async lang => {
+    setLang(lang)
+    const locale = localeFor(lang, get().settings.locale)
+    set(s => ({ settings: { ...s.settings, lang, locale } }))
+    if (get().phase === 'ready') await api.saveSettings({ lang, locale }).catch(e => toast((e as Error).message, 'error'))
+    else { try { sessionStorage.setItem(PICKED, '1') } catch { /* ignore */ } }
+    window.location.reload() // module-level labels are language-bound at load time, so reload for a clean switch
   },
   signOut: async () => { await api.logout().catch(() => {}); set({ phase: 'login', user: null, data: EMPTY }) },
   setUser: user => set({ user }),

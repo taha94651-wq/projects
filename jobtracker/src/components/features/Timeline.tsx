@@ -1,3 +1,4 @@
+import { t, tDesc } from '@/i18n'
 import { Link } from 'react-router-dom'
 import { ArrowRightLeft, Bell, Briefcase, Eye, Gift, Handshake, AtSign, Mail, MessageCircle, MoreHorizontal, Paperclip, Phone, StickyNote, UsersRound, type LucideIcon } from 'lucide-react'
 import type { ActivityType } from '@shared/constants'
@@ -37,9 +38,9 @@ export function Timeline({ activities, showApplication, empty = 'No activity rec
             <div className="min-w-0 flex-1 pt-0.5">
               <div className="flex items-start justify-between gap-2">
                 <div className="min-w-0">
-                  <p className="text-[13.5px] font-medium text-ink-900">{a.description || a.type}</p>
+                  <p className="text-[13.5px] font-medium text-ink-900">{tDesc(a.description) || t(a.type)}</p>
                   <p className="text-xs text-ink-500">
-                    <time dateTime={a.date}>{fmtDate(a.date, locale, { day: 'numeric', month: 'short', year: 'numeric' })}</time> · {a.type}
+                    <time dateTime={a.date}>{fmtDate(a.date, locale, { day: 'numeric', month: 'short', year: 'numeric' })}</time> · {t(a.type)}
                     {contact && <> · <Link to={`/contacts/${contact.id}`} className="hover:underline">{contact.name}</Link></>}
                     {app && <> · <Link to={`/applications/${app.id}`} className="hover:underline">{app.position}</Link></>}
                   </p>

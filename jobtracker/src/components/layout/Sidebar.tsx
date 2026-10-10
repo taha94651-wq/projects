@@ -1,3 +1,4 @@
+import { t } from '@/i18n'
 import { useEffect } from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 import { X } from 'lucide-react'
@@ -28,7 +29,7 @@ function NavList({ onNavigate }: { onNavigate?: () => void }) {
           {({ isActive }) => (<>
             <Icon className={cx('size-[18px]', isActive ? 'text-brand-300' : 'text-ink-400 group-hover:text-ink-200')} aria-hidden />
             <span className="flex-1">{label}</span>
-            {to === '/follow-ups' && dueCount > 0 && <span className="rounded-full bg-danger-500 px-1.5 py-px text-[11px] font-semibold text-white" aria-label={`${dueCount} due`}>{dueCount}</span>}
+            {to === '/follow-ups' && dueCount > 0 && <span className="rounded-full bg-danger-500 px-1.5 py-px text-[11px] font-semibold text-white" aria-label={t('{n} due', { n: dueCount })}>{dueCount}</span>}
           </>)}
         </NavLink>
       ))}

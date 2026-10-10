@@ -1,3 +1,4 @@
+import { t } from '@/i18n'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Briefcase, Building2, Contact, Search, StickyNote } from 'lucide-react'
@@ -42,10 +43,10 @@ export function GlobalSearch() {
       <kbd className="pointer-events-none absolute end-2.5 top-1/2 hidden -translate-y-1/2 rounded border border-ink-200 bg-surface px-1.5 py-0.5 text-[10.5px] font-medium text-ink-400 sm:block">Ctrl K</kbd>
       {open && q.trim() && (
         <div id="search-results" role="listbox" className="anim-pop scroll-thin absolute inset-x-0 top-full z-50 mt-1.5 max-h-[70vh] overflow-y-auto rounded-xl border border-ink-200 bg-surface p-1.5 shadow-pop sm:min-w-[26rem]">
-          {!hits.length && <p className="px-3 py-6 text-center text-sm text-ink-500">No results for “{q}”</p>}
+          {!hits.length && <p className="px-3 py-6 text-center text-sm text-ink-500">{t('No results for “{q}”', { q })}</p>}
           {groups.map(([kind, list]) => (
             <div key={kind}>
-              <p className="eyebrow px-2.5 pb-1 pt-2">{kind === 'Note' ? 'Notes & activity' : `${kind}s`}</p>
+              <p className="eyebrow px-2.5 pb-1 pt-2">{t(kind === 'Note' ? 'Notes & activity' : kind === 'Company' ? 'Companies' : kind === 'Application' ? 'Applications' : 'Contacts')}</p>
               {list.map(h => {
                 const Icon = ICON[h.kind]; const idx = hits.indexOf(h)
                 return (

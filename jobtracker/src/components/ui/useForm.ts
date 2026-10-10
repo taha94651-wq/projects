@@ -1,3 +1,4 @@
+import { t } from '@/i18n'
 import { useCallback, useState } from 'react'
 
 type Errors<T> = Partial<Record<keyof T, string>>
@@ -27,8 +28,8 @@ export function useForm<T extends object>(initial: T, validate: (v: T) => Errors
   }
   return { values, set, bind, errors, busy, submit, setValues }
 }
-export const required = (v: unknown, msg = 'Required') => (v == null || String(v).trim() === '' ? msg : undefined)
-export const emailOk = (v: string) => (v && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? 'Enter a valid email address' : undefined)
-export const urlOk = (v: string) => { if (!v) return undefined; try { new URL(/^https?:\/\//i.test(v) ? v : `https://${v}`); return v.includes('.') ? undefined : 'Enter a valid URL' } catch { return 'Enter a valid URL' } }
-export const numOk = (v: unknown, label = 'Enter a valid number') => (v === '' || v == null || (Number.isFinite(Number(v)) && Number(v) >= 0) ? undefined : label)
+export const required = (v: unknown, msg = 'Required') => (v == null || String(v).trim() === '' ? t(msg) : undefined)
+export const emailOk = (v: string) => (v && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? t('Enter a valid email address') : undefined)
+export const urlOk = (v: string) => { if (!v) return undefined; try { new URL(/^https?:\/\//i.test(v) ? v : `https://${v}`); return v.includes('.') ? undefined : t('Enter a valid URL') } catch { return t('Enter a valid URL') } }
+export const numOk = (v: unknown, label = 'Enter a valid number') => (v === '' || v == null || (Number.isFinite(Number(v)) && Number(v) >= 0) ? undefined : t(label))
 export const toNum = (v: unknown): number | null => (v === '' || v == null ? null : Number(v))

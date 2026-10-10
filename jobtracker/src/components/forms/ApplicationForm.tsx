@@ -1,3 +1,4 @@
+import { t } from '@/i18n'
 import { CURRENCIES, EMPLOYMENT_TYPES, PRIORITIES, SOURCES, STAGES, WORK_TYPES, COMPANY_TYPES, type Currency, type CompanyType, type EmploymentType, type Priority, type Source, type Stage, type WorkType } from '@shared/constants'
 import type { Application } from '@shared/types'
 import { useStore } from '@/store'
@@ -24,7 +25,7 @@ export function ApplicationForm({ req }: { req: FormRequest }) {
   const base: V = {
     companyId: data.companies.filter(c => !c.archived)[0]?.id ?? NEW, position: '', department: '', jobUrl: '', location: '', workType: 'On-site', employmentType: 'Full-time',
     applicationDate: todayISO(), deadline: '', source: 'LinkedIn', salaryMin: '', salaryMax: '', currency: settings.defaultCurrency, currentSalary: '', expectedSalary: '', offerAmount: '',
-    recruiter: '', recruiterEmail: '', recruiterPhone: '', status: 'Applied', priority: 'Medium', notes: '', newCompany: '', newCompanyType: 'Architecture', followUp: addDays(todayISO(), 5), ...d,
+    recruiter: '', recruiterEmail: '', recruiterPhone: '', status: 'Applied', priority: 'Medium', notes: '', newCompany: '', newCompanyType: 'Unclassified', followUp: addDays(todayISO(), 5), ...d,
   }
   const init: V = existing ? {
     ...base, ...existing, salaryMin: str(existing.salaryMin), salaryMax: str(existing.salaryMax), currentSalary: str(existing.currentSalary),
@@ -45,7 +46,7 @@ export function ApplicationForm({ req }: { req: FormRequest }) {
   const save = f.submit(async v => {
     let companyId = v.companyId
     if (companyId === NEW) {
-      const c = await createCompany({ name: v.newCompany.trim(), type: v.newCompanyType, industry: '', location: v.location, website: '', priority: v.priority, status: 'Target', description: '', size: '', linkedin: '', notes: '', archived: false })
+      const c = await createCompany({ name: v.newCompany.trim(), type: v.newCompanyType, industry: '', location: v.location, website: '', priority: v.priority, status: 'Target', description: '', size: '', linkedin: '', interests: '', notes: '', archived: false })
       companyId = c.id
     }
     const row = {
@@ -61,7 +62,7 @@ export function ApplicationForm({ req }: { req: FormRequest }) {
       toast('Application updated')
     } else {
       const a = await createApplication(row, v.followUp && v.status !== 'Wishlist' ? v.followUp : undefined)
-      toast(`Application added${v.followUp && v.status !== 'Wishlist' ? ' · follow-up scheduled' : ''}`)
+      toast(v.followUp && v.status !== 'Wishlist' ? t('Application added · follow-up scheduled') : t('Application added'))
       void a
     }
     close()
@@ -77,7 +78,7 @@ export function ApplicationForm({ req }: { req: FormRequest }) {
           {v.companyId === NEW
             ? <TextField label="New company name" required autoFocus {...f.bind('newCompany')} />
             : <TextField label="Position" required autoFocus={!existing} {...f.bind('position')} placeholder="e.g. Senior Architect" />}
-          {v.companyId === NEW && <SelectField label="Company type" options={COMPANY_TYPES} {...f.bind('newCompanyType')} />}
+          {v.companyId === NEW && <SelectField label="Category" options={COMPANY_TYPES} {...f.bind('newCompanyType')} />}
           {v.companyId === NEW && <TextField label="Position" required {...f.bind('position')} placeholder="e.g. Senior Architect" />}
           <TextField label="Department" {...f.bind('department')} />
           <TextField label="Location" {...f.bind('location')} placeholder={company?.location || 'City, Country'} />

@@ -16,7 +16,7 @@ const t = 'text' as const, n = 'num' as const, b = 'bool' as const
 export const SCHEMA: Record<EntityKey, TableDef> = {
   companies: {
     table: 'companies',
-    cols: { name: t, industry: t, location: t, website: t, type: t, priority: t, status: t, description: t, size: t, linkedin: t, notes: t, archived: b, createdAt: t },
+    cols: { name: t, industry: t, location: t, website: t, type: t, priority: t, status: t, description: t, size: t, linkedin: t, interests: t, notes: t, archived: b, createdAt: t },
     required: ['name'],
   },
   contacts: {

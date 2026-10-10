@@ -1,3 +1,4 @@
+import { t, tDays } from '@/i18n'
 import { Link } from 'react-router-dom'
 import { Check, MoreHorizontal, RotateCcw, SkipForward } from 'lucide-react'
 import type { FollowUp } from '@shared/types'
@@ -11,11 +12,11 @@ import { Menu } from '../ui/Menu'
 import { Avatar } from '../ui/misc'
 
 export function followUpState(f: FollowUp, today = todayISO()) {
-  if (f.status !== 'Pending') return { key: f.status.toLowerCase(), label: f.status === 'Completed' ? 'COMPLETED' : 'SKIPPED', tone: 'muted' as const }
+  if (f.status !== 'Pending') return { key: f.status.toLowerCase(), label: f.status === 'Completed' ? t('COMPLETED') : t('SKIPPED'), tone: 'muted' as const }
   const n = diffDays(f.dueDate, today)
-  if (n < 0) return { key: 'overdue', label: `OVERDUE · ${-n} DAY${n === -1 ? '' : 'S'}`, tone: 'danger' as const }
-  if (n === 0) return { key: 'today', label: 'FOLLOW UP TODAY', tone: 'warn' as const }
-  return { key: 'upcoming', label: n === 1 ? 'TOMORROW' : `IN ${n} DAYS`, tone: 'neutral' as const }
+  if (n < 0) return { key: 'overdue', label: t('OVERDUE · {days}', { days: tDays(-n) }).toUpperCase(), tone: 'danger' as const }
+  if (n === 0) return { key: 'today', label: t('FOLLOW UP TODAY'), tone: 'warn' as const }
+  return { key: 'upcoming', label: n === 1 ? t('TOMORROW') : t('IN {days}', { days: tDays(n) }).toUpperCase(), tone: 'neutral' as const }
 }
 const TONE = {
   danger: 'border-danger-500/40 bg-danger-50/50', warn: 'border-warn-500/40 bg-warn-50/60', neutral: 'border-ink-200/80 bg-surface', muted: 'border-ink-200/80 bg-surface opacity-75',
@@ -51,9 +52,9 @@ export function FollowUpCard({ f, compact }: { f: FollowUp; compact?: boolean })
         ]} />
       </div>
       <dl className="mt-3 space-y-0.5 text-[13px] text-ink-600">
-        {contact && <div className="flex gap-1.5"><dt className="text-ink-400">{contact.type}:</dt><dd className="font-medium text-ink-800">{contact.name}</dd></div>}
+        {contact && <div className="flex gap-1.5"><dt className="text-ink-400">{t(contact.type)}:</dt><dd className="font-medium text-ink-800">{contact.name}</dd></div>}
         <div className="flex gap-1.5"><dt className="text-ink-400">Last contact:</dt><dd>{agoDays(last)}</dd></div>
-        <div className="flex gap-1.5"><dt className="text-ink-400">Via:</dt><dd>{f.type} · due {fmtDate(f.dueDate, locale, { day: 'numeric', month: 'short' })}</dd></div>
+        <div className="flex gap-1.5"><dt className="text-ink-400">Via:</dt><dd>{t(f.type)} · {t('due {date}', { date: fmtDate(f.dueDate, locale, { day: 'numeric', month: 'short' }) })}</dd></div>
       </dl>
       {!compact && f.notes && <p className="mt-2 rounded-lg bg-ink-50 px-2.5 py-2 text-[13px] leading-relaxed text-ink-600">{f.notes}</p>}
       {pending && (

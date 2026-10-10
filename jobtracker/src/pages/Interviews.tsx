@@ -1,3 +1,4 @@
+import { t } from '@/i18n'
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { CalendarDays, Check, Clock, List, MapPin, MessagesSquare, MoreHorizontal, Pencil, Plus, Trash2, User, XCircle } from 'lucide-react'
@@ -37,7 +38,7 @@ export default function Interviews() {
   ]
   return (
     <>
-      <PageHeader title="Interviews" subtitle={`${upcoming.length} upcoming · ${past.length} past`}
+      <PageHeader title="Interviews" subtitle={t('{u} upcoming · {p} past', { u: upcoming.length, p: past.length })}
         actions={<><Segmented label="View" value={view} onChange={setView} options={[{ value: 'list', label: 'List', icon: <List className="size-3.5" /> }, { value: 'calendar', label: 'Calendar', icon: <CalendarDays className="size-3.5" /> }]} />
           <button className="btn btn-primary" onClick={() => openForm({ kind: 'interview' })}><Plus className="size-4" />Schedule interview</button></>} />
       {view === 'calendar' ? <CalendarView kinds={['interview']} /> : (
@@ -60,7 +61,7 @@ export default function Interviews() {
                         <span className="font-display text-2xl leading-none">{fmtDate(i.date, locale, { day: 'numeric' })}</span>
                       </div>
                       <div className="min-w-0 flex-1">
-                        <div className="flex flex-wrap items-center gap-1.5"><Badge tone="solid">{i.type}</Badge><Badge tone={STATUS_TONE[i.status]}>{i.status}</Badge>{i.result !== 'Pending' && <Badge tone={RESULT_TONE[i.result]}>Result: {i.result}</Badge>}{isUpcomingInterview(i, today) && <Badge tone={soon ? 'amber' : 'neutral'}>{relDay(i.date)}</Badge>}</div>
+                        <div className="flex flex-wrap items-center gap-1.5"><Badge tone="solid">{t(i.type)}</Badge><Badge tone={STATUS_TONE[i.status]}>{t(i.status)}</Badge>{i.result !== 'Pending' && <Badge tone={RESULT_TONE[i.result]}>{t('Result')}: {t(i.result)}</Badge>}{isUpcomingInterview(i, today) && <Badge tone={soon ? 'amber' : 'neutral'}>{relDay(i.date)}</Badge>}</div>
                         <p className="mt-1.5 truncate text-[15px] font-semibold">{co ? <Link to={`/companies/${co.id}`} className="hover:text-brand-800">{co.name}</Link> : '—'}</p>
                         <p className="truncate text-sm text-ink-600">{app ? <Link to={`/applications/${app.id}`} className="hover:underline">{app.position}</Link> : '—'}</p>
                       </div>

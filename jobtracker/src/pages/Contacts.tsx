@@ -1,3 +1,4 @@
+import { t } from '@/i18n'
 import { useMemo, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Contact as ContactIcon, Download, Mail, MoreHorizontal, Pencil, Plus, Trash2 } from 'lucide-react'
@@ -30,7 +31,7 @@ export default function Contacts() {
   const columns: Column<Row>[] = [
     { key: 'name', header: 'Name', sort: r => r.c.name, render: ({ c }) => <div className="flex min-w-44 items-center gap-3"><Avatar name={c.name} size="sm" /><div><Link to={`/contacts/${c.id}`} onClick={e => e.stopPropagation()} className="font-semibold hover:text-brand-800">{c.name}</Link>{c.position && <p className="text-xs text-ink-400">{c.position}</p>}</div></div> },
     { key: 'company', header: 'Company', sort: r => r.co?.name, render: ({ co }) => <span className="text-ink-700">{co?.name ?? '—'}</span> },
-    { key: 'type', header: 'Type', sort: r => r.c.type, render: ({ c }) => <Badge>{c.type}</Badge> },
+    { key: 'type', header: 'Type', sort: r => r.c.type, render: ({ c }) => <Badge>{t(c.type)}</Badge> },
     { key: 'email', header: 'Email', sort: r => r.c.email, hideBelow: 'lg', render: ({ c }) => c.email ? <a href={`mailto:${c.email}`} onClick={e => e.stopPropagation()} className="text-brand-700 hover:underline">{c.email}</a> : '—' },
     { key: 'phone', header: 'Phone', hideBelow: 'xl', render: ({ c }) => c.phone || '—' },
     { key: 'last', header: 'Last contact', sort: r => r.last, render: ({ last }) => <span className="whitespace-nowrap text-ink-600">{last ? agoDays(last) : '—'}</span> },
@@ -42,7 +43,7 @@ export default function Contacts() {
   ]))
   return (
     <>
-      <PageHeader title="Contacts" subtitle={`${data.contacts.length} recruiters, HR and hiring managers`}
+      <PageHeader title="Contacts" subtitle={t('{n} recruiters, HR and hiring managers', { n: data.contacts.length })}
         actions={<><button className="btn" onClick={exportCsv} disabled={!filtered.length}><Download className="size-4" />Export CSV</button><button className="btn btn-primary" onClick={() => openForm({ kind: 'contact' })}><Plus className="size-4" />Add contact</button></>} />
       <FilterBar active={active} onClear={() => { setQ(''); setType(''); setCompany('') }}>
         <SearchInput label="Search contacts" placeholder="Search name, email, company…" value={q} onChange={setQ} />
@@ -52,8 +53,8 @@ export default function Contacts() {
       <DataTable label="Contacts" rows={filtered} columns={columns} rowKey={r => r.c.id} onRowClick={r => nav(`/contacts/${r.c.id}`)} defaultSort={{ key: 'name', dir: 'asc' }}
         empty={<EmptyState icon={ContactIcon} title={active ? 'No contacts match' : 'No contacts yet'} text="Keep every recruiter and hiring manager in one place." action={!active && <button className="btn btn-primary btn-sm" onClick={() => openForm({ kind: 'contact' })}>Add contact</button>} />}
         renderCard={({ c, co, last }) => (
-          <div className="flex items-start gap-3"><Avatar name={c.name} /><div className="min-w-0 flex-1"><p className="font-semibold">{c.name}</p><p className="text-xs text-ink-500">{c.type} · {co?.name}</p>
-            {c.email && <p className="mt-1 flex items-center gap-1.5 truncate text-xs text-brand-700"><Mail className="size-3" />{c.email}</p>}<p className="mt-1 text-xs text-ink-400">Last contact {last ? agoDays(last) : '—'}</p></div>
+          <div className="flex items-start gap-3"><Avatar name={c.name} /><div className="min-w-0 flex-1"><p className="font-semibold">{c.name}</p><p className="text-xs text-ink-500">{t(c.type)} · {co?.name}</p>
+            {c.email && <p className="mt-1 flex items-center gap-1.5 truncate text-xs text-brand-700"><Mail className="size-3" />{c.email}</p>}<p className="mt-1 text-xs text-ink-400">{t('Last contact')} {last ? agoDays(last) : '—'}</p></div>
             <Menu label={`Actions for ${c.name}`} trigger={<MoreHorizontal className="size-4" />} items={menu(c)} /></div>)} />
     </>
   )

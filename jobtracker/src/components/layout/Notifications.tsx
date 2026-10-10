@@ -1,3 +1,4 @@
+import { t } from '@/i18n'
 import { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Bell, BellRing, CalendarClock, CheckCircle2, Clock, Gift, Hourglass } from 'lucide-react'
@@ -20,7 +21,7 @@ export function Notifications() {
   const mark = (ids: string[]) => { const next = [...new Set([...read, ...ids])].slice(-300); setRead(next); try { localStorage.setItem(KEY, JSON.stringify(next)) } catch { /* private mode */ } }
   return (
     <Popover panelClass="w-[min(24rem,calc(100vw-1.5rem))]" trigger={({ toggle, ref, props }) => (
-      <button ref={ref} onClick={toggle} {...props} className="btn btn-ghost btn-icon relative" aria-label={`Notifications${unread.length ? `, ${unread.length} unread` : ''}`}>
+      <button ref={ref} onClick={toggle} {...props} className="btn btn-ghost btn-icon relative" aria-label={unread.length ? t('Notifications, {n} unread', { n: unread.length }) : t('Notifications')}>
         <Bell className="size-[18px]" />
         {unread.length > 0 && <span className="absolute end-1 top-1 grid min-w-4 place-items-center rounded-full bg-danger-500 px-1 text-[10px] font-semibold leading-4 text-white">{unread.length}</span>}
       </button>

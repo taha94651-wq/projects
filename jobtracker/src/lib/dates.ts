@@ -1,3 +1,4 @@
+import { t, tDays } from '@/i18n'
 /** All app dates are local calendar days stored as `YYYY-MM-DD`. */
 const pad = (n: number) => String(n).padStart(2, '0')
 export const toISO = (d: Date) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`
@@ -29,16 +30,16 @@ export function fmtTime(time: string | null | undefined, locale: string) {
 export function relDay(iso: string | null | undefined, today = todayISO()): string {
   if (!iso) return '—'
   const n = diffDays(iso, today)
-  if (n === 0) return 'Today'
-  if (n === 1) return 'Tomorrow'
-  if (n === -1) return 'Yesterday'
-  if (n > 0) return `in ${n} days`
-  return `${-n} days ago`
+  if (n === 0) return t('Today')
+  if (n === 1) return t('Tomorrow')
+  if (n === -1) return t('Yesterday')
+  if (n > 0) return t('in {days}', { days: tDays(n) })
+  return t('{days} ago', { days: tDays(-n) })
 }
 export const agoDays = (iso: string | null | undefined, today = todayISO()) => {
-  if (!iso) return 'Never'
+  if (!iso) return t('Never')
   const n = diffDays(today, iso)
-  if (n <= 0) return 'Today'
-  if (n === 1) return 'Yesterday'
-  return `${n} days ago`
+  if (n <= 0) return t('Today')
+  if (n === 1) return t('Yesterday')
+  return t('{days} ago', { days: tDays(n) })
 }

@@ -1,3 +1,4 @@
+import { t } from '@/i18n'
 import { Link } from 'react-router-dom'
 import { CalendarDays, MapPin, MoreHorizontal, Wallet, BellRing } from 'lucide-react'
 import { STAGES, type Stage } from '@shared/constants'
@@ -36,19 +37,19 @@ export function ApplicationCard({ app, draggable, onDragStart, showStage = true 
             { label: 'Log activity', onSelect: () => openForm({ kind: 'activity', defaults: { applicationId: app.id } }) },
             { label: 'Schedule follow-up', onSelect: () => openForm({ kind: 'followup', defaults: { applicationId: app.id } }) },
             { label: 'Delete', danger: true, divider: true, onSelect: () => void deleteWithConfirm('applications', app.id, `"${app.position}"`) },
-            ...STAGES.filter(s => s !== app.status).map(s => ({ label: `Move to ${s}`, divider: s === STAGES.filter(x => x !== app.status)[0], onSelect: () => void changeStage(app.id, s as Stage) })),
+            ...STAGES.filter(s => s !== app.status).map(s => ({ label: t('Move to {stage}', { stage: t(s) }), divider: s === STAGES.filter(x => x !== app.status)[0], onSelect: () => void changeStage(app.id, s as Stage) })),
           ]} />
         </div>
       </div>
       <dl className="mt-3 space-y-1.5 text-xs text-ink-500">
         {app.location && <div className="flex items-center gap-1.5"><MapPin className="size-3.5 shrink-0" aria-hidden /><dt className="sr-only">Location</dt><dd className="truncate">{app.location}</dd></div>}
-        <div className="flex items-center gap-1.5"><CalendarDays className="size-3.5 shrink-0" aria-hidden /><dt className="sr-only">Applied</dt><dd>{app.applicationDate ? `Applied ${fmtShort(app.applicationDate, locale)}` : app.deadline ? `Deadline ${fmtShort(app.deadline, locale)}` : 'Not applied yet'}</dd></div>
+        <div className="flex items-center gap-1.5"><CalendarDays className="size-3.5 shrink-0" aria-hidden /><dt className="sr-only">Applied</dt><dd>{app.applicationDate ? t('Applied {date}', { date: fmtShort(app.applicationDate, locale) }) : app.deadline ? t('Deadline {date}', { date: fmtShort(app.deadline, locale) }) : t('Not applied yet')}</dd></div>
         <div className="flex items-center gap-1.5"><Wallet className="size-3.5 shrink-0" aria-hidden /><dt className="sr-only">Salary</dt><dd>{salaryRange(app, locale)}</dd></div>
       </dl>
       <div className="mt-3 flex flex-wrap items-center gap-1.5">
         {showStage && <StageBadge stage={app.status} />}
         <PriorityBadge priority={app.priority} />
-        {fu && <span className={cx('badge', overdue ? 'bg-danger-50 text-danger-700' : 'bg-ink-100 text-ink-600')} title="Next follow-up"><BellRing className="size-3" aria-hidden />{overdue ? 'Overdue · ' : ''}{relDay(fu.dueDate) === 'Today' || overdue ? relDay(fu.dueDate) : fmtShort(fu.dueDate, locale)}</span>}
+        {fu && <span className={cx('badge', overdue ? 'bg-danger-50 text-danger-700' : 'bg-ink-100 text-ink-600')} title="Next follow-up"><BellRing className="size-3" aria-hidden />{overdue ? `${t('Overdue')} · ` : ''}{relDay(fu.dueDate) === t('Today') || overdue ? relDay(fu.dueDate) : fmtShort(fu.dueDate, locale)}</span>}
       </div>
     </article>
   )

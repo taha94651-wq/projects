@@ -1,4 +1,5 @@
 import { buildSeed } from '@shared/seed'
+import { LEGACY_TYPE_MAP } from '@shared/constants'
 import { buildTargetCompanies } from '@shared/targets'
 import { ENTITY_KEYS, SCHEMA } from '@shared/schema'
 import type { Dataset, EntityKey, Settings, User } from '@shared/types'
@@ -8,9 +9,9 @@ import { cascade } from './store'
  * Preview-only stand-in for the Express API: handles the same `/api/*` routes in the browser
  * so the real UI can run as a static page. State persists in localStorage when available.
  */
-const KEY = 'pipeline-preview-v1'
+const KEY = 'pipeline-preview-v2'
 const USER: User = { id: 'demo', name: 'Mostafa Taha', email: 'demo@example.com' }
-const DEFAULTS: Settings = { locale: 'en-GB', defaultCurrency: 'SAR', staleDays: 7 }
+const DEFAULTS: Settings = { lang: 'en', locale: 'en-GB', defaultCurrency: 'SAR', staleDays: 7 }
 const EMPTY: Dataset = { companies: [], contacts: [], applications: [], interviews: [], followUps: [], activities: [], attachments: [] }
 
 interface State { data: Dataset; settings: Settings; user: User }
@@ -20,9 +21,15 @@ let signedIn = true
 function load(): State {
   try {
     const raw = localStorage.getItem(KEY)
-    if (raw) return JSON.parse(raw) as State
+    if (raw) {
+      const st = JSON.parse(raw) as State
+      // migrate data saved by earlier versions: simplified categories + interests
+      st.data.companies = st.data.companies.map(c => ({ ...c, type: (LEGACY_TYPE_MAP[c.type as string] ?? c.type) as typeof c.type, interests: c.interests ?? '' }))
+      return { ...st, settings: { ...DEFAULTS, ...st.settings } }
+    }
   } catch { /* storage unavailable */ }
-  return { data: buildSeed(), settings: DEFAULTS, user: USER }
+  // Starts with the user's own offices only (no outside companies); demo data is opt-in from Settings.
+  return { data: { ...EMPTY, companies: buildTargetCompanies() }, settings: DEFAULTS, user: USER }
 }
 function save() { try { localStorage.setItem(KEY, JSON.stringify(state)) } catch { /* ignore */ } }
 

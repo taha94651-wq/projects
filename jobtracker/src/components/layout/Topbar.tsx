@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { LogOut, Menu as MenuIcon, Settings, User } from 'lucide-react'
+import { Languages, LogOut, Menu as MenuIcon, Settings, User } from 'lucide-react'
 import { useStore } from '@/store'
 import { useUI } from '@/ui-store'
 import { Popover } from '../ui/Menu'
@@ -9,9 +9,20 @@ import { Notifications } from './Notifications'
 import { QuickAdd } from './QuickAdd'
 import { Logo } from './Sidebar'
 
+export function LanguageToggle({ lang, onChange, className }: { lang: 'en' | 'ar'; onChange: (l: 'en' | 'ar') => void; className?: string }) {
+  const next = lang === 'ar' ? 'en' : 'ar'
+  return (
+    <button type="button" lang={next} className={`btn btn-ghost btn-sm gap-1.5 text-ink-600 ${className ?? ''}`} onClick={() => onChange(next)} aria-label={next === 'ar' ? 'التبديل إلى العربية' : 'Switch to English'}>
+      <Languages className="size-4" aria-hidden /><span>{next === 'ar' ? 'العربية' : 'English'}</span>
+    </button>
+  )
+}
+
 export function Topbar() {
   const user = useStore(s => s.user)
   const signOut = useStore(s => s.signOut)
+  const lang = useStore(s => s.settings.lang)
+  const setLanguage = useStore(s => s.setLanguage)
   const setNav = useUI(s => s.setNav)
   const nav = useNavigate()
   return (
@@ -21,6 +32,7 @@ export function Topbar() {
         <div className="hidden text-ink-900 max-sm:hidden md:hidden"><Logo /></div>
         <GlobalSearch />
         <div className="ms-auto flex items-center gap-1.5 sm:gap-2">
+          <LanguageToggle lang={lang} onChange={setLanguage} />
           <QuickAdd />
           <Notifications />
           <Popover panelClass="w-60 p-1.5" trigger={({ toggle, ref, props }) => (

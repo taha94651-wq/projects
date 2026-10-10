@@ -2,6 +2,7 @@ import { DatabaseSync } from 'node:sqlite'
 import fs from 'node:fs'
 import path from 'node:path'
 import { ENTITY_KEYS, SCHEMA } from '../shared/schema'
+import { LEGACY_TYPE_MAP } from '../shared/constants'
 import type { Dataset, EntityKey, Settings } from '../shared/types'
 
 export const DATA_DIR = process.env.JOBTRACKER_DATA ?? path.resolve(process.cwd(), 'data')
@@ -30,6 +31,14 @@ function migrate() {
   }
 }
 migrate()
+
+/** Additive migrations for databases created by earlier versions. */
+function upgrade() {
+  const cols = (db.prepare('PRAGMA table_info(companies)').all() as { name: string }[]).map(c => c.name)
+  if (!cols.includes('interests')) db.exec("ALTER TABLE companies ADD COLUMN interests TEXT NOT NULL DEFAULT ''")
+  for (const [from, to] of Object.entries(LEGACY_TYPE_MAP)) if (from !== to) db.prepare('UPDATE companies SET type = ? WHERE type = ?').run(to, from)
+}
+upgrade()
 
 type Row = Record<string, unknown>
 const fromRow = (key: EntityKey, row: Row): Row => {
@@ -108,7 +117,7 @@ export function sweepUploads() {
   for (const f of fs.readdirSync(UPLOAD_DIR)) if (!ids.has(f)) fs.rmSync(path.join(UPLOAD_DIR, f), { force: true })
 }
 
-export const DEFAULT_SETTINGS: Settings = { locale: 'en-GB', defaultCurrency: 'SAR', staleDays: 7 }
+export const DEFAULT_SETTINGS: Settings = { lang: 'en', locale: 'en-GB', defaultCurrency: 'SAR', staleDays: 7 }
 export function getSettings(): Settings {
   const r = db.prepare("SELECT value FROM settings WHERE key = 'app'").get() as { value: string } | undefined
   return { ...DEFAULT_SETTINGS, ...(r ? JSON.parse(r.value) : {}) }

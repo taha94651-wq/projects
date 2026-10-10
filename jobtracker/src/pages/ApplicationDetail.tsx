@@ -1,3 +1,4 @@
+import { t } from '@/i18n'
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, Bell, Check, ExternalLink, History, Mail, MessagesSquare, Pencil, Phone, Plus, StickyNote, Trash2, Wallet } from 'lucide-react'
 import { FUNNEL, STAGES, type Stage } from '@shared/constants'
@@ -28,7 +29,7 @@ export default function ApplicationDetail() {
 
   return (
     <>
-      <Link to="/applications" className="mb-4 inline-flex items-center gap-1.5 text-[13px] font-medium text-ink-500 hover:text-ink-900"><ArrowLeft className="size-3.5" />Applications</Link>
+      <Link to="/applications" className="mb-4 inline-flex items-center gap-1.5 text-[13px] font-medium text-ink-500 hover:text-ink-900"><ArrowLeft className="size-3.5 rtl:-scale-x-100" />Applications</Link>
       <header className="card mb-6 p-5 sm:p-6">
         <div className="flex flex-wrap items-start gap-4">
           <Avatar name={co?.name ?? '?'} size="lg" />
@@ -38,9 +39,9 @@ export default function ApplicationDetail() {
             <div className="mt-2.5 flex flex-wrap items-center gap-2">
               <label className="sr-only" htmlFor="stage-select">Application stage</label>
               <select id="stage-select" className={cx('badge select-badge h-7 cursor-pointer appearance-none border-0 pe-7 ps-2.5 text-[13px] font-semibold', STAGE_STYLE[a.status].badge)} value={a.status} onChange={e => void changeStage(a.id, e.target.value as Stage)}>
-                {STAGES.map(s => <option key={s} className="bg-surface text-ink-900">{s}</option>)}
+                {STAGES.map(s => <option key={s} value={s} className="bg-surface text-ink-900">{t(s)}</option>)}
               </select>
-              <PriorityBadge priority={a.priority} /><Badge>{a.workType}</Badge><Badge>{a.employmentType}</Badge>
+              <PriorityBadge priority={a.priority} /><Badge>{t(a.workType)}</Badge><Badge>{t(a.employmentType)}</Badge>
             </div>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -52,11 +53,11 @@ export default function ApplicationDetail() {
           {FUNNEL.map((s, i) => (
             <li key={s} className="min-w-0">
               <div className={cx('h-1.5 rounded-full', i <= reached ? (closed ? 'bg-ink-300' : 'bg-brand-500') : 'bg-ink-100')} />
-              <p className={cx('mt-1.5 truncate text-[11px] font-medium', s === a.status ? 'text-ink-900' : i <= reached ? 'text-ink-600' : 'text-ink-400')}>{s}</p>
+              <p className={cx('mt-1.5 truncate text-[11px] font-medium', s === a.status ? 'text-ink-900' : i <= reached ? 'text-ink-600' : 'text-ink-400')}>{t(s)}</p>
             </li>
           ))}
         </ol>
-        {closed && <p className="mt-3 text-xs text-ink-500">This application is <strong>{a.status.toLowerCase()}</strong>; the bar shows the furthest stage reached.</p>}
+        {closed && <p className="mt-3 text-xs text-ink-500">{t('This application is {status}; the bar shows the furthest stage reached.', { status: t(a.status).toLowerCase() })}</p>}
       </header>
 
       <div className="grid grid-cols-[minmax(0,1fr)] gap-6 xl:grid-cols-[minmax(0,1fr)_24rem]">
@@ -67,7 +68,7 @@ export default function ApplicationDetail() {
           <Section title="Details" icon={StickyNote}>
             <Dl items={[
               ['Department', a.department], ['Application date', a.applicationDate ? fmtDate(a.applicationDate, locale) : ''], ['Deadline', a.deadline ? fmtDate(a.deadline, locale) : ''],
-              ['Source', a.source], ['Job post', a.jobUrl ? <ExtLink href={a.jobUrl}>{hostname(a.jobUrl)} <ExternalLink className="inline size-3" /></ExtLink> : ''], ['Company type', co?.type],
+              ['Source', t(a.source)], ['Job post', a.jobUrl ? <ExtLink href={a.jobUrl}>{hostname(a.jobUrl)} <ExternalLink className="inline size-3" /></ExtLink> : ''], ['Category', co?.type ? t(co.type) : ''],
             ]} />
             {a.notes && <div className="mt-4 rounded-lg bg-warn-50/70 px-3.5 py-3"><p className="eyebrow mb-1 text-warn-700">Notes</p><p className="whitespace-pre-wrap text-sm text-ink-700">{a.notes}</p></div>}
           </Section>
@@ -87,11 +88,11 @@ export default function ApplicationDetail() {
                 {a.recruiterPhone && <a href={`tel:${a.recruiterPhone}`} className="flex items-center gap-2 text-brand-700 hover:underline"><Phone className="size-3.5" />{a.recruiterPhone}</a>}</div>
             ) : <p className="text-sm text-ink-400">No recruiter details.</p>}
           </Section>
-          <Section title={`Interviews (${ivs.length})`} icon={MessagesSquare} flush action={<button className="btn btn-sm" onClick={() => openForm({ kind: 'interview', defaults: { applicationId: a.id } })}><Plus className="size-3.5" />Add</button>}>
+          <Section title={t('Interviews ({n})', { n: ivs.length })} icon={MessagesSquare} flush action={<button className="btn btn-sm" onClick={() => openForm({ kind: 'interview', defaults: { applicationId: a.id } })}><Plus className="size-3.5" />Add</button>}>
             {ivs.length ? <ul className="divide-y divide-ink-100 border-t border-ink-100">{ivs.map(i => (
               <li key={i.id} className="flex items-center gap-3 px-5 py-3">
-                <div className="min-w-0 flex-1"><p className="text-sm font-medium">{i.type} interview</p><p className="text-xs text-ink-500">{fmtDate(i.date, locale, { day: 'numeric', month: 'short' })}{i.time && ` · ${fmtTime(i.time, locale)}`}</p></div>
-                <Badge tone={i.status === 'Passed' ? 'green' : i.status === 'Failed' ? 'red' : i.status === 'Scheduled' ? 'amber' : 'neutral'}>{i.status}</Badge>
+                <div className="min-w-0 flex-1"><p className="text-sm font-medium">{t('{type} interview', { type: t(i.type) })}</p><p className="text-xs text-ink-500">{fmtDate(i.date, locale, { day: 'numeric', month: 'short' })}{i.time && ` · ${fmtTime(i.time, locale)}`}</p></div>
+                <Badge tone={i.status === 'Passed' ? 'green' : i.status === 'Failed' ? 'red' : i.status === 'Scheduled' ? 'amber' : 'neutral'}>{t(i.status)}</Badge>
                 <Menu label="Interview actions" trigger={<span className="text-lg leading-none">⋯</span>} items={[
                   { label: 'Edit', onSelect: () => openForm({ kind: 'interview', id: i.id }) },
                   { label: 'Mark completed', icon: <Check className="size-4" />, hidden: i.status !== 'Scheduled' && i.status !== 'Rescheduled', onSelect: () => void setInterviewStatus(i, 'Completed') },
@@ -99,7 +100,7 @@ export default function ApplicationDetail() {
                 ]} />
               </li>))}</ul> : <EmptyState icon={MessagesSquare} title="No interviews yet" />}
           </Section>
-          <Section title={`Follow-ups (${fus.length})`} icon={Bell} action={<button className="btn btn-sm" onClick={() => openForm({ kind: 'followup', defaults: { applicationId: a.id } })}><Plus className="size-3.5" />Add</button>}>
+          <Section title={t('Follow-ups ({n})', { n: fus.length })} icon={Bell} action={<button className="btn btn-sm" onClick={() => openForm({ kind: 'followup', defaults: { applicationId: a.id } })}><Plus className="size-3.5" />Add</button>}>
             {fus.length ? <div className="space-y-3">{fus.map(f => <FollowUpCard key={f.id} f={f} compact />)}</div> : <p className="text-sm text-ink-400">No follow-ups scheduled.</p>}
           </Section>
         </div>

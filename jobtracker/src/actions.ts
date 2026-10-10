@@ -1,3 +1,4 @@
+import { t } from '@/i18n'
 import type { Application, Company, FollowUp, Interview } from '@shared/types'
 import type { Stage } from '@shared/constants'
 import { useStore } from './store'
@@ -29,7 +30,7 @@ export async function changeStage(appId: string, to: Stage, date = todayISO()) {
     description: `Moved from ${from} to ${to}`, notes: '', fromStage: from, toStage: to,
   })
   await syncCompanyStatus(app.companyId)
-  toast(`Moved to ${to}`)
+  toast(t('Moved to {stage}', { stage: t(to) }))
 }
 
 export async function createCompany(draft: Omit<Company, 'id' | 'createdAt'>) {
@@ -55,15 +56,15 @@ export async function completeFollowUp(f: FollowUp, note = '') {
   const date = todayISO()
   await st().patch('followUps', f.id, { status: 'Completed', completedAt: date })
   await st().add('activities', { companyId: f.companyId, applicationId: f.applicationId, contactId: f.contactId, type: 'Follow-up', date, description: `Follow-up completed (${f.type})`, notes: note || f.notes, fromStage: '', toStage: '' })
-  toast('Follow-up marked as completed')
+  toast(t('Follow-up marked as completed'))
 }
 export async function skipFollowUp(f: FollowUp) {
   await st().patch('followUps', f.id, { status: 'Skipped' })
-  toast('Follow-up skipped', 'info')
+  toast(t('Follow-up skipped'), 'info')
 }
 export async function rescheduleFollowUp(f: FollowUp, dueDate: string) {
   await st().patch('followUps', f.id, { dueDate, status: 'Pending', completedAt: '' })
-  toast('Follow-up rescheduled')
+  toast(t('Follow-up rescheduled'))
 }
 
 export async function setInterviewStatus(i: Interview, status: Interview['status']) {
@@ -73,24 +74,25 @@ export async function setInterviewStatus(i: Interview, status: Interview['status
     const app = st().data.applications.find(a => a.id === i.applicationId)
     if (app) await st().add('activities', { companyId: app.companyId, applicationId: app.id, contactId: null, type: 'Interview', date: todayISO(), description: `${i.type} interview ${status.toLowerCase()}`, notes: '', fromStage: '', toStage: '' })
   }
-  toast(`Interview marked ${status.toLowerCase()}`)
+  toast(t('Interview marked {status}', { status: t(status).toLowerCase() }))
 }
 
 /* -------- destructive actions, always behind a confirmation dialog -------- */
 export async function deleteWithConfirm(key: Parameters<ReturnType<typeof st>['remove']>[0], id: string, label: string, warning = ''): Promise<boolean> {
-  const ok = await confirmDialog({ title: `Delete ${label}?`, message: `${warning ? warning + ' ' : ''}This can't be undone.`, confirmLabel: 'Delete', tone: 'danger' })
+  const shown = label.startsWith('"') ? label : t(label)
+  const ok = await confirmDialog({ title: t('Delete {name}?', { name: shown }), message: `${warning ? warning + ' ' : ''}${t("This can't be undone.")}`, confirmLabel: t('Delete'), tone: 'danger' })
   if (!ok) return false
   await st().remove(key, id)
-  toast(`${label} deleted`)
+  toast(t('{name} deleted', { name: shown }))
   return true
 }
 export const deleteCompany = (c: Company) => {
   const d = st().data
   const apps = d.applications.filter(a => a.companyId === c.id).length, contacts = d.contacts.filter(x => x.companyId === c.id).length
-  return deleteWithConfirm('companies', c.id, `"${c.name}"`, apps || contacts ? `This also deletes ${apps} application(s), ${contacts} contact(s) and all related interviews, follow-ups and activity.` : '')
+  return deleteWithConfirm('companies', c.id, `"${c.name}"`, apps || contacts ? t('This also deletes {apps} application(s), {contacts} contact(s) and all related interviews, follow-ups and activity.', { apps, contacts }) : '')
 }
 export async function toggleArchive(c: Company) {
   await st().patch('companies', c.id, { archived: !c.archived })
-  toast(c.archived ? `"${c.name}" restored` : `"${c.name}" archived`, 'info')
+  toast(c.archived ? t('"{name}" restored', { name: c.name }) : t('"{name}" archived', { name: c.name }), 'info')
 }
 export const maps = () => { const d = st().data; return { companies: byId(d.companies), applications: byId(d.applications), contacts: byId(d.contacts) } }
