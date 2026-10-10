@@ -6,6 +6,7 @@ import { useData, useLocale, useStore } from '@/store'
 import { openForm } from '@/ui-store'
 import { diffDays, fmtDate, fmtShort, fmtTime, relDay, todayISO } from '@/lib/dates'
 import { categoryStats } from '@/lib/compare'
+import { SuggestionsList, useSuggestions } from '@/components/features/SuggestionsPanel'
 import { actionItems, interviewStamp, isUpcomingInterview, pendingFollowUps } from '@/lib/derive'
 import { Badge, cx, StageBadge } from '@/components/ui/Badge'
 import { EmptyState, PageHeader, Section, Stat } from '@/components/ui/misc'
@@ -32,6 +33,7 @@ export default function Dashboard() {
   const upcomingInterviews = data.interviews.filter(i => isUpcomingInterview(i, today) && diffDays(i.date, today) <= 14).sort((a, b) => interviewStamp(a).localeCompare(interviewStamp(b)))
   const actions = actionItems(data, staleDays).slice(0, 6)
   const recent = [...data.activities].sort((a, b) => b.date.localeCompare(a.date) || b.createdAt.localeCompare(a.createdAt)).slice(0, 9)
+  const { items: suggestions, snooze } = useSuggestions()
   const hour = new Date().getHours()
   const greet = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening' // keys: 'Good morning, {name}' …
   const todoCount = due.length + upcomingInterviews.filter(i => diffDays(i.date, today) <= 1).length
@@ -71,6 +73,14 @@ export default function Dashboard() {
         </div>
         {categoryStats(data).find(r => r.type === 'Unclassified')!.stats.companies > 0 && <p className="mt-2 text-xs text-ink-500"><Link to="/companies?category=Unclassified" className="font-medium text-brand-700 hover:underline">{t('{n} companies still need a category', { n: categoryStats(data).find(r => r.type === 'Unclassified')!.stats.companies })}</Link></p>}
       </section>
+
+      {suggestions.length > 0 && (
+        <section aria-labelledby="sugg-h" className="mb-8">
+          <div className="mb-3 flex items-center justify-between"><div><h2 id="sugg-h" className="text-[15px] font-semibold">Suggestions</h2><p className="text-xs text-ink-500">Your recruitment coach, from your own data</p></div>
+            {suggestions.length > 3 && <Link to="/suggestions" className="btn btn-sm">{t('View all {n}', { n: suggestions.length })} <ArrowRight className="size-3.5 rtl:-scale-x-100" /></Link>}</div>
+          <SuggestionsList items={suggestions} onSnooze={snooze} limit={3} />
+        </section>
+      )}
 
       <div className="mb-8 grid grid-cols-[minmax(0,1fr)] gap-6 xl:grid-cols-[minmax(0,1fr)_22rem]">
         <section aria-labelledby="upcoming-h" className="card overflow-hidden">

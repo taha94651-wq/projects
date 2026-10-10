@@ -17,6 +17,7 @@ const ContactDetail = lazy(() => import('./pages/ContactDetail'))
 const Calendar = lazy(() => import('./pages/Calendar'))
 const Analytics = lazy(() => import('./pages/Analytics'))
 const Compare = lazy(() => import('./pages/Compare'))
+const Suggestions = lazy(() => import('./pages/Suggestions'))
 const Settings = lazy(() => import('./pages/Settings'))
 
 const Router = IS_DEMO ? MemoryRouter : BrowserRouter
@@ -44,6 +45,7 @@ export default function App() {
             <Route path="calendar" element={<Calendar />} />
             <Route path="analytics" element={<Analytics />} />
             <Route path="compare" element={<Compare />} />
+            <Route path="suggestions" element={<Suggestions />} />
             <Route path="settings" element={<Settings />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>

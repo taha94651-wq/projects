@@ -1,5 +1,5 @@
 import { t } from '@/i18n'
-import { BarChart3, Scale, Bell, Briefcase, Building2, CalendarDays, Contact, LayoutDashboard, MessagesSquare, Settings, type LucideIcon } from 'lucide-react'
+import { BarChart3, Lightbulb, Scale, Bell, Briefcase, Building2, CalendarDays, Contact, LayoutDashboard, MessagesSquare, Settings, type LucideIcon } from 'lucide-react'
 
 export const NAV: { to: string; label: string; icon: LucideIcon; end?: boolean }[] = [
   { to: '/', label: t('Dashboard'), icon: LayoutDashboard, end: true },
@@ -11,5 +11,6 @@ export const NAV: { to: string; label: string; icon: LucideIcon; end?: boolean }
   { to: '/calendar', label: t('Calendar'), icon: CalendarDays },
   { to: '/analytics', label: t('Analytics'), icon: BarChart3 },
   { to: '/compare', label: t('Compare'), icon: Scale },
+  { to: '/suggestions', label: t('Suggestions'), icon: Lightbulb },
   { to: '/settings', label: t('Settings'), icon: Settings },
 ]

@@ -1,6 +1,6 @@
 import { t } from '@/i18n'
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
-import { Archive, ArchiveRestore, ArrowLeft, Bell, Briefcase, Contact, ExternalLink, Globe, History, MapPin, Pencil, Plus, Trash2, Users, Building2, Mail, Phone } from 'lucide-react'
+import { Lightbulb, Archive, ArchiveRestore, ArrowLeft, Bell, Briefcase, Contact, ExternalLink, Globe, History, MapPin, Pencil, Plus, Trash2, Users, Building2, Mail, Phone } from 'lucide-react'
 import { useData, useLocale } from '@/store'
 import { parseInterests } from '@/lib/interests'
 import { deleteCompany, toggleArchive } from '@/actions'
@@ -12,6 +12,7 @@ import { Badge, CompanyStatusBadge, PriorityBadge, StageBadge } from '@/componen
 import { Avatar, Dl, EmptyState, ExtLink, Section } from '@/components/ui/misc'
 import { Timeline } from '@/components/features/Timeline'
 import { AttemptsSection } from '@/components/features/AttemptsSection'
+import { SuggestionsList, useSuggestions } from '@/components/features/SuggestionsPanel'
 import { FollowUpCard } from '@/components/features/FollowUpCard'
 
 export default function CompanyDetail() {
@@ -23,6 +24,7 @@ export default function CompanyDetail() {
   const apps = data.applications.filter(a => a.companyId === c.id)
   const acts = data.activities.filter(a => a.companyId === c.id)
   const fus = data.followUps.filter(f => f.companyId === c.id && f.status === 'Pending').sort((a, b) => a.dueDate.localeCompare(b.dueDate))
+  const { items: tips, snooze } = useSuggestions({ companyId: c.id })
   const last = lastContactDate(data, { companyId: c.id }); const next = nextFollowUp(data, { companyId: c.id })
 
   return (
@@ -56,6 +58,8 @@ export default function CompanyDetail() {
             {c.description && <p className="mt-4 text-sm leading-relaxed text-ink-600">{c.description}</p>}
             {c.notes && <div className="mt-4 rounded-lg bg-warn-50/70 px-3.5 py-3"><p className="eyebrow mb-1 text-warn-700">Notes</p><p className="whitespace-pre-wrap text-sm text-ink-700">{c.notes}</p></div>}
           </Section>
+
+          {tips.length > 0 && <Section title="Suggestions" icon={Lightbulb}><SuggestionsList items={tips} onSnooze={snooze} /></Section>}
 
           <AttemptsSection companyId={c.id} />
 
