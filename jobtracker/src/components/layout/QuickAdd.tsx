@@ -1,10 +1,10 @@
-import { Briefcase, Building2, Contact, MessagesSquare, Plus, Bell, History } from 'lucide-react'
+import { Briefcase, Building2, Send, Contact, MessagesSquare, Plus, Bell, History } from 'lucide-react'
 import { openForm, type FormKind } from '@/ui-store'
 import { Popover } from '../ui/Menu'
 
 const ITEMS: { kind: FormKind; label: string; icon: typeof Plus }[] = [
   { kind: 'company', label: 'Company', icon: Building2 }, { kind: 'application', label: 'Application', icon: Briefcase },
-  { kind: 'contact', label: 'Contact', icon: Contact }, { kind: 'interview', label: 'Interview', icon: MessagesSquare },
+  { kind: 'attempt', label: 'Attempt', icon: Send }, { kind: 'contact', label: 'Contact', icon: Contact }, { kind: 'interview', label: 'Interview', icon: MessagesSquare },
   { kind: 'followup', label: 'Follow-up', icon: Bell }, { kind: 'activity', label: 'Activity', icon: History },
 ]
 export function QuickAdd() {

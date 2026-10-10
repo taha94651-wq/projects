@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 
 export interface Toast { id: number; message: string; tone: 'success' | 'error' | 'info' }
-export type FormKind = 'company' | 'application' | 'contact' | 'interview' | 'followup' | 'activity' | 'reschedule' | 'import'
+export type FormKind = 'company' | 'attempt' | 'application' | 'contact' | 'interview' | 'followup' | 'activity' | 'reschedule' | 'import'
 export interface FormRequest { kind: FormKind; id?: string; defaults?: Record<string, unknown> }
 export interface ConfirmRequest { title: string; message: string; confirmLabel?: string; tone?: 'danger' | 'default'; resolve: (ok: boolean) => void }
 

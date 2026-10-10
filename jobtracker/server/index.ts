@@ -15,7 +15,7 @@ app.use(express.json({ limit: '25mb' }))
 app.use('/api', auth.requireJson)
 app.use((_, res, next) => { res.setHeader('X-Content-Type-Options', 'nosniff'); res.setHeader('X-Frame-Options', 'DENY'); next() })
 
-const emptyData = { companies: [], contacts: [], applications: [], interviews: [], followUps: [], activities: [], attachments: [] }
+const emptyData = { companies: [], attempts: [], contacts: [], applications: [], interviews: [], followUps: [], activities: [], attachments: [] }
 function loadMode(mode: string) {
   if (mode === 'sample') store.loadDataset(buildSeed())
   else if (mode === 'targets') store.loadDataset({ ...emptyData, companies: buildTargetCompanies() })

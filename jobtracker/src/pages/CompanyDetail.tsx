@@ -11,6 +11,7 @@ import { hostname, salaryRange } from '@/lib/format'
 import { Badge, CompanyStatusBadge, PriorityBadge, StageBadge } from '@/components/ui/Badge'
 import { Avatar, Dl, EmptyState, ExtLink, Section } from '@/components/ui/misc'
 import { Timeline } from '@/components/features/Timeline'
+import { AttemptsSection } from '@/components/features/AttemptsSection'
 import { FollowUpCard } from '@/components/features/FollowUpCard'
 
 export default function CompanyDetail() {
@@ -55,6 +56,8 @@ export default function CompanyDetail() {
             {c.description && <p className="mt-4 text-sm leading-relaxed text-ink-600">{c.description}</p>}
             {c.notes && <div className="mt-4 rounded-lg bg-warn-50/70 px-3.5 py-3"><p className="eyebrow mb-1 text-warn-700">Notes</p><p className="whitespace-pre-wrap text-sm text-ink-700">{c.notes}</p></div>}
           </Section>
+
+          <AttemptsSection companyId={c.id} />
 
           <Section title={t('Applications ({n})', { n: apps.length })} icon={Briefcase} flush action={<button className="btn btn-sm" onClick={() => openForm({ kind: 'application', defaults: { companyId: c.id } })}><Plus className="size-3.5" />Add</button>}>
             {apps.length ? (

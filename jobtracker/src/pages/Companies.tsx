@@ -12,6 +12,7 @@ import { downloadFile, toCsv } from '@/lib/csv'
 import { agoDays, fmtDate, relDay, todayISO } from '@/lib/dates'
 import { lastContactDate, nextFollowUp } from '@/lib/derive'
 import { hostname } from '@/lib/format'
+import { RESPONSE_TONE, sortAttempts } from '@/components/features/AttemptsSection'
 import { Badge, CompanyStatusBadge, cx, PriorityBadge } from '@/components/ui/Badge'
 import { DataTable, type Column } from '@/components/ui/DataTable'
 import { Menu } from '@/components/ui/Menu'
@@ -28,7 +29,7 @@ export default function Companies() {
 
   const rows = useMemo(() => data.companies.map(c => {
     const contacts = data.contacts.filter(x => x.companyId === c.id)
-    return { c, contact: contacts.find(x => ['HR', 'Recruiter'].includes(x.type)) ?? contacts[0], last: lastContactDate(data, { companyId: c.id }), apps: data.applications.filter(a => a.companyId === c.id).length, fu: nextFollowUp(data, { companyId: c.id }) }
+    return { c, contact: contacts.find(x => ['HR', 'Recruiter'].includes(x.type)) ?? contacts[0], last: lastContactDate(data, { companyId: c.id }), attempts: sortAttempts(data.attempts.filter(a => a.companyId === c.id)), apps: data.applications.filter(a => a.companyId === c.id).length, fu: nextFollowUp(data, { companyId: c.id }) }
   }), [data])
   type Row = (typeof rows)[number]
   const locations = useMemo(() => [...new Set(data.companies.map(c => c.location.split(',').pop()?.trim()).filter(Boolean) as string[])].sort(), [data.companies])
@@ -75,6 +76,7 @@ export default function Companies() {
     { key: 'priority', header: 'Priority', sort: r => PRIO[r.c.priority], render: ({ c }) => <PriorityBadge priority={c.priority} /> },
     { key: 'contact', header: 'Contact', sort: r => r.contact?.name, hideBelow: 'lg', render: ({ contact }) => contact ? <div><p className="text-ink-800">{contact.name}</p><p className="text-xs text-ink-400">{t(contact.type)}</p></div> : '—' },
     { key: 'last', header: 'Last contact', sort: r => r.last, hideBelow: 'lg', render: ({ last }) => <span className="whitespace-nowrap text-ink-600">{last ? agoDays(last) : '—'}</span> },
+    { key: 'attempts', header: 'Attempts', sort: r => r.attempts.length, hideBelow: 'lg', render: ({ attempts }) => attempts.length ? <span className="inline-flex items-center gap-1.5"><span className="font-medium tabular-nums">{attempts.length}</span><Badge tone={RESPONSE_TONE[attempts[attempts.length - 1].response]}>{t(attempts[attempts.length - 1].response)}</Badge></span> : <span className="text-ink-300">—</span> },
     { key: 'apps', header: 'Apps', sort: r => r.apps, className: 'text-center', render: ({ apps }) => <span className="font-medium tabular-nums">{apps}</span> },
     { key: 'status', header: 'Status', sort: r => r.c.status, render: ({ c }) => <CompanyStatusBadge status={c.status} /> },
     { key: 'fu', header: 'Next follow-up', sort: r => r.fu?.dueDate, render: ({ fu }) => fu ? <span className={cx('whitespace-nowrap text-[13px]', fu.dueDate < today ? 'font-semibold text-danger-700' : 'text-ink-600')}>{fmtDate(fu.dueDate, locale, { day: 'numeric', month: 'short' })} <span className="text-ink-400">· {relDay(fu.dueDate)}</span></span> : '—' },

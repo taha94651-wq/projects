@@ -11,7 +11,7 @@ const PICKED = 'pipeline-lang-picked'
 const pickedOnAuth = () => { try { return sessionStorage.getItem(PICKED) === '1' } catch { return false } }
 /** Arabic UI → Arabic date/number format; switching back restores a Latin one unless the user picked something else. */
 const localeFor = (lang: Lang, current: string) => (lang === 'ar' ? (current.startsWith('ar') ? current : 'ar-EG') : current.startsWith('ar') ? 'en-GB' : current)
-const EMPTY: Dataset = { companies: [], contacts: [], applications: [], interviews: [], followUps: [], activities: [], attachments: [] }
+const EMPTY: Dataset = { companies: [], attempts: [], contacts: [], applications: [], interviews: [], followUps: [], activities: [], attachments: [] }
 const DEFAULTS: Settings = { lang: getLang(), locale: getLang() === 'ar' ? 'ar-EG' : 'en-GB', defaultCurrency: 'SAR', staleDays: 7 }
 
 /** Mirrors the database's ON DELETE rules so the UI stays consistent without a refetch. */
@@ -20,7 +20,7 @@ export function cascade(d: Dataset, key: EntityKey, id: string): Dataset {
   const drop = <K extends EntityKey>(k: K, pred: (x: Item<K>) => boolean) => { (next[k] as Item<K>[]) = (next[k] as Item<K>[]).filter(x => !pred(x)) }
   if (key === 'companies') {
     const appIds = new Set(d.applications.filter(a => a.companyId === id).map(a => a.id))
-    drop('companies', x => x.id === id); drop('contacts', x => x.companyId === id); drop('applications', x => x.companyId === id)
+    drop('companies', x => x.id === id); drop('attempts', x => x.companyId === id); drop('contacts', x => x.companyId === id); drop('applications', x => x.companyId === id)
     drop('interviews', x => appIds.has(x.applicationId)); drop('followUps', x => x.companyId === id || (!!x.applicationId && appIds.has(x.applicationId)))
     drop('activities', x => x.companyId === id || (!!x.applicationId && appIds.has(x.applicationId)))
     drop('attachments', x => x.companyId === id || (!!x.applicationId && appIds.has(x.applicationId)))

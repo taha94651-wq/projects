@@ -19,6 +19,12 @@ export const SCHEMA: Record<EntityKey, TableDef> = {
     cols: { name: t, industry: t, location: t, website: t, type: t, priority: t, status: t, description: t, size: t, linkedin: t, interests: t, notes: t, archived: b, createdAt: t },
     required: ['name'],
   },
+  attempts: {
+    table: 'attempts',
+    cols: { companyId: t, method: t, emailKind: t, contact: t, date: t, response: t, reply: t, progress: t, createdAt: t },
+    fks: { companyId: ['companies', 'CASCADE'] },
+    required: ['companyId', 'method'],
+  },
   contacts: {
     table: 'contacts',
     cols: { companyId: t, name: t, position: t, email: t, phone: t, linkedin: t, type: t, notes: t, createdAt: t },

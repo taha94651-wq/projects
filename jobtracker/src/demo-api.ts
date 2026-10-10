@@ -9,10 +9,10 @@ import { cascade } from './store'
  * Preview-only stand-in for the Express API: handles the same `/api/*` routes in the browser
  * so the real UI can run as a static page. State persists in localStorage when available.
  */
-const KEY = 'pipeline-preview-v3'
+const KEY = 'pipeline-preview-v4'
 const USER: User = { id: 'demo', name: 'Mostafa Taha', email: 'demo@example.com' }
 const DEFAULTS: Settings = { lang: 'en', locale: 'en-GB', defaultCurrency: 'SAR', staleDays: 7 }
-const EMPTY: Dataset = { companies: [], contacts: [], applications: [], interviews: [], followUps: [], activities: [], attachments: [] }
+const EMPTY: Dataset = { companies: [], attempts: [], contacts: [], applications: [], interviews: [], followUps: [], activities: [], attachments: [] }
 
 interface State { data: Dataset; settings: Settings; user: User }
 let state: State
@@ -24,6 +24,7 @@ function load(): State {
     if (raw) {
       const st = JSON.parse(raw) as State
       // migrate data saved by earlier versions: simplified categories + interests
+      st.data.attempts ??= []
       st.data.companies = st.data.companies.map(c => ({ ...c, type: (LEGACY_TYPE_MAP[c.type as string] ?? c.type) as typeof c.type, interests: c.interests ?? '' }))
       return { ...st, settings: { ...DEFAULTS, ...st.settings } }
     }

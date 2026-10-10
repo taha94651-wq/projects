@@ -23,5 +23,7 @@ export function globalSearch(d: Dataset, query: string, limit = 6): SearchHit[] 
     const app = a.applicationId ? apps.get(a.applicationId) : undefined
     return { kind: 'Note' as const, id: a.id, title: tDesc(a.description) || t(a.type), subtitle: `${t(a.type)} · ${cos.get(a.companyId ?? '')?.name ?? ''}`, link: app ? `/applications/${app.id}` : a.companyId ? `/companies/${a.companyId}` : '/' }
   }))
+  add(d.attempts.filter(a => has(a.contact, a.reply, a.progress, cos.get(a.companyId)?.name)).map(a => ({
+    kind: 'Note' as const, id: a.id, title: a.progress || a.reply || a.contact, subtitle: `${t(a.method)} · ${cos.get(a.companyId)?.name ?? ''}`, link: `/companies/${a.companyId}` })))
   return hits
 }

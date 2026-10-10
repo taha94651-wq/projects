@@ -1,5 +1,6 @@
 import { useUI } from '@/ui-store'
 import { ActivityForm } from './ActivityForm'
+import { AttemptForm } from './AttemptForm'
 import { ApplicationForm } from './ApplicationForm'
 import { CompanyForm } from './CompanyForm'
 import { ContactForm } from './ContactForm'
@@ -15,6 +16,7 @@ export function FormHost() {
   const key = `${form.kind}:${form.id ?? 'new'}:${JSON.stringify(form.defaults ?? {})}`
   switch (form.kind) {
     case 'company': return <CompanyForm key={key} req={form} />
+    case 'attempt': return <AttemptForm key={key} req={form} />
     case 'application': return <ApplicationForm key={key} req={form} />
     case 'contact': return <ContactForm key={key} req={form} />
     case 'interview': return <InterviewForm key={key} req={form} />

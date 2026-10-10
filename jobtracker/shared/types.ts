@@ -18,6 +18,23 @@ export interface Company {
   archived: boolean
   createdAt: string
 }
+/** One try at finding / reaching a company: an email (HR or recruitment), a WhatsApp number, or something else. */
+export interface Attempt {
+  id: string
+  companyId: string
+  method: C.AttemptMethod
+  /** Only for emails: whether it is an HR address or a recruitment / careers address. */
+  emailKind: C.EmailKind | ''
+  /** The email address, the WhatsApp number, or a short description for "Other". */
+  contact: string
+  date: string
+  response: C.AttemptResponse
+  /** What they replied. */
+  reply: string
+  /** Where you got with this attempt. */
+  progress: string
+  createdAt: string
+}
 export interface Contact {
   id: string
   companyId: string
@@ -119,6 +136,7 @@ export interface User {
 
 export interface Dataset {
   companies: Company[]
+  attempts: Attempt[]
   contacts: Contact[]
   applications: Application[]
   interviews: Interview[]
