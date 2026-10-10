@@ -34,6 +34,7 @@ function cascade(d: Dataset, key: EntityKey, id: string): Dataset {
 
 interface State {
   phase: 'loading' | 'setup' | 'login' | 'ready'
+  setupCodeRequired: boolean
   user: User | null
   settings: Settings
   data: Dataset
@@ -51,11 +52,11 @@ interface State {
 }
 
 export const useStore = create<State>((set, get) => ({
-  phase: 'loading', user: null, settings: DEFAULTS, data: EMPTY,
+  phase: 'loading', setupCodeRequired: false, user: null, settings: DEFAULTS, data: EMPTY,
   init: async () => {
     try {
       const s = await api.status()
-      if (!s.configured) return set({ phase: 'setup' })
+      if (!s.configured) return set({ phase: 'setup', setupCodeRequired: !!s.setupCodeRequired })
       if (!s.user) return set({ phase: 'login' })
       await get().afterAuth()
     } catch { set({ phase: 'login' }) }

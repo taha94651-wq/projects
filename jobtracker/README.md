@@ -43,3 +43,14 @@ npm run typecheck
 npm test               # unit tests: analytics calculations, notifications, CSV, dates
 e2e/run.sh             # ~90 browser checks on a throw-away database (needs Playwright's Chromium)
 ```
+
+## Deploy (Render, Docker)
+
+1. Push the repo to GitHub, then on Render: **New → Blueprint**, choose the repo — it reads `jobtracker/render.yaml`
+   (Docker build, 1 GB persistent disk mounted at `/data`; a persistent disk needs a paid instance).
+2. After the first deploy, open the service → **Environment** → copy the generated `SETUP_CODE`.
+3. Open the service URL (`https://….onrender.com`), enter the setup code once and create your account.
+   The setup code stops anyone else from claiming the first account on a public URL.
+
+The same `Dockerfile` works on Railway / Fly.io: mount a volume at `/data` and set `SETUP_CODE`.
+Back up regularly from **Settings → Full backup (JSON)**.

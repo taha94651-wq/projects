@@ -11,7 +11,9 @@ export function AuthPage({ mode }: { mode: 'setup' | 'login' }) {
   const setup = mode === 'setup'
   const [data, setData] = useState<DataMode>('targets')
   const [error, setError] = useState('')
-  const f = useForm({ name: '', email: '', password: '' }, v => ({
+  const needCode = useStore(s => s.setupCodeRequired)
+  const f = useForm({ name: '', email: '', password: '', setupCode: '' }, v => ({
+    setupCode: setup && needCode ? required(v.setupCode, 'Enter the setup code') : undefined,
     name: setup ? required(v.name, 'Enter your name') : undefined,
     email: required(v.email, 'Enter your email') ?? emailOk(v.email),
     password: required(v.password, 'Enter a password') ?? (setup && v.password.length < 8 ? 'Use at least 8 characters' : undefined),
@@ -19,7 +21,7 @@ export function AuthPage({ mode }: { mode: 'setup' | 'login' }) {
   const go = f.submit(async v => {
     setError('')
     try {
-      if (setup) await api.setup({ name: v.name, email: v.email, password: v.password, mode: data })
+      if (setup) await api.setup({ name: v.name, email: v.email, password: v.password, mode: data, setupCode: v.setupCode })
       else await api.login({ email: v.email, password: v.password })
       await useStore.getState().afterAuth()
     } catch (e) { setError((e as Error).message); throw e }
@@ -46,6 +48,7 @@ export function AuthPage({ mode }: { mode: 'setup' | 'login' }) {
           <h1 className="font-display text-4xl tracking-tight">{setup ? 'Create your account' : 'Welcome back'}</h1>
           <p className="mt-1.5 text-sm text-ink-500">{setup ? 'A private workspace stored on this server. Only you can sign in.' : 'Sign in to continue your search.'}</p>
           <div className="mt-7 space-y-4">
+            {setup && needCode && <TextField label="Setup code" autoComplete="off" {...f.bind('setupCode')} hint="The SETUP_CODE value from your hosting dashboard" />}
             {setup && <TextField label="Your name" autoComplete="name" autoFocus {...f.bind('name')} />}
             <TextField label="Email" type="email" autoComplete="username" autoFocus={!setup} {...f.bind('email')} />
             <TextField label="Password" type="password" autoComplete={setup ? 'new-password' : 'current-password'} {...f.bind('password')} hint={setup ? 'At least 8 characters' : undefined} />

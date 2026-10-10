@@ -17,8 +17,8 @@ async function request<T>(method: string, url: string, body?: unknown): Promise<
 export interface Bootstrap { user: User; settings: Settings; data: Dataset }
 
 export const api = {
-  status: () => request<{ configured: boolean; user: User | null }>('GET', '/auth/status'),
-  setup: (b: { name: string; email: string; password: string; mode: DataMode }) => request<{ user: User }>('POST', '/auth/setup', b),
+  status: () => request<{ configured: boolean; user: User | null; setupCodeRequired?: boolean }>('GET', '/auth/status'),
+  setup: (b: { name: string; email: string; password: string; mode: DataMode; setupCode?: string }) => request<{ user: User }>('POST', '/auth/setup', b),
   login: (b: { email: string; password: string }) => request<{ user: User }>('POST', '/auth/login', b),
   logout: () => request<{ ok: true }>('POST', '/auth/logout'),
   profile: (b: { name: string; email: string }) => request<{ user: User }>('PUT', '/auth/profile', b),

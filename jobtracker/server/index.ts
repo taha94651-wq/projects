@@ -29,10 +29,14 @@ const validEmail = (e: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)
 // ---------- auth ----------
 api.get('/auth/status', (req, res) => {
   const u = auth.sessionUser(req)
-  res.json({ configured: auth.userExists(), user: u ? auth.publicUser(u) : null })
+  const configured = auth.userExists()
+  res.json({ configured, user: u ? auth.publicUser(u) : null, setupCodeRequired: !configured && !!process.env.SETUP_CODE })
 })
 api.post('/auth/setup', (req, res) => {
   if (auth.userExists()) return res.status(403).json({ error: 'Already configured' })
+  // On a public deployment, SETUP_CODE stops a stranger from claiming the first account.
+  const required = process.env.SETUP_CODE
+  if (required && !auth.safeEqual(String(req.body.setupCode ?? ''), required)) return res.status(403).json({ error: 'Incorrect setup code' })
   const name = str(req.body.name), email = str(req.body.email).toLowerCase(), password = String(req.body.password ?? '')
   if (!name) return res.status(400).json({ error: 'Name is required' })
   if (!validEmail(email)) return res.status(400).json({ error: 'Enter a valid email' })

@@ -24,6 +24,7 @@ export const getUserById = (id: string) => db.prepare('SELECT * FROM users WHERE
 export const userExists = () => (db.prepare('SELECT COUNT(*) c FROM users').get() as { c: number }).c > 0
 export const publicUser = (u: DbUser) => ({ id: u.id, name: u.name, email: u.email })
 
+export const safeEqual = (a: string, b: string) => { const x = crypto.createHash('sha256').update(a).digest(), y = crypto.createHash('sha256').update(b).digest(); return crypto.timingSafeEqual(x, y) }
 const sign = (payload: string) => crypto.createHmac('sha256', SECRET).update(payload).digest('base64url')
 export function setSession(res: Response, userId: string) {
   const payload = `${userId}.${Date.now() + TTL_MS}`

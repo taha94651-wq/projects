@@ -1,0 +1,17 @@
+# Render Blueprint — New + > Blueprint, point it at this repo (root directory: jobtracker).
+services:
+  - type: web
+    name: pipeline-job-tracker
+    runtime: docker
+    rootDir: jobtracker
+    plan: starter            # persistent disks need a paid instance
+    healthCheckPath: /api/auth/status
+    envVars:
+      - key: SETUP_CODE      # read it in the dashboard, enter it once when creating your account
+        generateValue: true
+      - key: JOBTRACKER_DATA
+        value: /data
+    disk:
+      name: pipeline-data
+      mountPath: /data
+      sizeGB: 1
