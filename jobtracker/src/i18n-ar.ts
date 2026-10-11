@@ -807,5 +807,8 @@ export const ar: Record<string, string> = {
  "Replies to cold approaches often take 5–7 days. A follow-up is already scheduled for you.": "الردود على التواصل المبدئي تستغرق غالبًا 5–7 أيام. وقد جُدولت لك متابعة بالفعل.",
  "This address or number did not reach anyone.": "هذا العنوان أو الرقم لم يصل إلى أحد.",
  "Updated automatically": "تم التحديث تلقائيًا",
- "{name} saved to Contacts": "تم حفظ {name} في جهات الاتصال"
+ "{name} saved to Contacts": "تم حفظ {name} في جهات الاتصال",
+ "Could not open this attachment": "تعذّر فتح هذا المرفق",
+ "File too large for the offline version (max 1.5MB)": "الملف كبير جدًا للنسخة بدون إنترنت (الحد الأقصى 1.5 ميغابايت)",
+ "Storage is full — remove some attachments": "مساحة التخزين ممتلئة — احذف بعض المرفقات"
 }

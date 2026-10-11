@@ -10,8 +10,17 @@ export function toCsv<T>(rows: T[], columns: { header: string; value: (r: T) => 
   }
   return [columns.map(c => esc(c.header)).join(','), ...rows.map(r => columns.map(c => esc(c.value(r))).join(','))].join('\r\n')
 }
+/** True when this page is embedded in another page (the standalone file is not). */
+export const isFramed = () => { try { return window.self !== window.top } catch { return true } }
+export function downloadBlob(filename: string, blob: Blob) {
+  const url = URL.createObjectURL(blob)
+  const a = document.createElement('a')
+  a.href = url; a.download = filename
+  document.body.appendChild(a); a.click(); a.remove()
+  setTimeout(() => URL.revokeObjectURL(url), 1000)
+}
 export function downloadFile(filename: string, content: string, mime = 'text/csv;charset=utf-8') {
-  if (IS_DEMO) { // file downloads are blocked inside the preview frame: copy instead
+  if (IS_DEMO && isFramed()) { // downloads are blocked inside an embedding frame (e.g. the artifact viewer): copy instead
     void navigator.clipboard?.writeText(content).then(() => toast(t('{name} copied to clipboard (downloads are off in the preview)', { name: filename })), () => toast(t('Export is available in the full app'), 'info'))
     return
   }

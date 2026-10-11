@@ -7,6 +7,7 @@ import { useData, useLocale } from '@/store'
 import { deleteWithConfirm } from '@/actions'
 import { openForm, toast } from '@/ui-store'
 import { IS_DEMO } from '@/env'
+import { downloadBlob, isFramed } from '@/lib/csv'
 import { fmtDate } from '@/lib/dates'
 import { cx } from '../ui/Badge'
 import { Menu } from '../ui/Menu'
@@ -53,7 +54,7 @@ export function Timeline({ activities, showApplication, empty = 'No activity rec
               {a.notes && <p className="mt-1.5 whitespace-pre-wrap rounded-lg bg-ink-50 px-3 py-2 text-[13px] leading-relaxed text-ink-600">{a.notes}</p>}
               {files.length > 0 && (
                 <ul className="mt-1.5 flex flex-wrap gap-1.5">
-                  {files.map(f => <li key={f.id}><a href={`/api/attachments/${f.id}/file`} download onClick={e => { if (IS_DEMO) { e.preventDefault(); toast('Attachment downloads are available in the full app', 'info') } }} className="inline-flex items-center gap-1.5 rounded-md border border-ink-200 bg-surface px-2 py-1 text-xs text-ink-700 hover:bg-ink-50"><Paperclip className="size-3" />{f.name}</a></li>)}
+                  {files.map(f => <li key={f.id}><a href={`/api/attachments/${f.id}/file`} download onClick={async e => { if (!IS_DEMO) return; e.preventDefault(); if (isFramed()) { toast('Attachment downloads are available in the full app', 'info'); return } try { const r = await fetch(`/api/attachments/${f.id}/file`); if (!r.ok) throw new Error(); downloadBlob(f.name, await r.blob()) } catch { toast('Could not open this attachment', 'error') } }} className="inline-flex items-center gap-1.5 rounded-md border border-ink-200 bg-surface px-2 py-1 text-xs text-ink-700 hover:bg-ink-50"><Paperclip className="size-3" />{f.name}</a></li>)}
                 </ul>
               )}
             </div>

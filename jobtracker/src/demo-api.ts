@@ -20,6 +20,7 @@ import { toast } from './ui-store'
 const STORAGE_KEY = 'pipeline-preview-state'
 const LEGACY_PREFIX = 'pipeline-preview-v'
 const DOC_PATH = 'pipeline/state'
+const ATT_PREFIX = 'pipeline-attachment-'
 const USER: User = { id: 'demo', name: 'Mostafa Taha', email: 'demo@example.com' }
 const DEFAULTS: Settings = { lang: 'en', locale: 'en-GB', defaultCurrency: 'SAR', staleDays: 7 }
 const EMPTY: Dataset = { companies: [], attempts: [], contacts: [], applications: [], interviews: [], followUps: [], activities: [], attachments: [] }
@@ -58,6 +59,13 @@ async function getCloud(): Promise<CloudDb | null> {
   } catch { return null }
 }
 
+/** Removes stored files whose attachment row no longer exists (after a cascade delete). */
+function sweepAttachments() {
+  try {
+    const ids = new Set(state.data.attachments.map(x => x.id))
+    for (let i = localStorage.length - 1; i >= 0; i--) { const k = localStorage.key(i); if (k?.startsWith(ATT_PREFIX) && !ids.has(k.slice(ATT_PREFIX.length))) localStorage.removeItem(k) }
+  } catch { /* ignore */ }
+}
 let timer: ReturnType<typeof setTimeout> | undefined
 let writing = false
 let again = false
@@ -126,8 +134,19 @@ export async function installDemoApi() {
       state.data = body.mode === 'sample' ? buildSeed() : body.mode === 'targets' ? { ...EMPTY, companies: buildTargetCompanies() } : { ...EMPTY }
       save(); return json({ data: state.data })
     }
+    if (a === 'attachments' && method === 'GET' && c === 'file') {
+      try {
+        const rec = JSON.parse(localStorage.getItem(`${ATT_PREFIX}${b}`) ?? 'null') as { mime: string; data: string } | null
+        if (!rec) return fail('Not found', 404)
+        const bin = atob(rec.data); const bytes = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i)
+        return new Response(bytes, { status: 200, headers: { 'Content-Type': rec.mime || 'application/octet-stream' } })
+      } catch { return fail('Not found', 404) }
+    }
     if (a === 'attachments') {
+      if ((body.data?.length ?? 0) > 2_000_000) return fail('File too large for the offline version (max 1.5MB)', 413)
       const row = { id: crypto.randomUUID(), name: body.name, mime: body.mime, size: Math.floor((body.data?.length ?? 0) * 0.75), activityId: body.activityId ?? null, applicationId: body.applicationId ?? null, companyId: body.companyId ?? null, createdAt: new Date().toISOString() }
+      try { localStorage.setItem(`${ATT_PREFIX}${row.id}`, JSON.stringify({ name: body.name, mime: body.mime, data: body.data })) }
+      catch { return fail('Storage is full — remove some attachments', 507) }
       ;(state.data.attachments as unknown[]).push(row); save(); return json(row, 201)
     }
     if (a === 'data') {
@@ -144,7 +163,7 @@ export async function installDemoApi() {
       const i = list.findIndex(x => x.id === c)
       if (i < 0) return fail('Not found', 404)
       if (method === 'PUT') { list[i] = { ...list[i], ...body, id: c }; save(); return json(list[i]) }
-      if (method === 'DELETE') { state.data = cascade(state.data, key, c); save(); return json({ ok: true }) }
+      if (method === 'DELETE') { state.data = cascade(state.data, key, c); sweepAttachments(); save(); return json({ ok: true }) }
     }
     return fail('Not found', 404)
   }

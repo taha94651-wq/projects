@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect } from 'react'
-import { BrowserRouter, MemoryRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, MemoryRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { IS_DEMO } from './env'
 import { useStore } from './store'
 import { AppShell } from './components/layout/AppShell'
@@ -20,7 +20,16 @@ const Compare = lazy(() => import('./pages/Compare'))
 const Suggestions = lazy(() => import('./pages/Suggestions'))
 const Settings = lazy(() => import('./pages/Settings'))
 
-const Router = IS_DEMO ? MemoryRouter : BrowserRouter
+// The offline/preview build has no real URLs, so remember the current page per tab: a refresh or a language switch lands where you were.
+const PATH_KEY = 'pipeline-last-path'
+const startPath = () => { try { return sessionStorage.getItem(PATH_KEY) || '/' } catch { return '/' } }
+function PathKeeper() {
+  const { pathname, search } = useLocation()
+  useEffect(() => { try { sessionStorage.setItem(PATH_KEY, pathname + search) } catch { /* storage blocked */ } }, [pathname, search])
+  return null
+}
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const Router: React.ComponentType<any> = IS_DEMO ? MemoryRouter : BrowserRouter
 const Spinner = () => <div className="grid min-h-[40vh] place-items-center" role="status" aria-label="Loading"><div className="size-6 animate-spin rounded-full border-2 border-ink-200 border-t-brand-600" /></div>
 
 export default function App() {
@@ -29,7 +38,8 @@ export default function App() {
   if (phase === 'loading') return <Spinner />
   if (phase === 'setup' || phase === 'login') return <AuthPage key={settings.lang} mode={phase} />
   return (
-    <Router key={settings.lang}>
+    <Router key={settings.lang} {...(IS_DEMO ? { initialEntries: [startPath()] } : {})}>
+      {IS_DEMO && <PathKeeper />}
       <Suspense fallback={<Spinner />}>
         <Routes>
           <Route element={<AppShell />}>
