@@ -1,0 +1,66 @@
+import { lazy, Suspense, useEffect } from 'react'
+import { BrowserRouter, MemoryRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom'
+import { IS_DEMO } from './env'
+import { useStore } from './store'
+import { AppShell } from './components/layout/AppShell'
+import { AuthPage } from './pages/Login'
+import Dashboard from './pages/Dashboard'
+
+const Companies = lazy(() => import('./pages/Companies'))
+const CompanyDetail = lazy(() => import('./pages/CompanyDetail'))
+const Applications = lazy(() => import('./pages/Applications'))
+const ApplicationDetail = lazy(() => import('./pages/ApplicationDetail'))
+const Interviews = lazy(() => import('./pages/Interviews'))
+const FollowUps = lazy(() => import('./pages/FollowUps'))
+const Contacts = lazy(() => import('./pages/Contacts'))
+const ContactDetail = lazy(() => import('./pages/ContactDetail'))
+const Calendar = lazy(() => import('./pages/Calendar'))
+const Analytics = lazy(() => import('./pages/Analytics'))
+const Compare = lazy(() => import('./pages/Compare'))
+const Suggestions = lazy(() => import('./pages/Suggestions'))
+const Settings = lazy(() => import('./pages/Settings'))
+
+// The offline/preview build has no real URLs, so remember the current page per tab: a refresh or a language switch lands where you were.
+const PATH_KEY = 'pipeline-last-path'
+const startPath = () => { try { return sessionStorage.getItem(PATH_KEY) || '/' } catch { return '/' } }
+function PathKeeper() {
+  const { pathname, search } = useLocation()
+  useEffect(() => { try { sessionStorage.setItem(PATH_KEY, pathname + search) } catch { /* storage blocked */ } }, [pathname, search])
+  return null
+}
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const Router: React.ComponentType<any> = IS_DEMO ? MemoryRouter : BrowserRouter
+const Spinner = () => <div className="grid min-h-[40vh] place-items-center" role="status" aria-label="Loading"><div className="size-6 animate-spin rounded-full border-2 border-ink-200 border-t-brand-600" /></div>
+
+export default function App() {
+  const { phase, init, settings } = useStore()
+  useEffect(() => { void init() }, [init])
+  if (phase === 'loading') return <Spinner />
+  if (phase === 'setup' || phase === 'login') return <AuthPage key={settings.lang} mode={phase} />
+  return (
+    <Router key={settings.lang} {...(IS_DEMO ? { initialEntries: [startPath()] } : {})}>
+      {IS_DEMO && <PathKeeper />}
+      <Suspense fallback={<Spinner />}>
+        <Routes>
+          <Route element={<AppShell />}>
+            <Route index element={<Dashboard />} />
+            <Route path="companies" element={<Companies />} />
+            <Route path="companies/:id" element={<CompanyDetail />} />
+            <Route path="applications" element={<Applications />} />
+            <Route path="applications/:id" element={<ApplicationDetail />} />
+            <Route path="interviews" element={<Interviews />} />
+            <Route path="follow-ups" element={<FollowUps />} />
+            <Route path="contacts" element={<Contacts />} />
+            <Route path="contacts/:id" element={<ContactDetail />} />
+            <Route path="calendar" element={<Calendar />} />
+            <Route path="analytics" element={<Analytics />} />
+            <Route path="compare" element={<Compare />} />
+            <Route path="suggestions" element={<Suggestions />} />
+            <Route path="settings" element={<Settings />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Route>
+        </Routes>
+      </Suspense>
+    </Router>
+  )
+}
