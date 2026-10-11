@@ -826,3 +826,6 @@ html[dir="rtl"] .ph-pick button { padding: 6px 6px 6px 14px; }
 .ph-show[hidden] { display: none; }
 #photography .ph-show__stage { height: clamp(340px, 62vh, 620px); }
 @media (max-width: 760px) { #photography .ph-show__stage { height: auto; aspect-ratio: 4 / 3.6; } .ph-pick img { width: 46px; height: 46px; } }
+.client__name a { color: inherit; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.25s, color 0.25s; }
+.client__name a i { font-style: normal; font-size: 0.7em; color: var(--gold); }
+.client__name a:hover { color: var(--gold); border-color: var(--gold); }

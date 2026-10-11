@@ -30,7 +30,8 @@ projects = [
 ]
 
 row = lambda label, body, cls='': f'<section class="row {cls}"><div class="lab">{label}</div><div class="body">{body}</div></section>'
-clients = ''.join(f'<div class="cl"><b>{e(en(c["name"]))}</b><span>{e(en(c["sector"]))}</span></div>' for c in S['clients'])
+cname = lambda c: ('<a href="%s">%s</a>' % (e(c["url"]), e(en(c["name"])))) if c.get("url") else e(en(c["name"]))
+clients = ''.join(f'<div class="cl"><b>{cname(c)}</b><span>{e(en(c["sector"]))}</span></div>' for c in S['clients'])
 exp = ''.join(f'''<div class="job"><div class="per">{e(en(x["period"]))}</div><div><h3>{e(en(x["role"]))}</h3><p class="co">{e(en(x["company"]))}</p>
 <ul>{"".join(f"<li>{e(en(p))}</li>" for p in x["points"])}</ul></div></div>''' for x in S['experience'])
 proj = ''.join(f'<div class="pj"><div class="n">{i+1:02d}</div><div><b>{e(a)}</b><p>{e(b)}</p></div><div class="pl">{e(c)}</div><div class="yr">{e(d)}</div></div>' for i,(a,b,c,d) in enumerate(projects))
@@ -61,7 +62,7 @@ h1 {{ font-weight:400; font-size:34pt; line-height:.95; letter-spacing:-.03em; m
 .lab {{ font-size:7pt; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); padding-top:1mm; }}
 .summary {{ font-size:10pt; line-height:1.4; font-weight:300; letter-spacing:-.005em; margin:0; }}
 .clients {{ display:grid; grid-template-columns:repeat(3,1fr); }} .cl {{ border-top:.6pt solid var(--line); padding:1.5mm 3mm 1.5mm 0; break-inside:avoid; }}
-.cl b {{ display:block; font-weight:400; font-size:11pt; letter-spacing:-.01em; }} .cl span {{ color:var(--muted); font-size:7.5pt; }}
+.cl a {{ color:inherit; text-decoration:none; }} .cl b {{ display:block; font-weight:400; font-size:11pt; letter-spacing:-.01em; }} .cl span {{ color:var(--muted); font-size:7.5pt; }}
 .job {{ display:grid; grid-template-columns:24mm 1fr; gap:5mm; padding:0 0 3mm; margin-bottom:3mm; border-bottom:.6pt solid var(--line); }} .job li, .job h3 {{ break-inside:avoid; }} .job h3 {{ break-after:avoid; }} .job:last-child {{ border:0; margin:0; padding:0; }}
 .per {{ color:var(--muted); font-size:7.8pt; padding-top:1mm; }}
 h3 {{ font-weight:400; font-size:12pt; letter-spacing:-.01em; margin:0; }} .co {{ color:var(--muted); margin:0 0 2mm; }}
