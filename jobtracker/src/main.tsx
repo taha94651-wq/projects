@@ -5,7 +5,9 @@ import App from './App'
 import { IS_DEMO } from './env'
 
 async function boot() {
-  if (IS_DEMO) await (await import('./demo-api')).installDemoApi() // fonts come from Google Fonts in the preview page
+  if (IS_DEMO) {
+    try { await (await import('./demo-api')).installDemoApi() } catch (e) { console.error('preview storage failed', e) } // fonts come from Google Fonts in the preview page
+  }
   else await Promise.all([import('@fontsource-variable/inter'), import('@fontsource/instrument-serif'), import('@fontsource-variable/noto-sans-arabic'), import('@fontsource-variable/noto-naskh-arabic')])
   createRoot(document.getElementById('root')!).render(<StrictMode><App /></StrictMode>)
 }

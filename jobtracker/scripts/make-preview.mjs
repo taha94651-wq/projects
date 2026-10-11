@@ -9,7 +9,8 @@ const fragment = `<title>Pipeline Job Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=Instrument+Serif&family=Noto+Sans+Arabic:wght@400..700&family=Noto+Naskh+Arabic:wght@400..700&display=swap">
 ${styles.join('\n')}
-<div id="root"></div>
+<div id="root"><p id="boot" style="font:15px system-ui,sans-serif;text-align:center;margin:20vh 16px 0;color:#4a504c">Loading your job tracker…</p></div>
+<script>window.addEventListener("error",function(e){var b=document.getElementById("boot");if(b){b.style.color="#8a3029";b.textContent="Could not load the page ("+(e.message||"error")+"). Please reload."}})</script>
 ${scripts.join('\n')}
 `
 fs.writeFileSync('dist-demo/preview-fragment.html', fragment)

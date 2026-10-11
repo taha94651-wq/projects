@@ -52,7 +52,9 @@ async function getCloud(): Promise<CloudDb | null> {
   try {
     const claude = (window as unknown as { claude?: { use(n: string): Promise<unknown> } }).claude
     if (!claude?.use) return null
-    return ((await claude.use('db')) as CloudDb | null) ?? null
+    // Never leave the page blank waiting for the database: give up after a few seconds and use this browser's storage.
+    const timeout = new Promise<null>(resolve => setTimeout(() => resolve(null), 3500))
+    return ((await Promise.race([claude.use('db'), timeout])) as CloudDb | null) ?? null
   } catch { return null }
 }
 
