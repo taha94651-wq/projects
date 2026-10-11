@@ -983,6 +983,36 @@
     }
   }
 
+  /* ---------- Visit stats (GoatCounter, cookie-free; dashboard is private to the owner) ---------- */
+  function stats() {
+    const code = ((D.analytics || {}).goatcounter || "").trim();
+    if (!code || /^(localhost|127\.)/.test(location.hostname)) return;
+    const page = () => (location.hash.startsWith("#/p/") ? "/p/" + decodeURIComponent(location.hash.slice(4)) : "/");
+    let last = "";
+    const hit = (path, title, event) => {
+      if (!window.goatcounter || !window.goatcounter.count) return;
+      if (!event && path === last) return;
+      if (!event) last = path;
+      window.goatcounter.count({ path, title: title || document.title, event: !!event });
+    };
+    window.goatcounter = { no_onload: true };
+    const sc = document.createElement("script");
+    sc.async = true;
+    sc.src = "https://gc.zgo.at/count.js";
+    sc.dataset.goatcounter = "https://" + code + ".goatcounter.com/count";
+    sc.onload = () => hit(page());
+    document.head.appendChild(sc);
+    window.addEventListener("hashchange", () => hit(page()));
+    // downloads, WhatsApp and email clicks are counted as events
+    document.addEventListener("click", (e) => {
+      const a = e.target.closest("a[href]");
+      if (!a) return;
+      const h = a.getAttribute("href");
+      const kind = /\.(pdf|xlsx?)$/i.test(h) ? "file" : /wa\.me/.test(h) ? "whatsapp" : /^mailto:/.test(h) ? "email" : /^demo\//.test(h) ? "tool" : "";
+      if (kind) hit(kind + ": " + h.split("/").pop().replace(/^\?.*/, "") || h, kind, true);
+    });
+  }
+
   const load = (f) => fetch(f, { cache: "no-cache" }).then((r) => {
     if (!r.ok) throw new Error(f + " " + r.status);
     return r.json();
@@ -992,6 +1022,7 @@
       D = Object.assign({}, site, VOCAB, { projects: pj.projects || [], ai: ai.items || [], photos: ph.items || [], controls: ct.items || [] });
       state.lang = pickLang();
       boot();
+      stats();
     })
     .catch((err) => {
       console.error(err);

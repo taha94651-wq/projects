@@ -331,6 +331,11 @@ content:
           values:
             - { value: en, label: English }
             - { value: ar, label: عربي }
+      - name: analytics
+        label: Visit stats — عداد الزيارات
+        type: object
+        fields:
+          - { name: goatcounter, label: "GoatCounter code (the name before .goatcounter.com)", type: string }
       - name: profile
         label: Profile — البيانات الأساسية
         type: object
