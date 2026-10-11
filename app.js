@@ -522,7 +522,7 @@
       .map((g) => `<div class="col"><h3>${T(g.group)}</h3><div class="chips">${g.items.map((s) => `<span${/claude|chatgpt/i.test(s) ? ' class="ai"' : ""}>${esc(s)}</span>`).join("")}</div></div>`)
       .join("");
     const clients = (D.clients || [])
-      .map((c) => `<li><span class="client__name"><bdi>${T(c.name)}</bdi></span>${T(c.sector) ? `<span class="client__sector">${T(c.sector)}</span>` : ""}</li>`)
+      .map((c) => `<li><span class="client__name">${c.url ? `<a href="${esc(c.url)}" target="_blank" rel="noopener"><bdi>${T(c.name)}</bdi> <i aria-hidden="true">↗</i></a>` : `<bdi>${T(c.name)}</bdi>`}</span>${T(c.sector) ? `<span class="client__sector">${T(c.sector)}</span>` : ""}</li>`)
       .join("");
     const certs = (D.certifications || [])
       .map((c) => {

@@ -364,7 +364,7 @@ content:
               - { name: label, label: Name, type: string }
               - { name: url, label: URL, type: string }
       - name: clients
-        label: Key clients — أهم العملاء
+        label: Major clients — كبار العملاء
         type: object
         list:
           collapsible:
@@ -373,6 +373,7 @@ content:
         fields:
           - { name: name, label: Client — العميل, component: bi }
           - { name: sector, label: Sector — المجال, component: bi }
+          - { name: url, label: Website — موقع العميل, type: string }
       - name: experience
         label: Experience — الخبرات
         type: object
