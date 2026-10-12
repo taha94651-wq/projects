@@ -38,7 +38,7 @@ function LeadCard({ lead, lk, dragging, overlay }: { lead: Lead; lk: Lookups; dr
           <GripVertical className="size-4" />
         </button>
         <div className="min-w-0 flex-1">
-          <Link href={`/leads/${lead.id}`} className="block truncate font-semibold hover:text-bronze hover:underline">
+          <Link href={`/leads/view?id=${lead.id}`} className="block truncate font-semibold hover:text-bronze hover:underline">
             {lead.companyName}
           </Link>
           <p className="truncate text-xs text-muted-foreground">{lead.projectName || "—"}</p>

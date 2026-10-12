@@ -8,7 +8,8 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "test": "tsx --test src/lib/store/logic.test.ts",
-    "e2e": "node e2e/crud.mjs"
+    "e2e": "node e2e/crud.mjs",
+    "build:pages": "BASE_PATH=/projects/crm-app next build && rm -rf ../crm-app && cp -r out ../crm-app"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

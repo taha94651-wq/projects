@@ -236,7 +236,7 @@ export default function DashboardPage() {
             {recent.map((l) => {
               const st = lk.stageById.get(l.stageId);
               return (
-                <Link key={l.id} href={`/leads/${l.id}`} className="flex items-center gap-3 rounded-md px-2 py-2 hover:bg-accent/50">
+                <Link key={l.id} href={`/leads/view?id=${l.id}`} className="flex items-center gap-3 rounded-md px-2 py-2 hover:bg-accent/50">
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-sm font-medium">{l.companyName}</p>
                     <p className="truncate text-xs text-muted-foreground">{l.projectName}</p>

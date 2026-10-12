@@ -47,7 +47,7 @@ export default function LeadsPage() {
         cell: (l: Lead) => (
           <Menu
             items={[
-              { label: t("view"), icon: <Eye />, onSelect: () => router.push(`/leads/${l.id}`) },
+              { label: t("view"), icon: <Eye />, onSelect: () => router.push(`/leads/view?id=${l.id}`) },
               { label: t("edit"), icon: <Pencil />, onSelect: () => openLeadForm({ leadId: l.id }) },
               { label: t("duplicate"), icon: <Copy />, onSelect: () => duplicate(l.id) },
               { label: t("delete"), icon: <Trash2 />, destructive: true, onSelect: () => remove([l.id]) },
@@ -228,7 +228,7 @@ export default function LeadsPage() {
           selectable
           selected={sel}
           onSelectedChange={setSel}
-          onRowClick={(l) => router.push(`/leads/${l.id}`)}
+          onRowClick={(l) => router.push(`/leads/view?id=${l.id}`)}
           initialSort={{ key: "code", dir: "desc" }}
           empty={
             <EmptyState

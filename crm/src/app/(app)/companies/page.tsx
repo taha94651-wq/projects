@@ -78,7 +78,7 @@ export default function CompaniesPage() {
       key: "actions", header: "", className: "w-10",
       cell: (c) => (
         <Menu items={[
-          { label: t("view"), icon: <Eye />, onSelect: () => router.push(`/companies/${c.id}`) },
+          { label: t("view"), icon: <Eye />, onSelect: () => router.push(`/companies/view?id=${c.id}`) },
           { label: t("edit"), icon: <Pencil />, onSelect: () => setForm({ open: true, id: c.id }) },
           { label: t("delete"), icon: <Trash2 />, destructive: true, onSelect: () => remove(c) },
         ]} />
@@ -99,7 +99,7 @@ export default function CompaniesPage() {
         </div>
       </Card>
       <Card>
-        <DataTable rows={rows} columns={cols} pageSize={settings.pageSize || 25} onRowClick={(c) => router.push(`/companies/${c.id}`)} initialSort={{ key: "name", dir: "asc" }} />
+        <DataTable rows={rows} columns={cols} pageSize={settings.pageSize || 25} onRowClick={(c) => router.push(`/companies/view?id=${c.id}`)} initialSort={{ key: "name", dir: "asc" }} />
       </Card>
       <CompanyFormDialog open={form.open} onOpenChange={(o) => setForm((s) => ({ ...s, open: o }))} companyId={form.id} />
     </div>

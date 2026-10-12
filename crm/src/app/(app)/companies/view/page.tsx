@@ -1,7 +1,8 @@
 "use client";
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { useParams, useRouter } from "next/navigation";
+import { Suspense } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { ArrowLeft, ExternalLink, Pencil, Plus, Trash2 } from "lucide-react";
 import { Badge, Card, CardContent, CardHeader, CardTitle, EmptyState } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -17,8 +18,8 @@ import { useLookups } from "@/lib/store/hooks";
 import { planDeleteCompany } from "@/lib/store/logic";
 import { formatMoney } from "@/lib/utils";
 
-export default function CompanyDetailPage() {
-  const { id } = useParams<{ id: string }>();
+function Inner() {
+  const id = useSearchParams().get("id") ?? "";
   const { t, name } = useI18n();
   const { db, commit, notify } = useStore();
   const lk = useLookups();
@@ -75,7 +76,7 @@ export default function CompanyDetailPage() {
           <Card><CardHeader><CardTitle>{t("opportunities")} ({leads.length})</CardTitle></CardHeader><CardContent className="space-y-2 pt-3">
             {leads.length === 0 && <p className="py-4 text-center text-sm text-muted-foreground">{t("noLeadsYet")}</p>}
             {leads.map((l) => (
-              <Link key={l.id} href={`/leads/${l.id}`} className="flex flex-wrap items-center gap-2 rounded-md border p-3 text-sm hover:bg-accent/50">
+              <Link key={l.id} href={`/leads/view?id=${l.id}`} className="flex flex-wrap items-center gap-2 rounded-md border p-3 text-sm hover:bg-accent/50">
                 <span className="font-mono text-xs text-muted-foreground">{l.code}</span>
                 <span className="min-w-0 flex-1 truncate font-medium">{l.projectName || l.companyName}</span>
                 <span className="tabular-nums" dir="ltr">{l.value ? formatMoney(l.value, lk.currency) : ""}</span>
@@ -91,5 +92,13 @@ export default function CompanyDetailPage() {
       </div>
       <CompanyFormDialog open={edit} onOpenChange={setEdit} companyId={c.id} />
     </div>
+  );
+}
+
+export default function CompanyDetailPage() {
+  return (
+    <Suspense fallback={null}>
+      <Inner />
+    </Suspense>
   );
 }

@@ -44,7 +44,7 @@ export function leadColumns(ids: string[], lk: Lookups, ctx: { t: (k: string) =>
   const { t, name, locale } = ctx;
   const defs: Record<string, Column<Lead>> = {
     code: { key: "code", header: t("leadId"), sort: (l) => l.code, cell: (l) => <span className="font-mono text-xs text-muted-foreground">{l.code}{l.isDemo && <Badge className="ms-1.5 bg-accent text-accent-foreground">{t("demo")}</Badge>}</span> },
-    company: { key: "company", header: t("company"), sort: (l) => l.companyName.toLowerCase(), cell: (l) => <Link href={`/leads/${l.id}`} onClick={(e) => e.stopPropagation()} className="font-medium hover:text-bronze hover:underline">{l.companyName}</Link> },
+    company: { key: "company", header: t("company"), sort: (l) => l.companyName.toLowerCase(), cell: (l) => <Link href={`/leads/view?id=${l.id}`} onClick={(e) => e.stopPropagation()} className="font-medium hover:text-bronze hover:underline">{l.companyName}</Link> },
     contact: { key: "contact", header: t("contactPerson"), sort: (l) => l.contactName.toLowerCase(), cell: (l) => l.contactName || "—" },
     jobTitle: { key: "jobTitle", header: t("jobTitle"), sort: (l) => l.jobTitle, cell: (l) => l.jobTitle || "—" },
     phone: { key: "phone", header: t("phone"), sort: (l) => l.phone, cell: (l) => (l.phone ? <a href={`tel:${l.phone}`} onClick={(e) => e.stopPropagation()} className="ltr-num hover:underline">{formatPhone(l.phone)}</a> : "—") },

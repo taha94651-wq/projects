@@ -102,7 +102,7 @@ export default function FollowUpsPage() {
           {awaiting.map((l) => (
             <Card key={l.id}><CardContent className="flex flex-wrap items-center gap-3 p-4">
               <div className="min-w-0 flex-1">
-                <Link href={`/leads/${l.id}`} className="font-medium hover:text-bronze hover:underline">{l.companyName}</Link>
+                <Link href={`/leads/view?id=${l.id}`} className="font-medium hover:text-bronze hover:underline">{l.companyName}</Link>
                 <p className="text-xs text-muted-foreground">{l.projectName}</p>
               </div>
               <span className="tabular-nums" dir="ltr">{formatMoney(l.value, lk.currency)}</span>
@@ -127,7 +127,7 @@ export default function FollowUpsPage() {
                   {od && <AlertTriangle className="size-5 shrink-0 text-destructive" aria-label={t("overdue")} />}
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-wrap items-center gap-2">
-                      {lead ? <Link href={`/leads/${lead.id}`} className="font-medium hover:text-bronze hover:underline">{lead.companyName}</Link> : <span className="font-medium">—</span>}
+                      {lead ? <Link href={`/leads/view?id=${lead.id}`} className="font-medium hover:text-bronze hover:underline">{lead.companyName}</Link> : <span className="font-medium">—</span>}
                       {typeBadge(i.typeId)}
                       <span className={cn("text-xs", od ? "font-medium text-destructive" : "text-muted-foreground")}>{od && `${t("overdue")} · `}{i.activity ? formatDateTime(i.dateTime, locale) : formatDate(i.date, locale)}</span>
                     </div>

@@ -1,7 +1,8 @@
 "use client";
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { useParams, useRouter } from "next/navigation";
+import { Suspense } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { ArrowLeft, CalendarPlus, Copy, ExternalLink, Mail, MessageCircle, Pencil, Phone, Plus, Send, Trash2 } from "lucide-react";
 import { Badge, Card, CardContent, CardHeader, CardTitle, EmptyState } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -28,8 +29,8 @@ function Row({ k, children }: { k: string; children: React.ReactNode }) {
   );
 }
 
-export default function LeadDetailPage() {
-  const { id } = useParams<{ id: string }>();
+function Inner() {
+  const id = useSearchParams().get("id") ?? "";
   const router = useRouter();
   const { t, name, label, locale } = useI18n();
   const { db, commit, notify } = useStore();
@@ -76,7 +77,7 @@ export default function LeadDetailPage() {
     const r = planDuplicateLead(db, lead.id);
     if (r && (await commit(r.changes))) {
       notify(t("leadDuplicated", { code: r.lead.code }));
-      router.push(`/leads/${r.lead.id}`);
+      router.push(`/leads/view?id=${r.lead.id}`);
     }
   };
 
@@ -129,7 +130,7 @@ export default function LeadDetailPage() {
                 <Row k={t("linkedin")}>{lead.linkedin && <a className="hover:underline" dir="ltr" href={lead.linkedin} target="_blank" rel="noreferrer">{lead.linkedin.replace(/^https?:\/\/(www\.)?/, "")}</a>}</Row>
                 <Row k={t("instagram")}>{lead.instagram && <span dir="ltr">{lead.instagram}</span>}</Row>
                 <Row k={t("city")}>{lead.city}</Row>
-                <Row k={t("company")}>{company && <Link className="text-bronze hover:underline" href={`/companies/${company.id}`}>{company.name}</Link>}</Row>
+                <Row k={t("company")}>{company && <Link className="text-bronze hover:underline" href={`/companies/view?id=${company.id}`}>{company.name}</Link>}</Row>
                 <Row k={t("clientType")}>{lk.optName(lead.clientTypeId)}</Row>
                 <Row k={t("categories")}>
                   {lead.categoryIds.length > 0 && <div className="flex flex-wrap gap-1">{lead.categoryIds.map((c) => <Badge key={c} className="bg-secondary">{lk.catName(c)}</Badge>)}</div>}
@@ -221,5 +222,13 @@ export default function LeadDetailPage() {
       </div>
       {stage && <span className="sr-only">{name(stage)}</span>}
     </div>
+  );
+}
+
+export default function LeadDetailPage() {
+  return (
+    <Suspense fallback={null}>
+      <Inner />
+    </Suspense>
   );
 }

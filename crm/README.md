@@ -23,6 +23,10 @@ npm test                     # unit tests (business logic, seed integrity, i18n 
 npm run e2e                  # browser test (needs `npm start -p 3100` running; uses Playwright + Chromium)
 ```
 
+## Hosting on GitHub Pages
+
+The app is a static export. `npm run build:pages` builds it into `../crm-app/`, which GitHub Pages serves at `https://taha94651-wq.github.io/projects/crm-app/` once merged to `main`. (Static hosting means local-browser-storage mode unless Supabase variables are set at build time.)
+
 ## Two storage modes (read this)
 
 | Mode | When | What it really is |
