@@ -13,6 +13,8 @@ import {
   planBootstrap,
   planLoadDemo,
   planMigrateClientTypes,
+  planMigrateSiteRoles,
+  mergeChanges,
   planRemoveDemo,
   validateBackup,
   type Changes,
@@ -138,7 +140,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
         }
         data = await a.load();
       }
-      const mig = planMigrateClientTypes(data);
+      const migs = [planMigrateClientTypes(data), planMigrateSiteRoles(data)].filter((m): m is Changes => !!m);
+      const mig = migs.length ? migs.reduce((a, b) => mergeChanges(a, b)) : null;
       if (mig) {
         await persist(mig);
         data = applyChanges(data, mig);
@@ -161,6 +164,17 @@ export function StoreProvider({ children }: { children: ReactNode }) {
     if (settings && settings.language !== lang) setLang(settings.language);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [settings?.language]);
+
+  // warn if the tab is closed while a save is still being written
+  useEffect(() => {
+    if (pending <= 0) return;
+    const h = (e: BeforeUnloadEvent) => {
+      e.preventDefault();
+      e.returnValue = "";
+    };
+    window.addEventListener("beforeunload", h);
+    return () => window.removeEventListener("beforeunload", h);
+  }, [pending]);
 
   const commit = useCallback(
     (ch: Changes) => {

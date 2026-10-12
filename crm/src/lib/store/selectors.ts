@@ -214,6 +214,8 @@ export function usageCount(db: DB, kind: "category" | "stage" | "option" | "cust
           return db.activities.filter((a) => a.typeId === id).length;
         case "lossReason":
           return db.leads.filter((l) => l.outcome?.reasonId === id).length;
+        case "siteRole":
+          return db.sites.filter((s) => s.contacts.some((c) => c.roleId === id)).length;
         case "city":
           return db.leads.filter((l) => l.city === o.name).length + db.companies.filter((c) => c.city === o.name).length;
       }

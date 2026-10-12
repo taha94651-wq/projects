@@ -39,8 +39,9 @@ Use **Settings → Data & backup → Download full backup** regularly in either 
 ## Connect Supabase (real database)
 
 1. Create a project at <https://supabase.com>.
-2. Open **SQL Editor**, paste and run `supabase/migrations/0001_schema.sql` (tables, foreign keys, indexes, triggers, RLS policies).
-3. **Authentication → Users → Add user** (email + password) for yourself and your staff. In **Authentication → Providers → Email** turn **off** “Allow new users to sign up” so nobody else can register.
+2. Open **SQL Editor**, paste and run `supabase/migrations/0001_schema.sql` (tables, foreign keys, indexes, triggers, RLS policies), then `supabase/migrations/0002_sites.sql` (Potential Sites).
+3. Run `supabase/migrations/0002_sites.sql` too (adds the Potential Sites table).
+4. **Authentication → Users → Add user** (email + password) for yourself and your staff. In **Authentication → Providers → Email** turn **off** “Allow new users to sign up” so nobody else can register.
 4. Copy `.env.example` to `.env.local` and fill in **Project URL** and the **anon/public key** (Project Settings → API):
    ```
    NEXT_PUBLIC_SUPABASE_URL=https://xxxx.supabase.co
@@ -66,6 +67,7 @@ Use **Settings → Data & backup → Download full backup** regularly in either 
 - **Companies**: central database, duplicate-name protection (also auto-linking when a lead uses an existing name), multiple contacts, linked opportunities, projects and interaction history.
 - **Projects & Opportunities**: all requested fields; *Weighted Pipeline Value = opportunity value × probability* (opportunity value = quotation value, falling back to estimated budget).
 - **Categories & Services / Lead Sources**: full add/rename/reorder/delete/move; usage counts; source performance charts and table; custom sources.
+- **Potential Sites**: sites you might work at — name, district/city, Google Maps link (paste one, or capture your live location with one tap), several contacts per site with editable roles (guard, official, engineer, owner, developer…), call/WhatsApp buttons, and “create lead from site”.
 - **Reports**: filter by date range, category, source, stage, city, result; conversion rate, estimated vs actual contract value, follow-up performance, breakdown tables; export report CSV/Excel, leads CSV/Excel, print/PDF.
 - **Settings**: categories, stages, all dropdown lists, custom fields (text, number, date, dropdown, multi-select, URL, email, phone), table columns & order, default filters, reminders, currency, language, backup/restore, demo data, erase.
 - **Data safety**: deleting anything in use opens a *reassign* dialog (nothing is silently orphaned); custom-field type changes and option removals are blocked while values exist; deleting a field with data requires explicit confirmation.

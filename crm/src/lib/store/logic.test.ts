@@ -98,3 +98,15 @@ test("every i18n key used in source exists in en and ar", async () => {
   for (const k of used) { if (k.endsWith("_")) continue; // dynamic prefix e.g. t("type_" + x)
     assert.ok(k in en, "missing en key " + k); assert.ok(k in ar, "missing ar key " + k); }
 });
+
+test("site role migration adds the list once; backups without sites still validate", async () => {
+  const { planMigrateSiteRoles } = await import("./logic");
+  const db = seeded();
+  assert.equal(planMigrateSiteRoles(db), null); // defaults already include site roles
+  const old = { ...db, options: db.options.filter((o) => o.list !== "siteRole") };
+  const ch = planMigrateSiteRoles(old);
+  assert.ok(ch?.upsert?.options?.some((o) => o.key === "guard"));
+  const { sites: _s, ...noSites } = db;
+  void _s;
+  assert.equal(validateBackup({ data: noSites }).sites.length, 0);
+});

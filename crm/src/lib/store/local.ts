@@ -2,7 +2,7 @@ import { TABLE_ORDER, type DB, type TableName } from "../types";
 import { emptyDB, type Adapter } from "./adapter";
 
 const DB_NAME = "fitout-crm";
-const VERSION = 1;
+const VERSION = 2; // v2 adds the "sites" store
 
 function open(): Promise<IDBDatabase> {
   return new Promise((resolve, reject) => {

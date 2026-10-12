@@ -15,7 +15,7 @@ import { DeleteDialog, RowActions, UsageBadge, reorder } from "./common";
 
 export const LIST_LABEL: Record<OptionList, string> = {
   source: "listSource", priority: "listPriority", clientType: "listClientType", assignee: "listAssignee", companySize: "listCompanySize", industry: "listIndustry",
-  relationship: "listRelationship", projectType: "listProjectType", projectStatus: "listProjectStatus", activityType: "listActivityType", lossReason: "listLossReason", city: "listCity",
+  relationship: "listRelationship", projectType: "listProjectType", projectStatus: "listProjectStatus", activityType: "listActivityType", lossReason: "listLossReason", city: "listCity", siteRole: "listSiteRole",
 };
 const COLORED: OptionList[] = ["priority", "relationship", "projectStatus", "activityType"];
 // leads must always have a way to log system events

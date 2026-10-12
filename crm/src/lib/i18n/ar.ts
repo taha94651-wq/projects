@@ -79,6 +79,12 @@ export const ar: Record<keyof typeof en, string> = {
   allRelationships: "كل الحالات", allIndustries: "كل القطاعات", openPipeline: "المسار المفتوح", opportunities: "الفرص", existingProjects: "المشاريع الحالية", previousInteractions: "التفاعلات السابقة",
   deleteCompany: "حذف الشركة؟", deleteCompanyConfirm: "هل تريد حذف {name}؟ سيتم حذف {contacts} من جهات الاتصال، وتبقى {leads} من العملاء والمشاريع دون ارتباط.", companyNotFound: "الشركة غير موجودة",
   companyType: "نوع الشركة", allTypes: "كل الشركات", unassigned: "بدون نوع", addCompanyType: "إضافة نوع شركة", addCompanyTypeHint: "أنشئ نوعاً آخر من الشركات أو العملاء (مثل المقاولين، العلامات التجارية).",
+  navSites: "المواقع المحتملة", sitesSubtitle: "{n} موقع — أماكن قد تعمل بها، مع رابط الخريطة ومن تتصل به.", newSite: "موقع جديد", editSite: "تعديل الموقع", siteName: "اسم الموقع", siteNamePlaceholder: "مثال: مول النخيل – وحدة ١٢",
+  siteArea: "الحي / معلم قريب", siteAreaPlaceholder: "مثال: العليا، بجوار برج المملكة", googleMapsLink: "رابط الموقع على خرائط جوجل", mapsLinkHint: "الصق رابط خرائط جوجل أو استخدم موقعك الحالي.", useMyLocation: "استخدم موقعي الحالي",
+  locating: "جارٍ تحديد الموقع…", geoUnsupported: "هذا المتصفح لا يدعم تحديد الموقع.", geoDenied: "تعذّر تحديد موقعك. اسمح بالوصول للموقع لهذا الموقع الإلكتروني وحاول مرة أخرى.", openInMaps: "فتح في خرائط جوجل",
+  siteContacts: "المسؤولون في الموقع", contactRole: "التصنيف", allRoles: "كل التصنيفات", noSiteContacts: "لا توجد جهات اتصال", siteRolesHint: "التصنيفات (حارس، مهندس، مالك…) قابلة للتعديل من الإعدادات ← القوائم المنسدلة ← تصنيفات مسؤولي المواقع.",
+  visitDate: "تاريخ الزيارة", searchSites: "ابحث بالموقع أو الحي أو الاسم أو الهاتف…", noSitesYet: "لا توجد مواقع بعد", noSitesHint: "أضف موقعاً محتملاً زرته مع موقعه على الخريطة ومن تتواصل معه هناك.", noMatchingSites: "لا توجد مواقع مطابقة للفلاتر",
+  deleteSite: "حذف الموقع؟", deleteSiteConfirm: "هل تريد حذف «{name}» وجهات الاتصال به؟ لا يمكن التراجع.", createLeadFromSite: "إنشاء عميل من الموقع", listSiteRole: "تصنيفات مسؤولي المواقع",
   errDuplicateCompany: "توجد شركة باسم «{name}» بالفعل.",
 
   newProject: "مشروع جديد", editProject: "تعديل المشروع", projectType: "نوع المشروع", clientCompany: "الشركة العميلة", relatedLead: "العميل المرتبط", scopeOfWork: "نطاق العمل", serviceCategories: "فئات الخدمات",

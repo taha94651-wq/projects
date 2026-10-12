@@ -363,8 +363,9 @@ export function planDeleteCompany(db: DB, id: string): Changes {
   const leads = db.leads.filter((l) => l.companyId === id).map((l) => stamp({ ...l, companyId: "" }));
   const projects = db.projects.filter((p) => p.companyId === id).map((p) => stamp({ ...p, companyId: "" }));
   const acts = db.activities.filter((a) => a.companyId === id).map((a) => stamp({ ...a, companyId: "" }));
+  const sites = db.sites.filter((s) => s.companyId === id).map((s) => stamp({ ...s, companyId: "" }));
   return {
-    upsert: { leads, projects, activities: acts },
+    upsert: { leads, projects, activities: acts, sites },
     remove: { contacts: db.contacts.filter((c) => c.companyId === id).map((c) => c.id), companies: [id] },
   };
 }
@@ -401,6 +402,9 @@ export function planDeleteOption(db: DB, id: string, replacementId: string): Cha
     case "activityType": up.activities = swap(db.activities, (a) => a.typeId === id, (a) => ({ ...a, typeId: r })); break;
     case "lossReason":
       up.leads = swap(db.leads, (l) => l.outcome?.reasonId === id, (l) => ({ ...l, outcome: l.outcome ? { ...l.outcome, reasonId: r } : null }));
+      break;
+    case "siteRole":
+      up.sites = swap(db.sites, (s) => s.contacts.some((c) => c.roleId === id), (s) => ({ ...s, contacts: s.contacts.map((c) => (c.roleId === id ? { ...c, roleId: r } : c)) }));
       break;
     case "city": {
       const rep = db.options.find((x) => x.id === r)?.name ?? "";
@@ -500,6 +504,12 @@ export function planMigrateClientTypes(db: DB): Changes | null {
   return { upsert: { options: fresh }, remove: { options: cur.map((o) => o.id) } };
 }
 
+/** Adds the "site role" list (guard, engineer, owner…) to workspaces created before sites existed. */
+export function planMigrateSiteRoles(db: DB): Changes | null {
+  if (db.options.some((o) => o.list === "siteRole")) return null;
+  return { upsert: { options: buildDefaults().options.filter((o) => o.list === "siteRole") } };
+}
+
 export function planBootstrap(): Changes {
   const d = buildDefaults();
   return { upsert: d };
@@ -507,7 +517,7 @@ export function planBootstrap(): Changes {
 
 /** Everything in `db` as Changes (used for restore-from-backup). */
 export function changesFromDB(db: DB): Changes {
-  return { upsert: Object.fromEntries(TABLE_ORDER.map((t) => [t, db[t]])) as Changes["upsert"] };
+  return { upsert: Object.fromEntries(TABLE_ORDER.map((t) => [t, db[t] ?? []])) as Changes["upsert"] };
 }
 
 export function validateBackup(x: unknown): DB {
@@ -515,7 +525,7 @@ export function validateBackup(x: unknown): DB {
   const obj = ((x as { data?: unknown }).data ?? x) as Record<string, unknown>;
   const out = {} as Record<string, unknown[]>;
   for (const t of TABLE_ORDER) {
-    const v = obj[t];
+    const v = obj[t] ?? (t === "sites" ? [] : undefined); // backups made before sites existed
     if (!Array.isArray(v)) throw new Error(`Backup is missing table "${t}"`);
     if (!v.every((r) => r && typeof r === "object" && typeof (r as { id?: unknown }).id === "string"))
       throw new Error(`Backup table "${t}" contains invalid rows`);

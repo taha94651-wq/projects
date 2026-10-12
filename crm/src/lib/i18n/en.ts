@@ -84,6 +84,12 @@ export const en = {
   allRelationships: "All relationships", allIndustries: "All industries", openPipeline: "Open pipeline", opportunities: "Opportunities", existingProjects: "Existing projects", previousInteractions: "Previous interactions",
   deleteCompany: "Delete company?", deleteCompanyConfirm: "Delete {name}? Its {contacts} contact(s) are removed; its {leads} lead(s) and projects are kept but unlinked.", companyNotFound: "Company not found",
   companyType: "Company type", allTypes: "All companies", unassigned: "No type", addCompanyType: "Add company type", addCompanyTypeHint: "Create another type of company or client (e.g. Contractors, Retail brands).",
+  navSites: "Potential Sites", sitesSubtitle: "{n} sites — where you might work, with a map link and who to call.", newSite: "New site", editSite: "Edit site", siteName: "Site name", siteNamePlaceholder: "e.g. Al Nakheel Mall – Unit 12",
+  siteArea: "District / landmark", siteAreaPlaceholder: "e.g. Olaya, near Kingdom Tower", googleMapsLink: "Google Maps link", mapsLinkHint: "Paste a Google Maps link, or use your current location.", useMyLocation: "Use my current location",
+  locating: "Locating…", geoUnsupported: "This browser cannot get your location.", geoDenied: "Could not get your location. Allow location access for this site and try again.", openInMaps: "Open in Google Maps",
+  siteContacts: "People at the site", contactRole: "Role", allRoles: "All roles", noSiteContacts: "No contacts added", siteRolesHint: "Roles (guard, engineer, owner…) are editable in Settings → Dropdown lists → Site contact roles.",
+  visitDate: "Visit date", searchSites: "Search site, area, contact, phone…", noSitesYet: "No sites yet", noSitesHint: "Add a potential site you visited, with its map location and who to contact there.", noMatchingSites: "No sites match your filters",
+  deleteSite: "Delete site?", deleteSiteConfirm: "Delete “{name}” and its contacts? This cannot be undone.", createLeadFromSite: "Create lead from site", listSiteRole: "Site contact roles",
   errDuplicateCompany: "A company named “{name}” already exists.",
 
   // projects

@@ -45,6 +45,7 @@ export const OPTION_LISTS = [
   "activityType",
   "lossReason",
   "city",
+  "siteRole",
 ] as const;
 export type OptionList = (typeof OPTION_LISTS)[number];
 
@@ -98,6 +99,27 @@ export interface Contact extends Base {
   isPrimary: boolean;
   notes: string;
   isDemo: boolean;
+}
+
+export interface SiteContact {
+  id: ID;
+  name: string;
+  phone: string;
+  roleId: ID | ""; // editable "siteRole" list: guard, site manager, engineer, owner, developer ...
+}
+
+/** A potential job site (e.g. a building / mall unit / plot you visited), with who to talk to there. */
+export interface Site extends Base {
+  name: string;
+  city: string;
+  area: string; // district / street / landmark
+  mapsUrl: string; // Google Maps link
+  lat: number | null;
+  lng: number | null;
+  companyId: ID | "";
+  contacts: SiteContact[];
+  visitDate: string;
+  notes: string;
 }
 
 export interface Outcome {
@@ -195,6 +217,7 @@ export interface DB {
   customFields: CustomField[];
   companies: Company[];
   contacts: Contact[];
+  sites: Site[];
   leads: Lead[];
   projects: Project[];
   activities: Activity[];
@@ -211,6 +234,7 @@ export const TABLE_ORDER: TableName[] = [
   "customFields",
   "companies",
   "contacts",
+  "sites",
   "leads",
   "projects",
   "activities",

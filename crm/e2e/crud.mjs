@@ -3,7 +3,7 @@ import { chromium } from "playwright";
 import assert from "node:assert/strict";
 const URL = process.env.APP_URL || "http://localhost:3100";
 const b = await chromium.launch({ executablePath: process.env.CHROMIUM || "/opt/pw-browsers/chromium" });
-const ctx = await b.newContext({ viewport: { width: 1440, height: 900 } });
+const ctx = await b.newContext({ viewport: { width: 1440, height: 900 }, permissions: ["geolocation"], geolocation: { latitude: 24.7136, longitude: 46.6753 } });
 const p = await ctx.newPage();
 const errs = [];
 p.on("pageerror", (e) => errs.push(e.message));
@@ -31,6 +31,27 @@ await p.waitForSelector("[role=tab]:has-text('Contractors')");
 await p.click("[role=tab]:has-text('Real Estate Development Companies')");
 assert.ok((await p.locator("tbody tr").count()) >= 3);
 step("company type sections + add custom type");
+await p.goto(URL + "/leads");
+await p.waitForSelector("tbody tr");
+
+// potential sites: live location, maps link, contacts with role
+await p.goto(URL + "/sites/");
+await p.waitForSelector("text=No sites yet");
+await p.click("main >> button:has-text('New site')");
+await p.fill('[role=dialog] input[placeholder^="e.g. Al Nakheel"]', "Test Mall Unit 12");
+await p.click("button:has-text('Use my current location')");
+await p.waitForSelector("[role=dialog] input[value*='google.com/maps?q=24.713600']");
+await p.selectOption("[role=dialog] select[aria-label='Role']", { label: "Guard" });
+await p.fill("[role=dialog] input[aria-label='Name']", "Abu Saad");
+await p.fill("[role=dialog] input[aria-label='Phone']", "0551234000");
+await p.click("[role=dialog] button:has-text('Save')");
+await p.waitForSelector("text=Test Mall Unit 12");
+await p.waitForSelector("span.rounded-full:text-is('Guard')");
+await p.waitForSelector("a:has-text('Open in Google Maps')");
+await p.waitForTimeout(800);
+await p.reload();
+await p.waitForSelector("text=Abu Saad");
+step("potential site with live location, maps link and guard contact (persists)");
 await p.goto(URL + "/leads");
 await p.waitForSelector("tbody tr");
 

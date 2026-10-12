@@ -20,6 +20,7 @@ const SQL_TABLE: Record<TableName, string> = {
   customFields: "custom_fields",
   companies: "companies",
   contacts: "contacts",
+  sites: "sites",
   leads: "leads",
   projects: "projects",
   activities: "activities",
@@ -48,6 +49,8 @@ function toRow(table: TableName, o: any): Record<string, unknown> {
       return { ...base, name: o.name, is_demo: o.isDemo };
     case "contacts":
       return { ...base, company_id: nz(o.companyId), is_demo: o.isDemo };
+    case "sites":
+      return { ...base, company_id: nz(o.companyId), city: nz(o.city) };
     case "leads":
       return {
         ...base,

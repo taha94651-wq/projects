@@ -19,6 +19,7 @@ export const emptyDB = (): DB => ({
   customFields: [],
   companies: [],
   contacts: [],
+  sites: [],
   leads: [],
   projects: [],
   activities: [],

@@ -124,6 +124,15 @@ const OPTION_SEED: Record<OptionList, OptSeed[]> = {
     ["Real Estate Development Companies", "شركات تطوير عقاري", "developer"],
     ["Design & Execution Companies", "شركات تصميم وتنفيذ", "design"],
   ],
+  siteRole: [
+    ["Guard", "حارس", "guard"],
+    ["Site official / manager", "مسؤول الموقع", "official"],
+    ["Engineer", "مهندس", "engineer"],
+    ["Owner", "مالك", "owner"],
+    ["Developer", "مطور", "developer"],
+    ["Consultant", "استشاري", "consultant"],
+    ["Contractor", "مقاول", "contractor"],
+  ],
   assignee: [["Owner", "المالك", "owner"]],
   companySize: [
     ["1-10 employees", "١-١٠ موظفين"],
