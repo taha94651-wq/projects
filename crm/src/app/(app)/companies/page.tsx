@@ -5,7 +5,8 @@ import { Eye, Pencil, Plus, Search, Trash2 } from "lucide-react";
 import { PageHeader } from "@/components/page-header";
 import { Badge, Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input, Select } from "@/components/ui/input";
+import { Field, Input, Select } from "@/components/ui/input";
+import { Modal } from "@/components/ui/dialog";
 import { DataTable, type Column } from "@/components/ui/data-table";
 import { Menu } from "@/components/ui/menu";
 import { useConfirm } from "@/components/ui/confirm";
@@ -18,6 +19,30 @@ import { groupOf } from "@/lib/store/selectors";
 import type { Company } from "@/lib/types";
 import { formatMoney } from "@/lib/utils";
 
+function AddTypeDialog({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const { t } = useI18n();
+  const { db, commit, notify } = useStore();
+  const [f, setF] = useState({ name: "", nameAr: "" });
+  const [err, setErr] = useState("");
+  const save = async () => {
+    const nm = f.name.trim();
+    if (!nm) return setErr(t("errRequired"));
+    if (db.options.some((o) => o.list === "clientType" && o.name.toLowerCase() === nm.toLowerCase())) return setErr(t("errDuplicateName"));
+    const n = new Date().toISOString();
+    const row = { id: crypto.randomUUID(), list: "clientType" as const, name: nm, nameAr: f.nameAr.trim(), key: "", color: "", sort: db.options.filter((o) => o.list === "clientType").length, createdAt: n, updatedAt: n };
+    if (await commit({ upsert: { options: [row] } })) { notify(t("saved")); setF({ name: "", nameAr: "" }); setErr(""); onClose(); }
+  };
+  return (
+    <Modal open={open} onOpenChange={(o) => !o && onClose()} size="sm" title={t("addCompanyType")} description={t("addCompanyTypeHint")}
+      footer={<><Button variant="outline" onClick={onClose}>{t("cancel")}</Button><Button variant="bronze" onClick={save}>{t("save")}</Button></>}>
+      <div className="grid gap-3">
+        <Field label={t("nameEn")} required error={err}><Input autoFocus value={f.name} onChange={(e) => setF({ ...f, name: e.target.value })} onKeyDown={(e) => e.key === "Enter" && save()} /></Field>
+        <Field label={t("nameAr")}><Input dir="rtl" value={f.nameAr} onChange={(e) => setF({ ...f, nameAr: e.target.value })} onKeyDown={(e) => e.key === "Enter" && save()} /></Field>
+      </div>
+    </Modal>
+  );
+}
+
 export default function CompaniesPage() {
   const { t, name } = useI18n();
   const { db, commit, notify, settings } = useStore();
@@ -29,6 +54,8 @@ export default function CompaniesPage() {
   const [ind, setInd] = useState("");
   const [city, setCity] = useState("");
   const [cat, setCat] = useState("");
+  const [type, setType] = useState("");
+  const [addType, setAddType] = useState(false);
   const [form, setForm] = useState<{ open: boolean; id?: string }>({ open: false });
 
   const stats = useMemo(() => {
@@ -53,10 +80,10 @@ export default function CompaniesPage() {
     return db.companies.filter(
       (c) =>
         (!ql || c.name.toLowerCase().includes(ql) || c.city.toLowerCase().includes(ql) || c.email.toLowerCase().includes(ql)) &&
-        (!rel || c.relationshipId === rel) && (!ind || c.industryId === ind) && (!city || c.city === city) &&
+        (!type || (type === "none" ? !c.clientTypeId : c.clientTypeId === type)) && (!rel || c.relationshipId === rel) && (!ind || c.industryId === ind) && (!city || c.city === city) &&
         (!cat || c.categoryIds.some((id) => id === cat || groupOf(lk.catById, id) === cat)),
     );
-  }, [db.companies, q, rel, ind, city, cat, lk.catById]);
+  }, [db.companies, q, type, rel, ind, city, cat, lk.catById]);
 
   const remove = async (c: Company) => {
     const s = stats.get(c.id);
@@ -66,6 +93,7 @@ export default function CompaniesPage() {
 
   const cols: Column<Company>[] = [
     { key: "name", header: t("companyName"), sort: (c) => c.name.toLowerCase(), cell: (c) => <span className="font-medium">{c.name}{c.isDemo && <Badge className="ms-1.5 bg-accent text-accent-foreground">{t("demo")}</Badge>}</span> },
+    { key: "type", header: t("companyType"), sort: (c) => lk.optName(c.clientTypeId), cell: (c) => lk.optName(c.clientTypeId) || "—" },
     { key: "industry", header: t("industry"), sort: (c) => lk.optName(c.industryId), cell: (c) => lk.optName(c.industryId) || "—" },
     { key: "size", header: t("companySize"), sort: (c) => lk.optById.get(c.sizeId)?.sort ?? "", cell: (c) => lk.optName(c.sizeId) || "—" },
     { key: "city", header: t("city"), sort: (c) => c.city, cell: (c) => c.city || "—" },
@@ -89,6 +117,14 @@ export default function CompaniesPage() {
   return (
     <div className="space-y-4">
       <PageHeader title={t("navCompanies")} subtitle={t("companiesCount", { n: rows.length })} actions={<Button variant="bronze" onClick={() => setForm({ open: true })}><Plus /> {t("newCompany")}</Button>} />
+      <div className="scroll-thin flex items-center gap-1 overflow-x-auto border-b" role="tablist">
+        {[{ id: "", label: t("allTypes"), n: db.companies.length }, ...lk.opts("clientType").map((o) => ({ id: o.id, label: name(o), n: db.companies.filter((c) => c.clientTypeId === o.id).length })), ...(db.companies.some((c) => !c.clientTypeId) ? [{ id: "none", label: t("unassigned"), n: db.companies.filter((c) => !c.clientTypeId).length }] : [])].map((x) => (
+          <button key={x.id} role="tab" aria-selected={type === x.id} onClick={() => setType(x.id)} className={`flex shrink-0 items-center gap-1.5 border-b-2 px-3 py-2 text-sm ${type === x.id ? "border-bronze font-medium" : "border-transparent text-muted-foreground hover:text-foreground"}`}>
+            {x.label}<span className="rounded-full bg-secondary px-1.5 text-[11px]">{x.n}</span>
+          </button>
+        ))}
+        <Button size="sm" variant="ghost" className="shrink-0" onClick={() => setAddType(true)}><Plus /> {t("addCompanyType")}</Button>
+      </div>
       <Card className="p-3">
         <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
           <div className="relative"><Search className="pointer-events-none absolute start-2.5 top-2.5 size-4 text-muted-foreground" /><Input className="ps-8" placeholder={t("searchCompanies")} value={q} onChange={(e) => setQ(e.target.value)} aria-label={t("search")} /></div>
@@ -101,6 +137,7 @@ export default function CompaniesPage() {
       <Card>
         <DataTable rows={rows} columns={cols} pageSize={settings.pageSize || 25} onRowClick={(c) => router.push(`/companies/view?id=${c.id}`)} initialSort={{ key: "name", dir: "asc" }} />
       </Card>
+      <AddTypeDialog open={addType} onClose={() => setAddType(false)} />
       <CompanyFormDialog open={form.open} onOpenChange={(o) => setForm((s) => ({ ...s, open: o }))} companyId={form.id} />
     </div>
   );

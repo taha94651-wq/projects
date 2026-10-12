@@ -14,10 +14,10 @@ import type { Company } from "@/lib/types";
 import { canonPhone, canonUrl, isEmail, isUrl, isValidPhone, normName, nowIso, uid } from "@/lib/utils";
 
 interface V {
-  name: string; industryId: string; sizeId: string; city: string; regions: string; website: string; linkedin: string; instagram: string;
+  name: string; clientTypeId: string; industryId: string; sizeId: string; city: string; regions: string; website: string; linkedin: string; instagram: string;
   phone: string; email: string; categoryIds: string[]; relationshipId: string; notes: string;
 }
-const blank: V = { name: "", industryId: "", sizeId: "", city: "", regions: "", website: "", linkedin: "", instagram: "", phone: "", email: "", categoryIds: [], relationshipId: "", notes: "" };
+const blank: V = { name: "", clientTypeId: "", industryId: "", sizeId: "", city: "", regions: "", website: "", linkedin: "", instagram: "", phone: "", email: "", categoryIds: [], relationshipId: "", notes: "" };
 
 export function CompanyFormDialog({ open, onOpenChange, companyId, onSaved }: { open: boolean; onOpenChange: (o: boolean) => void; companyId?: string; onSaved?: (c: Company) => void }) {
   const { t, name } = useI18n();
@@ -30,6 +30,7 @@ export function CompanyFormDialog({ open, onOpenChange, companyId, onSaved }: { 
       z
         .object({
           name: z.string().trim().min(1, t("errRequired")).max(200),
+          clientTypeId: z.string(),
           industryId: z.string(), sizeId: z.string(), city: z.string().max(80), regions: z.string().max(300),
           website: z.string().refine(isUrl, t("errUrl")), linkedin: z.string().refine(isUrl, t("errUrl")), instagram: z.string().max(200),
           phone: z.string().refine(isValidPhone, t("errPhone")), email: z.string().refine(isEmail, t("errEmail")),
@@ -84,6 +85,7 @@ export function CompanyFormDialog({ open, onOpenChange, companyId, onSaved }: { 
       footer={<><Button variant="outline" onClick={() => onOpenChange(false)}>{t("cancel")}</Button><Button variant="bronze" onClick={submit} disabled={isSubmitting}>{t("save")}</Button></>}>
       <form onSubmit={submit} noValidate className="grid gap-3 sm:grid-cols-2">
         <Field label={t("companyName")} required error={e("name")} className="sm:col-span-2"><Input aria-invalid={!!errors.name} {...register("name")} /></Field>
+        <Field label={t("companyType")} className="sm:col-span-2"><Select {...register("clientTypeId")}>{opt("clientType")}</Select></Field>
         <Field label={t("industry")}><Select {...register("industryId")}>{opt("industry")}</Select></Field>
         <Field label={t("companySize")}><Select {...register("sizeId")}>{opt("companySize")}</Select></Field>
         <Field label={t("city")}><Input list="city-list2" {...register("city")} /><datalist id="city-list2">{lk.opts("city").map((c) => <option key={c.id} value={c.name} />)}</datalist></Field>

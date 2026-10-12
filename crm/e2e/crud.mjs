@@ -11,8 +11,28 @@ p.on("console", (m) => m.type() === "error" && !/404/.test(m.text()) && errs.pus
 const step = (n) => console.log("✓", n);
 
 await p.goto(URL + "/leads");
+await p.waitForSelector("text=No leads yet");
+step("first run starts empty (no demo records)");
+await p.goto(URL + "/settings/#backup");
+await p.click("button:has-text('Load demo data')");
+await p.waitForSelector("text=Demo data loaded");
+await p.goto(URL + "/leads");
 await p.waitForSelector("tbody tr");
-step("first run seeds demo data");
+step("demo data loads on request");
+
+// company types: two main sections + user-defined
+await p.goto(URL + "/companies/");
+await p.waitForSelector("[role=tab]:has-text('Real Estate Development Companies')");
+await p.waitForSelector("[role=tab]:has-text('Design & Execution Companies')");
+await p.click("button:has-text('Add company type')");
+await p.fill("[role=dialog] input >> nth=0", "Contractors");
+await p.click("[role=dialog] button:has-text('Save')");
+await p.waitForSelector("[role=tab]:has-text('Contractors')");
+await p.click("[role=tab]:has-text('Real Estate Development Companies')");
+assert.ok((await p.locator("tbody tr").count()) >= 3);
+step("company type sections + add custom type");
+await p.goto(URL + "/leads");
+await p.waitForSelector("tbody tr");
 
 // create
 await p.click("header >> text=New lead");

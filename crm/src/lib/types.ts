@@ -71,6 +71,8 @@ export interface CustomField extends Base {
 
 export interface Company extends Base {
   name: string;
+  /** Company / client type (editable "clientType" list), e.g. Real Estate Development, Design & Execution. */
+  clientTypeId: ID | "";
   industryId: ID | "";
   sizeId: ID | "";
   city: string;

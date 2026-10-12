@@ -197,7 +197,7 @@ export function usageCount(db: DB, kind: "category" | "stage" | "option" | "cust
         case "priority":
           return db.leads.filter((l) => l.priorityId === id).length;
         case "clientType":
-          return db.leads.filter((l) => l.clientTypeId === id).length;
+          return db.leads.filter((l) => l.clientTypeId === id).length + db.companies.filter((c) => c.clientTypeId === id).length;
         case "assignee":
           return db.leads.filter((l) => l.assigneeId === id).length;
         case "companySize":

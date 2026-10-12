@@ -83,6 +83,7 @@ export const en = {
   operatingRegions: "Operating regions", relationshipStatus: "Relationship status", mainPhone: "Main phone", mainEmail: "Main email", companiesCount: "{n} companies", searchCompanies: "Search company, city, email…",
   allRelationships: "All relationships", allIndustries: "All industries", openPipeline: "Open pipeline", opportunities: "Opportunities", existingProjects: "Existing projects", previousInteractions: "Previous interactions",
   deleteCompany: "Delete company?", deleteCompanyConfirm: "Delete {name}? Its {contacts} contact(s) are removed; its {leads} lead(s) and projects are kept but unlinked.", companyNotFound: "Company not found",
+  companyType: "Company type", allTypes: "All companies", unassigned: "No type", addCompanyType: "Add company type", addCompanyTypeHint: "Create another type of company or client (e.g. Contractors, Retail brands).",
   errDuplicateCompany: "A company named “{name}” already exists.",
 
   // projects
@@ -124,7 +125,7 @@ export const en = {
   defaultProbability: "Default win probability", deleteStage: "Delete stage “{name}”?", cannotDeleteLastStage: "You must keep at least one “{kind}” stage.",
   addItem: "Add item", editItem: "Edit item", listEmpty: "This list is empty", deleteItem: "Delete “{name}”?", itemProtected: "This item is used internally and cannot be deleted (rename it instead).",
   cannotDeleteLastItem: "Keep at least one item in this list.", dropdownLists: "Dropdown lists",
-  listSource: "Lead sources", listPriority: "Priorities", listClientType: "Client types", listAssignee: "Assignees / team", listCompanySize: "Company sizes", listIndustry: "Industries",
+  listSource: "Lead sources", listPriority: "Priorities", listClientType: "Company / client types", listAssignee: "Assignees / team", listCompanySize: "Company sizes", listIndustry: "Industries",
   listRelationship: "Relationship statuses", listProjectType: "Project types", listProjectStatus: "Project statuses", listActivityType: "Activity types", listLossReason: "Loss reasons", listCity: "Cities",
   inUse: "in use: {n}", deleteInUseWarning: "{n} record(s) use this item. Choose what they should become — nothing is deleted silently.", reassignTo: "Reassign affected records to", deleteUnusedConfirm: "This item is not used anywhere. Delete it?",
   addField: "Add custom field", editField: "Edit custom field", customFieldsHelp: "Extra fields that appear on every lead form, detail page and export.", noCustomFields: "No custom fields yet",

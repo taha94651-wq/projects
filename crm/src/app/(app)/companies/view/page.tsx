@@ -49,7 +49,7 @@ function Inner() {
         <div>
           <div className="flex items-center gap-2">{rel && <Badge color={rel.color || "#64748b"}>{name(rel)}</Badge>}{c.isDemo && <Badge className="bg-accent text-accent-foreground">{t("demo")}</Badge>}</div>
           <h1 className="mt-1 text-xl font-semibold">{c.name}</h1>
-          <p className="text-sm text-muted-foreground">{[lk.optName(c.industryId), lk.optName(c.sizeId), c.city].filter(Boolean).join(" · ")}</p>
+          <p className="text-sm text-muted-foreground">{[lk.optName(c.clientTypeId), lk.optName(c.industryId), lk.optName(c.sizeId), c.city].filter(Boolean).join(" · ")}</p>
         </div>
         <div className="flex gap-2">
           <Button variant="outline" onClick={() => openLeadForm({ defaults: { companyId: c.id, companyName: c.name, city: c.city, website: c.website } })}><Plus /> {t("newLead")}</Button>

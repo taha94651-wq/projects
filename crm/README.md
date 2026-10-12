@@ -14,7 +14,7 @@ npm install
 npm run dev          # http://localhost:3000
 ```
 
-With no environment variables the app runs in **Local browser storage mode** (see below). The first launch creates the default configuration and loads clearly-flagged **demo data**.
+With no environment variables the app runs in **Local browser storage mode** (see below). The first launch creates the default configuration (categories, stages, dropdown lists) and starts with **no companies or leads**. Demo data is optional: Settings → Data & backup → *Load demo data* (flagged with a Demo badge, removable in one click).
 
 ```bash
 npm run build && npm start   # production
@@ -46,7 +46,7 @@ Use **Settings → Data & backup → Download full backup** regularly in either 
    NEXT_PUBLIC_SUPABASE_URL=https://xxxx.supabase.co
    NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ...
    ```
-5. Restart `npm run dev`. You will be asked to sign in; defaults + demo data are created in your database on first sign-in.
+5. Restart `npm run dev`. You will be asked to sign in; default configuration is created in your database on first sign-in (no sample records).
 
 **Security notes**
 - Only the anon key is used in the browser. **Never** put the `service_role` key in this project or any `NEXT_PUBLIC_*` variable.
@@ -69,7 +69,7 @@ Use **Settings → Data & backup → Download full backup** regularly in either 
 - **Reports**: filter by date range, category, source, stage, city, result; conversion rate, estimated vs actual contract value, follow-up performance, breakdown tables; export report CSV/Excel, leads CSV/Excel, print/PDF.
 - **Settings**: categories, stages, all dropdown lists, custom fields (text, number, date, dropdown, multi-select, URL, email, phone), table columns & order, default filters, reminders, currency, language, backup/restore, demo data, erase.
 - **Data safety**: deleting anything in use opens a *reassign* dialog (nothing is silently orphaned); custom-field type changes and option removals are blocked while values exist; deleting a field with data requires explicit confirmation.
-- **Demo data**: 14 fictional Saudi companies, 29 leads, 11 projects, activities. Every demo record carries a *Demo* badge; **Remove demo data** deletes only them (real records pointing at demo ones are detached, not deleted).
+- **Demo data (opt-in)**: 14 fictional Saudi companies, 29 leads, 11 projects, activities. Every demo record carries a *Demo* badge; **Remove demo data** deletes only them (real records pointing at demo ones are detached, not deleted).
 - **i18n / RTL**: English and Arabic (all UI strings; category/stage/list items have English + Arabic names), logical CSS properties for RTL, Latin digits for phones/IDs. Light/dark theme.
 
 ## Remaining limitations (honest list)

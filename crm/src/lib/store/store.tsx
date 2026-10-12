@@ -12,6 +12,7 @@ import {
   changesFromDB,
   planBootstrap,
   planLoadDemo,
+  planMigrateClientTypes,
   planRemoveDemo,
   validateBackup,
   type Changes,
@@ -123,15 +124,12 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       const a = adapter();
       let data = await a.load();
       if (!data.settings.length) {
-        // first run: create default configuration + demo records (flagged, removable)
+        // first run: create the default configuration only (categories, stages, lists).
+        // No companies/leads are created — demo data is opt-in from Settings → Data & backup.
         bootstrapping ||= (async () => {
           const boot = planBootstrap();
-          let d = applyChanges(await a.load(), boot);
           await persist(boot);
-          const demo = planLoadDemo(d);
-          await persist(demo);
-          d = applyChanges(d, demo);
-          return d;
+          return applyChanges(await a.load(), boot);
         })();
         try {
           data = await bootstrapping;
@@ -139,6 +137,11 @@ export function StoreProvider({ children }: { children: ReactNode }) {
           bootstrapping = null;
         }
         data = await a.load();
+      }
+      const mig = planMigrateClientTypes(data);
+      if (mig) {
+        await persist(mig);
+        data = applyChanges(data, mig);
       }
       setBoth(data);
       setReady(true);

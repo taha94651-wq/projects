@@ -78,6 +78,7 @@ export const ar: Record<keyof typeof en, string> = {
   operatingRegions: "مناطق العمل", relationshipStatus: "حالة العلاقة", mainPhone: "الهاتف الرئيسي", mainEmail: "البريد الرئيسي", companiesCount: "{n} شركة", searchCompanies: "ابحث بالشركة أو المدينة أو البريد…",
   allRelationships: "كل الحالات", allIndustries: "كل القطاعات", openPipeline: "المسار المفتوح", opportunities: "الفرص", existingProjects: "المشاريع الحالية", previousInteractions: "التفاعلات السابقة",
   deleteCompany: "حذف الشركة؟", deleteCompanyConfirm: "هل تريد حذف {name}؟ سيتم حذف {contacts} من جهات الاتصال، وتبقى {leads} من العملاء والمشاريع دون ارتباط.", companyNotFound: "الشركة غير موجودة",
+  companyType: "نوع الشركة", allTypes: "كل الشركات", unassigned: "بدون نوع", addCompanyType: "إضافة نوع شركة", addCompanyTypeHint: "أنشئ نوعاً آخر من الشركات أو العملاء (مثل المقاولين، العلامات التجارية).",
   errDuplicateCompany: "توجد شركة باسم «{name}» بالفعل.",
 
   newProject: "مشروع جديد", editProject: "تعديل المشروع", projectType: "نوع المشروع", clientCompany: "الشركة العميلة", relatedLead: "العميل المرتبط", scopeOfWork: "نطاق العمل", serviceCategories: "فئات الخدمات",
@@ -115,7 +116,7 @@ export const ar: Record<keyof typeof en, string> = {
   defaultProbability: "احتمال الفوز الافتراضي", deleteStage: "حذف المرحلة «{name}»؟", cannotDeleteLastStage: "يجب الاحتفاظ بمرحلة واحدة على الأقل من نوع «{kind}».",
   addItem: "إضافة عنصر", editItem: "تعديل العنصر", listEmpty: "هذه القائمة فارغة", deleteItem: "حذف «{name}»؟", itemProtected: "هذا العنصر مستخدم داخلياً ولا يمكن حذفه (يمكنك إعادة تسميته).",
   cannotDeleteLastItem: "احتفظ بعنصر واحد على الأقل في هذه القائمة.", dropdownLists: "القوائم المنسدلة",
-  listSource: "مصادر العملاء", listPriority: "الأولويات", listClientType: "أنواع العملاء", listAssignee: "المسؤولون / الفريق", listCompanySize: "أحجام الشركات", listIndustry: "القطاعات",
+  listSource: "مصادر العملاء", listPriority: "الأولويات", listClientType: "أنواع الشركات / العملاء", listAssignee: "المسؤولون / الفريق", listCompanySize: "أحجام الشركات", listIndustry: "القطاعات",
   listRelationship: "حالات العلاقة", listProjectType: "أنواع المشاريع", listProjectStatus: "حالات المشاريع", listActivityType: "أنواع الأنشطة", listLossReason: "أسباب الخسارة", listCity: "المدن",
   inUse: "مستخدم: {n}", deleteInUseWarning: "{n} سجل يستخدم هذا العنصر. اختر ما يجب أن تصبح عليه — لن يُحذف شيء بصمت.", reassignTo: "نقل السجلات المتأثرة إلى", deleteUnusedConfirm: "هذا العنصر غير مستخدم في أي مكان. هل تريد حذفه؟",
   addField: "إضافة حقل مخصص", editField: "تعديل الحقل المخصص", customFieldsHelp: "حقول إضافية تظهر في كل نموذج عميل وصفحة تفاصيل وملف تصدير.", noCustomFields: "لا توجد حقول مخصصة بعد",

@@ -261,6 +261,7 @@ export function LeadFormDialog({
     const v = getValues();
     const set = (k: keyof LeadFormValues, val: string) => !v[k] && val && setValue(k, val as never);
     set("city", matched.city);
+    set("clientTypeId", matched.clientTypeId);
     set("website", matched.website);
     set("linkedin", matched.linkedin);
     set("instagram", matched.instagram);

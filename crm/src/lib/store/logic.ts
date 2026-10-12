@@ -155,6 +155,7 @@ export function planSaveLead(db: DB, input: LeadInput, existingId?: string): { l
     company = {
       id: uid(),
       name: companyName,
+      clientTypeId: input.clientTypeId ?? "",
       industryId: "",
       sizeId: "",
       city: input.city ?? "",
@@ -387,7 +388,10 @@ export function planDeleteOption(db: DB, id: string, replacementId: string): Cha
   switch (o.list) {
     case "source": up.leads = swap(db.leads, (l) => l.sourceId === id, (l) => ({ ...l, sourceId: r })); break;
     case "priority": up.leads = swap(db.leads, (l) => l.priorityId === id, (l) => ({ ...l, priorityId: r })); break;
-    case "clientType": up.leads = swap(db.leads, (l) => l.clientTypeId === id, (l) => ({ ...l, clientTypeId: r })); break;
+    case "clientType":
+      up.leads = swap(db.leads, (l) => l.clientTypeId === id, (l) => ({ ...l, clientTypeId: r }));
+      up.companies = swap(db.companies, (c) => c.clientTypeId === id, (c) => ({ ...c, clientTypeId: r }));
+      break;
     case "assignee": up.leads = swap(db.leads, (l) => l.assigneeId === id, (l) => ({ ...l, assigneeId: r })); break;
     case "companySize": up.companies = swap(db.companies, (c) => c.sizeId === id, (c) => ({ ...c, sizeId: r })); break;
     case "industry": up.companies = swap(db.companies, (c) => c.industryId === id, (c) => ({ ...c, industryId: r })); break;
@@ -484,6 +488,16 @@ export function planRemoveDemo(db: DB): Changes {
       companies: [...demoCompanies],
     },
   };
+}
+
+/** Old builds shipped 9 generic client types. If none is in use, swap them for the two main company types. */
+export function planMigrateClientTypes(db: DB): Changes | null {
+  const OLD = new Set(["retail", "developer", "corporate", "hospitality", "mall", "contractor", "consultant", "gov", "individual"]);
+  const cur = db.options.filter((o) => o.list === "clientType");
+  if (!cur.length || cur.some((o) => !OLD.has(o.key))) return null;
+  if (cur.some((o) => usageCount(db, "option", o.id) > 0)) return null;
+  const fresh = buildDefaults().options.filter((o) => o.list === "clientType");
+  return { upsert: { options: fresh }, remove: { options: cur.map((o) => o.id) } };
 }
 
 export function planBootstrap(): Changes {
