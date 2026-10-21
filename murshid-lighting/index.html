@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>اعتماد النجف والإنارات فيلا المرشد</title>
-<meta name="description" content="قارن صورة التصميم بالموديل المتوفر في السوق لكل نجفة وإنارة، واختار موافق أو غير موافق، وابعت ردك على واتساب.">
+<meta name="description" content="قارن صورة التصميم بالموديل المتوفر في السوق لكل نجفة وإنارة، واختر موافق أو غير موافق، وأرسل ردك عبر واتساب.">
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#f5f9fc">
 <meta property="og:type" content="website">
 <meta property="og:title" content="اعتماد النجف والإنارات فيلا المرشد">
-<meta property="og:description" content="قارن صورة التصميم بالموديل المتوفر في السوق لكل نجفة وإنارة، واختار موافق أو غير موافق.">
+<meta property="og:description" content="قارن صورة التصميم بالموديل المتوفر في السوق لكل نجفة وإنارة، واختر موافق أو غير موافق.">
 <meta property="og:image" content="https://taha94651-wq.github.io/projects/murshid-lighting/img/m4.jpg">
 <meta property="og:url" content="https://taha94651-wq.github.io/projects/murshid-lighting/">
 <meta name="twitter:card" content="summary_large_image">
@@ -156,8 +156,8 @@ textarea#gnote{width:100%;border:1px solid var(--line);background:var(--raised);
     <h1>اعتماد النجف والإنارات فيلا المرشد</h1>
     <ol class="steps">
       <li><i>1</i><span>قارن صورة التصميم بالموديل المتوفر في السوق</span></li>
-      <li><i>2</i><span>اختار موافق أو غير موافق لكل بند</span></li>
-      <li><i>3</i><span>ابعت ردك على واتساب من آخر الصفحة</span></li>
+      <li><i>2</i><span>اختر موافق أو غير موافق لكل بند</span></li>
+      <li><i>3</i><span>أرسل ردك عبر واتساب من أسفل الصفحة</span></li>
     </ol>
   </section>
 
@@ -177,7 +177,7 @@ textarea#gnote{width:100%;border:1px solid var(--line);background:var(--raised);
   </section>
 </main>
 
-<div class="bar" id="bar"><span id="barTxt">رديت على ٠ من ١٣</span><button type="button" id="toSum">مراجعة وإرسال</button></div>
+<div class="bar" id="bar"><span id="barTxt">تم الرد على ٠ من ١٣</span><button type="button" id="toSum">مراجعة وإرسال</button></div>
 
 <script>
 const TITLE="اعتماد النجف والإنارات – فيلا المرشد";
@@ -251,7 +251,7 @@ function itemHTML(it){
         <button type="button" class="vote y" data-v="yes" data-n="${it.n}" aria-pressed="${v==="yes"}">✓ موافق</button>
         <button type="button" class="vote n" data-v="no" data-n="${it.n}" aria-pressed="${v==="no"}">✕ غير موافق</button>
       </div>
-      <textarea class="note-in${v==="no"?" ask":""}" id="nt-${it.n}" data-n="${it.n}" rows="1" placeholder="${v==="no"?"إيه اللي مش مناسب؟ (لون، حجم، شكل…)":"ملاحظة (اختياري)"}"${showNote?"":" hidden"}>${esc(note)}</textarea>
+      <textarea class="note-in${v==="no"?" ask":""}" id="nt-${it.n}" data-n="${it.n}" rows="1" placeholder="${v==="no"?"ما الذي لا يناسبك؟ (اللون، الحجم، الشكل…)":"ملاحظة (اختياري)"}"${showNote?"":" hidden"}>${esc(note)}</textarea>
       ${showNote?"":`<button type="button" class="addnote" data-addnote="${it.n}">إضافة ملاحظة</button>`}
     </div></article>`;
 }
@@ -273,9 +273,9 @@ function renderSummary(){
   const c=counts(), done=c.y+c.n;
   $("#cY").textContent=fmt(c.y); $("#cN").textContent=fmt(c.n); $("#cW").textContent=fmt(c.w);
   $("#progTxt").textContent=`${fmt(done)} من ${fmt(ITEMS.length)}`; $("#progBar").style.width=(done/ITEMS.length*100)+"%";
-  $("#barTxt").textContent=done===ITEMS.length?"خلصت كل البنود ✓":`رديت على ${fmt(done)} من ${fmt(ITEMS.length)}`;
+  $("#barTxt").textContent=done===ITEMS.length?"اكتملت جميع البنود ✓":`تم الرد على ${fmt(done)} من ${fmt(ITEMS.length)}`;
   $("#srows").innerHTML=`<div class="th" role="row"><span>#</span><span>التصميم</span><span>السوق</span><span>الرد</span></div>`+ITEMS.map(it=>{const v=st.v[it.n]||"";return `<div class="tr ${v}" role="row"><span class="no">${fmt(it.n)}</span><span class="im"><img src="img/${it.d[0]}" alt=""></span><span class="im"><img src="img/${it.m}" alt=""></span><span class="inf"><button class="jump" type="button" data-jump="${it.n}">${esc(it.t)}</button><small>${esc(it.p)}</small>${statusHTML(v)}${st.note[it.n]?`<small>${esc(st.note[it.n])}</small>`:""}</span></div>`;}).join("");
-  const w=$("#warn"); w.hidden=!c.w; w.textContent=c.w?`فاضل ${fmt(c.w)} بند بدون رد. تقدر تبعت دلوقتي، وهيظهروا في الرسالة «بدون رد».`:"";
+  const w=$("#warn"); w.hidden=!c.w; w.textContent=c.w?`تبقّى ${fmt(c.w)} بند بدون رد. يمكنك الإرسال الآن وسيظهر ما لم يُجب عليه كـ«بدون رد».`:"";
   $("#waLink").href=`https://wa.me/?text=${encodeURIComponent(message())}`;
 }
 /* ---- جدول الرد كصورة ---- */
@@ -339,10 +339,10 @@ async function shareTable(forceSave){
   try{
     const blob=await buildPNG(); const file=new File([blob],"murshid-lighting.png",{type:"image/png"});
     if(!forceSave&&canShareFile){
-      try{await navigator.share({files:[file],title:TITLE});note.textContent="اتبعت. تقدر تكمّل أو تعدّل وتبعت تاني.";}
-      catch(e){ if(e&&e.name!=="AbortError"){saveBlob(blob);note.textContent="الصورة اتحفظت على جهازك، ابعتها على واتساب.";} }
-    }else{ saveBlob(blob); note.textContent="الصورة اتحفظت على جهازك، ابعتها على واتساب."; toast("تم حفظ الصورة"); }
-  }catch(e){ note.textContent="حصلت مشكلة في تجهيز الصورة. استخدم «إرسال على واتساب»."; }
+      try{await navigator.share({files:[file],title:TITLE});note.textContent="تم الإرسال. يمكنك المتابعة أو التعديل ثم الإرسال مرة أخرى.";}
+      catch(e){ if(e&&e.name!=="AbortError"){saveBlob(blob);note.textContent="تم حفظ الصورة على جهازك، أرسلها عبر واتساب.";} }
+    }else{ saveBlob(blob); note.textContent="تم حفظ الصورة على جهازك، أرسلها عبر واتساب."; toast("تم حفظ الصورة"); }
+  }catch(e){ note.textContent="تعذّر تجهيز الصورة. استخدم «إرسال على واتساب»."; }
   b1.disabled=false; b1.textContent=old;
 }
 function updItem(n){
