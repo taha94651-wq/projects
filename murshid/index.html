@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>اختيار اكسسوارات خزائن ملابس فيلا المرشد</title>
-<meta name="description" content="اختار اكسسوارات خزائن الملابس لكل غرفة في الفيلا: المقاس واللون والغرفة من المخطط، وابعت اختياراتك على واتساب.">
+<meta name="description" content="اختر اكسسوارات خزائن الملابس لكل غرفة في الفيلا: المقاس واللون والغرفة من المخطط، وأرسل اختياراتك عبر واتساب.">
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#f5f9fc">
 <meta property="og:type" content="website">
 <meta property="og:title" content="اختيار اكسسوارات خزائن ملابس فيلا المرشد">
-<meta property="og:description" content="اختار اكسسوارات خزائن الملابس لكل غرفة في الفيلا: المقاس واللون والغرفة من المخطط، وابعت اختياراتك على واتساب.">
+<meta property="og:description" content="اختر اكسسوارات خزائن الملابس لكل غرفة في الفيلا: المقاس واللون والغرفة من المخطط، وأرسل اختياراتك عبر واتساب.">
 <meta property="og:image" content="https://taha94651-wq.github.io/projects/murshid/img/tw-1366.jpg">
 <meta property="og:url" content="https://taha94651-wq.github.io/projects/murshid/">
 <meta name="twitter:card" content="summary_large_image">
@@ -572,9 +572,9 @@ async function shareTable(){
   b.disabled=true; b.textContent="جاري تجهيز الصورة…";
   try{
     const blob=await buildPNG(); const file=new File([blob],"murshid-selections.png",{type:"image/png"});
-    if(canShareFile){ try{await navigator.share({files:[file],title:TITLE});note.textContent="اتبعت. تقدر تكمّل أو تعدّل وتبعت تاني.";}catch(e){ if(e&&e.name!=="AbortError"){saveBlob(blob);note.textContent="الصورة اتحفظت على جهازك، ابعتها على واتساب.";} } }
-    else{ saveBlob(blob); note.textContent="الصورة اتحفظت على جهازك، ابعتها على واتساب."; }
-  }catch(e){ note.textContent="حصلت مشكلة في تجهيز الصورة. استخدم «إرسال على واتساب»."; }
+    if(canShareFile){ try{await navigator.share({files:[file],title:TITLE});note.textContent="تم الإرسال. يمكنك المتابعة أو التعديل ثم الإرسال مرة أخرى.";}catch(e){ if(e&&e.name!=="AbortError"){saveBlob(blob);note.textContent="تم حفظ الصورة على جهازك، أرسلها عبر واتساب.";} } }
+    else{ saveBlob(blob); note.textContent="تم حفظ الصورة على جهازك، أرسلها عبر واتساب."; }
+  }catch(e){ note.textContent="تعذّر تجهيز الصورة. استخدم «إرسال على واتساب»."; }
   if(b.isConnected){b.disabled=false; b.textContent=old;}
 }
 function message(){
@@ -668,7 +668,7 @@ document.addEventListener("click",e=>{
     if(t.id==="copyBtn"){
       const txt=message(), note=$("#copyNote");
       const fallback=()=>{let ta=$("#msgFb"); if(!ta){ta=document.createElement("textarea");ta.id="msgFb";ta.readOnly=true;ta.rows=6;note.after(ta);} ta.value=txt; ta.focus(); ta.select(); note.textContent="تم تحديد النص. انسخه يدوياً وأرسله لنا."};
-      const ok=()=>{t.textContent="✓ تم النسخ"; note.textContent="القائمة اتنسخت، الصقها في أي محادثة."; setTimeout(()=>{if(t.isConnected){t.textContent="أو انسخ القائمة كنص";}},2500);};
+      const ok=()=>{t.textContent="✓ تم النسخ"; note.textContent="تم نسخ القائمة، يمكنك لصقها في أي محادثة."; setTimeout(()=>{if(t.isConnected){t.textContent="أو انسخ القائمة كنص";}},2500);};
       try{ navigator.clipboard.writeText(txt).then(ok,fallback);}catch(err){fallback();}
       return;
     }
