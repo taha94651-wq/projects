@@ -4,232 +4,384 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>مقارنة عروض أسعار – نباتات</title>
-<meta name="description" content="مقارنة عروض أسعار النباتات والمواد الزراعية بين الموردين، مع الإجماليات والتوصية.">
+<meta name="description" content="مقارنة تفاعلية بين عروض أسعار النباتات والمواد الزراعية: اضغط على أي بند لتفاصيله، واطّلع على العرضين الأصليين والتوصية.">
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#ffffff">
+<meta property="og:type" content="website">
+<meta property="og:title" content="مقارنة عروض أسعار – نباتات">
+<meta property="og:description" content="مقارنة تفاعلية بين عرضي أهل القمة وبستان الخزامى: البنود والإجماليات والتوصية.">
+<meta property="og:image" content="https://taha94651-wq.github.io/projects/plants-comparison/images/item-07.png">
+<meta property="og:url" content="https://taha94651-wq.github.io/projects/plants-comparison/">
 <link rel="icon" href="images/vivid-logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Barlow:wght@500;600;700&display=swap">
 <style>
-/* Layout: VIVID quotation sheet — white page, black headings, orange values, red section bars, hairline row dividers only */
+/* Layout: interactive VIVID quotation site — sticky nav, two supplier cards on top, tap-to-expand item rows, original quotes in a lightbox */
 :root{
   --black:#111111; --orange:#D9772E; --red:#C8102E; --gray:#8C8C8C; --line:#D9D9D9;
-  --orange-soft:#FBEBDD; --f-ar:"Cairo","Tajawal",system-ui,"Segoe UI",Tahoma,sans-serif; --f-en:"Barlow","Inter",system-ui,sans-serif;
+  --orange-soft:#FBEBDD; --soft:#F6F6F6; --ok:#1E8E5A;
+  --f-ar:"Cairo","Tajawal",system-ui,"Segoe UI",Tahoma,sans-serif; --f-en:"Barlow","Inter",system-ui,sans-serif;
 }
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:74px}
 body{margin:0;background:#fff;color:var(--black);font-family:var(--f-ar);font-size:15px;line-height:1.6}
 img{max-width:100%}
 a{color:inherit}
-button{font:inherit;color:inherit;cursor:pointer}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
 :focus-visible{outline:2px solid var(--orange);outline-offset:2px}
-.wrap{max-width:1180px;margin-inline:auto;padding-inline:20px}
+.wrap{max-width:1120px;margin-inline:auto;padding-inline:20px}
 @media (max-width:480px){.wrap{padding-inline:14px}}
 .en{font-family:var(--f-en);letter-spacing:.16em;text-transform:uppercase}
 .num{font-family:var(--f-en);font-variant-numeric:tabular-nums;letter-spacing:.01em}
+.cur{font-size:.72em;color:var(--gray);margin-inline-start:3px;font-weight:600}
 
-/* header */
-.hd{display:grid;grid-template-columns:auto 1fr auto;gap:18px 24px;align-items:center;padding-block:26px 18px;border-bottom:3px solid var(--black)}
-.logo{height:56px;width:auto;display:block}
-.ttl h1{margin:0;font-weight:900;font-size:clamp(1.5rem,3.4vw,2.4rem);line-height:1.2}
-.ttl .en{margin-top:6px;color:var(--gray);font-size:.82rem;font-weight:600}
-.pbtn{border:1.5px solid var(--black);background:#fff;border-radius:8px;padding:9px 16px;font-weight:700}
-.pbtn:hover{background:var(--black);color:#fff}
-.meta{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0;padding-top:12px;border-top:1px solid var(--line)}
-.meta dt{font-family:var(--f-en);font-weight:600;letter-spacing:.2em;font-size:.74rem;color:var(--gray)}
-.meta dd{margin:2px 0 0;font-weight:800;color:var(--orange);font-size:1.02rem}
-@media (max-width:640px){.hd{grid-template-columns:1fr auto}.logo{height:44px}.ttl{grid-column:1/-1;order:3}.meta{grid-template-columns:1fr}}
+/* sticky nav */
+.top{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:16px;padding-block:8px}
+.top img{height:34px;width:auto;display:block;flex:none}
+.nav{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1}
+.nav::-webkit-scrollbar{display:none}
+.nav a{white-space:nowrap;text-decoration:none;font-weight:700;font-size:.88rem;padding:7px 12px;border-radius:999px;color:#444}
+.nav a:hover{background:var(--soft)}
+.nav a.on{background:var(--black);color:#fff}
 
-h2.sec{display:flex;align-items:center;gap:12px;margin:34px 0 12px;font-weight:900;font-size:1.25rem}
+/* hero */
+.hero{padding-block:26px 8px}
+.hero h1{margin:0;font-weight:900;font-size:clamp(1.6rem,4vw,2.6rem);line-height:1.2}
+.hero .sub{margin-top:6px;color:var(--gray);font-size:.82rem;font-weight:600}
+.meta{display:flex;flex-wrap:wrap;gap:8px 26px;margin:16px 0 0;padding-top:12px;border-top:1px solid var(--line)}
+.meta dt{font-family:var(--f-en);font-weight:600;letter-spacing:.2em;font-size:.72rem;color:var(--gray)}
+.meta dd{margin:0;font-weight:800;color:var(--orange)}
+.meta div{min-width:120px}
+
+.vatsw{display:inline-flex;border:1.5px solid var(--black);border-radius:999px;padding:3px;margin-top:18px}
+.vatsw button{padding:6px 16px;border-radius:999px;font-weight:700;font-size:.86rem;color:#555}
+.vatsw button[aria-pressed="true"]{background:var(--black);color:#fff}
+
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:14px}
+@media (max-width:640px){.cards{grid-template-columns:1fr}}
+.sc{position:relative;border:1.5px solid var(--line);border-radius:16px;padding:18px 18px 16px;background:#fff;transition:border-color .2s,box-shadow .2s}
+.sc.win{border-color:var(--orange);box-shadow:0 6px 24px rgba(217,119,46,.16)}
+.sc .badge{position:absolute;inset-block-start:-11px;inset-inline-end:16px;background:var(--orange);color:#fff;font-weight:800;font-size:.76rem;padding:2px 12px;border-radius:999px}
+.sc h2{margin:0;font-weight:800;font-size:1.05rem;line-height:1.35}
+.sc .tot{font-family:var(--f-en);font-weight:700;font-size:clamp(1.9rem,5vw,2.5rem);line-height:1.1;margin-top:10px}
+.sc.win .tot{color:var(--orange)}
+.sc .lbl{color:var(--gray);font-size:.78rem;font-weight:600}
+.sc .qn{margin-top:6px;color:#555;font-size:.82rem}
+.sc .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.btn{border:1.5px solid var(--black);border-radius:10px;padding:8px 14px;font-weight:700;font-size:.86rem;text-decoration:none;display:inline-block;background:#fff}
+.btn:hover{background:var(--black);color:#fff}
+.btn.pri{background:var(--black);color:#fff}
+.btn.pri:hover{background:var(--orange);border-color:var(--orange)}
+.save{margin-top:14px;background:var(--orange-soft);border-radius:12px;padding:12px 16px;display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline}
+.save b{font-family:var(--f-en);font-size:1.3rem;color:var(--orange)}
+
+h2.sec{display:flex;align-items:center;gap:12px;margin:40px 0 14px;font-weight:900;font-size:1.3rem}
 h2.sec::before{content:"";width:6px;height:1.3em;background:var(--red);border-radius:2px}
-h2.sec .en{font-size:.78rem;color:var(--gray);font-weight:600}
+h2.sec .en{font-size:.76rem;color:var(--gray);font-weight:600}
+.hint{color:var(--gray);font-size:.85rem;margin:-6px 0 12px}
 
-/* comparison table */
-.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-block:1px solid var(--line)}
-table{border-collapse:collapse;width:100%;min-width:980px}
-th,td{padding:10px 10px;text-align:center;vertical-align:middle;border-bottom:1px solid var(--line)}
-thead th{font-weight:800;font-size:.82rem;color:var(--black);border-bottom:2px solid var(--black);white-space:nowrap;background:#fff}
-thead .sub th{border-bottom:1px solid var(--line);font-size:.74rem;color:var(--gray);font-weight:600}
-thead .sup{font-size:.88rem}
-td.nm{text-align:start;min-width:190px}
-td.nm b{display:block;font-weight:800;font-size:.98rem;line-height:1.35}
-td.nm span{display:block;color:var(--gray);font-family:var(--f-en);font-size:.8rem;letter-spacing:.04em}
-td.ph{width:64px}
-.thumb{width:52px;height:52px;border-radius:8px;object-fit:cover;background:#f4f4f4;display:block;margin-inline:auto}
-.qty{font-family:var(--f-en);font-weight:700;font-size:1.5rem;color:var(--orange);line-height:1}
-.unit{display:block;color:var(--gray);font-size:.75rem;margin-top:2px}
-td.low{background:var(--orange-soft);font-weight:800}
-td.who{font-weight:700;font-size:.86rem}
-tr.bar td{border-bottom:0;padding:0}
-tr.bar .barc{display:flex;align-items:center;gap:10px;padding:14px 10px 8px;text-align:start;font-weight:900;font-size:1rem}
-tr.bar .barc::before{content:"";width:6px;height:1.2em;background:var(--red);border-radius:2px}
-tr.bar .barc .en{font-size:.74rem;color:var(--gray)}
-.cur{font-size:.72rem;color:var(--gray);margin-inline-start:3px;font-weight:600}
+/* item list */
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
+.chip{border:1.5px solid var(--line);border-radius:999px;padding:6px 14px;font-weight:700;font-size:.86rem;background:#fff}
+.chip[aria-pressed="true"]{background:var(--black);border-color:var(--black);color:#fff}
+.chip small{opacity:.7;margin-inline-start:4px}
+.tools .sp{flex:1}
+.link{color:var(--gray);font-weight:700;font-size:.84rem;text-decoration:underline}
+.cols{display:grid;grid-template-columns:34px 56px minmax(0,1.6fr) 74px minmax(0,1fr) minmax(0,1fr) minmax(0,1.1fr) 20px;gap:10px;padding:8px 12px;font-size:.74rem;font-weight:800;color:var(--gray);border-bottom:2px solid var(--black);text-align:center}
+.cols span:nth-child(3){text-align:start}
+.grp{display:flex;align-items:center;gap:10px;padding:16px 4px 6px;font-weight:900}
+.grp::before{content:"";width:6px;height:1.2em;background:var(--red);border-radius:2px}
+.grp .en{font-size:.72rem;color:var(--gray)}
+.row{border-bottom:1px solid var(--line)}
+.rh{width:100%;display:grid;grid-template-columns:34px 56px minmax(0,1.6fr) 74px minmax(0,1fr) minmax(0,1fr) minmax(0,1.1fr) 20px;gap:10px;align-items:center;padding:10px 12px;text-align:center}
+.rh:hover{background:var(--soft)}
+.row.open .rh{background:var(--soft)}
+.rh .no{font-family:var(--f-en);color:var(--gray);font-weight:600}
+.thumb{width:48px;height:48px;border-radius:8px;object-fit:cover;background:#f4f4f4;display:block}
+.nmx{text-align:start;min-width:0}
+.nmx b{display:block;font-weight:800;font-size:.96rem;line-height:1.35}
+.nmx i{display:block;font-style:normal;color:var(--gray);font-family:var(--f-en);font-size:.78rem}
+.q em{font-style:normal;font-family:var(--f-en);font-weight:700;font-size:1.35rem;color:var(--orange);line-height:1;display:block}
+.q small{color:var(--gray);font-size:.72rem}
+.pc{border-radius:10px;padding:6px 4px;line-height:1.25}
+.pc b{display:block;font-family:var(--f-en);font-size:1.02rem}
+.pc i{display:block;font-style:normal;color:var(--gray);font-family:var(--f-en);font-size:.72rem}
+.pc.low{background:var(--orange-soft)}
+.pc.low b{color:var(--black)}
+.who{font-weight:800;font-size:.8rem;line-height:1.3}
+.who small{display:block;color:var(--ok);font-weight:700;font-size:.72rem}
+.chev{color:var(--gray);transition:transform .2s;font-size:.9rem}
+.row.open .chev{transform:rotate(180deg)}
+.rd{display:none;padding:6px 12px 18px;background:var(--soft)}
+.row.open .rd{display:grid;grid-template-columns:150px 1fr;gap:18px;align-items:center}
+.rd .big{width:150px;height:150px;border-radius:12px;object-fit:cover;background:#fff;cursor:zoom-in}
+.bars{display:flex;flex-direction:column;gap:12px}
+.bar{display:grid;grid-template-columns:130px 1fr 96px;gap:10px;align-items:center;font-size:.86rem}
+.bar .nm{font-weight:700}
+.bar .tr{height:16px;background:#e9e9e9;border-radius:99px;overflow:hidden}
+.bar .tr i{display:block;height:100%;background:#9a9a9a;border-radius:99px;transition:width .5s}
+.bar.lo .tr i{background:var(--orange)}
+.bar .v{font-family:var(--f-en);font-weight:700;text-align:end}
+.gap{font-size:.86rem;color:#333}
+.gap b{color:var(--orange)}
+@media (max-width:760px){
+  .cols{display:none}
+  .rh{grid-template-columns:44px minmax(0,1fr) auto;grid-template-areas:"im nm q" "im p p" "im w w";gap:6px 10px;text-align:start;padding:12px 6px}
+  .rh .no,.rh .chev{display:none}
+  .rh .thumb{grid-area:im;width:44px;height:44px}
+  .rh .nmx{grid-area:nm}.rh .q{grid-area:q;text-align:center}
+  .rh .pcs{grid-area:p;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+  .rh .who{grid-area:w;text-align:start}
+  .rh .pcs .pc{text-align:center}
+  .row.open .rd{grid-template-columns:1fr}
+  .rd .big{width:100%;height:190px}
+  .bar{grid-template-columns:96px 1fr 76px}
+}
+@media (min-width:761px){.rh .pcs{display:contents}.rh .no{display:block}}
 
 /* totals */
-.tot{margin-top:6px}
-.tot table{min-width:560px}
-.tot td:first-child,.tot th:first-child{text-align:start;font-weight:700}
-.tot tr.after td{background:#fff;font-weight:900;font-size:1.12rem;color:var(--orange);border-top:2px solid var(--black);border-bottom:2px solid var(--black)}
-.tot tr.after td:first-child{color:var(--black)}
-.tot .gap{color:var(--gray);font-weight:600}
+.totbox{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media (max-width:640px){.totbox{grid-template-columns:1fr}}
+.tb{border:1.5px solid var(--line);border-radius:14px;padding:6px 16px}
+.tb h3{margin:10px 0 4px;font-weight:800;font-size:1rem}
+.tb .l{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid var(--line)}
+.tb .l:last-child{border-bottom:0}
+.tb .l.after{font-weight:900;font-size:1.1rem}
+.tb .l.after .num{color:var(--orange)}
+.tb .l span:first-child{color:#444}
+.diffbar{margin-top:12px;background:var(--soft);border-radius:12px;padding:12px 16px;display:flex;flex-wrap:wrap;gap:6px 22px}
 
-/* summary / recommendation */
+/* summary + recommendation */
 .sum ul{margin:0;padding:0;list-style:none}
-.sum li{position:relative;padding:9px 22px 9px 0;border-bottom:1px solid var(--line)}
-.sum li::before{content:"";position:absolute;inset-inline-start:0;top:1.05em;width:8px;height:8px;background:var(--orange);border-radius:50%}
-.sum li{padding-inline-start:22px;padding-inline-end:0}
-.rec{margin-top:16px;border:2px solid var(--black);border-radius:12px;padding:16px 20px}
-.rec .rt{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.1rem;margin-bottom:8px}
+.sum li{position:relative;padding:10px 0;padding-inline-start:22px;border-bottom:1px solid var(--line)}
+.sum li::before{content:"";position:absolute;inset-inline-start:0;top:1.1em;width:8px;height:8px;background:var(--orange);border-radius:50%}
+.rec{margin-top:18px;border:2px solid var(--black);border-radius:14px;padding:18px 22px;background:#fff}
+.rec .rt{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.15rem;margin-bottom:8px}
 .rec .rt::before{content:"";width:6px;height:1.2em;background:var(--orange);border-radius:2px}
-.rec ul{margin:0;padding-inline-start:20px}
-.rec li{padding:2px 0}
+.rec ul{margin:0;padding-inline-start:20px}.rec li{padding:3px 0}
 
-/* supplier tabs */
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;border-bottom:1px solid var(--line)}
-.tab{border:0;background:none;padding:10px 16px;font-weight:700;color:var(--gray);border-bottom:3px solid transparent;margin-bottom:-1px}
-.tab[aria-selected="true"]{color:var(--black);border-bottom-color:var(--orange)}
-.sp{display:none}.sp.on{display:block}
-.info{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px 22px;margin:0 0 16px}
-.info dt{font-family:var(--f-en);font-weight:600;letter-spacing:.14em;font-size:.7rem;color:var(--gray);text-transform:uppercase}
+/* originals */
+.origs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media (max-width:640px){.origs{grid-template-columns:1fr}}
+.og{border:1.5px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;text-align:start;display:block;width:100%}
+.og:hover{border-color:var(--black)}
+.og .pv{height:300px;overflow:hidden;background:var(--soft);position:relative}
+.og .pv img{width:100%;display:block;object-position:top}
+.og .pv::after{content:"";position:absolute;inset-inline:0;bottom:0;height:70px;background:linear-gradient(transparent,rgba(255,255,255,.95))}
+.og .cap{padding:12px 16px;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.og .cap b{font-weight:800}
+.og .cap span{color:var(--orange);font-weight:800;font-size:.86rem;white-space:nowrap}
+
+/* suppliers detail */
+.stabs{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-bottom:16px}
+@media (max-width:640px){.stabs{grid-template-columns:1fr}}
+.st{border:1.5px solid var(--line);border-radius:12px;padding:12px 16px;text-align:start;background:#fff}
+.st[aria-selected="true"]{border-color:var(--black);box-shadow:inset 0 -4px 0 var(--orange)}
+.st b{display:block;font-weight:800}
+.st small{color:var(--gray)}
+.sp-d{display:none}.sp-d.on{display:block}
+.info{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px 22px;margin:0 0 18px}
+.info dt{font-family:var(--f-en);font-weight:600;letter-spacing:.14em;font-size:.68rem;color:var(--gray);text-transform:uppercase}
 .info dd{margin:1px 0 0;font-weight:700;overflow-wrap:anywhere}
 .info dd.na{color:var(--gray);font-weight:600}
-.notice{background:#f6f6f6;border-inline-start:4px solid var(--orange);padding:9px 14px;margin-bottom:14px;font-size:.9rem}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-block:1px solid var(--line)}
+table{border-collapse:collapse;width:100%}
+th,td{padding:10px;text-align:center;border-bottom:1px solid var(--line);vertical-align:middle}
+thead th{font-size:.78rem;font-weight:800;border-bottom:2px solid var(--black);white-space:nowrap}
+td.nm{text-align:start;min-width:170px}td.nm b{display:block;font-weight:800}td.nm span{display:block;color:var(--gray);font-family:var(--f-en);font-size:.78rem}
+tr.bar2 td{border-bottom:0;padding:14px 10px 6px;text-align:start;font-weight:900}
+tr.bar2 td::before{content:"";display:inline-block;width:6px;height:1.1em;background:var(--red);border-radius:2px;vertical-align:middle;margin-inline-end:10px}
 .cmpx{margin-top:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.cmpx div{border:1px solid var(--line);border-radius:10px;padding:10px 12px}
-.cmpx small{display:block;color:var(--gray);font-size:.75rem}
+.cmpx div{border:1.5px solid var(--line);border-radius:10px;padding:10px 12px}
+.cmpx small{display:block;color:var(--gray);font-size:.74rem}
 .cmpx b{font-family:var(--f-en);font-size:1.15rem}
-.cmpx .bad b{color:var(--red)}
+.cmpx .bad{border-color:var(--red)}.cmpx .bad b{color:var(--red)}
 @media (max-width:560px){.cmpx{grid-template-columns:1fr}}
-.notes{margin:14px 0 0;padding:0;list-style:none}
-.notes li{padding:7px 0 7px 0;border-bottom:1px solid var(--line);padding-inline-start:20px;position:relative;font-size:.92rem}
-.notes li::before{content:"!";position:absolute;inset-inline-start:0;top:.55em;width:14px;height:14px;border-radius:50%;background:var(--red);color:#fff;font-size:.62rem;font-weight:800;display:grid;place-items:center;line-height:1}
-.orig{margin-top:18px}
-.orig img{display:block;width:100%;max-width:640px;margin-inline:auto;border:1px solid var(--line);border-radius:6px}
-.orig a{display:block}
+.notes{margin:12px 0 0;padding:0;list-style:none}
+.notes li{position:relative;padding:8px 0;padding-inline-start:22px;border-bottom:1px solid var(--line);font-size:.92rem}
+.notes li::before{content:"!";position:absolute;inset-inline-start:0;top:.7em;width:14px;height:14px;border-radius:50%;background:var(--red);color:#fff;font-size:.62rem;font-weight:800;display:grid;place-items:center;line-height:1}
 
-footer{margin-top:44px;padding:20px 0 30px;border-top:3px solid var(--black);text-align:center}
+footer{margin-top:50px;padding:22px 0 34px;border-top:3px solid var(--black);text-align:center}
 footer .en{font-weight:700;font-size:.8rem}
 footer p{margin:4px 0 0;color:var(--gray);font-family:var(--f-en);font-size:.84rem;letter-spacing:.06em;direction:ltr}
 
-@page{size:A4 landscape;margin:10mm}
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:60;background:rgba(17,17,17,.88);display:flex;flex-direction:column}
+.lb .bar2{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 16px;color:#fff}
+.lb .bar2 b{font-weight:800}
+.lb button.x{width:40px;height:40px;border-radius:50%;background:#fff;color:#111;font-size:1.3rem;font-weight:700}
+.lb .body{flex:1;overflow:auto;display:grid;place-items:start center;padding:0 12px 20px}
+.lb img{max-width:min(980px,100%);width:100%;height:auto;display:block;background:#fff;border-radius:6px;cursor:zoom-in}
+.lb img.z{max-width:none;width:1500px;cursor:zoom-out}
+.lb.small .body{place-items:center}
+.lb.small img{max-width:min(520px,100%);max-height:78vh;width:auto;object-fit:contain}
+.lb small{color:#ccc}
+
 @media print{
-  body{font-size:12px}
-  .pbtn,.tabs{display:none!important}
-  .wrap{max-width:none;padding-inline:0}
-  .scroll{overflow:visible}
-  table{min-width:0}
-  .sp{display:block!important;break-before:page}
-  .sp-first{break-before:auto}
-  tr{break-inside:avoid}
-  .orig img{max-height:180mm;width:auto}
-  .hd{padding-block:6px 10px}
-  h2.sec{margin-top:18px}
-  .notice{display:none}
+  .top,.tools,.vatsw,.btn,.stabs,.lb,.chev{display:none!important}
+  .sp-d{display:block!important;break-before:page}
+  .row .rd{display:none!important}
+  .wrap{max-width:none}
 }
+@page{size:A4 landscape;margin:10mm}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<main class="wrap" id="app" aria-live="polite"><p style="padding:40px 0;color:#8C8C8C">جارٍ تحميل البيانات…</p></main>
+<header class="top"><div class="wrap">
+  <img src="images/vivid-logo.png" alt="VIVID">
+  <nav class="nav" id="nav" aria-label="الأقسام">
+    <a href="#top" data-s="top" class="on">العروض</a><a href="#items" data-s="items">البنود</a><a href="#totals" data-s="totals">الإجماليات</a><a href="#reco" data-s="reco">التوصية</a><a href="#orig" data-s="orig">العروض الأصلية</a><a href="#sups" data-s="sups">بيانات الموردين</a>
+  </nav>
+</div></header>
+
+<main class="wrap" id="app"><p style="padding:40px 0;color:#8C8C8C">جارٍ تحميل البيانات…</p></main>
 
 <script id="data" type="application/json">{"project": {"name": "فيلا سكنية – الرياض", "location": "القيروان، الرياض", "rfq_date": "2026-10-21", "comparison_date": "2026-10-22", "currency": "SAR", "vat": 0.15}, "brand": {"logo": "images/vivid-logo.png", "colors": {"black": "#111111", "orange": "#D9772E", "red": "#C8102E", "gray": "#8C8C8C", "line": "#D9D9D9"}, "website": "www.vivid.sa", "email": "info@vivid.sa"}, "suppliers": [{"id": "ahl-alqimma", "name": "مؤسسة أهل القمة للمقاولات", "quote_no": "001075", "date": "2026/10/22", "vat_no": "302208364400003", "cr": null, "address": "الرياض – المربع، الرمز البريدي 12656", "phone": "+966 56 505 5234", "stated_total_after_vat": 33735.25, "original_image": "images/original-ahl-alqimma.png", "notes": ["الحسابات مطابقة: 29,335 قبل الضريبة + 4,400.25 ضريبة = 33,735.25 ريال.", "السجل التجاري واسم المسؤول غير مذكورين.", "لا توجد مقاسات للنباتات.", "البيتموس والكمبوست 40 لتر، البيرلايت بدون حجم.", "لا ذكر للتوريد للموقع، الزراعة، الضمان، صلاحية العرض.", "عمود الوحدة فارغ، وترقيم البنود مكرر (بندين برقم 9)."]}, {"id": "bustan-alkhuzama", "name": "مؤسسة بستان الخزامى الزراعية", "quote_no": "0096", "date": null, "vat_no": null, "zatca_establishment_no": "3102325347", "cr": {"branch": "1010785369", "main": "1010458875", "unified": "7028113145", "certificate_expiry_hijri": "1446/08/11"}, "address": "المشتل: الرياض – حي الأمانة – مشتل رقم 2 | السجل: 7881 عثمان بن بشر، حي الدرعية الجديدة، 13732", "phone": "+966 54 919 4767", "phone_cr": "0115901191", "stated_subtotal_handwritten": 11615, "original_image": "images/original-bustan-alkhuzama.png", "notes": ["الواشنطونيا: سعر الوحدة مكتوب 2,200 والإجمالي مكتوب 3,200 — تم الاعتماد على 3,200، وبه يطابق مجموع البنود الإجمالي المكتوب 11,615.", "الإجمالي شامل الضريبة: 11,615 × 1.15 = 13,357.25 ريال.", "لا يوجد رقم ضريبة قيمة مضافة — يلزم طلب شهادة التسجيل الضريبي.", "لا يوجد تاريخ ولا توقيع/ختم.", "لا مقاسات للنباتات ولا أحجام للأكياس — الأسعار المنخفضة غالباً لمقاسات أصغر.", "لا ذكر للتوريد للموقع أو الزراعة أو الضمان أو صلاحية العرض."]}], "items": [{"no": 1, "name_ar": "جهنمية هولندي", "name_en": "Bougainvillea Holandy", "qty": 55, "unit": "شتلة", "image": "images/item-01.png", "section": "plants", "prices": {"ahl-alqimma": 140, "bustan-alkhuzama": 70}}, {"no": 2, "name_ar": "أكاليفا", "name_en": "Acalypha", "qty": 120, "unit": "شتلة", "image": "images/item-02.png", "section": "plants", "prices": {"ahl-alqimma": 45, "bustan-alkhuzama": 10}}, {"no": 3, "name_ar": "إهريتيا (كمب) – مخروطي", "name_en": "Ehretia · Cone", "qty": 10, "unit": "شجرة", "image": "images/item-03.png", "section": "plants", "prices": {"ahl-alqimma": 260, "bustan-alkhuzama": 110}}, {"no": 4, "name_ar": "إهريتيا (كمب) – كروي", "name_en": "Ehretia · Round", "qty": 9, "unit": "شجرة", "image": "images/item-04.png", "section": "plants", "prices": {"ahl-alqimma": 190, "bustan-alkhuzama": 60}}, {"no": 5, "name_ar": "ويديليا", "name_en": "Wedelia Trilobata", "qty": 520, "unit": "شتلة", "image": "images/item-05.png", "section": "plants", "prices": {"ahl-alqimma": 2, "bustan-alkhuzama": 1}}, {"no": 6, "name_ar": "ترادسكانتيا (ست كريسيا)", "name_en": "Tradescantia Pallida", "qty": 650, "unit": "شتلة", "image": "images/item-06.png", "section": "plants", "prices": {"ahl-alqimma": 10, "bustan-alkhuzama": 1}}, {"no": 7, "name_ar": "واشنطونيا – جذع نظيف 6 متر", "name_en": "Washingtonia · 6 m clear trunk", "qty": 1, "unit": "نخلة", "image": "images/item-07.png", "section": "plants", "prices": {"ahl-alqimma": 3750, "bustan-alkhuzama": 3200}}, {"no": 8, "name_ar": "بيتموس", "name_en": "Peatmoss", "qty": 2, "unit": "كيس", "image": "images/item-08.png", "section": "growing_media", "prices": {"ahl-alqimma": 75, "bustan-alkhuzama": 150}}, {"no": 9, "name_ar": "بيرلايت", "name_en": "Perlite", "qty": 2, "unit": "كيس", "image": "images/item-09.png", "section": "growing_media", "prices": {"ahl-alqimma": 70, "bustan-alkhuzama": 90}}, {"no": 10, "name_ar": "كمبوست", "name_en": "Compost", "qty": 3, "unit": "كيس", "image": "images/item-10.png", "section": "growing_media", "prices": {"ahl-alqimma": 115, "bustan-alkhuzama": 25}}], "summary": ["إجمالي أهل القمة 29,335 ريال قبل الضريبة (33,735.25 شامل)، وإجمالي بستان الخزامى 11,615 ريال قبل الضريبة (13,357.25 شامل) — فرق 17,720 ريال قبل الضريبة.", "العرضان مسعّران جميع البنود العشرة.", "بستان الخزامى أقل سعراً في 8 بنود، وأهل القمة أقل سعراً في البيتموس والبيرلايت فقط.", "الفرق الأساسي في المقاسات: أهل القمة مسعّر نباتات بمقاسات أكبر، بينما بستان الخزامى مسعّر نباتات بمقاسات أصغر.", "أكبر الفروق في الترادسكانتيا (6,500 مقابل 650)، الجهنمية (7,700 مقابل 3,850) والأكاليفا (5,400 مقابل 1,200).", "للمقارنة العادلة: توحيد المقاسات وطلب تسعير الطرفين على نفس المواصفة.", "قبل الاعتماد: شهادة التسجيل الضريبي من بستان الخزامى، وتأكيد شمول التوريد والزراعة والضمان في العرضين."], "recommendation": {"title": "نرشح مؤسسة بستان الخزامى الزراعية للتوريد.", "points": ["سبق التعامل معهم، ولديهم مشاتل خاصة بهم.", "يقدمون خدمة الزراعة والتركيب بالموقع، وتمديد الري العادي والأتوماتيك، وتنسيق الحدائق والصيانة الدورية.", "الاعتماد مشروط بـ: تأكيد المقاسات كتابياً، شهادة التسجيل الضريبي، وتحديد هل الزراعة والري داخلة في السعر."]}}</script>
 <script>
 const $=(s,r=document)=>r.querySelector(s);
+const $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const money=n=>Number(n).toLocaleString("en-US",{minimumFractionDigits:Number.isInteger(n)?0:2,maximumFractionDigits:2});
 const cur='<span class="cur">ر.س</span>';
 const short=n=>String(n).replace(/^مؤسسة\s+/,"").replace(/\s+(للمقاولات|الزراعية)$/,"");
 const SECTIONS={plants:["النباتات","PLANTS"],growing_media:["مواد زراعية","GROWING MEDIA"]};
+let D,R,state={vat:"before",filter:"all",open:new Set(),sup:null};
 
 async function load(){
   try{ const r=await fetch("data.json",{cache:"no-store"}); if(!r.ok) throw new Error(r.status); return await r.json(); }
   catch(e){ return JSON.parse($("#data").textContent); }
 }
-function calc(D){
-  const R={bySup:{},min:{}};
+function calc(){
+  R={bySup:{},min:{}};
   D.suppliers.forEach(s=>{
-    const lines=D.items.map(i=>{const p=i.prices[s.id]; return {no:i.no,price:p,total:(p==null?null:i.qty*p)};});
+    const lines=D.items.map(i=>{const p=i.prices[s.id]; return {no:i.no,price:p,total:p==null?null:i.qty*p};});
     const before=lines.reduce((a,l)=>a+(l.total||0),0), vat=before*D.project.vat;
-    R.bySup[s.id]={lines,before,vat,after:before+vat,priced:lines.filter(l=>l.total!=null).length};
+    R.bySup[s.id]={before,vat,after:before+vat,priced:lines.filter(l=>l.total!=null).length};
   });
   D.items.forEach(i=>{
-    const vals=D.suppliers.map(s=>({id:s.id,p:i.prices[s.id]})).filter(x=>x.p!=null);
-    const m=Math.min(...vals.map(x=>x.p)); const win=vals.filter(x=>x.p===m).map(x=>x.id);
-    R.min[i.no]={price:m,win};
+    const v=D.suppliers.map(s=>({id:s.id,p:i.prices[s.id]})).filter(x=>x.p!=null);
+    const m=Math.min(...v.map(x=>x.p)), M=Math.max(...v.map(x=>x.p));
+    R.min[i.no]={price:m,max:M,win:v.filter(x=>x.p===m).map(x=>x.id)};
   });
-  return R;
 }
-function itemRow(i,cells){ return `<tr><td class="num">${i.no}</td><td class="ph"><img class="thumb" src="${esc(i.image)}" alt="${esc(i.name_ar)}" loading="lazy"></td><td class="nm"><b>${esc(i.name_ar)}</b><span>${esc(i.name_en)}</span></td><td><span class="qty">${money(i.qty)}</span><span class="unit">${esc(i.unit)}</span></td>${cells}</tr>`; }
-function bar(key,cols){ const t=SECTIONS[key]||[key,""]; return `<tr class="bar"><td colspan="${cols}"><div class="barc">${esc(t[0])} / <span class="en">${esc(t[1])}</span></div></td></tr>`; }
-function grouped(D,rowFn,cols){
-  let out="",last=null; D.items.forEach(i=>{ if(i.section!==last){ out+=bar(i.section,cols); last=i.section; } out+=rowFn(i); }); return out;
+const nameOf=id=>short(D.suppliers.find(s=>s.id===id).name);
+
+/* ---------- hero ---------- */
+function heroHTML(){
+  const P=D.project, S=D.suppliers, key=state.vat;
+  const vals=S.map(s=>R.bySup[s.id][key]); const lo=Math.min(...vals), hi=Math.max(...vals);
+  const cards=S.map(s=>{
+    const t=R.bySup[s.id][key], win=t===lo&&S.length>1;
+    return `<article class="sc${win?" win":""}">${win?'<span class="badge">الأقل سعراً</span>':""}<h2>${esc(s.name)}</h2><div class="lbl" style="margin-top:8px">${key==="before"?"الإجمالي قبل الضريبة":"الإجمالي بعد الضريبة"}</div><div class="tot">${money(t)}${cur}</div><div class="qn">عرض رقم ${esc(s.quote_no||"—")}${s.date?" · "+esc(s.date):""} · ${R.bySup[s.id].priced} من ${D.items.length} بنود مسعّرة</div><div class="acts"><button class="btn pri" data-sup="${esc(s.id)}" type="button">تفاصيل العرض</button><button class="btn" data-orig="${esc(s.id)}" type="button">العرض الأصلي</button></div></article>`;
+  }).join("");
+  const pct=hi?Math.round((hi-lo)/hi*1000)/10:0;
+  const save=S.length>1?`<div class="save"><span>الفرق بين العرضين ${key==="before"?"قبل الضريبة":"بعد الضريبة"}</span><b class="num">${money(Math.round((hi-lo)*100)/100)} ${cur}</b><span>(${pct}% أقل مع ${esc(nameOf(S[vals.indexOf(lo)].id))})</span></div>`:"";
+  return `<section id="top" class="hero"><h1>مقارنة عروض أسعار – نباتات</h1><div class="sub en">Plants · Quotation Comparison</div>
+    <dl class="meta"><div><dt>PROJECT</dt><dd>${esc(P.name)}</dd></div><div><dt>LOCATION</dt><dd>${esc(P.location)}</dd></div><div><dt>DATE</dt><dd class="num">${esc(P.comparison_date.replaceAll("-","/"))}</dd></div></dl>
+    <div class="vatsw" role="group" aria-label="عرض الأسعار"><button type="button" data-vat="before" aria-pressed="${key==="before"}">قبل الضريبة</button><button type="button" data-vat="after" aria-pressed="${key==="after"}">بعد الضريبة ${Math.round(P.vat*100)}%</button></div>
+    <div class="cards">${cards}</div>${save}</section>`;
 }
 
-function render(D){
-  const R=calc(D), S=D.suppliers, P=D.project;
-  const vatPct=Math.round(P.vat*100);
-  /* header */
-  let h=`<header class="hd"><img class="logo" src="${esc(D.brand.logo)}" alt="VIVID"><div class="ttl"><h1>مقارنة عروض أسعار – نباتات</h1><div class="en">Plants · Quotation Comparison</div></div><button class="pbtn" type="button" id="print">طباعة / حفظ PDF</button>
-  <dl class="meta"><div><dt>PROJECT</dt><dd>${esc(P.name)}</dd></div><div><dt>LOCATION</dt><dd>${esc(P.location)}</dd></div><div><dt>DATE</dt><dd class="num">${esc(P.comparison_date.replaceAll("-","/"))}</dd></div></dl></header>`;
+/* ---------- items ---------- */
+function rowHTML(i){
+  const S=D.suppliers, m=R.min[i.no], open=state.open.has(i.no);
+  const pcs=S.map(s=>{const p=i.prices[s.id]; if(p==null) return `<span class="pc">—</span>`; const low=m.win.includes(s.id)&&m.win.length<S.length; return `<span class="pc${low?" low":""}"><b>${money(i.qty*p)}</b><i>${money(p)} × ${money(i.qty)}</i></span>`;}).join("");
+  const tie=m.win.length===S.length;
+  const pct=m.max?Math.round((m.max-m.price)/m.max*100):0;
+  const who=tie?`<span class="who">متساوي</span>`:`<span class="who">${esc(m.win.map(nameOf).join(" / "))}<small>أقل بنسبة ${pct}%</small></span>`;
+  const bars=S.map(s=>{const p=i.prices[s.id]; if(p==null) return ""; const lo=m.win.includes(s.id)&&!tie; return `<div class="bar${lo?" lo":""}"><span class="nm">${esc(short(s.name))}</span><span class="tr"><i style="width:${m.max?p/m.max*100:0}%"></i></span><span class="v">${money(p)} ${cur}</span></div>`;}).join("");
+  const diffU=m.max-m.price, diffT=diffU*i.qty;
+  const detail=`<div class="rd"><img class="big" src="${esc(i.image)}" alt="${esc(i.name_ar)}" data-zoom="${esc(i.image)}" data-cap="${esc(i.name_ar)}"><div class="bars"><div style="font-weight:800">سعر الوحدة (${esc(i.unit)})</div>${bars}${tie?"":`<div class="gap">الفرق في سعر الوحدة <b class="num">${money(diffU)}</b> ر.س · وفي إجمالي البند <b class="num">${money(diffT)}</b> ر.س</div>`}</div></div>`;
+  return `<article class="row${open?" open":""}" data-no="${i.no}"><button class="rh" type="button" aria-expanded="${open}"><span class="no">${i.no}</span><img class="thumb" src="${esc(i.image)}" alt="" loading="lazy"><span class="nmx"><b>${esc(i.name_ar)}</b><i>${esc(i.name_en)}</i></span><span class="q"><em>${money(i.qty)}</em><small>${esc(i.unit)}</small></span><span class="pcs">${pcs}</span>${who}<span class="chev">▾</span></button>${detail}</article>`;
+}
+function itemsHTML(){
+  const S=D.suppliers, counts={all:D.items.length}; Object.keys(SECTIONS).forEach(k=>counts[k]=D.items.filter(i=>i.section===k).length);
+  const chips=[["all","الكل"],...Object.entries(SECTIONS).map(([k,v])=>[k,v[0]])].map(([k,l])=>`<button class="chip" type="button" data-f="${k}" aria-pressed="${state.filter===k}">${l}<small>${counts[k]||0}</small></button>`).join("");
+  let rows="",last=null;
+  D.items.filter(i=>state.filter==="all"||i.section===state.filter).forEach(i=>{ if(i.section!==last){ const t=SECTIONS[i.section]||[i.section,""]; rows+=`<div class="grp">${esc(t[0])} / <span class="en">${esc(t[1])}</span></div>`; last=i.section; } rows+=rowHTML(i); });
+  const cols=`<div class="cols"><span>#</span><span></span><span>الصنف</span><span>الكمية</span>${S.map(s=>`<span>${esc(short(s.name))}<br><span style="font-weight:600">الإجمالي</span></span>`).join("")}<span>الأرخص</span><span></span></div>`;
+  return `<section id="items"><h2 class="sec">مقارنة البنود <span class="en">Items</span></h2><p class="hint">اضغط على أي بند لتشوف الفرق في السعر والصورة بالتفصيل.</p>
+   <div class="tools">${chips}<span class="sp"></span><button class="link" type="button" id="toggleAll">${state.open.size?"طي الكل":"فتح الكل"}</button></div>${cols}<div id="rows">${rows}</div></section>`;
+}
 
-  /* comparison table */
-  const cols=4+S.length*2+2;
-  const head=`<thead><tr><th rowspan="2">#</th><th rowspan="2"></th><th rowspan="2" style="text-align:start">الصنف</th><th rowspan="2">الكمية</th>${S.map(s=>`<th colspan="2" class="sup">${esc(short(s.name))}</th>`).join("")}<th rowspan="2">أقل سعر<br><span class="en" style="font-size:.62rem;color:#8C8C8C">LOWEST</span></th><th rowspan="2">الأرخص</th></tr><tr class="sub">${S.map(()=>`<th>سعر الوحدة</th><th>الإجمالي</th>`).join("")}</tr></thead>`;
-  const body=grouped(D,i=>{
-    const m=R.min[i.no];
-    const cells=S.map(s=>{const p=i.prices[s.id], low=m.win.includes(s.id)&&S.length>1; return p==null?`<td>—</td><td>—</td>`:`<td class="num${low?" low":""}">${money(p)}</td><td class="num${low?" low":""}">${money(i.qty*p)}</td>`;}).join("");
-    const who=m.win.length===S.length?"متساوي":m.win.map(id=>short(S.find(s=>s.id===id).name)).join(" / ");
-    return itemRow(i,`${cells}<td class="num"><b>${money(m.price)}</b></td><td class="who">${esc(who)}</td>`);
-  },cols);
-  const table=`<h2 class="sec">جدول المقارنة <span class="en">Comparison</span></h2><div class="scroll"><table>${head}<tbody>${body}</tbody></table></div>`;
-
-  /* totals */
-  const A=R.bySup[S[0].id], B=S[1]?R.bySup[S[1].id]:null;
-  const gap=(k)=>B?`<td class="num gap">${money(Math.abs(A[k]-B[k]))}</td>`:"";
-  const totals=`<h2 class="sec">الإجماليات <span class="en">Totals</span></h2><div class="scroll tot"><table><thead><tr><th></th>${S.map(s=>`<th>${esc(short(s.name))}</th>`).join("")}${B?`<th>الفرق</th>`:""}</tr></thead><tbody>
-    <tr><td>الإجمالي قبل الضريبة</td>${S.map(s=>`<td class="num">${money(R.bySup[s.id].before)} ${cur}</td>`).join("")}${gap("before")}</tr>
-    <tr><td>ضريبة القيمة المضافة ${vatPct}%</td>${S.map(s=>`<td class="num">${money(R.bySup[s.id].vat)} ${cur}</td>`).join("")}${gap("vat")}</tr>
-    <tr class="after"><td>الإجمالي بعد الضريبة</td>${S.map(s=>`<td class="num">${money(R.bySup[s.id].after)} ${cur}</td>`).join("")}${B?`<td class="num">${money(Math.abs(A.after-B.after))} ${cur}</td>`:""}</tr>
-    <tr><td>عدد البنود المسعّرة</td>${S.map(s=>`<td class="num">${R.bySup[s.id].priced} / ${D.items.length}</td>`).join("")}${B?"<td></td>":""}</tr></tbody></table></div>`;
-
-  /* summary + recommendation */
-  const sum=`<h2 class="sec">ملخص المقارنة <span class="en">Summary</span></h2><div class="sum"><ul>${D.summary.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></div>`;
+/* ---------- totals / summary ---------- */
+function totalsHTML(){
+  const S=D.suppliers, P=D.project, vp=Math.round(P.vat*100);
+  const boxes=S.map(s=>{const t=R.bySup[s.id]; return `<div class="tb"><h3>${esc(s.name)}</h3><div class="l"><span>الإجمالي قبل الضريبة</span><span class="num">${money(t.before)}${cur}</span></div><div class="l"><span>ضريبة القيمة المضافة ${vp}%</span><span class="num">${money(t.vat)}${cur}</span></div><div class="l after"><span>الإجمالي بعد الضريبة</span><span class="num">${money(t.after)}${cur}</span></div><div class="l"><span>عدد البنود المسعّرة</span><span class="num">${t.priced} / ${D.items.length}</span></div></div>`;}).join("");
+  let diff="";
+  if(S.length>1){const a=R.bySup[S[0].id], b=R.bySup[S[1].id]; diff=`<div class="diffbar"><span>الفرق قبل الضريبة: <b class="num">${money(Math.abs(a.before-b.before))}</b></span><span>الفرق بعد الضريبة: <b class="num">${money(Math.abs(a.after-b.after))}</b></span></div>`;}
+  return `<section id="totals"><h2 class="sec">الإجماليات <span class="en">Totals</span></h2><div class="totbox">${boxes}</div>${diff}</section>`;
+}
+function recoHTML(){
+  const sum=`<div class="sum"><ul>${D.summary.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></div>`;
   const rec=D.recommendation?`<div class="rec"><div class="rt">${esc(D.recommendation.title)}</div><ul>${D.recommendation.points.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></div>`:"";
+  return `<section id="reco"><h2 class="sec">الملخص والتوصية <span class="en">Summary &amp; Recommendation</span></h2>${sum}${rec}</section>`;
+}
+function origHTML(){
+  const cards=D.suppliers.filter(s=>s.original_image).map(s=>`<button class="og" type="button" data-orig="${esc(s.id)}"><div class="pv"><img src="${esc(s.original_image)}" alt="العرض الأصلي – ${esc(s.name)}" loading="lazy"></div><div class="cap"><b>${esc(s.name)}</b><span>فتح وتكبير ↗</span></div></button>`).join("");
+  return `<section id="orig"><h2 class="sec">العروض الأصلية <span class="en">Original quotations</span></h2><p class="hint">اضغط على أي عرض لفتحه بحجم كبير.</p><div class="origs">${cards}</div></section>`;
+}
 
-  /* suppliers */
+/* ---------- supplier detail ---------- */
+function supHTML(){
+  const S=D.suppliers; if(!state.sup) state.sup=S[0].id;
   const na=v=>v==null||v===""?`<dd class="na">غير مذكور</dd>`:`<dd>${esc(v)}</dd>`;
-  const sups=S.map((s,k)=>{
+  const tabs=`<div class="stabs" role="tablist">${S.map(s=>`<button class="st" type="button" role="tab" data-sup="${esc(s.id)}" aria-selected="${s.id===state.sup}"><b>${esc(s.name)}</b><small>${money(R.bySup[s.id].before)} ر.س قبل الضريبة</small></button>`).join("")}</div>`;
+  const panels=S.map(s=>{
     const t=R.bySup[s.id];
     const cr=s.cr?[["السجل التجاري (الفرع)",s.cr.branch],["السجل التجاري (الرئيسي)",s.cr.main],["الرقم الموحد",s.cr.unified],["انتهاء الشهادة (هجري)",s.cr.certificate_expiry_hijri]].map(([a,b])=>`<div><dt>${a}</dt>${na(b)}</div>`).join(""):`<div><dt>السجل التجاري</dt>${na(null)}</div>`;
-    const info=`<dl class="info"><div><dt>اسم المورد</dt><dd>${esc(s.name)}</dd></div><div><dt>رقم العرض</dt>${na(s.quote_no)}</div><div><dt>التاريخ</dt>${na(s.date)}</div><div><dt>الرقم الضريبي</dt>${na(s.vat_no)}</div>${s.zatca_establishment_no?`<div><dt>رقم المنشأة (زاتكا)</dt>${na(s.zatca_establishment_no)}</div>`:""}${cr}<div><dt>العنوان</dt>${na(s.address)}</div><div><dt>الجوال</dt><dd class="num" dir="ltr" style="text-align:end">${esc(s.phone||"—")}</dd></div></dl>`;
-    const c2=7;
-    const rows=grouped(D,i=>{const p=i.prices[s.id]; return itemRow(i,p==null?`<td>—</td><td>—</td>`:`<td class="num">${money(p)}</td><td class="num"><b>${money(i.qty*p)}</b></td>`);},c2+0);
-    const tbl=`<div class="scroll"><table style="min-width:640px"><thead><tr><th>#</th><th></th><th style="text-align:start">الصنف</th><th>الكمية</th><th>سعر الوحدة</th><th>الإجمالي</th></tr></thead><tbody>${rows}</tbody></table></div>`;
-    const tb=`<div class="scroll tot" style="margin-top:12px"><table style="min-width:420px"><tbody><tr><td>الإجمالي قبل الضريبة</td><td class="num">${money(t.before)} ${cur}</td></tr><tr><td>ضريبة القيمة المضافة ${vatPct}%</td><td class="num">${money(t.vat)} ${cur}</td></tr><tr class="after"><td>الإجمالي بعد الضريبة</td><td class="num">${money(t.after)} ${cur}</td></tr></tbody></table></div>`;
-    let cmp="";
-    if(s.stated_total_after_vat!=null||s.stated_subtotal_handwritten!=null){
-      const afterBasis=s.stated_total_after_vat!=null, stated=afterBasis?s.stated_total_after_vat:s.stated_subtotal_handwritten, calcd=afterBasis?t.after:t.before, diff=Math.round((calcd-stated)*100)/100;
-      cmp=`<div class="cmpx"><div><small>${afterBasis?"الإجمالي المكتوب في العرض (شامل الضريبة)":"الإجمالي المكتوب في العرض (قبل الضريبة، بخط اليد)"}</small><b>${money(stated)}</b></div><div><small>${afterBasis?"المحسوب (بعد الضريبة)":"المحسوب (قبل الضريبة)"}</small><b>${money(calcd)}</b></div><div class="${diff!==0?"bad":""}"><small>الفرق</small><b>${diff>0?"+":""}${money(diff)}</b></div></div>`;
-    }
-    const notes=s.notes&&s.notes.length?`<h2 class="sec" style="font-size:1.05rem">ملاحظات <span class="en">Notes</span></h2><ul class="notes">${s.notes.map(n=>`<li>${esc(n)}</li>`).join("")}</ul>`:"";
-    const orig=s.original_image?`<div class="orig"><h2 class="sec" style="font-size:1.05rem">العرض الأصلي <span class="en">Original quotation</span></h2><a href="${esc(s.original_image)}" target="_blank" rel="noopener"><img src="${esc(s.original_image)}" alt="العرض الأصلي – ${esc(s.name)}" loading="lazy"></a></div>`:"";
-    return `<section class="sp${k===0?" on sp-first":""}" id="sp-${esc(s.id)}" role="tabpanel"><div class="notice">العرض الأصلي موجود في آخر هذا القسم.</div>${info}${tbl}${tb}${cmp}${notes}${orig}</section>`;
+    const info=`<dl class="info"><div><dt>رقم العرض</dt>${na(s.quote_no)}</div><div><dt>التاريخ</dt>${na(s.date)}</div><div><dt>الرقم الضريبي</dt>${na(s.vat_no)}</div>${s.zatca_establishment_no?`<div><dt>رقم المنشأة (زاتكا)</dt>${na(s.zatca_establishment_no)}</div>`:""}${cr}<div><dt>العنوان</dt>${na(s.address)}</div><div><dt>الجوال</dt><dd class="num" dir="ltr" style="text-align:end">${esc(s.phone||"—")}</dd></div></dl>`;
+    let rows="",last=null; D.items.forEach(i=>{ if(i.section!==last){ const tt=SECTIONS[i.section]||[i.section,""]; rows+=`<tr class="bar2"><td colspan="6">${esc(tt[0])} / <span class="en" style="font-size:.7rem;color:#8C8C8C">${esc(tt[1])}</span></td></tr>`; last=i.section; } const p=i.prices[s.id];
+      rows+=`<tr><td class="num">${i.no}</td><td><img class="thumb" src="${esc(i.image)}" alt="" loading="lazy" style="margin-inline:auto"></td><td class="nm"><b>${esc(i.name_ar)}</b><span>${esc(i.name_en)}</span></td><td><b class="num" style="color:#D9772E">${money(i.qty)}</b> <small style="color:#8C8C8C">${esc(i.unit)}</small></td>${p==null?"<td>—</td><td>—</td>":`<td class="num">${money(p)}</td><td class="num"><b>${money(i.qty*p)}</b></td>`}</tr>`; });
+    const tbl=`<div class="scroll"><table style="min-width:600px"><thead><tr><th>#</th><th></th><th style="text-align:start">الصنف</th><th>الكمية</th><th>سعر الوحدة</th><th>الإجمالي</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+    const tb=`<div class="tb" style="margin-top:14px"><div class="l"><span>الإجمالي قبل الضريبة</span><span class="num">${money(t.before)}${cur}</span></div><div class="l"><span>ضريبة القيمة المضافة ${Math.round(D.project.vat*100)}%</span><span class="num">${money(t.vat)}${cur}</span></div><div class="l after"><span>الإجمالي بعد الضريبة</span><span class="num">${money(t.after)}${cur}</span></div></div>`;
+    let cmp=""; if(s.stated_total_after_vat!=null||s.stated_subtotal_handwritten!=null){
+      const ab=s.stated_total_after_vat!=null, st=ab?s.stated_total_after_vat:s.stated_subtotal_handwritten, c=ab?t.after:t.before, diff=Math.round((c-st)*100)/100;
+      cmp=`<div class="cmpx"><div><small>${ab?"الإجمالي المكتوب في العرض (شامل الضريبة)":"الإجمالي المكتوب في العرض (قبل الضريبة، بخط اليد)"}</small><b>${money(st)}</b></div><div><small>${ab?"المحسوب (بعد الضريبة)":"المحسوب (قبل الضريبة)"}</small><b>${money(c)}</b></div><div class="${diff!==0?"bad":""}"><small>الفرق</small><b>${diff>0?"+":""}${money(diff)}</b></div></div>`; }
+    const notes=s.notes&&s.notes.length?`<h3 style="margin:22px 0 0;font-weight:900">ملاحظات</h3><ul class="notes">${s.notes.map(n=>`<li>${esc(n)}</li>`).join("")}</ul>`:"";
+    const orig=s.original_image?`<div style="margin-top:18px"><button class="btn pri" type="button" data-orig="${esc(s.id)}">عرض العرض الأصلي</button></div>`:"";
+    return `<div class="sp-d${s.id===state.sup?" on":""}" id="sp-${esc(s.id)}" role="tabpanel">${info}${tbl}${tb}${cmp}${notes}${orig}</div>`;
   }).join("");
-  const tabs=`<div class="tabs" role="tablist">${S.map((s,k)=>`<button class="tab" type="button" role="tab" aria-selected="${k===0}" data-t="${esc(s.id)}">${esc(s.name)}</button>`).join("")}</div>`;
-  const supp=`<h2 class="sec">تفاصيل الموردين <span class="en">Suppliers</span></h2>${tabs}${sups}`;
-
-  const foot=`<footer><div class="en">Designed by VIVIDGROUP</div><p>www.vivid.sa · info@vivid.sa</p></footer>`;
-  $("#app").innerHTML=h+table+totals+sum+rec+supp+foot;
-  document.title=`مقارنة عروض أسعار – نباتات | ${P.name}`;
-  window.__CALC=R;
+  return `<section id="sups"><h2 class="sec">بيانات الموردين <span class="en">Suppliers</span></h2>${tabs}${panels}</section>`;
 }
+
+function render(){
+  $("#app").innerHTML=heroHTML()+itemsHTML()+totalsHTML()+recoHTML()+origHTML()+supHTML()+`<footer><div class="en">Designed by VIVIDGROUP</div><p>${esc(D.brand.website)} · ${esc(D.brand.email)}</p></footer>`;
+  document.title=`مقارنة عروض أسعار – نباتات | ${D.project.name}`;
+}
+
+/* ---------- lightbox ---------- */
+function lightbox(src,cap,small){
+  const el=document.createElement("div"); el.className="lb"+(small?" small":""); el.setAttribute("role","dialog"); el.setAttribute("aria-label",cap);
+  el.innerHTML=`<div class="bar2"><div><b>${esc(cap)}</b><br><small>${small?"":"اضغط على الصورة للتكبير"}</small></div><button class="x" type="button" aria-label="إغلاق">×</button></div><div class="body"><img src="${esc(src)}" alt="${esc(cap)}"></div>`;
+  el.addEventListener("click",e=>{ if(e.target.tagName==="IMG"&&!small){ e.target.classList.toggle("z"); return; } if(e.target===el||e.target.closest(".x")||e.target.classList.contains("body")) el.remove(); });
+  document.body.appendChild(el); document.body.style.overflow="hidden"; new MutationObserver((_,o)=>{ if(!document.body.contains(el)){ document.body.style.overflow=""; o.disconnect(); } }).observe(document.body,{childList:true});
+}
+
+/* ---------- events ---------- */
 document.addEventListener("click",e=>{
-  const t=e.target.closest("button"); if(!t) return;
-  if(t.id==="print"){ window.print(); return; }
-  if(t.dataset.t){ document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",b===t)); document.querySelectorAll(".sp").forEach(p=>p.classList.toggle("on",p.id==="sp-"+t.dataset.t)); }
+  const t=e.target.closest("button,a");
+  const img=e.target.closest("[data-zoom]"); if(img){ lightbox(img.dataset.zoom,img.dataset.cap||"",true); return; }
+  if(!t) return;
+  if(t.dataset.vat){ state.vat=t.dataset.vat; $("#top").outerHTML=heroHTML(); return; }
+  if(t.dataset.f){ state.filter=t.dataset.f; $("#items").outerHTML=itemsHTML(); return; }
+  if(t.id==="toggleAll"){ if(state.open.size) state.open.clear(); else D.items.filter(i=>state.filter==="all"||i.section===state.filter).forEach(i=>state.open.add(i.no)); $("#items").outerHTML=itemsHTML(); return; }
+  if(t.classList.contains("rh")){ const row=t.closest(".row"), no=+row.dataset.no; if(state.open.has(no)) state.open.delete(no); else state.open.add(no); row.classList.toggle("open"); t.setAttribute("aria-expanded",state.open.has(no)); $("#toggleAll").textContent=state.open.size?"طي الكل":"فتح الكل"; return; }
+  if(t.dataset.orig){ const s=D.suppliers.find(x=>x.id===t.dataset.orig); if(s&&s.original_image) lightbox(s.original_image,"العرض الأصلي – "+s.name,false); return; }
+  if(t.dataset.sup){ state.sup=t.dataset.sup; $("#sups").outerHTML=supHTML(); if(t.classList.contains("btn")) $("#sups").scrollIntoView({behavior:"smooth",block:"start"}); return; }
 });
-load().then(render).catch(err=>{ $("#app").innerHTML='<p style="padding:40px 0;color:#C8102E">تعذّر تحميل البيانات.</p>'; console.error(err); });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape") $(".lb")?.remove(); });
+
+/* scrollspy */
+function spy(){
+  const ids=["top","items","totals","reco","orig","sups"]; const links=Object.fromEntries($$("#nav a").map(a=>[a.dataset.s,a]));
+  const io=new IntersectionObserver(es=>{ es.forEach(en=>{ if(en.isIntersecting){ $$("#nav a").forEach(a=>a.classList.remove("on")); links[en.target.id]?.classList.add("on"); links[en.target.id]?.scrollIntoView({block:"nearest",inline:"center"}); } }); },{rootMargin:"-30% 0px -60% 0px"});
+  ids.forEach(id=>{const el=document.getElementById(id); if(el) io.observe(el);});
+}
+load().then(d=>{ D=d; calc(); render(); window.__CALC=R; spy(); }).catch(err=>{ $("#app").innerHTML='<p style="padding:40px 0;color:#C8102E">تعذّر تحميل البيانات.</p>'; console.error(err); });
 </script>
 </body>
 </html>
