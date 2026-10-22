@@ -13,10 +13,15 @@
 <meta property="og:image" content="https://taha94651-wq.github.io/projects/plants-comparison/images/item-07.png">
 <meta property="og:url" content="https://taha94651-wq.github.io/projects/plants-comparison/">
 <link rel="icon" href="images/vivid-logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Barlow:wght@500;600;700&display=swap">
 <style>
+@font-face{font-family:"Cairo";font-weight:400;font-display:swap;src:url(fonts/Cairo-400.ttf) format("truetype")}
+@font-face{font-family:"Cairo";font-weight:600;font-display:swap;src:url(fonts/Cairo-600.ttf) format("truetype")}
+@font-face{font-family:"Cairo";font-weight:700;font-display:swap;src:url(fonts/Cairo-700.ttf) format("truetype")}
+@font-face{font-family:"Cairo";font-weight:800;font-display:swap;src:url(fonts/Cairo-800.ttf) format("truetype")}
+@font-face{font-family:"Cairo";font-weight:900;font-display:swap;src:url(fonts/Cairo-900.ttf) format("truetype")}
+@font-face{font-family:"Barlow";font-weight:500;font-display:swap;src:url(fonts/Barlow-500.ttf) format("truetype")}
+@font-face{font-family:"Barlow";font-weight:600;font-display:swap;src:url(fonts/Barlow-600.ttf) format("truetype")}
+@font-face{font-family:"Barlow";font-weight:700;font-display:swap;src:url(fonts/Barlow-700.ttf) format("truetype")}
 /* Layout: interactive VIVID quotation site — sticky nav, two supplier cards on top, tap-to-expand item rows, original quotes in a lightbox */
 :root{
   --black:#111111; --orange:#D9772E; --red:#C8102E; --gray:#8C8C8C; --line:#D9D9D9;
@@ -45,6 +50,9 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
 .nav a{white-space:nowrap;text-decoration:none;font-weight:700;font-size:.88rem;padding:7px 12px;border-radius:999px;color:#444}
 .nav a:hover{background:var(--soft)}
 .nav a.on{background:var(--black);color:#fff}
+.navpdf{flex:none;text-decoration:none;font-weight:800;font-size:.8rem;border:1.5px solid var(--black);border-radius:999px;padding:5px 12px;font-family:var(--f-en);letter-spacing:.06em}
+.navpdf:hover{background:var(--black);color:#fff}
+@media (max-width:640px){.navpdf{display:none}}
 
 /* hero */
 .hero{padding-block:26px 8px}
@@ -55,7 +63,8 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
 .meta dd{margin:0;font-weight:800;color:var(--orange)}
 .meta div{min-width:120px}
 
-.vatsw{display:inline-flex;border:1.5px solid var(--black);border-radius:999px;padding:3px;margin-top:18px}
+.hacts{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.vatsw{display:inline-flex;border:1.5px solid var(--black);border-radius:999px;padding:3px;margin-top:14px}
 .vatsw button{padding:6px 16px;border-radius:999px;font-weight:700;font-size:.86rem;color:#555}
 .vatsw button[aria-pressed="true"]{background:var(--black);color:#fff}
 
@@ -220,10 +229,55 @@ footer p{margin:4px 0 0;color:var(--gray);font-family:var(--f-en);font-size:.84r
 .lb small{color:#ccc}
 
 @media print{
-  .top,.tools,.vatsw,.btn,.stabs,.lb,.chev{display:none!important}
-  .sp-d{display:block!important;break-before:page}
-  .row .rd{display:none!important}
-  .wrap{max-width:none}
+  html{scroll-padding-top:0}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{font-size:11.5px}
+  .top,.tools,.vatsw,.hacts,.hint,.stabs,.lb,.chev,.btn,.acts,.navpdf,.og .cap span,.rd{display:none!important}
+  .wrap{max-width:none;padding-inline:0}
+  .hero{padding-top:0}
+  h2.sec{margin:14px 0 8px;break-after:avoid}
+  .sc{box-shadow:none;break-inside:avoid}
+  .sc .badge{inset-block-start:-9px}
+  .save,.diffbar,.tb,.rec,.cmpx{break-inside:avoid}
+  .row,.grp,.notes li{break-inside:avoid}
+  #items{break-before:page}
+  #items h2.sec{margin-top:0}
+  .rh{padding:2px 8px;gap:8px}
+  .thumb{width:28px;height:28px;border-radius:5px}
+  .nmx b{font-size:.84rem;line-height:1.25}.nmx i{font-size:.66rem}
+  .q em{font-size:1.05rem}.q small{font-size:.6rem}
+  .pc{padding:2px 4px}.pc b{font-size:.86rem}.pc i{font-size:.62rem}
+  .who{font-size:.72rem}.who small{font-size:.62rem}
+  .grp{padding:8px 4px 2px}
+  .cols{padding:4px 8px}
+  .scroll{overflow:visible}
+  .tb .l{padding:5px 0}
+  .tb h3{margin:6px 0 2px}
+  .sum li{padding-top:5px;padding-bottom:5px}
+  .rec{padding:10px 16px;margin-top:10px}
+  #orig{break-before:page}
+  #orig h2.sec{margin-top:0}
+  .origs{display:block}
+  .og{border:0;text-align:center}
+  .og + .og{break-before:page}
+  .og .pv{height:auto;overflow:visible;background:none}
+  .og .pv::after{display:none}
+  .og .pv img{max-height:150mm;width:auto;margin:0 auto}
+  .og .cap{justify-content:center;padding:6px}
+  #sups{break-before:page}
+  #sups h2.sec{margin-top:0}
+  .sp-d{display:block!important}
+  .sp-d + .sp-d{break-before:page}
+  .sp-d .thumb{display:none}
+  .sp-d td,.sp-d th{padding:3px 8px}
+  .sp-d td.nm{min-width:0}
+  .sp-d td.nm b,.sp-d td.nm span{display:inline}
+  .sp-d td.nm span{margin-inline-start:8px;font-size:.7rem}
+  tr.bar2 td{padding:8px 8px 2px}
+  .info{gap:6px 16px;margin-bottom:8px}
+  .notes li{padding:4px 0;font-size:10.5px}
+  .cmpx{margin-top:8px}
+  footer{margin-top:16px;padding-top:12px}
 }
 @page{size:A4 landscape;margin:10mm}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
@@ -235,6 +289,7 @@ footer p{margin:4px 0 0;color:var(--gray);font-family:var(--f-en);font-size:.84r
   <nav class="nav" id="nav" aria-label="الأقسام">
     <a href="#top" data-s="top" class="on">العروض</a><a href="#items" data-s="items">البنود</a><a href="#totals" data-s="totals">الإجماليات</a><a href="#reco" data-s="reco">التوصية</a><a href="#orig" data-s="orig">العروض الأصلية</a><a href="#sups" data-s="sups">بيانات الموردين</a>
   </nav>
+  <a class="navpdf" href="plants-quotation-comparison.pdf" download="Plants-Quotation-Comparison.pdf">PDF ⬇</a>
 </div></header>
 
 <main class="wrap" id="app"><p style="padding:40px 0;color:#8C8C8C">جارٍ تحميل البيانات…</p></main>
@@ -281,6 +336,7 @@ function heroHTML(){
   const save=S.length>1?`<div class="save"><span>الفرق بين العرضين ${key==="before"?"قبل الضريبة":"بعد الضريبة"}</span><b class="num">${money(Math.round((hi-lo)*100)/100)} ${cur}</b><span>(${pct}% أقل مع ${esc(nameOf(S[vals.indexOf(lo)].id))})</span></div>`:"";
   return `<section id="top" class="hero"><h1>مقارنة عروض أسعار – نباتات</h1><div class="sub en">Plants · Quotation Comparison</div>
     <dl class="meta"><div><dt>PROJECT</dt><dd>${esc(P.name)}</dd></div><div><dt>LOCATION</dt><dd>${esc(P.location)}</dd></div><div><dt>DATE</dt><dd class="num">${esc(P.comparison_date.replaceAll("-","/"))}</dd></div></dl>
+    <div class="hacts"><button class="btn" type="button" id="printBtn">🖨 طباعة</button><a class="btn pri" id="pdfBtn" href="plants-quotation-comparison.pdf" download="Plants-Quotation-Comparison.pdf">⬇ تحميل PDF</a></div>
     <div class="vatsw" role="group" aria-label="عرض الأسعار"><button type="button" data-vat="before" aria-pressed="${key==="before"}">قبل الضريبة</button><button type="button" data-vat="after" aria-pressed="${key==="after"}">بعد الضريبة ${Math.round(P.vat*100)}%</button></div>
     <div class="cards">${cards}</div>${save}</section>`;
 }
@@ -295,7 +351,7 @@ function rowHTML(i){
   const bars=S.map(s=>{const p=i.prices[s.id]; if(p==null) return ""; const lo=m.win.includes(s.id)&&!tie; return `<div class="bar${lo?" lo":""}"><span class="nm">${esc(short(s.name))}</span><span class="tr"><i style="width:${m.max?p/m.max*100:0}%"></i></span><span class="v">${money(p)} ${cur}</span></div>`;}).join("");
   const diffU=m.max-m.price, diffT=diffU*i.qty;
   const detail=`<div class="rd"><img class="big" src="${esc(i.image)}" alt="${esc(i.name_ar)}" data-zoom="${esc(i.image)}" data-cap="${esc(i.name_ar)}"><div class="bars"><div style="font-weight:800">سعر الوحدة (${esc(i.unit)})</div>${bars}${tie?"":`<div class="gap">الفرق في سعر الوحدة <b class="num">${money(diffU)}</b> ر.س · وفي إجمالي البند <b class="num">${money(diffT)}</b> ر.س</div>`}</div></div>`;
-  return `<article class="row${open?" open":""}" data-no="${i.no}"><button class="rh" type="button" aria-expanded="${open}"><span class="no">${i.no}</span><img class="thumb" src="${esc(i.image)}" alt="" loading="lazy"><span class="nmx"><b>${esc(i.name_ar)}</b><i>${esc(i.name_en)}</i></span><span class="q"><em>${money(i.qty)}</em><small>${esc(i.unit)}</small></span><span class="pcs">${pcs}</span>${who}<span class="chev">▾</span></button>${detail}</article>`;
+  return `<article class="row${open?" open":""}" data-no="${i.no}"><button class="rh" type="button" aria-expanded="${open}"><span class="no">${i.no}</span><img class="thumb" src="${esc(i.image)}" alt=""><span class="nmx"><b>${esc(i.name_ar)}</b><i>${esc(i.name_en)}</i></span><span class="q"><em>${money(i.qty)}</em><small>${esc(i.unit)}</small></span><span class="pcs">${pcs}</span>${who}<span class="chev">▾</span></button>${detail}</article>`;
 }
 function itemsHTML(){
   const S=D.suppliers, counts={all:D.items.length}; Object.keys(SECTIONS).forEach(k=>counts[k]=D.items.filter(i=>i.section===k).length);
@@ -335,7 +391,7 @@ function supHTML(){
     const cr=s.cr?[["السجل التجاري (الفرع)",s.cr.branch],["السجل التجاري (الرئيسي)",s.cr.main],["الرقم الموحد",s.cr.unified],["انتهاء الشهادة (هجري)",s.cr.certificate_expiry_hijri]].map(([a,b])=>`<div><dt>${a}</dt>${na(b)}</div>`).join(""):`<div><dt>السجل التجاري</dt>${na(null)}</div>`;
     const info=`<dl class="info"><div><dt>رقم العرض</dt>${na(s.quote_no)}</div><div><dt>التاريخ</dt>${na(s.date)}</div><div><dt>الرقم الضريبي</dt>${na(s.vat_no)}</div>${s.zatca_establishment_no?`<div><dt>رقم المنشأة (زاتكا)</dt>${na(s.zatca_establishment_no)}</div>`:""}${cr}<div><dt>العنوان</dt>${na(s.address)}</div><div><dt>الجوال</dt><dd class="num" dir="ltr" style="text-align:end">${esc(s.phone||"—")}</dd></div></dl>`;
     let rows="",last=null; D.items.forEach(i=>{ if(i.section!==last){ const tt=SECTIONS[i.section]||[i.section,""]; rows+=`<tr class="bar2"><td colspan="6">${esc(tt[0])} / <span class="en" style="font-size:.7rem;color:#8C8C8C">${esc(tt[1])}</span></td></tr>`; last=i.section; } const p=i.prices[s.id];
-      rows+=`<tr><td class="num">${i.no}</td><td><img class="thumb" src="${esc(i.image)}" alt="" loading="lazy" style="margin-inline:auto"></td><td class="nm"><b>${esc(i.name_ar)}</b><span>${esc(i.name_en)}</span></td><td><b class="num" style="color:#D9772E">${money(i.qty)}</b> <small style="color:#8C8C8C">${esc(i.unit)}</small></td>${p==null?"<td>—</td><td>—</td>":`<td class="num">${money(p)}</td><td class="num"><b>${money(i.qty*p)}</b></td>`}</tr>`; });
+      rows+=`<tr><td class="num">${i.no}</td><td><img class="thumb" src="${esc(i.image)}" alt="" style="margin-inline:auto"></td><td class="nm"><b>${esc(i.name_ar)}</b><span>${esc(i.name_en)}</span></td><td><b class="num" style="color:#D9772E">${money(i.qty)}</b> <small style="color:#8C8C8C">${esc(i.unit)}</small></td>${p==null?"<td>—</td><td>—</td>":`<td class="num">${money(p)}</td><td class="num"><b>${money(i.qty*p)}</b></td>`}</tr>`; });
     const tbl=`<div class="scroll"><table style="min-width:600px"><thead><tr><th>#</th><th></th><th style="text-align:start">الصنف</th><th>الكمية</th><th>سعر الوحدة</th><th>الإجمالي</th></tr></thead><tbody>${rows}</tbody></table></div>`;
     const tb=`<div class="tb" style="margin-top:14px"><div class="l"><span>الإجمالي قبل الضريبة</span><span class="num">${money(t.before)}${cur}</span></div><div class="l"><span>ضريبة القيمة المضافة ${Math.round(D.project.vat*100)}%</span><span class="num">${money(t.vat)}${cur}</span></div><div class="l after"><span>الإجمالي بعد الضريبة</span><span class="num">${money(t.after)}${cur}</span></div></div>`;
     let cmp=""; if(s.stated_total_after_vat!=null||s.stated_subtotal_handwritten!=null){
@@ -374,6 +430,17 @@ document.addEventListener("click",e=>{
   if(t.dataset.sup){ state.sup=t.dataset.sup; $("#sups").outerHTML=supHTML(); if(t.classList.contains("btn")) $("#sups").scrollIntoView({behavior:"smooth",block:"start"}); return; }
 });
 document.addEventListener("keydown",e=>{ if(e.key==="Escape") $(".lb")?.remove(); });
+async function warmImages(){
+  const imgs=$$("img[loading=lazy]"); imgs.forEach(i=>{ i.loading="eager"; });
+  await Promise.all(imgs.map(i=>i.complete?Promise.resolve():new Promise(r=>{ i.addEventListener("load",r,{once:true}); i.addEventListener("error",r,{once:true}); })));
+}
+document.addEventListener("click",async e=>{
+  const b=e.target.closest("#printBtn"); if(!b) return;
+  const old=b.textContent; b.textContent="جارٍ التجهيز…"; b.disabled=true;
+  try{ await Promise.race([warmImages(),new Promise(r=>setTimeout(r,6000))]); }catch(_){}
+  b.textContent=old; b.disabled=false; window.print();
+});
+window.addEventListener("beforeprint",()=>{ $$("img[loading=lazy]").forEach(i=>{ i.loading="eager"; }); });
 
 /* scrollspy */
 function spy(){
@@ -381,7 +448,7 @@ function spy(){
   const io=new IntersectionObserver(es=>{ es.forEach(en=>{ if(en.isIntersecting){ $$("#nav a").forEach(a=>a.classList.remove("on")); links[en.target.id]?.classList.add("on"); links[en.target.id]?.scrollIntoView({block:"nearest",inline:"center"}); } }); },{rootMargin:"-30% 0px -60% 0px"});
   ids.forEach(id=>{const el=document.getElementById(id); if(el) io.observe(el);});
 }
-load().then(d=>{ D=d; calc(); render(); window.__CALC=R; spy(); }).catch(err=>{ $("#app").innerHTML='<p style="padding:40px 0;color:#C8102E">تعذّر تحميل البيانات.</p>'; console.error(err); });
+load().then(d=>{ D=d; calc(); render(); window.__CALC=R; spy(); setTimeout(()=>{ $$("img[loading=lazy]").forEach(i=>{ i.loading="eager"; }); },2500); }).catch(err=>{ $("#app").innerHTML='<p style="padding:40px 0;color:#C8102E">تعذّر تحميل البيانات.</p>'; console.error(err); });
 </script>
 </body>
 </html>
