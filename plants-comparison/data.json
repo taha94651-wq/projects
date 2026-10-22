@@ -1,0 +1,220 @@
+{
+  "project": {
+    "name": "فيلا سكنية – الرياض",
+    "location": "القيروان، الرياض",
+    "rfq_date": "2026-10-21",
+    "comparison_date": "2026-10-22",
+    "currency": "SAR",
+    "vat": 0.15
+  },
+  "brand": {
+    "logo": "images/vivid-logo.png",
+    "colors": {
+      "black": "#111111",
+      "orange": "#D9772E",
+      "red": "#C8102E",
+      "gray": "#8C8C8C",
+      "line": "#D9D9D9"
+    },
+    "website": "www.vivid.sa",
+    "email": "info@vivid.sa"
+  },
+  "suppliers": [
+    {
+      "id": "ahl-alqimma",
+      "name": "مؤسسة أهل القمة للمقاولات",
+      "quote_no": "001075",
+      "date": "2026/10/22",
+      "vat_no": "302208364400003",
+      "cr": null,
+      "address": "الرياض – المربع، الرمز البريدي 12656",
+      "phone": "+966 56 505 5234",
+      "stated_total_after_vat": 33735.25,
+      "original_image": "images/original-ahl-alqimma.png",
+      "notes": [
+        "الحسابات مطابقة: 29,335 قبل الضريبة + 4,400.25 ضريبة = 33,735.25 ريال.",
+        "السجل التجاري واسم المسؤول غير مذكورين.",
+        "لا توجد مقاسات للنباتات.",
+        "البيتموس والكمبوست 40 لتر، البيرلايت بدون حجم.",
+        "لا ذكر للتوريد للموقع، الزراعة، الضمان، صلاحية العرض.",
+        "عمود الوحدة فارغ، وترقيم البنود مكرر (بندين برقم 9)."
+      ]
+    },
+    {
+      "id": "bustan-alkhuzama",
+      "name": "مؤسسة بستان الخزامى الزراعية",
+      "quote_no": "0096",
+      "date": null,
+      "vat_no": null,
+      "zatca_establishment_no": "3102325347",
+      "cr": {
+        "branch": "1010785369",
+        "main": "1010458875",
+        "unified": "7028113145",
+        "certificate_expiry_hijri": "1446/08/11"
+      },
+      "address": "المشتل: الرياض – حي الأمانة – مشتل رقم 2 | السجل: 7881 عثمان بن بشر، حي الدرعية الجديدة، 13732",
+      "phone": "+966 54 919 4767",
+      "phone_cr": "0115901191",
+      "stated_subtotal_handwritten": 11615,
+      "original_image": "images/original-bustan-alkhuzama.png",
+      "notes": [
+        "الواشنطونيا: سعر الوحدة مكتوب 2,200 والإجمالي مكتوب 3,200 — تم الاعتماد على 3,200، وبه يطابق مجموع البنود الإجمالي المكتوب 11,615.",
+        "الإجمالي شامل الضريبة: 11,615 × 1.15 = 13,357.25 ريال.",
+        "لا يوجد رقم ضريبة قيمة مضافة — يلزم طلب شهادة التسجيل الضريبي.",
+        "لا يوجد تاريخ ولا توقيع/ختم.",
+        "لا مقاسات للنباتات ولا أحجام للأكياس — الأسعار المنخفضة غالباً لمقاسات أصغر.",
+        "لا ذكر للتوريد للموقع أو الزراعة أو الضمان أو صلاحية العرض."
+      ]
+    }
+  ],
+  "items": [
+    {
+      "no": 1,
+      "name_ar": "جهنمية هولندي",
+      "name_en": "Bougainvillea Holandy",
+      "qty": 55,
+      "unit": "شتلة",
+      "image": "images/item-01.png",
+      "section": "plants",
+      "prices": {
+        "ahl-alqimma": 140,
+        "bustan-alkhuzama": 70
+      }
+    },
+    {
+      "no": 2,
+      "name_ar": "أكاليفا",
+      "name_en": "Acalypha",
+      "qty": 120,
+      "unit": "شتلة",
+      "image": "images/item-02.png",
+      "section": "plants",
+      "prices": {
+        "ahl-alqimma": 45,
+        "bustan-alkhuzama": 10
+      }
+    },
+    {
+      "no": 3,
+      "name_ar": "إهريتيا (كمب) – مخروطي",
+      "name_en": "Ehretia · Cone",
+      "qty": 10,
+      "unit": "شجرة",
+      "image": "images/item-03.png",
+      "section": "plants",
+      "prices": {
+        "ahl-alqimma": 260,
+        "bustan-alkhuzama": 110
+      }
+    },
+    {
+      "no": 4,
+      "name_ar": "إهريتيا (كمب) – كروي",
+      "name_en": "Ehretia · Round",
+      "qty": 9,
+      "unit": "شجرة",
+      "image": "images/item-04.png",
+      "section": "plants",
+      "prices": {
+        "ahl-alqimma": 190,
+        "bustan-alkhuzama": 60
+      }
+    },
+    {
+      "no": 5,
+      "name_ar": "ويديليا",
+      "name_en": "Wedelia Trilobata",
+      "qty": 520,
+      "unit": "شتلة",
+      "image": "images/item-05.png",
+      "section": "plants",
+      "prices": {
+        "ahl-alqimma": 2,
+        "bustan-alkhuzama": 1
+      }
+    },
+    {
+      "no": 6,
+      "name_ar": "ترادسكانتيا (ست كريسيا)",
+      "name_en": "Tradescantia Pallida",
+      "qty": 650,
+      "unit": "شتلة",
+      "image": "images/item-06.png",
+      "section": "plants",
+      "prices": {
+        "ahl-alqimma": 10,
+        "bustan-alkhuzama": 1
+      }
+    },
+    {
+      "no": 7,
+      "name_ar": "واشنطونيا – جذع نظيف 6 متر",
+      "name_en": "Washingtonia · 6 m clear trunk",
+      "qty": 1,
+      "unit": "نخلة",
+      "image": "images/item-07.png",
+      "section": "plants",
+      "prices": {
+        "ahl-alqimma": 3750,
+        "bustan-alkhuzama": 3200
+      }
+    },
+    {
+      "no": 8,
+      "name_ar": "بيتموس",
+      "name_en": "Peatmoss",
+      "qty": 2,
+      "unit": "كيس",
+      "image": "images/item-08.png",
+      "section": "growing_media",
+      "prices": {
+        "ahl-alqimma": 75,
+        "bustan-alkhuzama": 150
+      }
+    },
+    {
+      "no": 9,
+      "name_ar": "بيرلايت",
+      "name_en": "Perlite",
+      "qty": 2,
+      "unit": "كيس",
+      "image": "images/item-09.png",
+      "section": "growing_media",
+      "prices": {
+        "ahl-alqimma": 70,
+        "bustan-alkhuzama": 90
+      }
+    },
+    {
+      "no": 10,
+      "name_ar": "كمبوست",
+      "name_en": "Compost",
+      "qty": 3,
+      "unit": "كيس",
+      "image": "images/item-10.png",
+      "section": "growing_media",
+      "prices": {
+        "ahl-alqimma": 115,
+        "bustan-alkhuzama": 25
+      }
+    }
+  ],
+  "summary": [
+    "إجمالي أهل القمة 29,335 ريال قبل الضريبة (33,735.25 شامل)، وإجمالي بستان الخزامى 11,615 ريال قبل الضريبة (13,357.25 شامل) — فرق 17,720 ريال قبل الضريبة.",
+    "العرضان مسعّران جميع البنود العشرة.",
+    "بستان الخزامى أقل سعراً في 8 بنود، وأهل القمة أقل سعراً في البيتموس والبيرلايت فقط.",
+    "الفرق الأساسي في المقاسات: أهل القمة مسعّر نباتات بمقاسات أكبر، بينما بستان الخزامى مسعّر نباتات بمقاسات أصغر.",
+    "أكبر الفروق في الترادسكانتيا (6,500 مقابل 650)، الجهنمية (7,700 مقابل 3,850) والأكاليفا (5,400 مقابل 1,200).",
+    "للمقارنة العادلة: توحيد المقاسات وطلب تسعير الطرفين على نفس المواصفة.",
+    "قبل الاعتماد: شهادة التسجيل الضريبي من بستان الخزامى، وتأكيد شمول التوريد والزراعة والضمان في العرضين."
+  ],
+  "recommendation": {
+    "title": "نرشح مؤسسة بستان الخزامى الزراعية للتوريد.",
+    "points": [
+      "سبق التعامل معهم، ولديهم مشاتل خاصة بهم.",
+      "يقدمون خدمة الزراعة والتركيب بالموقع، وتمديد الري العادي والأتوماتيك، وتنسيق الحدائق والصيانة الدورية.",
+      "الاعتماد مشروط بـ: تأكيد المقاسات كتابياً، شهادة التسجيل الضريبي، وتحديد هل الزراعة والري داخلة في السعر."
+    ]
+  }
+}

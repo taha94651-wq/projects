@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>مقارنة عروض أسعار – نباتات</title>
+<meta name="description" content="مقارنة عروض أسعار النباتات والمواد الزراعية بين الموردين، مع الإجماليات والتوصية.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="images/vivid-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Barlow:wght@500;600;700&display=swap">
+<style>
+/* Layout: VIVID quotation sheet — white page, black headings, orange values, red section bars, hairline row dividers only */
+:root{
+  --black:#111111; --orange:#D9772E; --red:#C8102E; --gray:#8C8C8C; --line:#D9D9D9;
+  --orange-soft:#FBEBDD; --f-ar:"Cairo","Tajawal",system-ui,"Segoe UI",Tahoma,sans-serif; --f-en:"Barlow","Inter",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:var(--black);font-family:var(--f-ar);font-size:15px;line-height:1.6}
+img{max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--orange);outline-offset:2px}
+.wrap{max-width:1180px;margin-inline:auto;padding-inline:20px}
+@media (max-width:480px){.wrap{padding-inline:14px}}
+.en{font-family:var(--f-en);letter-spacing:.16em;text-transform:uppercase}
+.num{font-family:var(--f-en);font-variant-numeric:tabular-nums;letter-spacing:.01em}
+
+/* header */
+.hd{display:grid;grid-template-columns:auto 1fr auto;gap:18px 24px;align-items:center;padding-block:26px 18px;border-bottom:3px solid var(--black)}
+.logo{height:56px;width:auto;display:block}
+.ttl h1{margin:0;font-weight:900;font-size:clamp(1.5rem,3.4vw,2.4rem);line-height:1.2}
+.ttl .en{margin-top:6px;color:var(--gray);font-size:.82rem;font-weight:600}
+.pbtn{border:1.5px solid var(--black);background:#fff;border-radius:8px;padding:9px 16px;font-weight:700}
+.pbtn:hover{background:var(--black);color:#fff}
+.meta{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:0;padding-top:12px;border-top:1px solid var(--line)}
+.meta dt{font-family:var(--f-en);font-weight:600;letter-spacing:.2em;font-size:.74rem;color:var(--gray)}
+.meta dd{margin:2px 0 0;font-weight:800;color:var(--orange);font-size:1.02rem}
+@media (max-width:640px){.hd{grid-template-columns:1fr auto}.logo{height:44px}.ttl{grid-column:1/-1;order:3}.meta{grid-template-columns:1fr}}
+
+h2.sec{display:flex;align-items:center;gap:12px;margin:34px 0 12px;font-weight:900;font-size:1.25rem}
+h2.sec::before{content:"";width:6px;height:1.3em;background:var(--red);border-radius:2px}
+h2.sec .en{font-size:.78rem;color:var(--gray);font-weight:600}
+
+/* comparison table */
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-block:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;min-width:980px}
+th,td{padding:10px 10px;text-align:center;vertical-align:middle;border-bottom:1px solid var(--line)}
+thead th{font-weight:800;font-size:.82rem;color:var(--black);border-bottom:2px solid var(--black);white-space:nowrap;background:#fff}
+thead .sub th{border-bottom:1px solid var(--line);font-size:.74rem;color:var(--gray);font-weight:600}
+thead .sup{font-size:.88rem}
+td.nm{text-align:start;min-width:190px}
+td.nm b{display:block;font-weight:800;font-size:.98rem;line-height:1.35}
+td.nm span{display:block;color:var(--gray);font-family:var(--f-en);font-size:.8rem;letter-spacing:.04em}
+td.ph{width:64px}
+.thumb{width:52px;height:52px;border-radius:8px;object-fit:cover;background:#f4f4f4;display:block;margin-inline:auto}
+.qty{font-family:var(--f-en);font-weight:700;font-size:1.5rem;color:var(--orange);line-height:1}
+.unit{display:block;color:var(--gray);font-size:.75rem;margin-top:2px}
+td.low{background:var(--orange-soft);font-weight:800}
+td.who{font-weight:700;font-size:.86rem}
+tr.bar td{border-bottom:0;padding:0}
+tr.bar .barc{display:flex;align-items:center;gap:10px;padding:14px 10px 8px;text-align:start;font-weight:900;font-size:1rem}
+tr.bar .barc::before{content:"";width:6px;height:1.2em;background:var(--red);border-radius:2px}
+tr.bar .barc .en{font-size:.74rem;color:var(--gray)}
+.cur{font-size:.72rem;color:var(--gray);margin-inline-start:3px;font-weight:600}
+
+/* totals */
+.tot{margin-top:6px}
+.tot table{min-width:560px}
+.tot td:first-child,.tot th:first-child{text-align:start;font-weight:700}
+.tot tr.after td{background:#fff;font-weight:900;font-size:1.12rem;color:var(--orange);border-top:2px solid var(--black);border-bottom:2px solid var(--black)}
+.tot tr.after td:first-child{color:var(--black)}
+.tot .gap{color:var(--gray);font-weight:600}
+
+/* summary / recommendation */
+.sum ul{margin:0;padding:0;list-style:none}
+.sum li{position:relative;padding:9px 22px 9px 0;border-bottom:1px solid var(--line)}
+.sum li::before{content:"";position:absolute;inset-inline-start:0;top:1.05em;width:8px;height:8px;background:var(--orange);border-radius:50%}
+.sum li{padding-inline-start:22px;padding-inline-end:0}
+.rec{margin-top:16px;border:2px solid var(--black);border-radius:12px;padding:16px 20px}
+.rec .rt{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.1rem;margin-bottom:8px}
+.rec .rt::before{content:"";width:6px;height:1.2em;background:var(--orange);border-radius:2px}
+.rec ul{margin:0;padding-inline-start:20px}
+.rec li{padding:2px 0}
+
+/* supplier tabs */
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;border-bottom:1px solid var(--line)}
+.tab{border:0;background:none;padding:10px 16px;font-weight:700;color:var(--gray);border-bottom:3px solid transparent;margin-bottom:-1px}
+.tab[aria-selected="true"]{color:var(--black);border-bottom-color:var(--orange)}
+.sp{display:none}.sp.on{display:block}
+.info{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px 22px;margin:0 0 16px}
+.info dt{font-family:var(--f-en);font-weight:600;letter-spacing:.14em;font-size:.7rem;color:var(--gray);text-transform:uppercase}
+.info dd{margin:1px 0 0;font-weight:700;overflow-wrap:anywhere}
+.info dd.na{color:var(--gray);font-weight:600}
+.notice{background:#f6f6f6;border-inline-start:4px solid var(--orange);padding:9px 14px;margin-bottom:14px;font-size:.9rem}
+.cmpx{margin-top:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.cmpx div{border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.cmpx small{display:block;color:var(--gray);font-size:.75rem}
+.cmpx b{font-family:var(--f-en);font-size:1.15rem}
+.cmpx .bad b{color:var(--red)}
+@media (max-width:560px){.cmpx{grid-template-columns:1fr}}
+.notes{margin:14px 0 0;padding:0;list-style:none}
+.notes li{padding:7px 0 7px 0;border-bottom:1px solid var(--line);padding-inline-start:20px;position:relative;font-size:.92rem}
+.notes li::before{content:"!";position:absolute;inset-inline-start:0;top:.55em;width:14px;height:14px;border-radius:50%;background:var(--red);color:#fff;font-size:.62rem;font-weight:800;display:grid;place-items:center;line-height:1}
+.orig{margin-top:18px}
+.orig img{display:block;width:100%;max-width:640px;margin-inline:auto;border:1px solid var(--line);border-radius:6px}
+.orig a{display:block}
+
+footer{margin-top:44px;padding:20px 0 30px;border-top:3px solid var(--black);text-align:center}
+footer .en{font-weight:700;font-size:.8rem}
+footer p{margin:4px 0 0;color:var(--gray);font-family:var(--f-en);font-size:.84rem;letter-spacing:.06em;direction:ltr}
+
+@page{size:A4 landscape;margin:10mm}
+@media print{
+  body{font-size:12px}
+  .pbtn,.tabs{display:none!important}
+  .wrap{max-width:none;padding-inline:0}
+  .scroll{overflow:visible}
+  table{min-width:0}
+  .sp{display:block!important;break-before:page}
+  .sp-first{break-before:auto}
+  tr{break-inside:avoid}
+  .orig img{max-height:180mm;width:auto}
+  .hd{padding-block:6px 10px}
+  h2.sec{margin-top:18px}
+  .notice{display:none}
+}
+</style>
+</head>
+<body>
+<main class="wrap" id="app" aria-live="polite"><p style="padding:40px 0;color:#8C8C8C">جارٍ تحميل البيانات…</p></main>
+
+<script id="data" type="application/json">{"project": {"name": "فيلا سكنية – الرياض", "location": "القيروان، الرياض", "rfq_date": "2026-10-21", "comparison_date": "2026-10-22", "currency": "SAR", "vat": 0.15}, "brand": {"logo": "images/vivid-logo.png", "colors": {"black": "#111111", "orange": "#D9772E", "red": "#C8102E", "gray": "#8C8C8C", "line": "#D9D9D9"}, "website": "www.vivid.sa", "email": "info@vivid.sa"}, "suppliers": [{"id": "ahl-alqimma", "name": "مؤسسة أهل القمة للمقاولات", "quote_no": "001075", "date": "2026/10/22", "vat_no": "302208364400003", "cr": null, "address": "الرياض – المربع، الرمز البريدي 12656", "phone": "+966 56 505 5234", "stated_total_after_vat": 33735.25, "original_image": "images/original-ahl-alqimma.png", "notes": ["الحسابات مطابقة: 29,335 قبل الضريبة + 4,400.25 ضريبة = 33,735.25 ريال.", "السجل التجاري واسم المسؤول غير مذكورين.", "لا توجد مقاسات للنباتات.", "البيتموس والكمبوست 40 لتر، البيرلايت بدون حجم.", "لا ذكر للتوريد للموقع، الزراعة، الضمان، صلاحية العرض.", "عمود الوحدة فارغ، وترقيم البنود مكرر (بندين برقم 9)."]}, {"id": "bustan-alkhuzama", "name": "مؤسسة بستان الخزامى الزراعية", "quote_no": "0096", "date": null, "vat_no": null, "zatca_establishment_no": "3102325347", "cr": {"branch": "1010785369", "main": "1010458875", "unified": "7028113145", "certificate_expiry_hijri": "1446/08/11"}, "address": "المشتل: الرياض – حي الأمانة – مشتل رقم 2 | السجل: 7881 عثمان بن بشر، حي الدرعية الجديدة، 13732", "phone": "+966 54 919 4767", "phone_cr": "0115901191", "stated_subtotal_handwritten": 11615, "original_image": "images/original-bustan-alkhuzama.png", "notes": ["الواشنطونيا: سعر الوحدة مكتوب 2,200 والإجمالي مكتوب 3,200 — تم الاعتماد على 3,200، وبه يطابق مجموع البنود الإجمالي المكتوب 11,615.", "الإجمالي شامل الضريبة: 11,615 × 1.15 = 13,357.25 ريال.", "لا يوجد رقم ضريبة قيمة مضافة — يلزم طلب شهادة التسجيل الضريبي.", "لا يوجد تاريخ ولا توقيع/ختم.", "لا مقاسات للنباتات ولا أحجام للأكياس — الأسعار المنخفضة غالباً لمقاسات أصغر.", "لا ذكر للتوريد للموقع أو الزراعة أو الضمان أو صلاحية العرض."]}], "items": [{"no": 1, "name_ar": "جهنمية هولندي", "name_en": "Bougainvillea Holandy", "qty": 55, "unit": "شتلة", "image": "images/item-01.png", "section": "plants", "prices": {"ahl-alqimma": 140, "bustan-alkhuzama": 70}}, {"no": 2, "name_ar": "أكاليفا", "name_en": "Acalypha", "qty": 120, "unit": "شتلة", "image": "images/item-02.png", "section": "plants", "prices": {"ahl-alqimma": 45, "bustan-alkhuzama": 10}}, {"no": 3, "name_ar": "إهريتيا (كمب) – مخروطي", "name_en": "Ehretia · Cone", "qty": 10, "unit": "شجرة", "image": "images/item-03.png", "section": "plants", "prices": {"ahl-alqimma": 260, "bustan-alkhuzama": 110}}, {"no": 4, "name_ar": "إهريتيا (كمب) – كروي", "name_en": "Ehretia · Round", "qty": 9, "unit": "شجرة", "image": "images/item-04.png", "section": "plants", "prices": {"ahl-alqimma": 190, "bustan-alkhuzama": 60}}, {"no": 5, "name_ar": "ويديليا", "name_en": "Wedelia Trilobata", "qty": 520, "unit": "شتلة", "image": "images/item-05.png", "section": "plants", "prices": {"ahl-alqimma": 2, "bustan-alkhuzama": 1}}, {"no": 6, "name_ar": "ترادسكانتيا (ست كريسيا)", "name_en": "Tradescantia Pallida", "qty": 650, "unit": "شتلة", "image": "images/item-06.png", "section": "plants", "prices": {"ahl-alqimma": 10, "bustan-alkhuzama": 1}}, {"no": 7, "name_ar": "واشنطونيا – جذع نظيف 6 متر", "name_en": "Washingtonia · 6 m clear trunk", "qty": 1, "unit": "نخلة", "image": "images/item-07.png", "section": "plants", "prices": {"ahl-alqimma": 3750, "bustan-alkhuzama": 3200}}, {"no": 8, "name_ar": "بيتموس", "name_en": "Peatmoss", "qty": 2, "unit": "كيس", "image": "images/item-08.png", "section": "growing_media", "prices": {"ahl-alqimma": 75, "bustan-alkhuzama": 150}}, {"no": 9, "name_ar": "بيرلايت", "name_en": "Perlite", "qty": 2, "unit": "كيس", "image": "images/item-09.png", "section": "growing_media", "prices": {"ahl-alqimma": 70, "bustan-alkhuzama": 90}}, {"no": 10, "name_ar": "كمبوست", "name_en": "Compost", "qty": 3, "unit": "كيس", "image": "images/item-10.png", "section": "growing_media", "prices": {"ahl-alqimma": 115, "bustan-alkhuzama": 25}}], "summary": ["إجمالي أهل القمة 29,335 ريال قبل الضريبة (33,735.25 شامل)، وإجمالي بستان الخزامى 11,615 ريال قبل الضريبة (13,357.25 شامل) — فرق 17,720 ريال قبل الضريبة.", "العرضان مسعّران جميع البنود العشرة.", "بستان الخزامى أقل سعراً في 8 بنود، وأهل القمة أقل سعراً في البيتموس والبيرلايت فقط.", "الفرق الأساسي في المقاسات: أهل القمة مسعّر نباتات بمقاسات أكبر، بينما بستان الخزامى مسعّر نباتات بمقاسات أصغر.", "أكبر الفروق في الترادسكانتيا (6,500 مقابل 650)، الجهنمية (7,700 مقابل 3,850) والأكاليفا (5,400 مقابل 1,200).", "للمقارنة العادلة: توحيد المقاسات وطلب تسعير الطرفين على نفس المواصفة.", "قبل الاعتماد: شهادة التسجيل الضريبي من بستان الخزامى، وتأكيد شمول التوريد والزراعة والضمان في العرضين."], "recommendation": {"title": "نرشح مؤسسة بستان الخزامى الزراعية للتوريد.", "points": ["سبق التعامل معهم، ولديهم مشاتل خاصة بهم.", "يقدمون خدمة الزراعة والتركيب بالموقع، وتمديد الري العادي والأتوماتيك، وتنسيق الحدائق والصيانة الدورية.", "الاعتماد مشروط بـ: تأكيد المقاسات كتابياً، شهادة التسجيل الضريبي، وتحديد هل الزراعة والري داخلة في السعر."]}}</script>
+<script>
+const $=(s,r=document)=>r.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const money=n=>Number(n).toLocaleString("en-US",{minimumFractionDigits:Number.isInteger(n)?0:2,maximumFractionDigits:2});
+const cur='<span class="cur">ر.س</span>';
+const short=n=>String(n).replace(/^مؤسسة\s+/,"").replace(/\s+(للمقاولات|الزراعية)$/,"");
+const SECTIONS={plants:["النباتات","PLANTS"],growing_media:["مواد زراعية","GROWING MEDIA"]};
+
+async function load(){
+  try{ const r=await fetch("data.json",{cache:"no-store"}); if(!r.ok) throw new Error(r.status); return await r.json(); }
+  catch(e){ return JSON.parse($("#data").textContent); }
+}
+function calc(D){
+  const R={bySup:{},min:{}};
+  D.suppliers.forEach(s=>{
+    const lines=D.items.map(i=>{const p=i.prices[s.id]; return {no:i.no,price:p,total:(p==null?null:i.qty*p)};});
+    const before=lines.reduce((a,l)=>a+(l.total||0),0), vat=before*D.project.vat;
+    R.bySup[s.id]={lines,before,vat,after:before+vat,priced:lines.filter(l=>l.total!=null).length};
+  });
+  D.items.forEach(i=>{
+    const vals=D.suppliers.map(s=>({id:s.id,p:i.prices[s.id]})).filter(x=>x.p!=null);
+    const m=Math.min(...vals.map(x=>x.p)); const win=vals.filter(x=>x.p===m).map(x=>x.id);
+    R.min[i.no]={price:m,win};
+  });
+  return R;
+}
+function itemRow(i,cells){ return `<tr><td class="num">${i.no}</td><td class="ph"><img class="thumb" src="${esc(i.image)}" alt="${esc(i.name_ar)}" loading="lazy"></td><td class="nm"><b>${esc(i.name_ar)}</b><span>${esc(i.name_en)}</span></td><td><span class="qty">${money(i.qty)}</span><span class="unit">${esc(i.unit)}</span></td>${cells}</tr>`; }
+function bar(key,cols){ const t=SECTIONS[key]||[key,""]; return `<tr class="bar"><td colspan="${cols}"><div class="barc">${esc(t[0])} / <span class="en">${esc(t[1])}</span></div></td></tr>`; }
+function grouped(D,rowFn,cols){
+  let out="",last=null; D.items.forEach(i=>{ if(i.section!==last){ out+=bar(i.section,cols); last=i.section; } out+=rowFn(i); }); return out;
+}
+
+function render(D){
+  const R=calc(D), S=D.suppliers, P=D.project;
+  const vatPct=Math.round(P.vat*100);
+  /* header */
+  let h=`<header class="hd"><img class="logo" src="${esc(D.brand.logo)}" alt="VIVID"><div class="ttl"><h1>مقارنة عروض أسعار – نباتات</h1><div class="en">Plants · Quotation Comparison</div></div><button class="pbtn" type="button" id="print">طباعة / حفظ PDF</button>
+  <dl class="meta"><div><dt>PROJECT</dt><dd>${esc(P.name)}</dd></div><div><dt>LOCATION</dt><dd>${esc(P.location)}</dd></div><div><dt>DATE</dt><dd class="num">${esc(P.comparison_date.replaceAll("-","/"))}</dd></div></dl></header>`;
+
+  /* comparison table */
+  const cols=4+S.length*2+2;
+  const head=`<thead><tr><th rowspan="2">#</th><th rowspan="2"></th><th rowspan="2" style="text-align:start">الصنف</th><th rowspan="2">الكمية</th>${S.map(s=>`<th colspan="2" class="sup">${esc(short(s.name))}</th>`).join("")}<th rowspan="2">أقل سعر<br><span class="en" style="font-size:.62rem;color:#8C8C8C">LOWEST</span></th><th rowspan="2">الأرخص</th></tr><tr class="sub">${S.map(()=>`<th>سعر الوحدة</th><th>الإجمالي</th>`).join("")}</tr></thead>`;
+  const body=grouped(D,i=>{
+    const m=R.min[i.no];
+    const cells=S.map(s=>{const p=i.prices[s.id], low=m.win.includes(s.id)&&S.length>1; return p==null?`<td>—</td><td>—</td>`:`<td class="num${low?" low":""}">${money(p)}</td><td class="num${low?" low":""}">${money(i.qty*p)}</td>`;}).join("");
+    const who=m.win.length===S.length?"متساوي":m.win.map(id=>short(S.find(s=>s.id===id).name)).join(" / ");
+    return itemRow(i,`${cells}<td class="num"><b>${money(m.price)}</b></td><td class="who">${esc(who)}</td>`);
+  },cols);
+  const table=`<h2 class="sec">جدول المقارنة <span class="en">Comparison</span></h2><div class="scroll"><table>${head}<tbody>${body}</tbody></table></div>`;
+
+  /* totals */
+  const A=R.bySup[S[0].id], B=S[1]?R.bySup[S[1].id]:null;
+  const gap=(k)=>B?`<td class="num gap">${money(Math.abs(A[k]-B[k]))}</td>`:"";
+  const totals=`<h2 class="sec">الإجماليات <span class="en">Totals</span></h2><div class="scroll tot"><table><thead><tr><th></th>${S.map(s=>`<th>${esc(short(s.name))}</th>`).join("")}${B?`<th>الفرق</th>`:""}</tr></thead><tbody>
+    <tr><td>الإجمالي قبل الضريبة</td>${S.map(s=>`<td class="num">${money(R.bySup[s.id].before)} ${cur}</td>`).join("")}${gap("before")}</tr>
+    <tr><td>ضريبة القيمة المضافة ${vatPct}%</td>${S.map(s=>`<td class="num">${money(R.bySup[s.id].vat)} ${cur}</td>`).join("")}${gap("vat")}</tr>
+    <tr class="after"><td>الإجمالي بعد الضريبة</td>${S.map(s=>`<td class="num">${money(R.bySup[s.id].after)} ${cur}</td>`).join("")}${B?`<td class="num">${money(Math.abs(A.after-B.after))} ${cur}</td>`:""}</tr>
+    <tr><td>عدد البنود المسعّرة</td>${S.map(s=>`<td class="num">${R.bySup[s.id].priced} / ${D.items.length}</td>`).join("")}${B?"<td></td>":""}</tr></tbody></table></div>`;
+
+  /* summary + recommendation */
+  const sum=`<h2 class="sec">ملخص المقارنة <span class="en">Summary</span></h2><div class="sum"><ul>${D.summary.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></div>`;
+  const rec=D.recommendation?`<div class="rec"><div class="rt">${esc(D.recommendation.title)}</div><ul>${D.recommendation.points.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></div>`:"";
+
+  /* suppliers */
+  const na=v=>v==null||v===""?`<dd class="na">غير مذكور</dd>`:`<dd>${esc(v)}</dd>`;
+  const sups=S.map((s,k)=>{
+    const t=R.bySup[s.id];
+    const cr=s.cr?[["السجل التجاري (الفرع)",s.cr.branch],["السجل التجاري (الرئيسي)",s.cr.main],["الرقم الموحد",s.cr.unified],["انتهاء الشهادة (هجري)",s.cr.certificate_expiry_hijri]].map(([a,b])=>`<div><dt>${a}</dt>${na(b)}</div>`).join(""):`<div><dt>السجل التجاري</dt>${na(null)}</div>`;
+    const info=`<dl class="info"><div><dt>اسم المورد</dt><dd>${esc(s.name)}</dd></div><div><dt>رقم العرض</dt>${na(s.quote_no)}</div><div><dt>التاريخ</dt>${na(s.date)}</div><div><dt>الرقم الضريبي</dt>${na(s.vat_no)}</div>${s.zatca_establishment_no?`<div><dt>رقم المنشأة (زاتكا)</dt>${na(s.zatca_establishment_no)}</div>`:""}${cr}<div><dt>العنوان</dt>${na(s.address)}</div><div><dt>الجوال</dt><dd class="num" dir="ltr" style="text-align:end">${esc(s.phone||"—")}</dd></div></dl>`;
+    const c2=7;
+    const rows=grouped(D,i=>{const p=i.prices[s.id]; return itemRow(i,p==null?`<td>—</td><td>—</td>`:`<td class="num">${money(p)}</td><td class="num"><b>${money(i.qty*p)}</b></td>`);},c2+0);
+    const tbl=`<div class="scroll"><table style="min-width:640px"><thead><tr><th>#</th><th></th><th style="text-align:start">الصنف</th><th>الكمية</th><th>سعر الوحدة</th><th>الإجمالي</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+    const tb=`<div class="scroll tot" style="margin-top:12px"><table style="min-width:420px"><tbody><tr><td>الإجمالي قبل الضريبة</td><td class="num">${money(t.before)} ${cur}</td></tr><tr><td>ضريبة القيمة المضافة ${vatPct}%</td><td class="num">${money(t.vat)} ${cur}</td></tr><tr class="after"><td>الإجمالي بعد الضريبة</td><td class="num">${money(t.after)} ${cur}</td></tr></tbody></table></div>`;
+    let cmp="";
+    if(s.stated_total_after_vat!=null||s.stated_subtotal_handwritten!=null){
+      const afterBasis=s.stated_total_after_vat!=null, stated=afterBasis?s.stated_total_after_vat:s.stated_subtotal_handwritten, calcd=afterBasis?t.after:t.before, diff=Math.round((calcd-stated)*100)/100;
+      cmp=`<div class="cmpx"><div><small>${afterBasis?"الإجمالي المكتوب في العرض (شامل الضريبة)":"الإجمالي المكتوب في العرض (قبل الضريبة، بخط اليد)"}</small><b>${money(stated)}</b></div><div><small>${afterBasis?"المحسوب (بعد الضريبة)":"المحسوب (قبل الضريبة)"}</small><b>${money(calcd)}</b></div><div class="${diff!==0?"bad":""}"><small>الفرق</small><b>${diff>0?"+":""}${money(diff)}</b></div></div>`;
+    }
+    const notes=s.notes&&s.notes.length?`<h2 class="sec" style="font-size:1.05rem">ملاحظات <span class="en">Notes</span></h2><ul class="notes">${s.notes.map(n=>`<li>${esc(n)}</li>`).join("")}</ul>`:"";
+    const orig=s.original_image?`<div class="orig"><h2 class="sec" style="font-size:1.05rem">العرض الأصلي <span class="en">Original quotation</span></h2><a href="${esc(s.original_image)}" target="_blank" rel="noopener"><img src="${esc(s.original_image)}" alt="العرض الأصلي – ${esc(s.name)}" loading="lazy"></a></div>`:"";
+    return `<section class="sp${k===0?" on sp-first":""}" id="sp-${esc(s.id)}" role="tabpanel"><div class="notice">العرض الأصلي موجود في آخر هذا القسم.</div>${info}${tbl}${tb}${cmp}${notes}${orig}</section>`;
+  }).join("");
+  const tabs=`<div class="tabs" role="tablist">${S.map((s,k)=>`<button class="tab" type="button" role="tab" aria-selected="${k===0}" data-t="${esc(s.id)}">${esc(s.name)}</button>`).join("")}</div>`;
+  const supp=`<h2 class="sec">تفاصيل الموردين <span class="en">Suppliers</span></h2>${tabs}${sups}`;
+
+  const foot=`<footer><div class="en">Designed by VIVIDGROUP</div><p>www.vivid.sa · info@vivid.sa</p></footer>`;
+  $("#app").innerHTML=h+table+totals+sum+rec+supp+foot;
+  document.title=`مقارنة عروض أسعار – نباتات | ${P.name}`;
+  window.__CALC=R;
+}
+document.addEventListener("click",e=>{
+  const t=e.target.closest("button"); if(!t) return;
+  if(t.id==="print"){ window.print(); return; }
+  if(t.dataset.t){ document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",b===t)); document.querySelectorAll(".sp").forEach(p=>p.classList.toggle("on",p.id==="sp-"+t.dataset.t)); }
+});
+load().then(render).catch(err=>{ $("#app").innerHTML='<p style="padding:40px 0;color:#C8102E">تعذّر تحميل البيانات.</p>'; console.error(err); });
+</script>
+</body>
+</html>
