@@ -63,7 +63,9 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;paddin
 .meta dd{margin:0;font-weight:800;color:var(--orange)}
 .meta div{min-width:120px}
 
-.hacts{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.hhead{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px}
+.hacts{display:flex;flex-wrap:wrap;gap:8px}
+.hacts .btn{font-family:inherit;cursor:pointer;padding:10px 18px;border-radius:999px}
 .vatsw{display:inline-flex;border:1.5px solid var(--black);border-radius:999px;padding:3px;margin-top:14px}
 .vatsw button{padding:6px 16px;border-radius:999px;font-weight:700;font-size:.86rem;color:#555}
 .vatsw button[aria-pressed="true"]{background:var(--black);color:#fff}
@@ -231,55 +233,40 @@ footer p{margin:4px 0 0;color:var(--gray);font-family:var(--f-en);font-size:.84r
 @media print{
   html{scroll-padding-top:0}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  body{font-size:11.5px}
-  .top,.tools,.vatsw,.hacts,.hint,.stabs,.lb,.chev,.btn,.acts,.navpdf,.og .cap span,.rd{display:none!important}
-  .wrap{max-width:none;padding-inline:0}
-  .hero{padding-top:0}
-  h2.sec{margin:14px 0 8px;break-after:avoid}
-  .sc{box-shadow:none;break-inside:avoid}
-  .sc .badge{inset-block-start:-9px}
-  .save,.diffbar,.tb,.rec,.cmpx{break-inside:avoid}
-  .row,.grp,.notes li{break-inside:avoid}
-  #items{break-before:page}
-  #items h2.sec{margin-top:0}
-  .rh{padding:2px 8px;gap:8px}
-  .thumb{width:28px;height:28px;border-radius:5px}
-  .nmx b{font-size:.84rem;line-height:1.25}.nmx i{font-size:.66rem}
-  .q em{font-size:1.05rem}.q small{font-size:.6rem}
-  .pc{padding:2px 4px}.pc b{font-size:.86rem}.pc i{font-size:.62rem}
-  .who{font-size:.72rem}.who small{font-size:.62rem}
-  .grp{padding:8px 4px 2px}
-  .cols{padding:4px 8px}
+  body{background:#fff}
+  .top{position:static;backdrop-filter:none;background:#fff}
+  .nav,.navpdf,.tools,.vatsw,.hacts,.hint,.stabs,.lb,.chev,.acts,.og .cap span,.btn{display:none!important}
+  .wrap{max-width:none;padding-inline:36px}
+  .hero{padding-top:14px}
+  h2.sec{margin:34px 0 12px;break-after:avoid}
+  .sc,.tb,.rec,.save,.diffbar,.cmpx,.row,.grp,.notes li,.sum li,.og{break-inside:avoid}
+  .grp{break-after:avoid}
+  .row .rd{display:grid;grid-template-columns:150px 1fr;gap:18px;align-items:center}
+  .rd .big{cursor:auto}
   .scroll{overflow:visible}
-  .tb .l{padding:5px 0}
-  .tb h3{margin:6px 0 2px}
-  .sum li{padding-top:5px;padding-bottom:5px}
-  .rec{padding:10px 16px;margin-top:10px}
   #orig{break-before:page}
   #orig h2.sec{margin-top:0}
-  .origs{display:block}
-  .og{border:0;text-align:center}
-  .og + .og{break-before:page}
+  .origs{grid-template-columns:1fr}
+  .og{break-after:page}
+  .og:last-child{break-after:auto}
   .og .pv{height:auto;overflow:visible;background:none}
   .og .pv::after{display:none}
-  .og .pv img{max-height:150mm;width:auto;margin:0 auto}
-  .og .cap{justify-content:center;padding:6px}
+  .og .pv img{width:auto;max-width:100%;max-height:1280px;margin:0 auto}
+  .og .cap{justify-content:center}
   #sups{break-before:page}
   #sups h2.sec{margin-top:0}
   .sp-d{display:block!important}
   .sp-d + .sp-d{break-before:page}
-  .sp-d .thumb{display:none}
-  .sp-d td,.sp-d th{padding:3px 8px}
-  .sp-d td.nm{min-width:0}
-  .sp-d td.nm b,.sp-d td.nm span{display:inline}
-  .sp-d td.nm span{margin-inline-start:8px;font-size:.7rem}
-  tr.bar2 td{padding:8px 8px 2px}
-  .info{gap:6px 16px;margin-bottom:8px}
-  .notes li{padding:4px 0;font-size:10.5px}
-  .cmpx{margin-top:8px}
-  footer{margin-top:16px;padding-top:12px}
+  .sp-d tr{break-inside:avoid}
+  .sp-d td,.sp-d th{padding:5px 8px}
+  .sp-d .thumb{width:34px;height:34px}
+  .sp-d .info{margin-bottom:10px;gap:8px 22px}
+  .sp-d .tb{padding:2px 16px}.sp-d .tb .l{padding:5px 0}
+  .sp-d .cmpx{margin-top:8px}.sp-d .notes li{padding:5px 0 5px 22px;font-size:.86rem}
+  .sp-d thead{display:table-header-group}
+  footer{break-inside:avoid}
 }
-@page{size:A4 landscape;margin:10mm}
+@page{size:1100px 1556px;margin:26px 0 40px;@bottom-center{content:"VIVID · Plants Quotation Comparison · " counter(page) " / " counter(pages);font:600 11px Barlow,sans-serif;color:#8C8C8C;letter-spacing:.08em}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -294,7 +281,226 @@ footer p{margin:4px 0 0;color:var(--gray);font-family:var(--f-en);font-size:.84r
 
 <main class="wrap" id="app"><p style="padding:40px 0;color:#8C8C8C">جارٍ تحميل البيانات…</p></main>
 
-<script id="data" type="application/json">{"project": {"name": "فيلا سكنية – الرياض", "location": "القيروان، الرياض", "rfq_date": "2026-10-21", "comparison_date": "2026-10-22", "currency": "SAR", "vat": 0.15}, "brand": {"logo": "images/vivid-logo.png", "colors": {"black": "#111111", "orange": "#D9772E", "red": "#C8102E", "gray": "#8C8C8C", "line": "#D9D9D9"}, "website": "www.vivid.sa", "email": "info@vivid.sa"}, "suppliers": [{"id": "ahl-alqimma", "name": "مؤسسة أهل القمة للمقاولات", "quote_no": "001075", "date": "2026/10/22", "vat_no": "302208364400003", "cr": null, "address": "الرياض – المربع، الرمز البريدي 12656", "phone": "+966 56 505 5234", "stated_total_after_vat": 33735.25, "original_image": "images/original-ahl-alqimma.png", "notes": ["الحسابات مطابقة: 29,335 قبل الضريبة + 4,400.25 ضريبة = 33,735.25 ريال.", "السجل التجاري واسم المسؤول غير مذكورين.", "لا توجد مقاسات للنباتات.", "البيتموس والكمبوست 40 لتر، البيرلايت بدون حجم.", "لا ذكر للتوريد للموقع، الزراعة، الضمان، صلاحية العرض.", "عمود الوحدة فارغ، وترقيم البنود مكرر (بندين برقم 9)."]}, {"id": "bustan-alkhuzama", "name": "مؤسسة بستان الخزامى الزراعية", "quote_no": "0096", "date": null, "vat_no": null, "zatca_establishment_no": "3102325347", "cr": {"branch": "1010785369", "main": "1010458875", "unified": "7028113145", "certificate_expiry_hijri": "1446/08/11"}, "address": "المشتل: الرياض – حي الأمانة – مشتل رقم 2 | السجل: 7881 عثمان بن بشر، حي الدرعية الجديدة، 13732", "phone": "+966 54 919 4767", "phone_cr": "0115901191", "stated_subtotal_handwritten": 11615, "original_image": "images/original-bustan-alkhuzama.png", "notes": ["الواشنطونيا: سعر الوحدة مكتوب 2,200 والإجمالي مكتوب 3,200 — تم الاعتماد على 3,200، وبه يطابق مجموع البنود الإجمالي المكتوب 11,615.", "الإجمالي شامل الضريبة: 11,615 × 1.15 = 13,357.25 ريال.", "لا يوجد رقم ضريبة قيمة مضافة — يلزم طلب شهادة التسجيل الضريبي.", "لا يوجد تاريخ ولا توقيع/ختم.", "لا مقاسات للنباتات ولا أحجام للأكياس — الأسعار المنخفضة غالباً لمقاسات أصغر.", "لا ذكر للتوريد للموقع أو الزراعة أو الضمان أو صلاحية العرض."]}], "items": [{"no": 1, "name_ar": "جهنمية هولندي", "name_en": "Bougainvillea Holandy", "qty": 55, "unit": "شتلة", "image": "images/item-01.png", "section": "plants", "prices": {"ahl-alqimma": 140, "bustan-alkhuzama": 70}}, {"no": 2, "name_ar": "أكاليفا", "name_en": "Acalypha", "qty": 120, "unit": "شتلة", "image": "images/item-02.png", "section": "plants", "prices": {"ahl-alqimma": 45, "bustan-alkhuzama": 10}}, {"no": 3, "name_ar": "إهريتيا (كمب) – مخروطي", "name_en": "Ehretia · Cone", "qty": 10, "unit": "شجرة", "image": "images/item-03.png", "section": "plants", "prices": {"ahl-alqimma": 260, "bustan-alkhuzama": 110}}, {"no": 4, "name_ar": "إهريتيا (كمب) – كروي", "name_en": "Ehretia · Round", "qty": 9, "unit": "شجرة", "image": "images/item-04.png", "section": "plants", "prices": {"ahl-alqimma": 190, "bustan-alkhuzama": 60}}, {"no": 5, "name_ar": "ويديليا", "name_en": "Wedelia Trilobata", "qty": 520, "unit": "شتلة", "image": "images/item-05.png", "section": "plants", "prices": {"ahl-alqimma": 2, "bustan-alkhuzama": 1}}, {"no": 6, "name_ar": "ترادسكانتيا (ست كريسيا)", "name_en": "Tradescantia Pallida", "qty": 650, "unit": "شتلة", "image": "images/item-06.png", "section": "plants", "prices": {"ahl-alqimma": 10, "bustan-alkhuzama": 1}}, {"no": 7, "name_ar": "واشنطونيا – جذع نظيف 6 متر", "name_en": "Washingtonia · 6 m clear trunk", "qty": 1, "unit": "نخلة", "image": "images/item-07.png", "section": "plants", "prices": {"ahl-alqimma": 3750, "bustan-alkhuzama": 3200}}, {"no": 8, "name_ar": "بيتموس", "name_en": "Peatmoss", "qty": 2, "unit": "كيس", "image": "images/item-08.png", "section": "growing_media", "prices": {"ahl-alqimma": 75, "bustan-alkhuzama": 150}}, {"no": 9, "name_ar": "بيرلايت", "name_en": "Perlite", "qty": 2, "unit": "كيس", "image": "images/item-09.png", "section": "growing_media", "prices": {"ahl-alqimma": 70, "bustan-alkhuzama": 90}}, {"no": 10, "name_ar": "كمبوست", "name_en": "Compost", "qty": 3, "unit": "كيس", "image": "images/item-10.png", "section": "growing_media", "prices": {"ahl-alqimma": 115, "bustan-alkhuzama": 25}}], "summary": ["إجمالي أهل القمة 29,335 ريال قبل الضريبة (33,735.25 شامل)، وإجمالي بستان الخزامى 11,615 ريال قبل الضريبة (13,357.25 شامل) — فرق 17,720 ريال قبل الضريبة.", "العرضان مسعّران جميع البنود العشرة.", "بستان الخزامى أقل سعراً في 8 بنود، وأهل القمة أقل سعراً في البيتموس والبيرلايت فقط.", "الفرق الأساسي في المقاسات: أهل القمة مسعّر نباتات بمقاسات أكبر، بينما بستان الخزامى مسعّر نباتات بمقاسات أصغر.", "أكبر الفروق في الترادسكانتيا (6,500 مقابل 650)، الجهنمية (7,700 مقابل 3,850) والأكاليفا (5,400 مقابل 1,200).", "للمقارنة العادلة: توحيد المقاسات وطلب تسعير الطرفين على نفس المواصفة.", "قبل الاعتماد: شهادة التسجيل الضريبي من بستان الخزامى، وتأكيد شمول التوريد والزراعة والضمان في العرضين."], "recommendation": {"title": "نرشح مؤسسة بستان الخزامى الزراعية للتوريد.", "points": ["سبق التعامل معهم، ولديهم مشاتل خاصة بهم.", "يقدمون خدمة الزراعة والتركيب بالموقع، وتمديد الري العادي والأتوماتيك، وتنسيق الحدائق والصيانة الدورية.", "الاعتماد مشروط بـ: تأكيد المقاسات كتابياً، شهادة التسجيل الضريبي، وتحديد هل الزراعة والري داخلة في السعر."]}}</script>
+<script id="data" type="application/json">{
+  "project": {
+    "name": "فيلا سكنية – الرياض",
+    "location": "القيروان، الرياض",
+    "rfq_date": "2026-10-21",
+    "comparison_date": "2026-10-22",
+    "currency": "SAR",
+    "vat": 0.15
+  },
+  "brand": {
+    "logo": "images/vivid-logo.png",
+    "colors": {
+      "black": "#111111",
+      "orange": "#D9772E",
+      "red": "#C8102E",
+      "gray": "#8C8C8C",
+      "line": "#D9D9D9"
+    },
+    "website": "www.vivid.sa",
+    "email": "info@vivid.sa"
+  },
+  "suppliers": [
+    {
+      "id": "ahl-alqimma",
+      "name": "مؤسسة أهل القمة للمقاولات",
+      "quote_no": "001075",
+      "date": "2026/10/22",
+      "vat_no": "302208364400003",
+      "cr": null,
+      "address": "الرياض – المربع، الرمز البريدي 12656",
+      "phone": "+966 56 505 5234",
+      "stated_total_after_vat": 33735.25,
+      "original_image": "images/original-ahl-alqimma.png",
+      "notes": [
+        "الحسابات مطابقة: 29,335 قبل الضريبة + 4,400.25 ضريبة = 33,735.25 ريال.",
+        "السجل التجاري واسم المسؤول غير مذكورين.",
+        "لا توجد مقاسات للنباتات.",
+        "البيتموس والكمبوست 40 لتر، البيرلايت بدون حجم.",
+        "لا ذكر للتوريد للموقع، الزراعة، الضمان، صلاحية العرض.",
+        "عمود الوحدة فارغ، وترقيم البنود مكرر (بندين برقم 9)."
+      ]
+    },
+    {
+      "id": "bustan-alkhuzama",
+      "name": "مؤسسة بستان الخزامى الزراعية",
+      "quote_no": "0096",
+      "date": null,
+      "vat_no": null,
+      "zatca_establishment_no": "3102325347",
+      "cr": {
+        "branch": "1010785369",
+        "main": "1010458875",
+        "unified": "7028113145",
+        "certificate_expiry_hijri": "1446/08/11"
+      },
+      "address": "المشتل: الرياض – حي الأمانة – مشتل رقم 2 | السجل: 7881 عثمان بن بشر، حي الدرعية الجديدة، 13732",
+      "phone": "+966 54 919 4767",
+      "phone_cr": "0115901191",
+      "stated_subtotal_handwritten": 11615,
+      "original_image": "images/original-bustan-alkhuzama.png",
+      "notes": [
+        "الواشنطونيا: سعر الوحدة مكتوب 2,200 والإجمالي مكتوب 3,200 — تم الاعتماد على 3,200، وبه يطابق مجموع البنود الإجمالي المكتوب 11,615.",
+        "الإجمالي شامل الضريبة: 11,615 × 1.15 = 13,357.25 ريال.",
+        "لا يوجد رقم ضريبة قيمة مضافة — يلزم طلب شهادة التسجيل الضريبي.",
+        "لا يوجد تاريخ ولا توقيع/ختم.",
+        "لا مقاسات للنباتات ولا أحجام للأكياس — الأسعار المنخفضة غالباً لمقاسات أصغر.",
+        "لا ذكر للتوريد للموقع أو الزراعة أو الضمان أو صلاحية العرض."
+      ]
+    }
+  ],
+  "items": [
+    {
+      "no": 1,
+      "name_ar": "جهنمية هولندي",
+      "name_en": "Bougainvillea Holandy",
+      "qty": 55,
+      "unit": "شتلة",
+      "image": "images/item-01.png",
+      "section": "plants",
+      "prices": {
+        "ahl-alqimma": 140,
+        "bustan-alkhuzama": 70
+      }
+    },
+    {
+      "no": 2,
+      "name_ar": "أكاليفا",
+      "name_en": "Acalypha",
+      "qty": 120,
+      "unit": "شتلة",
+      "image": "images/item-02.png",
+      "section": "plants",
+      "prices": {
+        "ahl-alqimma": 45,
+        "bustan-alkhuzama": 10
+      }
+    },
+    {
+      "no": 3,
+      "name_ar": "إهريتيا (كمب) – مخروطي",
+      "name_en": "Ehretia · Cone",
+      "qty": 10,
+      "unit": "شجرة",
+      "image": "images/item-03.png",
+      "section": "plants",
+      "prices": {
+        "ahl-alqimma": 260,
+        "bustan-alkhuzama": 110
+      }
+    },
+    {
+      "no": 4,
+      "name_ar": "إهريتيا (كمب) – كروي",
+      "name_en": "Ehretia · Round",
+      "qty": 9,
+      "unit": "شجرة",
+      "image": "images/item-04.png",
+      "section": "plants",
+      "prices": {
+        "ahl-alqimma": 190,
+        "bustan-alkhuzama": 60
+      }
+    },
+    {
+      "no": 5,
+      "name_ar": "ويديليا",
+      "name_en": "Wedelia Trilobata",
+      "qty": 520,
+      "unit": "شتلة",
+      "image": "images/item-05.png",
+      "section": "plants",
+      "prices": {
+        "ahl-alqimma": 2,
+        "bustan-alkhuzama": 1
+      }
+    },
+    {
+      "no": 6,
+      "name_ar": "ترادسكانتيا (ست كريسيا)",
+      "name_en": "Tradescantia Pallida",
+      "qty": 650,
+      "unit": "شتلة",
+      "image": "images/item-06.png",
+      "section": "plants",
+      "prices": {
+        "ahl-alqimma": 10,
+        "bustan-alkhuzama": 1
+      }
+    },
+    {
+      "no": 7,
+      "name_ar": "واشنطونيا – جذع نظيف 6 متر",
+      "name_en": "Washingtonia · 6 m clear trunk",
+      "qty": 1,
+      "unit": "نخلة",
+      "image": "images/item-07.png",
+      "section": "plants",
+      "prices": {
+        "ahl-alqimma": 3750,
+        "bustan-alkhuzama": 3200
+      }
+    },
+    {
+      "no": 8,
+      "name_ar": "بيتموس",
+      "name_en": "Peatmoss",
+      "qty": 2,
+      "unit": "كيس",
+      "image": "images/item-08.png",
+      "section": "growing_media",
+      "prices": {
+        "ahl-alqimma": 75,
+        "bustan-alkhuzama": 150
+      }
+    },
+    {
+      "no": 9,
+      "name_ar": "بيرلايت",
+      "name_en": "Perlite",
+      "qty": 2,
+      "unit": "كيس",
+      "image": "images/item-09.png",
+      "section": "growing_media",
+      "prices": {
+        "ahl-alqimma": 70,
+        "bustan-alkhuzama": 90
+      }
+    },
+    {
+      "no": 10,
+      "name_ar": "كمبوست",
+      "name_en": "Compost",
+      "qty": 3,
+      "unit": "كيس",
+      "image": "images/item-10.png",
+      "section": "growing_media",
+      "prices": {
+        "ahl-alqimma": 115,
+        "bustan-alkhuzama": 25
+      }
+    }
+  ],
+  "summary": [
+    "إجمالي أهل القمة 29,335 ريال قبل الضريبة (33,735.25 شامل)، وإجمالي بستان الخزامى 11,615 ريال قبل الضريبة (13,357.25 شامل) — فرق 17,720 ريال قبل الضريبة.",
+    "العرضان مسعّران جميع البنود العشرة.",
+    "بستان الخزامى أقل سعراً في 8 بنود، وأهل القمة أقل سعراً في البيتموس والبيرلايت فقط.",
+    "الفرق الأساسي في المقاسات: أهل القمة مسعّر نباتات بمقاسات أكبر، بينما بستان الخزامى مسعّر نباتات بمقاسات أصغر.",
+    "أكبر الفروق في الترادسكانتيا (6,500 مقابل 650)، الجهنمية (7,700 مقابل 3,850) والأكاليفا (5,400 مقابل 1,200).",
+    "للمقارنة العادلة: توحيد المقاسات وطلب تسعير الطرفين على نفس المواصفة.",
+    "قبل الاعتماد: شهادة التسجيل الضريبي من بستان الخزامى، وتأكيد شمول التوريد والزراعة والضمان في العرضين."
+  ],
+  "recommendation": {
+    "title": "نرشح مؤسسة بستان الخزامى الزراعية للتوريد.",
+    "points": [
+      "سبق التعامل معهم، ولديهم مشاتل خاصة بهم.",
+      "يقدمون خدمة الزراعة والتركيب بالموقع، وتمديد الري العادي والأتوماتيك، وتنسيق الحدائق والصيانة الدورية.",
+      "الاعتماد مشروط بـ: تأكيد المقاسات كتابياً، شهادة التسجيل الضريبي، وتحديد هل الزراعة والري داخلة في السعر."
+    ]
+  }
+}</script>
 <script>
 const $=(s,r=document)=>r.querySelector(s);
 const $$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -334,9 +540,9 @@ function heroHTML(){
   }).join("");
   const pct=hi?Math.round((hi-lo)/hi*1000)/10:0;
   const save=S.length>1?`<div class="save"><span>الفرق بين العرضين ${key==="before"?"قبل الضريبة":"بعد الضريبة"}</span><b class="num">${money(Math.round((hi-lo)*100)/100)} ${cur}</b><span>(${pct}% أقل مع ${esc(nameOf(S[vals.indexOf(lo)].id))})</span></div>`:"";
-  return `<section id="top" class="hero"><h1>مقارنة عروض أسعار – نباتات</h1><div class="sub en">Plants · Quotation Comparison</div>
+  return `<section id="top" class="hero"><div class="hhead"><div><h1>مقارنة عروض أسعار – نباتات</h1><div class="sub en">Plants · Quotation Comparison</div></div>
+    <div class="hacts"><button class="btn" type="button" id="printBtn">🖨 طباعة</button><a class="btn pri" id="pdfBtn" href="plants-quotation-comparison.pdf" download="Plants-Quotation-Comparison.pdf">⬇ تحميل PDF</a></div></div>
     <dl class="meta"><div><dt>PROJECT</dt><dd>${esc(P.name)}</dd></div><div><dt>LOCATION</dt><dd>${esc(P.location)}</dd></div><div><dt>DATE</dt><dd class="num">${esc(P.comparison_date.replaceAll("-","/"))}</dd></div></dl>
-    <div class="hacts"><button class="btn" type="button" id="printBtn">🖨 طباعة</button><a class="btn pri" id="pdfBtn" href="plants-quotation-comparison.pdf" download="Plants-Quotation-Comparison.pdf">⬇ تحميل PDF</a></div>
     <div class="vatsw" role="group" aria-label="عرض الأسعار"><button type="button" data-vat="before" aria-pressed="${key==="before"}">قبل الضريبة</button><button type="button" data-vat="after" aria-pressed="${key==="after"}">بعد الضريبة ${Math.round(P.vat*100)}%</button></div>
     <div class="cards">${cards}</div>${save}</section>`;
 }
