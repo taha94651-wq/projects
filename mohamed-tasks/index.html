@@ -224,7 +224,12 @@ let S=null;
 try{const r=localStorage.getItem(LS);if(r)S=JSON.parse(r)}catch(e){}
 if(!S||!Array.isArray(S.nodes))S=seed();
 function migrate(d){
-  if(d.beyond)return false;
+  let ch=false;
+  if(!d.dammam){
+    const cat=d.nodes.find(n=>n.name==="تسليم رسومات");
+    if(cat){d.dammam=1;d.tasks.push({id:uid("t"),node:cat.id,title:"تصميم واجهة فرع الدمام",due:todayStr(),prio:0,status:"todo",note:"",created:Date.now()});ch=true}
+  }
+  if(d.beyond)return ch;
   d.beyond=1;
   const root=uid("n");
   d.nodes.push({id:root,name:"مكتب بيوند",parent:null,color:COLORS[3],open:true});
