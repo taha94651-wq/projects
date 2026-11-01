@@ -207,6 +207,16 @@ function seed(){
 let S=null;
 try{const r=localStorage.getItem(LS);if(r)S=JSON.parse(r)}catch(e){}
 if(!S||!Array.isArray(S.nodes))S=seed();
+function migrate(d){
+  if(d.beyond)return false;
+  d.beyond=1;
+  const root=uid("n");
+  d.nodes.push({id:root,name:"مكتب بيوند",parent:null,color:COLORS[3],open:true});
+  d.nodes.push({id:uid("n"),name:"شغل مكتب بيوند",parent:root,color:null,open:true});
+  d.nodes.push({id:uid("n"),name:"تنفيذ مكتب بيوند",parent:root,color:null,open:true});
+  return true;
+}
+if(migrate(S)){S.updated=Date.now();try{localStorage.setItem(LS,JSON.stringify(S))}catch(e){}}
 let UI={sel:"view:today",mode:"list",showDone:false,open:null,rename:false,addChild:false,color:false,confirm:false,drawer:false,qn:null};
 try{const u=JSON.parse(localStorage.getItem(LS+"-ui")||"null");if(u){UI.sel=u.sel||UI.sel;UI.mode=u.mode||UI.mode;UI.showDone=!!u.showDone}}catch(e){}
 function saveUI(){try{localStorage.setItem(LS+"-ui",JSON.stringify({sel:UI.sel,mode:UI.mode,showDone:UI.showDone}))}catch(e){}}
@@ -240,6 +250,7 @@ async function connect(){
     const d=snap.exists?snap.data():null;
     if(d&&Array.isArray(d.nodes)&&(d.updated||0)>=(S.updated||0)){
       S=JSON.parse(JSON.stringify(d));
+      if(migrate(S)){S.updated=Date.now();saveDb()}
       try{localStorage.setItem(LS,JSON.stringify(S))}catch(e){}
       if(!node(UI.sel)&&!UI.sel.startsWith("view:"))UI.sel="view:today";
       render();setState("saved");
