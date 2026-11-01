@@ -250,6 +250,22 @@ function migrate(d){
       ch=true;
     }
   }
+  if(!d.br2){
+    const br=d.nodes.find(n=>n.name==="الفروع");
+    if(br){
+      d.br2=1;br.open=true;
+      const mkn=name=>{const id=uid("n");d.nodes.push({id,name,parent:br.id,color:null,open:true});return id};
+      const dm=mkn("فرع الدمام"),ab=mkn("فرع أبها");
+      const mkt=(node,title,i)=>d.tasks.push({id:uid("t"),node,title,due:null,prio:0,status:"todo",note:"",created:Date.now()+i});
+      const old=d.tasks.find(t=>t.title==="تصميم واجهة فرع الدمام");
+      if(old)old.node=dm;else mkt(dm,"تصميم واجهة فرع الدمام",0);
+      mkt(dm,"تنفيذ واجهة فرع الدمام",1);
+      mkt(dm,"دفعة فرع الدمام",2);
+      mkt(ab,"تنفيذ واجهة فرع أبها",3);
+      mkt(ab,"جداول الكميات (BOQ) لفرع أبها",4);
+      ch=true;
+    }
+  }
   if(d.beyond)return ch;
   d.beyond=1;
   const root=uid("n");
