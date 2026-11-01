@@ -229,6 +229,15 @@ function migrate(d){
     const cat=d.nodes.find(n=>n.name==="تسليم رسومات");
     if(cat){d.dammam=1;d.tasks.push({id:uid("t"),node:cat.id,title:"تصميم واجهة فرع الدمام",due:todayStr(),prio:0,status:"todo",note:"",created:Date.now()});ch=true}
   }
+  if(!d.mv1){
+    const viv=d.nodes.find(n=>n.name==="شركة فيفيد"),ina=d.nodes.find(n=>n.name==="مخازن العناية");
+    if(viv&&ina&&viv.id!==ina.id){
+      d.mv1=1;ina.parent=viv.id;ina.color=null;viv.open=true;ina.open=true;
+      const br=d.nodes.find(n=>n.name==="الفروع"&&n.parent===ina.id);
+      if(br){br.open=true;["تقسيم ١","تقسيم ٢","تقسيم ٣"].forEach(nm=>d.nodes.push({id:uid("n"),name:nm,parent:br.id,color:null,open:true}))}
+      ch=true;
+    }
+  }
   if(d.beyond)return ch;
   d.beyond=1;
   const root=uid("n");
