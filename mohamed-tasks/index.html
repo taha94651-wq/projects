@@ -309,6 +309,15 @@ function migrate(d){
       ch=true;
     }
   }
+  if(!d.gh1){
+    const gh=d.nodes.find(n=>n.name==="غنيم"&&!n.parent);
+    const go=gh&&d.nodes.find(n=>n.name==="مهام المكتب"&&n.parent===gh.id);
+    if(go){
+      d.gh1=1;
+      ["تسعير هامة وأوشن إكس","مناقشة التسعير في ميتينج"].forEach((title,j)=>d.tasks.push({id:uid("t"),node:go.id,title,due:null,prio:0,status:"todo",note:"",created:Date.now()+j}));
+      ch=true;
+    }
+  }
   if(d.beyond)return ch;
   d.beyond=1;
   const root=uid("n");
