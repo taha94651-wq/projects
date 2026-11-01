@@ -318,6 +318,15 @@ function migrate(d){
       ch=true;
     }
   }
+  if(!d.clr1){
+    const bs=d.nodes.filter(n=>n.name==="فرع الدمام"||n.name==="فرع أبها");
+    if(bs.length){d.clr1=1;bs.forEach(b=>{b.color=COLORS[4]});ch=true}
+  }
+  if(!d.kh1){
+    d.kh1=1;
+    if(!d.nodes.some(n=>n.name==="خيارك الأفضل"&&!n.parent))d.nodes.push({id:uid("n"),name:"خيارك الأفضل",parent:null,color:COLORS[5],open:true});
+    ch=true;
+  }
   if(d.beyond)return ch;
   d.beyond=1;
   const root=uid("n");
@@ -373,7 +382,7 @@ const node=id=>S.nodes.find(n=>n.id===id);
 const kids=id=>S.nodes.filter(n=>n.parent===id);
 function subtree(id){const out=[id];kids(id).forEach(k=>out.push(...subtree(k.id)));return out}
 function rootOf(id){let n=node(id);while(n&&n.parent)n=node(n.parent);return n}
-function colorOf(id){const r=rootOf(id);return (r&&r.color)||COLORS[7]}
+function colorOf(id){let n=node(id);while(n){if(n.color)return n.color;n=n.parent?node(n.parent):null}return COLORS[7]}
 function pathOf(id){const p=[];let n=node(id);while(n){p.unshift(n.name);n=n.parent?node(n.parent):null}return p}
 function flatNodes(){const out=[];(function walk(p,d){kids(p).forEach(n=>{out.push({n,d});walk(n.id,d+1)})})(null,0);return out}
 const openCount=ids=>{const s=new Set(ids);return S.tasks.filter(t=>t.status!=="done"&&s.has(t.node)).length};
@@ -549,11 +558,11 @@ function renderMain(){
     nodeTools=`<div class="tools">
       <button class="tbtn" data-act="addchild">${I.plus} تصنيف فرعي</button>
       <button class="tbtn" data-act="rename">تغيير الاسم</button>
-      ${!n.parent?`<button class="tbtn" data-act="colorbox">اللون</button>`:""}
+      <button class="tbtn" data-act="colorbox">اللون</button>
       <button class="tbtn danger ${UI.confirm==="n"+n.id?"armed":""}" data-act="delnode">${UI.confirm==="n"+n.id?"اضغط تاني للتأكيد (هيمسح التصنيف وكل اللي تحته)":"مسح التصنيف"}</button>
     </div>
     ${UI.addChild?`<form class="inline-form" data-form="addchild"><input id="childIn" placeholder="اسم التصنيف الفرعي تحت «${esc(n.name)}»" aria-label="اسم التصنيف الفرعي"><button class="btn-primary">إضافة</button></form>`:""}
-    ${UI.color&&!n.parent?`<div class="swatches">${COLORS.map(c=>`<button class="sw ${n.color===c?"on":""}" style="background:${c}" data-act="setcolor" data-id="${c}" aria-label="لون"></button>`).join("")}</div>`:""}`;
+    ${UI.color?`<div class="swatches">${n.parent?`<button class="tbtn" data-act="setcolor" data-id="">لون الأب</button>`:""}${COLORS.map(c=>`<button class="sw ${n.color===c?"on":""}" style="background:${c}" data-act="setcolor" data-id="${c}" aria-label="لون"></button>`).join("")}</div>`:""}`;
   }
   const qnode=UI.qn&&node(UI.qn)?UI.qn:(flatNodes()[0]||{n:{id:""}}).n.id;
   const quick=`<form class="quick" data-form="quick">
@@ -624,7 +633,7 @@ document.addEventListener("click",e=>{
     case"addchild":UI.addChild=!UI.addChild;UI.rename=false;renderMain();if(UI.addChild)afterFocus("#childIn");break;
     case"rename":UI.rename=!UI.rename;UI.addChild=false;renderMain();if(UI.rename)afterFocus("#renameIn");break;
     case"colorbox":UI.color=!UI.color;renderMain();break;
-    case"setcolor":{node(UI.sel).color=id;persist();render();break}
+    case"setcolor":{node(UI.sel).color=id||null;persist();render();break}
     case"delnode":{
       if(UI.confirm!=="n"+UI.sel){UI.confirm="n"+UI.sel;renderMain();break}
       const ids=new Set(subtree(UI.sel)),p=node(UI.sel).parent;
