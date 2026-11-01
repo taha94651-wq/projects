@@ -135,6 +135,22 @@ ul.list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;ga
 .card.dragging{opacity:.4}
 .card .ttitle{font-size:14.5px}
 
+.subs{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.subcard{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px;text-align:start;display:flex;flex-direction:column;gap:6px;min-width:0}
+.subcard:hover{border-color:var(--accent)}
+.subcard .t{display:flex;align-items:center;gap:8px;font-weight:600;min-width:0}
+.subcard .t span.nm{flex:1;min-width:0;overflow-wrap:anywhere}
+.subcard .c{font-size:12px;color:var(--muted);font-weight:400}
+.subcard .kidlist{display:flex;flex-wrap:wrap;gap:4px}
+.subs-label{font-size:13px;color:var(--muted);font-weight:600;padding:2px 4px 0}
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;align-items:start}
+.catcard{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.catcard .ol{display:flex;flex-direction:column;border-inline-start:2px solid var(--line);margin-inline-start:5px;padding-inline-start:8px}
+.catcard .it{display:flex;align-items:center;gap:6px;min-height:34px;border-radius:8px;padding:0 6px;width:100%;text-align:start}
+.catcard .it:hover{background:var(--hover)}
+.catcard .it.root{font-weight:700;font-size:16px;font-family:var(--f-display)}
+.catcard .it .nm{flex:1;min-width:0;overflow-wrap:anywhere}
+.catcard .it .cnt{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
 .scrim{display:none}
 @media (max-width:860px){
   #app{grid-template-columns:minmax(0,1fr)}
@@ -295,7 +311,8 @@ function tasksForSel(){
 const VIEWS={
   "view:today":["النهارده","المهام اللي ميعادها النهارده أو فاتت",I.sun],
   "view:upcoming":["الجاية","المهام اللي ميعادها بعد النهارده",I.cal],
-  "view:all":["كل المهام","كل حاجة في كل الأقسام",I.all],
+  "view:all":["كل المهام","كل حاجة في كل التصنيفات",I.all],
+  "view:cats":["كل التصنيفات","كل تصنيف واللي تحته",I.board],
   "view:done":["اللي خلصت","المهام المنتهية",I.done]
 };
 
@@ -306,6 +323,7 @@ function renderSide(){
     if(k==="view:today")c=S.tasks.filter(t=>t.status!=="done"&&t.due&&t.due<=todayStr()).length;
     if(k==="view:upcoming")c=S.tasks.filter(t=>t.status!=="done"&&t.due&&t.due>todayStr()).length;
     if(k==="view:all")c=S.tasks.filter(t=>t.status!=="done").length;
+    if(k==="view:cats")c=S.nodes.filter(n=>!n.parent).length;
     if(k==="view:done")c=S.tasks.filter(t=>t.status==="done").length;
     return `<button class="srow ${UI.sel===k?"on":""}" data-act="sel" data-id="${k}"><span class="ic">${VIEWS[k][2]}</span><span class="nm">${VIEWS[k][0]}</span><span class="cnt">${num(c)}</span></button>`;
   }).join("");
@@ -325,11 +343,11 @@ function renderSide(){
     <div class="brand"><span class="logo">${I.check}</span><b>مهامي</b></div>
     <div class="sidescroll">
       ${views}
-      <div class="sec-label">الأقسام</div>
+      <div class="sec-label">التصنيفات</div>
       ${tree(null,0)}
     </div>
     <div class="sidefoot">
-      <button class="btn-add-root" data-act="newco">${I.plus} شركة / قسم رئيسي جديد</button>
+      <button class="btn-add-root" data-act="newco">${I.plus} تصنيف رئيسي جديد</button>
       <div class="savestate" id="savestate"></div>
     </div>`;
   setState(state);
@@ -366,13 +384,22 @@ function detail(t){
     <label>الميعاد<input type="date" data-f="due" value="${t.due||""}"></label>
     <label>الأولوية<select data-f="prio">${PRIO.map(([v,l])=>`<option value="${v}" ${+v===t.prio?"selected":""}>${l}</option>`).join("")}</select></label>
     <label>الحالة<select data-f="status">${STAT.map(([v,l])=>`<option value="${v}" ${v===t.status?"selected":""}>${l}</option>`).join("")}</select></label>
-    <label>القسم<select data-f="node">${nodeOptions(t.node)}</select></label>
+    <label>التصنيف<select data-f="node">${nodeOptions(t.node)}</select></label>
     <label class="full">ملاحظات<textarea data-f="note" placeholder="تفاصيل، أرقام، أي حاجة محتاج تفتكرها">${esc(t.note)}</textarea></label>
     <div class="full actions">
       <button class="tbtn" data-act="close">إغلاق</button>
       <button class="tbtn danger ${UI.confirm==="t"+t.id?"armed":""}" data-act="deltask" data-id="${t.id}">${UI.confirm==="t"+t.id?"اضغط تاني للتأكيد":"مسح المهمة"}</button>
     </div>
   </div>`;
+}
+function catsView(){
+  function ol(pid){
+    const ks=kids(pid);if(!ks.length)return"";
+    return `<div class="ol">${ks.map(k=>`<button class="it" data-act="sel" data-id="${k.id}"><span class="nm">${esc(k.name)}</span><span class="cnt">${num(openCount(subtree(k.id)))}</span></button>${ol(k.id)}`).join("")}</div>`;
+  }
+  const roots=kids(null);
+  if(!roots.length)return `<div class="empty"><b>مفيش تصنيفات لسه</b>اضغط «تصنيف رئيسي جديد» من القايمة.</div>`;
+  return `<div class="cats">${roots.map(r=>`<div class="catcard"><button class="it root" data-act="sel" data-id="${r.id}"><span class="dot" style="background:${r.color||COLORS[7]}"></span><span class="nm">${esc(r.name)}</span><span class="cnt">${num(openCount(subtree(r.id)))}</span></button>${ol(r.id)}</div>`).join("")}</div>`;
 }
 function listView(ts,showPath){
   if(!ts.length)return `<div class="empty"><b>مفيش مهام هنا</b>اكتب مهمة في الخانة اللي فوق واضغط Enter.</div>`;
@@ -412,10 +439,10 @@ function renderMain(){
   const openN=ts.filter(t=>t.status!=="done").length;
   const crumbs=isView?"":pathOf(sel).slice(0,-1).map(esc).join(" › ");
   const title=isView?VIEWS[sel][0]:n.name;
-  const sub=isView?VIEWS[sel][1]:`${num(openN)} مهمة مفتوحة${late?` · ${num(late)} متأخرة`:""}${kids(sel).length?` · ${num(kids(sel).length)} أقسام فرعية`:""}`;
+  const sub=isView?VIEWS[sel][1]:`${num(openN)} مهمة مفتوحة${late?` · ${num(late)} متأخرة`:""}${kids(sel).length?` · ${num(kids(sel).length)} تصنيفات فرعية`:""}`;
   let head=`<div class="head"><div style="min-width:0">
     ${crumbs?`<div class="crumbs">${crumbs}</div>`:""}
-    ${UI.rename&&n?`<form class="inline-form" data-form="rename"><input id="renameIn" value="${esc(n.name)}" aria-label="اسم القسم"><button class="btn-primary">حفظ</button></form>`
+    ${UI.rename&&n?`<form class="inline-form" data-form="rename"><input id="renameIn" value="${esc(n.name)}" aria-label="اسم التصنيف"><button class="btn-primary">حفظ</button></form>`
       :`<h1>${isView?`<span style="color:var(--accent);font-size:26px;display:flex">${VIEWS[sel][2]}</span>`:`<span class="dot" style="background:${colorOf(sel)};width:14px;height:14px"></span>`}<span style="min-width:0;overflow-wrap:anywhere">${esc(title)}</span></h1>`}
     <div class="sub">${isView&&sel==="view:today"?new Date().toLocaleDateString("ar-EG",{weekday:"long",day:"numeric",month:"long"})+" · ":""}${sub}</div>
   </div>
@@ -426,30 +453,31 @@ function renderMain(){
   let nodeTools="";
   if(n){
     nodeTools=`<div class="tools">
-      <button class="tbtn" data-act="addchild">${I.plus} قسم فرعي</button>
+      <button class="tbtn" data-act="addchild">${I.plus} تصنيف فرعي</button>
       <button class="tbtn" data-act="rename">تغيير الاسم</button>
       ${!n.parent?`<button class="tbtn" data-act="colorbox">اللون</button>`:""}
-      <button class="tbtn danger ${UI.confirm==="n"+n.id?"armed":""}" data-act="delnode">${UI.confirm==="n"+n.id?"اضغط تاني للتأكيد (هيمسح القسم ومهامه)":"مسح القسم"}</button>
+      <button class="tbtn danger ${UI.confirm==="n"+n.id?"armed":""}" data-act="delnode">${UI.confirm==="n"+n.id?"اضغط تاني للتأكيد (هيمسح التصنيف وكل اللي تحته)":"مسح التصنيف"}</button>
     </div>
-    ${UI.addChild?`<form class="inline-form" data-form="addchild"><input id="childIn" placeholder="اسم القسم الفرعي داخل «${esc(n.name)}»" aria-label="اسم القسم الفرعي"><button class="btn-primary">إضافة</button></form>`:""}
+    ${UI.addChild?`<form class="inline-form" data-form="addchild"><input id="childIn" placeholder="اسم التصنيف الفرعي تحت «${esc(n.name)}»" aria-label="اسم التصنيف الفرعي"><button class="btn-primary">إضافة</button></form>`:""}
     ${UI.color&&!n.parent?`<div class="swatches">${COLORS.map(c=>`<button class="sw ${n.color===c?"on":""}" style="background:${c}" data-act="setcolor" data-id="${c}" aria-label="لون"></button>`).join("")}</div>`:""}`;
   }
   const qnode=UI.qn&&node(UI.qn)?UI.qn:(flatNodes()[0]||{n:{id:""}}).n.id;
   const quick=`<form class="quick" data-form="quick">
     <div class="row1"><input type="text" id="qt" placeholder="${isView?"اكتب مهمة جديدة…":"مهمة جديدة في «"+esc(n.name)+"»…"}" autocomplete="off" aria-label="مهمة جديدة"><button class="btn-primary">${I.plus} إضافة</button></div>
     <div class="row2">
-      ${isView?`<select class="field" id="qn" aria-label="القسم">${nodeOptions(qnode)}</select>`:""}
+      ${isView?`<select class="field" id="qn" aria-label="التصنيف">${nodeOptions(qnode)}</select>`:""}
       <input class="field" type="date" id="qd" aria-label="الميعاد" value="${sel==="view:today"?todayStr():""}">
       <select class="field" id="qp" aria-label="الأولوية">${PRIO.map(([v,l])=>`<option value="${v}">${v==="0"?"أولوية":l}</option>`).join("")}</select>
       <button type="button" class="tbtn" data-act="qd" data-id="0">النهارده</button>
       <button type="button" class="tbtn" data-act="qd" data-id="1">بكرة</button>
-      <button type="button" class="tbtn" data-act="newco">${I.plus} شركة جديدة</button>
+      <button type="button" class="tbtn" data-act="newco">${I.plus} تصنيف جديد</button>
     </div></form>`;
-  const newco=UI.newCo?`<form class="inline-form" data-form="newco"><input id="coIn" placeholder="اسم الشركة أو القسم الرئيسي الجديد، مثلًا: مكتب بيوند" aria-label="اسم الشركة" autocomplete="off"><button class="btn-primary">إضافة الشركة</button><button type="button" class="tbtn" data-act="cancelco">إلغاء</button></form>`:"";
+  const subs=(n&&kids(sel).length)?`<div class="subs-label">تحت «${esc(n.name)}»</div><div class="subs">${kids(sel).map(k=>`<button class="subcard" data-act="sel" data-id="${k.id}"><span class="t"><span class="dot" style="background:${colorOf(k.id)}"></span><span class="nm">${esc(k.name)}</span><span class="c">${num(openCount(subtree(k.id)))} مفتوحة</span></span>${kids(k.id).length?`<span class="kidlist">${kids(k.id).map(g=>`<span class="chip">${esc(g.name)}</span>`).join("")}</span>`:""}</button>`).join("")}</div>`:"";
+  const newco=UI.newCo?`<form class="inline-form" data-form="newco"><input id="coIn" placeholder="اسم التصنيف الرئيسي الجديد، مثلًا: شركة أو مكتب" aria-label="اسم التصنيف" autocomplete="off"><button class="btn-primary">إضافة التصنيف</button><button type="button" class="tbtn" data-act="cancelco">إلغاء</button></form>`:"";
   $("#main").innerHTML=`
     <div class="topbar"><button class="menu-btn" data-act="drawer" aria-label="القائمة">${I.menu}</button><b style="font-family:var(--f-display);font-size:20px">مهامي</b></div>
-    ${head}${nodeTools}${newco}${quick}
-    ${UI.mode==="board"?boardView(ts,showPath):listView(ts,showPath)}`;
+    ${head}${nodeTools}${newco}${subs}${quick}
+    ${sel==="view:cats"?catsView():UI.mode==="board"?boardView(ts,showPath):listView(ts,showPath)}`;
   $("#side").classList.toggle("show",UI.drawer);
   $("#scrim").classList.toggle("show",UI.drawer);
 }
