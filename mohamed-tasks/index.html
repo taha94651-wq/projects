@@ -329,7 +329,7 @@ function renderSide(){
       ${tree(null,0)}
     </div>
     <div class="sidefoot">
-      <button class="btn-add-root" data-act="addroot">${I.plus} قسم رئيسي جديد</button>
+      <button class="btn-add-root" data-act="newco">${I.plus} شركة / قسم رئيسي جديد</button>
       <div class="savestate" id="savestate"></div>
     </div>`;
   setState(state);
@@ -443,10 +443,12 @@ function renderMain(){
       <select class="field" id="qp" aria-label="الأولوية">${PRIO.map(([v,l])=>`<option value="${v}">${v==="0"?"أولوية":l}</option>`).join("")}</select>
       <button type="button" class="tbtn" data-act="qd" data-id="0">النهارده</button>
       <button type="button" class="tbtn" data-act="qd" data-id="1">بكرة</button>
+      <button type="button" class="tbtn" data-act="newco">${I.plus} شركة جديدة</button>
     </div></form>`;
+  const newco=UI.newCo?`<form class="inline-form" data-form="newco"><input id="coIn" placeholder="اسم الشركة أو القسم الرئيسي الجديد، مثلًا: مكتب بيوند" aria-label="اسم الشركة" autocomplete="off"><button class="btn-primary">إضافة الشركة</button><button type="button" class="tbtn" data-act="cancelco">إلغاء</button></form>`:"";
   $("#main").innerHTML=`
     <div class="topbar"><button class="menu-btn" data-act="drawer" aria-label="القائمة">${I.menu}</button><b style="font-family:var(--f-display);font-size:20px">مهامي</b></div>
-    ${head}${nodeTools}${quick}
+    ${head}${nodeTools}${newco}${quick}
     ${UI.mode==="board"?boardView(ts,showPath):listView(ts,showPath)}`;
   $("#side").classList.toggle("show",UI.drawer);
   $("#scrim").classList.toggle("show",UI.drawer);
@@ -454,7 +456,7 @@ function renderMain(){
 function render(){renderSide();renderMain()}
 
 /* ---------- actions ---------- */
-function resetTransient(){UI.rename=false;UI.addChild=false;UI.color=false;UI.confirm=false;UI.open=null}
+function resetTransient(){UI.newCo=false;UI.rename=false;UI.addChild=false;UI.color=false;UI.confirm=false;UI.open=null}
 function afterFocus(sel){requestAnimationFrame(()=>{const e=$(sel);if(e){e.focus();if(e.select)e.select()}})}
 const taskById=id=>S.tasks.find(t=>t.id===id);
 
@@ -468,10 +470,8 @@ document.addEventListener("click",e=>{
     case"drawer":UI.drawer=!UI.drawer;renderMain();break;
     case"mode":UI.mode=id;saveUI();renderMain();break;
     case"showdone":UI.showDone=!UI.showDone;saveUI();renderMain();break;
-    case"addroot":{
-      const nid=uid("n");
-      S.nodes.push({id:nid,name:"قسم جديد",parent:null,color:COLORS[S.nodes.filter(n=>!n.parent).length%7],open:true});
-      persist();resetTransient();UI.sel=nid;UI.rename=true;UI.drawer=false;render();afterFocus("#renameIn");break}
+    case"newco":UI.newCo=true;UI.rename=false;UI.addChild=false;UI.drawer=false;renderMain();afterFocus("#coIn");break;
+    case"cancelco":UI.newCo=false;renderMain();break;
     case"addchild":UI.addChild=!UI.addChild;UI.rename=false;renderMain();if(UI.addChild)afterFocus("#childIn");break;
     case"rename":UI.rename=!UI.rename;UI.addChild=false;renderMain();if(UI.rename)afterFocus("#renameIn");break;
     case"colorbox":UI.color=!UI.color;renderMain();break;
@@ -494,7 +494,7 @@ document.addEventListener("click",e=>{
   }
 });
 document.addEventListener("keydown",e=>{
-  if(e.key==="Escape"){if(UI.rename||UI.addChild||UI.open||UI.drawer){UI.rename=UI.addChild=UI.drawer=false;UI.open=null;renderMain()}}
+  if(e.key==="Escape"){if(UI.newCo||UI.rename||UI.addChild||UI.open||UI.drawer){UI.newCo=UI.rename=UI.addChild=UI.drawer=false;UI.open=null;renderMain()}}
   if((e.key==="Enter"||e.key===" ")&&e.target.matches('.tmain[data-act="open"]')){e.preventDefault();e.target.click()}
 });
 $("#scrim").addEventListener("click",()=>{UI.drawer=false;renderMain()});
@@ -510,6 +510,14 @@ document.addEventListener("submit",e=>{
     if(isView)UI.qn=nodeId;
     S.tasks.push({id:uid("t"),node:nodeId,title,due:$("#qd").value||null,prio:+$("#qp").value,status:"todo",note:"",created:Date.now()});
     persist();render();afterFocus("#qt");
+  }else if(f==="newco"){
+    const v=$("#coIn").value.trim();
+    if(!v){$("#coIn").focus();return}
+    const nid=uid("n");
+    S.nodes.push({id:nid,name:v,parent:null,color:COLORS[S.nodes.filter(n=>!n.parent).length%7],open:true});
+    persist();UI.newCo=false;
+    if(UI.sel.startsWith("view:"))UI.qn=nid;else{resetTransient();UI.sel=nid;saveUI()}
+    render();afterFocus("#qt");
   }else if(f==="rename"){
     const v=$("#renameIn").value.trim();
     if(v){node(UI.sel).name=v;persist()}
