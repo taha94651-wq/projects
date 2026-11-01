@@ -283,6 +283,14 @@ function migrate(d){
       ch=true;
     }
   }
+  if(!d.samp){
+    const bs=d.nodes.filter(n=>n.name==="فرع الدمام"||n.name==="فرع أبها");
+    if(bs.length){
+      d.samp=1;
+      bs.forEach((b,i)=>["استلام عينة الواجهة الرئيسية","استلام عينة الواجهة الداخلية"].forEach((title,j)=>d.tasks.push({id:uid("t"),node:b.id,title,due:null,prio:0,status:"todo",note:"",created:Date.now()+i*10+j})));
+      ch=true;
+    }
+  }
   if(d.beyond)return ch;
   d.beyond=1;
   const root=uid("n");
