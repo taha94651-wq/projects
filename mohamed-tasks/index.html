@@ -470,7 +470,7 @@ function renderMain(){
   const quick=`<form class="quick" data-form="quick">
     <div class="row1"><input type="text" id="qt" placeholder="${isView?"اكتب مهمة جديدة…":"مهمة جديدة في «"+esc(n.name)+"»…"}" autocomplete="off" aria-label="مهمة جديدة"><button class="btn-primary">${I.plus} إضافة</button></div>
     <div class="row2">
-      ${isView?`<select class="field" id="qn" aria-label="التصنيف">${nodeOptions(qnode)}</select>`:""}
+      ${isView?`<select class="field" id="qn" aria-label="التصنيف">${nodeOptions(qnode)}</select>`:`<span class="chip ex" title="المهمة هتتضاف هنا">هتتضاف في: ${esc(pathOf(sel).slice(-2).join(" › "))}</span>`}
       <input class="field" type="date" id="qd" aria-label="الميعاد" value="${sel==="view:today"?todayStr():""}">
       <select class="field" id="qp" aria-label="الأولوية">${PRIO.map(([v,l])=>`<option value="${v}">${v==="0"?"أولوية":l}</option>`).join("")}</select>
       <button type="button" class="tbtn" data-act="qd" data-id="0">النهارده</button>
@@ -498,7 +498,13 @@ document.addEventListener("click",e=>{
   if(!el)return;
   const act=el.dataset.act,id=el.dataset.id;
   switch(act){
-    case"sel":resetTransient();UI.sel=id;UI.drawer=false;saveUI();render();break;
+    case"sel":{
+      resetTransient();UI.sel=id;UI.drawer=false;
+      const isNode=!id.startsWith("view:");
+      if(isNode)UI.qn=id;
+      saveUI();render();
+      if(isNode&&window.matchMedia&&matchMedia("(hover:hover)").matches)afterFocus("#qt");
+      break}
     case"fold":{const n=node(id);n.open=!n.open;persist();renderSide();break}
     case"drawer":UI.drawer=!UI.drawer;renderMain();break;
     case"mode":UI.mode=id;saveUI();renderMain();break;
