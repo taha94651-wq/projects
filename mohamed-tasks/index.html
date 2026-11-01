@@ -266,6 +266,23 @@ function migrate(d){
       ch=true;
     }
   }
+  if(!d.cl1){
+    const ina=d.nodes.find(n=>n.name==="مخازن العناية");
+    const br=ina&&d.nodes.find(n=>n.name==="الفروع"&&n.parent===ina.id);
+    if(ina&&br&&d.br2){
+      d.cl1=1;
+      const drop=["فرع ١","فرع ٢","فرع ٣","متابعات","تسليم رسومات","تقسيم ١","تقسيم ٢","تقسيم ٣"];
+      const gone=new Set();
+      const collect=id=>{gone.add(id);d.nodes.filter(n=>n.parent===id).forEach(k=>collect(k.id))};
+      d.nodes.filter(n=>n.parent===br.id&&drop.includes(n.name)).forEach(n=>collect(n.id));
+      d.tasks=d.tasks.filter(t=>!(gone.has(t.node)&&t.ex));
+      d.tasks.forEach(t=>{if(gone.has(t.node))t.node=br.id});
+      d.nodes=d.nodes.filter(n=>!gone.has(n.id));
+      const off=d.nodes.find(n=>n.name==="المكتب"&&n.parent===ina.id);
+      if(off)off.name="مكتب إدارة مخازن العناية";
+      ch=true;
+    }
+  }
   if(d.beyond)return ch;
   d.beyond=1;
   const root=uid("n");
