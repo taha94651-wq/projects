@@ -242,6 +242,14 @@ function migrate(d){
       ch=true;
     }
   }
+  if(!d.murshid){
+    const vl=d.nodes.find(n=>n.name==="فيلا المرشد");
+    if(vl){
+      d.murshid=1;
+      ["أخذ المقاسات الفعلية من الموقع","اعتماد مخطط الرخام","إنهاء تنفيذ غرف النوم","عرض سعر الستائر","تعديل تصميم غرفة الغسيل مع جرجس","تجميع غرفة الخدمات"].forEach((title,i)=>d.tasks.push({id:uid("t"),node:vl.id,title,due:null,prio:0,status:"todo",note:"",created:Date.now()+i}));
+      ch=true;
+    }
+  }
   if(d.beyond)return ch;
   d.beyond=1;
   const root=uid("n");
