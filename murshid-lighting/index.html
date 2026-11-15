@@ -76,6 +76,8 @@ h1{font-family:var(--f-display);font-weight:700;font-size:clamp(1.5rem,3.4vw,2.3
 .side .cap{font-size:.8rem;font-weight:600;color:var(--muted);display:flex;align-items:center;gap:6px}
 .side .cap b{width:8px;height:8px;border-radius:50%;background:var(--teal);display:inline-block}
 .side.mk .cap b{background:#b7791f}
+.locked{margin:12px 18px 18px;background:var(--yes-soft);color:var(--yes);border-radius:12px;padding:12px 14px;font-weight:700}
+.item.yes:has(.locked) .pic{cursor:zoom-in}
 .pics{display:flex;gap:6px}
 .opts{padding:12px 18px 0;display:grid;gap:8px}
 .opts .cap{font-size:.8rem;font-weight:600;color:var(--muted);display:flex;align-items:center;gap:6px}
@@ -225,7 +227,7 @@ const ALL=[
  {n:11,t:"نجفة أغصان كريستال بيضاوية فوق طاولة الطعام",q:1,p:"طعام القبو",d:["d11.jpg"],alts:[{img:"a11-1.jpg"}],
   s:"نجفة مودرن بيضاوية/مستطيلة الشكل فوق طاولة الطعام، بهيكل معدني ذهبي على شكل أغصان متشابكة، مزينة بكثافة بقطع كريستال شفافة على شكل أوراق وقطرات متدلية بأطوال مختلفة، معلقة بعامودين من قاعدة سقف طولية ذهبية، مع إضاءة LED مدمجة.",
   f:["هيكل معدني (نحاس / حديد) بدهان ذهبي","قطع كريستال شفاف (أوراق وقطرات)","قاعدة سقف طولية وعواميد تعليق ذهبية","إضاءة LED مدمجة دافئة"]},
- {n:12,t:"إنارة قوس LED فوق ركن القهوة",q:1,p:"طعام القبو – ركن القهوة",d:["d12.jpg"],m:"m12.jpg",
+ {n:12,t:"إنارة قوس LED فوق ركن القهوة",q:1,p:"طعام القبو – ركن القهوة",d:["d12.jpg"],approved:true,m:"m12.jpg",
   s:"إنارة معلقة فوق ركن القهوة بتصميم مودرن، عبارة عن شريط إضاءة LED مرن داخل غلاف سيليكون أبيض بشكل قوس (حرف U) متدلي، متصل بطرفيه بكابل أسود رفيع مرن معلق من نقطتين بالسقف مع قاعدتي سقف صغيرتين، بإضاءة دافئة منتشرة.",
   f:["شريط LED مرن بغلاف سيليكون أبيض","كابل تعليق أسود مرن","قاعدتي سقف معدنية سوداء","إضاءة دافئة (Warm White)"]},
  {n:13,t:"أبليك جداري أعمدة ذهبية",q:10,p:"كل الفيلا",d:["d13.jpg"],alts:[{img:"a13-1.jpg"},{img:"a13-2.jpg"}],
@@ -238,6 +240,7 @@ const ITEMS=ALL.map(i=>i.alts&&i.alts.length?i:Object.assign({},i,{alts:[{img:i.
 const KEY="murshid-lighting-v1";
 // الصفحة تفتح فاضية في كل مرة: مفيش حفظ للردود، وأي نسخة قديمة محفوظة بتتمسح
 let st={v:{},note:{},g:"",pick:{}};
+ALL.forEach(i=>{ if(i.approved) st.v[i.n]="yes"; });
 try{localStorage.removeItem(KEY);}catch(e){}
 const save=()=>{};
 const $=s=>document.querySelector(s);
@@ -247,7 +250,7 @@ const LBL={yes:"موافق",no:"غير موافق"};
 const multi=it=>it.alts.length>1;
 const pk=it=>multi(it)?(st.pick[it.n]??-1):0;
 const altImg=it=>it.alts[Math.max(0,pk(it))].img;
-const statusHTML=(v,it)=>v==="yes"&&it&&multi(it)?`<span class="status yes">✓ الخيار ${fmt(pk(it)+1)}</span>`:v?`<span class="status ${v}">${v==="yes"?"✓ موافق":"✕ غير موافق"}</span>`:`<span class="status wait">بدون رد</span>`;
+const statusHTML=(v,it)=>it&&it.approved?`<span class="status yes">✓ تم الاعتماد</span>`:v==="yes"&&it&&multi(it)?`<span class="status yes">✓ الخيار ${fmt(pk(it)+1)}</span>`:v?`<span class="status ${v}">${v==="yes"?"✓ موافق":"✕ غير موافق"}</span>`:`<span class="status wait">بدون رد</span>`;
 
 function itemHTML(it){
   const v=st.v[it.n]||"", note=st.note[it.n]||"", showNote=!!note||v==="no";
@@ -262,14 +265,14 @@ function itemHTML(it){
     </div>
     ${multi(it)?`<div class="opts"><span class="cap"><b></b>اختر أحد الخيارات المقترحة</span><div class="og">${it.alts.map((a,i)=>`<div class="opt${pk(it)===i?" on":""}"><button class="pic" type="button" data-zoom="img/${a.img}" data-cap="${esc(it.t)} – الخيار ${i+1}" aria-label="تكبير الخيار ${i+1}"><img loading="lazy" src="img/${a.img}" alt="${esc(it.t)} – الخيار ${i+1}"></button><button type="button" class="pickbtn" data-pick="${i}" data-n="${it.n}" aria-pressed="${pk(it)===i}">${pk(it)===i?"✓ ":""}الخيار ${fmt(i+1)}</button></div>`).join("")}</div></div>`:""}
     ${multi(it)||!it.s?"":`<details class="spec"><summary>المواصفات والخامات</summary><p>${esc(it.s)}</p><ul>${it.f.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></details>`}
-    <div class="act">
+    ${it.approved?`<div class="locked">✓ تم الاعتماد، ولا يلزم اختيار لهذا البند.</div>`:`<div class="act">
       <div class="btns" role="group" aria-label="اعتماد البند ${it.n}">
         ${multi(it)?"":`<button type="button" class="vote y" data-v="yes" data-n="${it.n}" aria-pressed="${v==="yes"}">✓ موافق</button>`}
         <button type="button" class="vote n" data-v="no" data-n="${it.n}" aria-pressed="${v==="no"}">${multi(it)?"✕ لا أرغب بأي منها":"✕ غير موافق"}</button>
       </div>
       <textarea class="note-in${v==="no"?" ask":""}" id="nt-${it.n}" data-n="${it.n}" rows="1" placeholder="${v==="no"?"ما الذي لا يناسبك؟ (اللون، الحجم، الشكل…)":"ملاحظة (اختياري)"}"${showNote?"":" hidden"}>${esc(note)}</textarea>
       ${showNote?"":`<button type="button" class="addnote" data-addnote="${it.n}">إضافة ملاحظة</button>`}
-    </div></article>`;
+    </div>`}</article>`;
 }
 function renderList(){ $("#list").innerHTML=ITEMS.map(itemHTML).join(""); }
 function counts(){ const y=ITEMS.filter(i=>st.v[i.n]==="yes").length, n=ITEMS.filter(i=>st.v[i.n]==="no").length; return {y,n,w:ITEMS.length-y-n}; }
@@ -278,7 +281,7 @@ function message(){
   ITEMS.forEach(it=>{
     const v=st.v[it.n];
     L.push(`${it.n}) ${it.t} – ${it.p}${it.q?" ("+it.q+")":""}`);
-    L.push(`   ${v?(v==="yes"?(multi(it)?`✅ الخيار ${pk(it)+1}`:"✅ موافق"):(multi(it)?"❌ لا أرغب بأي منها":"❌ غير موافق")):"⏳ بدون رد"}`);
+    L.push(`   ${it.approved?"✅ تم الاعتماد":v?(v==="yes"?(multi(it)?`✅ الخيار ${pk(it)+1}`:"✅ موافق"):(multi(it)?"❌ لا أرغب بأي منها":"❌ غير موافق")):"⏳ بدون رد"}`);
     if(st.note[it.n]) L.push(`   ملاحظة: ${st.note[it.n]}`);
   });
   const c=counts(); L.push("",`موافق: ${c.y} · غير موافق: ${c.n} · بدون رد: ${c.w}`);
@@ -336,7 +339,7 @@ async function buildPNG(){
     let ly=y+16+26;
     x.fillStyle="#17191a"; x.font=`600 27px ${BODY}`; r.nm.forEach(l=>{x.fillText(l,infoR,ly);ly+=34;});
     x.fillStyle="#6a737b"; x.font=`400 23px ${BODY}`; x.fillText(r.it.q?`${r.it.p} · الكمية ${fmt(r.it.q)}`:r.it.p,infoR,ly); ly+=18;
-    const lab=v==="yes"?(multi(r.it)?"✓ الخيار "+fmt(pk(r.it)+1):"✓ موافق"):v==="no"?(multi(r.it)?"✕ لا أرغب بأي منها":"✕ غير موافق"):"بدون رد", bg=v==="yes"?"#1d9a63":v==="no"?"#c2410c":"#e8eef2", fg=v?"#fff":"#6a737b";
+    const lab=r.it.approved?"✓ تم الاعتماد":v==="yes"?(multi(r.it)?"✓ الخيار "+fmt(pk(r.it)+1):"✓ موافق"):v==="no"?(multi(r.it)?"✕ لا أرغب بأي منها":"✕ غير موافق"):"بدون رد", bg=v==="yes"?"#1d9a63":v==="no"?"#c2410c":"#e8eef2", fg=v?"#fff":"#6a737b";
     x.font=`700 26px ${BODY}`; const pw=x.measureText(lab).width+40; x.fillStyle=bg; rr(x,infoR-pw,ly,pw,44,22); x.fill(); x.fillStyle=fg; x.fillText(lab,infoR-20,ly+31); ly+=44+22;
     x.fillStyle="#3d4246"; x.font=`400 23px ${BODY}`; r.nt.forEach(l=>{x.fillText(l,infoR,ly);ly+=30;});
     y+=r.h;
