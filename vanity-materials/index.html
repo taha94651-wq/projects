@@ -171,6 +171,11 @@ textarea#gnote{width:100%;border:1px solid var(--line);background:var(--raised);
 .ch{border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:10px 12px;text-align:start;display:grid;gap:2px}
 .ch b{font-family:var(--f-display);font-weight:600}.ch span{font-size:.8rem;color:var(--muted)}
 .ch[aria-pressed="true"]{border-color:var(--teal);background:var(--teal-soft)}
+.ch.sw-gold{background:linear-gradient(135deg,#F1DDB0 0%,#E2C58E 45%,#D2B073 100%);border-color:#B8964F;color:#3A2C0E}
+.ch.sw-rose{background:linear-gradient(135deg,#F0C4AE 0%,#D9967C 45%,#C27A60 100%);border-color:#A9654D;color:#3F1D12}
+.ch.sw-gold span,.ch.sw-rose span{color:inherit;opacity:.85}
+.ch.sw-gold[aria-pressed="true"],.ch.sw-rose[aria-pressed="true"]{outline:4px solid var(--teal);outline-offset:2px;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+.ch.sw-gold[aria-pressed="true"] b::before,.ch.sw-rose[aria-pressed="true"] b::before{content:"✓ "}
 .req{color:var(--no)}
 .err{font-size:.82rem;color:var(--no);font-weight:600}
 .ovl{display:grid;gap:8px}
@@ -225,9 +230,9 @@ textarea#gnote{width:100%;border:1px solid var(--line);background:var(--raised);
 <script>
 const TITLE="اعتماد خامات المغاسل – مجلس الرجال والنساء";
 const TBC="سيتم تأكيده";
-const INFO=[["الوحدة","وحدة مغسلة مزدوجة معلّقة على الحائط"],["الأبعاد الكلية","طول 1600 × عرض 500 × ارتفاع 400 مم"],["الأحواض","حوضان، كل حوض طول 550 × عرض 350 مم، سيراميك أخضر"],["السطح العلوي","كوريان أبيض بأطراف مستديرة"],["واجهات الدولاب","ورق جدران بتصميم مخصص على قاعدة HPL مقاومة للحريق"],["الإطارات والحواف","استانلس ستيل 304، ذهبي أو روز جولد (يختار العميل)"],["المواقع","مجلس الرجال ومجلس النساء"],["الكمية",null],["الخلاط",null]];
+const INFO=[["الوحدة","وحدة مغسلة مزدوجة معلّقة على الحائط"],["الأبعاد الكلية","طول 1600 × عرض 500 × ارتفاع 400 مم"],["الأحواض","حوضان، كل حوض طول 550 × عرض 350 مم، سيراميك أخضر"],["السطح العلوي","كوريان أبيض بأطراف مستديرة"],["واجهات الدولاب","القماش المستخدم بتصميم مخصص على قاعدة HPL مقاومة للحريق"],["الإطارات والحواف","استانلس ستيل 304، ذهبي أو روز جولد (يختار العميل)"],["المواقع","مجلس الرجال ومجلس النساء"],["الكمية",null],["الخلاط",null]];
 const MATS=[
- {id:"wallpaper",no:1,t:"ورق الجدران (واجهات الدولاب)",img:"img/wallpaper.jpg",rows:[["التصميم","نقشة أوراق مروحية (جنكو) بخطوط رفيعة متشعّعة"],["الألوان","أساس رمادي فحمي دافئ مع خطوط بنية نحاسية وبرونزية ولمسات برتقالي محروق"],["الملمس","لمعة معدنية ناعمة ومظهر نسيجي"],["القاعدة","لوح HPL مقاوم للحريق"],["طبقة الحماية",null],["كود الكتالوج",null]]},
+ {id:"wallpaper",no:1,t:"القماش المستخدم (واجهات الدولاب)",img:"img/wallpaper.jpg",rows:[["التصميم","نقشة أوراق مروحية (جنكو) بخطوط رفيعة متشعّعة"],["الألوان","أساس رمادي فحمي دافئ مع خطوط بنية نحاسية وبرونزية ولمسات برتقالي محروق"],["الملمس","لمعة معدنية ناعمة ومظهر نسيجي"],["القاعدة","لوح HPL مقاوم للحريق"],["طبقة حماية القماش",null],["كود الكتالوج",null]]},
  {id:"corian",no:2,t:"كوريان أبيض (السطح العلوي)",img:"img/corian.jpg",rows:[["اللون","أبيض مطفي متجانس بدون عروق"],["الشكل","حواف مستديرة، قطعة واحدة بدون وصلات ظاهرة"],["الماركة / كود اللون / السُمك",null]],cap:"الصورة توضح شكل الخامة فقط. الأحواض في التنفيذ من السيراميك الأخضر، مقاس طول 550 × عرض 350 مم لكل حوض، حسب الرسم المعتمد."},
  {id:"steel",no:3,t:"استانلس ستيل 304 (الإطارات والحواف)",img:"img/steel.jpg",choose:true,rows:[["الخامة","استانلس ستيل 304"],["السُمك وطريقة التلوين",null]],opts:[["gold","الخيار أ: ذهبي (Gold Steel)","ذهبي شامبانيا فاتح بتشطيب مط (مسحوب). وهو الأساس في الرسمة."],["rose","الخيار ب: روز جولد (Rose Steel)","روز جولد بتشطيب مرايا لامع."]]},
  {id:"basin",no:4,t:"الأحواض (سيراميك أخضر)",img:"img/basin.jpg",rows:[["العدد","حوضان"],["المقاس","طول 550 × عرض 350 مم لكل حوض"],["درجة اللون / الكود / التشطيب",null]],cap:"الصورة مأخوذة من رسمة المصنع للتوضيح. الخلاط المحاط بدائرة في الرسمة للإشارة فقط."}
@@ -250,7 +255,7 @@ function card(m){
    <figure class="fig"><button type="button" data-zoom="${m.img}" data-cap="${esc(m.t)}" aria-label="تكبير الصورة"><img src="${m.img}" alt="${esc(m.t)}" loading="lazy"></button></figure>
    ${m.cap?`<div class="fcap">${esc(m.cap)}</div>`:""}
    <div class="spec2">${m.rows.map(row).join("")}</div>
-   ${m.choose?`<div class="chs"><span class="lab">اختر التشطيب قبل الاعتماد <span class="req">*</span></span><div class="two">${m.opts.map(([k,t,s])=>`<button type="button" class="ch" data-opt="${k}" data-m="${m.id}" aria-pressed="${x.opt===k}"><b>${esc(t)}</b><span>${esc(s)}</span></button>`).join("")}</div></div>`:""}
+   ${m.choose?`<div class="chs"><span class="lab">اختر التشطيب قبل الاعتماد <span class="req">*</span></span><div class="two">${m.opts.map(([k,t,s])=>`<button type="button" class="ch sw-${k}" data-opt="${k}" data-m="${m.id}" aria-pressed="${x.opt===k}"><b>${esc(t)}</b><span>${esc(s)}</span></button>`).join("")}</div></div>`:""}
    <div class="act">
     <div class="btns" role="group" aria-label="قرارك على ${esc(m.t)}">
      <button type="button" class="vote y" data-d="ok" data-m="${m.id}" aria-pressed="${v==="ok"}"${m.choose&&!x.opt?" disabled":""}>✓ اعتماد</button>
