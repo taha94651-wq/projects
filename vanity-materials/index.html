@@ -266,6 +266,7 @@ function card(m){
    </div></article>`;
 }
 function renderList(){ $("#list").innerHTML=`<article class="item"><div class="ih"><div style="min-width:0"><h2>رسمتا الوحدة وبياناتها</h2></div></div>
+  <figure class="fig"><button type="button" data-zoom="img/drawing.jpg" data-cap="رسمة المصنع" aria-label="تكبير الرسمة"><img src="img/drawing.jpg" alt="رسمة المصنع لوحدة المغسلة"></button></figure><div class="fcap">رسمة المصنع (منظور ثلاثي الأبعاد) للتوضيح.</div>
   ${[["img/plan-men.png","img/plan-men-en.png","مغسلة مجلس الرجال – 160 × 48 سم","Men's Majlis Vanity – 160 × 48 cm"],["img/plan-women.png","img/plan-women-en.png","مغسلة مجلس النساء – 150 × 48 سم","Women's Majlis Vanity – 150 × 48 cm"]].map(([i,e,c,ce])=>`<div class="fcap" style="font-weight:700;margin:8px 0 4px">${c}</div><figure class="fig"><button type="button" data-zoom="${i}" data-cap="${c}" aria-label="تكبير الرسمة"><img src="${i}" alt="${c}"></button></figure><div class="fcap" dir="ltr" style="font-weight:700;margin:8px 0 4px;text-align:left">${ce}</div><figure class="fig"><button type="button" data-zoom="${e}" data-cap="${ce}" aria-label="Zoom drawing"><img src="${e}" alt="${ce}"></button></figure>`).join("")}<div class="fcap">رسم توضيحي (مسقط أفقي). توزيع الأحواض تقريبي ويؤكَّد مع المصنع قبل التنفيذ.</div>
   <div class="spec2">${INFO.map(row).join("")}</div><div style="height:16px"></div></article>`+MATS.map(card).join(""); }
 function msg(){
