@@ -195,13 +195,17 @@
     return ` <span class="row__fam">${esc(state.lang === "ar" ? `جزء ${k} من ${fam.length}` : `Part ${k} of ${fam.length}`)}</span>`;
   };
 
-  const projectsIn = (disc) => D.projects.filter((p) => p.disciplines.includes(disc));
+  const projectsIn = (disc) => D.projects.filter((p) => p.disciplines.includes(disc) && !(VIEWCFG && VIEWCFG.types && !VIEWCFG.types.includes(p.type)));
 
   /* ---------- Nav & menu ---------- */
-  // ?view=execution → a shareable copy of the site with only the execution work and contact (no CV)
-  const VIEW = new URLSearchParams(location.search).get("view");
-  const ONLY_EXEC = VIEW === "execution";
-  const sections = ONLY_EXEC ? ["execution", "contact"] : ["execution", "controls", "design", "competition", "photography", "ai", "profile", "contact"];
+  // shareable cut-down copies of the site (no CV), e.g. ?view=execution or ?view=residential-commercial
+  const VIEWS = {
+    execution: { discs: ["execution"] },
+    "residential-commercial": { discs: ["execution", "design"], types: ["residential", "retail", "offices", "gym", "booths", "hospitality"] },
+  };
+  const VIEWCFG = VIEWS[new URLSearchParams(location.search).get("view")] || null;
+  const ONLY_EXEC = !!VIEWCFG;
+  const sections = VIEWCFG ? VIEWCFG.discs.concat("contact") : ["execution", "controls", "design", "competition", "photography", "ai", "profile", "contact"];
 
   function renderChrome() {
     html.lang = state.lang;
@@ -620,7 +624,7 @@
   function renderHome() {
     document.title = `${t(D.profile.name)} — ${t(D.profile.title).split("|")[0].trim()}`;
     app.innerHTML = ONLY_EXEC
-      ? heroHTML() + workSection(1, "execution", u().execIntro) + contactSection()
+      ? heroHTML() + VIEWCFG.discs.map((d, i) => workSection(i + 1, d, d === "design" ? u().designIntro : u().execIntro)).join("") + contactSection()
       : heroHTML() +
       workSection(1, "execution", u().execIntro) +
       controlsSection(2) +
