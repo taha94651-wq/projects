@@ -198,10 +198,10 @@
   const projectsIn = (disc) => D.projects.filter((p) => p.disciplines.includes(disc));
 
   /* ---------- Nav & menu ---------- */
-  // ?view=execution → a shareable copy of the site with only the execution work (plus profile and contact)
+  // ?view=execution → a shareable copy of the site with only the execution work and contact (no CV)
   const VIEW = new URLSearchParams(location.search).get("view");
   const ONLY_EXEC = VIEW === "execution";
-  const sections = ONLY_EXEC ? ["execution", "profile", "contact"] : ["execution", "controls", "design", "competition", "photography", "ai", "profile", "contact"];
+  const sections = ONLY_EXEC ? ["execution", "contact"] : ["execution", "controls", "design", "competition", "photography", "ai", "profile", "contact"];
 
   function renderChrome() {
     html.lang = state.lang;
@@ -620,7 +620,7 @@
   function renderHome() {
     document.title = `${t(D.profile.name)} — ${t(D.profile.title).split("|")[0].trim()}`;
     app.innerHTML = ONLY_EXEC
-      ? heroHTML() + workSection(1, "execution", u().execIntro) + profileSection(2) + contactSection()
+      ? heroHTML() + workSection(1, "execution", u().execIntro) + contactSection()
       : heroHTML() +
       workSection(1, "execution", u().execIntro) +
       controlsSection(2) +
@@ -1024,6 +1024,7 @@
   Promise.all([load("content/site.json"), load("content/projects.json"), load("content/ai.json"), load("content/photos.json").catch(() => ({})), load("content/controls.json").catch(() => ({}))])
     .then(([site, pj, ai, ph, ct]) => {
       D = Object.assign({}, site, VOCAB, { projects: pj.projects || [], ai: ai.items || [], photos: ph.items || [], controls: ct.items || [] });
+      if (ONLY_EXEC) D.profile = Object.assign({}, D.profile, { cv: "" }); // execution copy: no CV section or download
       state.lang = pickLang();
       boot();
       stats();
