@@ -198,7 +198,10 @@
   const projectsIn = (disc) => D.projects.filter((p) => p.disciplines.includes(disc));
 
   /* ---------- Nav & menu ---------- */
-  const sections = ["execution", "controls", "design", "competition", "photography", "ai", "profile", "contact"];
+  // ?view=execution → a shareable copy of the site with only the execution work (plus profile and contact)
+  const VIEW = new URLSearchParams(location.search).get("view");
+  const ONLY_EXEC = VIEW === "execution";
+  const sections = ONLY_EXEC ? ["execution", "profile", "contact"] : ["execution", "controls", "design", "competition", "photography", "ai", "profile", "contact"];
 
   function renderChrome() {
     html.lang = state.lang;
@@ -616,8 +619,9 @@
 
   function renderHome() {
     document.title = `${t(D.profile.name)} — ${t(D.profile.title).split("|")[0].trim()}`;
-    app.innerHTML =
-      heroHTML() +
+    app.innerHTML = ONLY_EXEC
+      ? heroHTML() + workSection(1, "execution", u().execIntro) + profileSection(2) + contactSection()
+      : heroHTML() +
       workSection(1, "execution", u().execIntro) +
       controlsSection(2) +
       workSection(3, "design", u().designIntro) +
