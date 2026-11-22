@@ -740,7 +740,7 @@
             : `<img data-parallax src="${esc(cover(p))}" alt="${T(p.title)}" />`
         }</div>
         <div class="pj-hero__text wrap">
-          ${back}
+          <div class="pj__tools">${back}<button type="button" class="pj__share" data-share="${esc(p.id)}">${state.lang === "ar" ? "مشاركة المشروع" : "Share project"} ↗</button></div>
           <span class="eyebrow">${esc(kicker)}</span>
           <h1 class="pj__title"><bdi>${T(p.title)}</bdi></h1>
         </div>
@@ -856,6 +856,17 @@
     if (show) phGo(show, +show.dataset.i + (dx < 0 ? 1 : -1) * (state.lang === "ar" ? -1 : 1));
   });
   app.addEventListener("click", (e) => {
+    const sh = e.target.closest("[data-share]");
+    if (sh) {
+      // a per-project share page (p/<id>/) carries the project's own title and image for WhatsApp / LinkedIn previews
+      const url = location.href.split(/[?#]/)[0].replace(/index\.html$/, "") + "p/" + sh.dataset.share + "/" + location.search;
+      const title = document.title;
+      const done = () => { sh.textContent = state.lang === "ar" ? "تم نسخ اللينك ✓" : "Link copied ✓"; };
+      if (navigator.share) navigator.share({ title, url }).catch(() => {});
+      else if (navigator.clipboard) navigator.clipboard.writeText(url).then(done, () => prompt("", url));
+      else prompt("", url);
+      return;
+    }
     const pick = e.target.closest("[data-ph-pick]");
     if (pick) {
       const sec = pick.closest("#photography"), k = pick.dataset.phPick;
